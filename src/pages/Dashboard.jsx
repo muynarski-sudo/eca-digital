@@ -8,7 +8,7 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, Tooltip, Cell
 } from 'recharts'
-import { ClipboardList, AlertTriangle, CheckCircle, Clock, ArrowRight, Printer } from 'lucide-react'
+import { ClipboardList, AlertTriangle, CheckCircle, Clock, ArrowRight, Printer, ClipboardCheck } from 'lucide-react'
 
 const TOTAL_ITEMS = { principal: 30, implementacao: 24, edtech: 18, riscos: 15, calor: 10, funcoes: 10 }
 
@@ -17,13 +17,18 @@ export default function Dashboard() {
   const navigate = useNavigate()
   const [summary, setSummary] = useState([])
   const [loading, setLoading] = useState(true)
+  const [anamneseConcluida, setAnamneseConcluida] = useState(true)
 
   useEffect(() => {
     if (!user?.school_id) { setLoading(false); return }
-    api.getSummary(user.school_id)
-      .then(setSummary)
-      .catch(console.error)
-      .finally(() => setLoading(false))
+    Promise.all([
+      api.getSummary(user.school_id),
+      api.getAnamnese(user.school_id),
+    ]).then(([sumData, anamneseData]) => {
+      setSummary(sumData)
+      setAnamneseConcluida(anamneseData.concluida)
+    }).catch(console.error)
+    .finally(() => setLoading(false))
   }, [user])
 
   function getTypeStats(type) {
@@ -79,6 +84,23 @@ export default function Dashboard() {
           Gerar Relatório Completo + Imprimir
         </button>
       </div>
+
+      {/* Anamnese banner */}
+      {!anamneseConcluida && (
+        <div className="bg-brand-50 border border-brand-200 rounded-xl p-4 mb-5 no-print flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <ClipboardCheck className="w-5 h-5 text-brand-600 flex-shrink-0" />
+            <div>
+              <p className="text-sm font-semibold text-brand-800">Complete o Diagnóstico Inicial</p>
+              <p className="text-xs text-brand-600">Responda 15 perguntas sobre sua escola e o sistema preencherá automaticamente os checklists e gerará seu perfil de risco 4 Cs.</p>
+            </div>
+          </div>
+          <button onClick={() => navigate('/anamnese')}
+            className="flex-shrink-0 flex items-center gap-1 px-3 py-2 bg-brand-600 text-white rounded-lg text-xs font-semibold hover:bg-brand-700">
+            Iniciar <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
 
       {/* Score geral */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">

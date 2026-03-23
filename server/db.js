@@ -80,4 +80,17 @@ if (!schoolExists) {
   console.log('[DB] Demo school + user created: demo@escolademo.com.br / Demo@2026')
 }
 
+// ─── Anamnese table ───────────────────────────────────────────────────────────
+db.exec(`
+  CREATE TABLE IF NOT EXISTS anamnese (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    school_id  INTEGER UNIQUE NOT NULL REFERENCES schools(id) ON DELETE CASCADE,
+    respostas  TEXT NOT NULL DEFAULT '{}',
+    perfil_4cs TEXT NOT NULL DEFAULT '{}',
+    concluida  INTEGER NOT NULL DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
+`)
+
 export default db

@@ -48,4 +48,9 @@ export const api = {
   saveProgress: (schoolId, type, itemId, data) =>
     request(`/checklist/${schoolId}/${type}/${itemId}`, { method: 'PUT', body: data }),
   getSummary: (schoolId) => request(`/checklist/${schoolId}/summary`),
+
+  // Anamnese
+  getAnamnese: (schoolId) => request(`/checklist/${schoolId}/anamnese`),
+  saveAnamnese: (schoolId, data) =>
+    request(`/checklist/${schoolId}/anamnese`, { method: 'POST', body: data }),
 }

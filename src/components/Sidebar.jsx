@@ -2,13 +2,17 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import {
   LayoutDashboard, ClipboardList, Wrench, Target, Thermometer,
-  Users, BookOpen, Shield, LogOut, Building2, UserCog, ChevronRight, FileContract
+  Users, BookOpen, Shield, LogOut, Building2, UserCog, ChevronRight,
+  FileContract, ClipboardCheck, Grid2x2, FileText
 } from 'lucide-react'
 
 const clientNav = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/anamnese', icon: ClipboardCheck, label: 'Diagnóstico Inicial' },
   { to: '/checklist', icon: ClipboardList, label: 'Protocolo ECA Escolar' },
   { to: '/implementacao', icon: Wrench, label: 'Plano de Implementação' },
+  { to: '/risco4cs', icon: Grid2x2, label: 'Matriz 4 Cs' },
+  { to: '/documentos', icon: FileText, label: 'Documentos' },
   { to: '/edtech', icon: FileContract, label: 'EdTech Contratual' },
   { to: '/criterios', icon: BookOpen, label: 'Critérios Metodológicos' },
   { to: '/riscos', icon: Target, label: 'Mapa de Riscos' },
