@@ -4,28 +4,22 @@ import { api } from '../../lib/api'
 import Layout from '../../components/Layout'
 import StatusBadge from '../../components/StatusBadge'
 import RiscoTag from '../../components/RiscoTag'
-import { planoFases, FASES, STATUS_OPTS } from '../../data/checklistImplementacao'
-import { Save, ChevronDown, ChevronRight } from 'lucide-react'
+import { checklistEdtech, SECOES, MODULO_NOME, MODULO_SUBTITULO, STATUS_OPTIONS } from '../../data/edtechContratual'
+import { Save, ChevronDown, ChevronRight, Filter } from 'lucide-react'
 
-const FASE_COLORS = {
-  F1: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-800', badge: 'bg-blue-100 text-blue-700' },
-  F2: { bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-800', badge: 'bg-purple-100 text-purple-700' },
-  F3: { bg: 'bg-orange-50', border: 'border-orange-200', text: 'text-orange-800', badge: 'bg-orange-100 text-orange-700' },
-  F4: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-800', badge: 'bg-green-100 text-green-700' },
-}
-
-export default function ChecklistImplementacao() {
+export default function EdtechContratual() {
   const { user } = useAuth()
   const schoolId = user?.school_id
   const [progress, setProgress] = useState({})
   const [editItem, setEditItem] = useState(null)
   const [form, setForm] = useState({})
   const [saving, setSaving] = useState(false)
-  const [openFases, setOpenFases] = useState({ F1: true })
+  const [filter, setFilter] = useState('all')
+  const [openSecs, setOpenSecs] = useState({ S1: true })
 
   useEffect(() => {
     if (!schoolId) return
-    api.getProgress(schoolId, 'implementacao').then(rows => {
+    api.getProgress(schoolId, 'edtech').then(rows => {
       const map = {}
       rows.forEach(r => { map[r.item_id] = r })
       setProgress(map)
@@ -47,28 +41,64 @@ export default function ChecklistImplementacao() {
     if (!schoolId || !editItem) return
     setSaving(true)
     try {
-      await api.saveProgress(schoolId, 'implementacao', editItem.id, form)
+      await api.saveProgress(schoolId, 'edtech', editItem.id, form)
       setProgress(prev => ({ ...prev, [editItem.id]: { ...prev[editItem.id], ...form, item_id: editItem.id } }))
       setEditItem(null)
     } catch (err) { alert(err.message) }
     finally { setSaving(false) }
   }
 
-  const total = planoFases.length
-  const done = planoFases.filter(i => progress[i.id]?.status === 'conforme').length
-  const pct = Math.round((done / total) * 100)
+  const filtered = filter === 'all'
+    ? checklistEdtech
+    : checklistEdtech.filter(i => (progress[i.id]?.status || 'nao_conforme') === filter)
+
+  const grouped = {}
+  filtered.forEach(item => {
+    if (!grouped[item.secao]) grouped[item.secao] = []
+    grouped[item.secao].push(item)
+  })
+
+  const total = checklistEdtech.length
+  const conformes = checklistEdtech.filter(i => progress[i.id]?.status === 'conforme').length
+  const emAndamento = checklistEdtech.filter(i => progress[i.id]?.status === 'em_andamento').length
+  const pct = Math.round((conformes / total) * 100)
 
   return (
     <Layout
-      title="Plano de Implementação"
-      subtitle="4 fases práticas para adequação escolar à Lei 15.211/2025"
+      title={MODULO_NOME}
+      subtitle={MODULO_SUBTITULO}
       printable
     >
-      {/* Progress */}
+      {/* Info banner */}
+      <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mb-5">
+        <p className="text-sm font-semibold text-indigo-800 mb-1">Para EdTechs que contratam com escolas</p>
+        <p className="text-xs text-indigo-700">
+          Este módulo trata das obrigações da EdTech como operadora de dados pessoais de alunos —
+          não das obrigações da escola. Use-o para avaliar a adequação contratual e técnica do seu produto
+          perante a LGPD e a Lei 15.211/2025 (ECA Digital).
+        </p>
+      </div>
+
+      {/* Stats */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 no-print">
+        {[
+          { label: 'Total', val: total, color: 'text-gray-700', bg: 'bg-white' },
+          { label: 'Conformes', val: conformes, color: 'text-green-700', bg: 'bg-green-50' },
+          { label: 'Em Andamento', val: emAndamento, color: 'text-yellow-700', bg: 'bg-yellow-50' },
+          { label: 'Score', val: `${pct}%`, color: pct >= 70 ? 'text-green-700' : pct >= 40 ? 'text-yellow-700' : 'text-red-700', bg: 'bg-white' },
+        ].map(({ label, val, color, bg }) => (
+          <div key={label} className={`${bg} border border-gray-200 rounded-xl px-4 py-3`}>
+            <p className="text-xs text-gray-500 mb-1">{label}</p>
+            <p className={`text-2xl font-bold ${color}`}>{val}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Progress bar */}
       <div className="bg-white border border-gray-200 rounded-xl p-4 mb-5">
         <div className="flex justify-between text-sm text-gray-600 mb-2">
-          <span>Progresso Geral</span>
-          <span className="font-semibold">{done}/{total} tarefas concluídas ({pct}%)</span>
+          <span>Score de Conformidade Contratual</span>
+          <span className="font-semibold">{pct}%</span>
         </div>
         <div className="w-full bg-gray-100 rounded-full h-3">
           <div className={`h-3 rounded-full transition-all ${pct >= 70 ? 'bg-green-500' : pct >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
@@ -76,69 +106,53 @@ export default function ChecklistImplementacao() {
         </div>
       </div>
 
-      {/* Phase progress pills */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5 no-print">
-        {FASES.map(fase => {
-          const items = planoFases.filter(i => i.fase === fase.id)
-          const faseDone = items.filter(i => progress[i.id]?.status === 'conforme').length
-          const colors = FASE_COLORS[fase.id]
-          return (
-            <div key={fase.id} className={`${colors.bg} border ${colors.border} rounded-xl px-4 py-3`}>
-              <p className="text-xs font-semibold text-gray-500 mb-0.5">{fase.icone} Fase {fase.num}</p>
-              <p className={`text-xs font-bold ${colors.text} truncate`}>{fase.nome}</p>
-              <p className="text-xs text-gray-500 mt-1">{faseDone}/{items.length} concluídas</p>
-            </div>
-          )
-        })}
+      {/* Filters */}
+      <div className="flex items-center gap-2 mb-4 no-print flex-wrap">
+        <Filter className="w-4 h-4 text-gray-400" />
+        {['all', 'nao_conforme', 'em_andamento', 'conforme', 'nao_aplicavel'].map(f => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              filter === f ? 'bg-brand-600 text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-brand-300'
+            }`}
+          >
+            {f === 'all' ? `Todos (${total})` : STATUS_OPTIONS.find(s => s.value === f)?.label.split(' ').slice(1).join(' ')}
+          </button>
+        ))}
       </div>
 
-      {/* Phases */}
-      <div className="space-y-4">
-        {FASES.map(fase => {
-          const items = planoFases.filter(i => i.fase === fase.id)
-          const isOpen = openFases[fase.id]
-          const colors = FASE_COLORS[fase.id]
-          const faseDone = items.filter(i => progress[i.id]?.status === 'conforme').length
-          const fasePct = Math.round((faseDone / items.length) * 100)
+      {/* Sections */}
+      <div className="space-y-3">
+        {SECOES.map(sec => {
+          const items = grouped[sec.id] || []
+          if (items.length === 0) return null
+          const isOpen = openSecs[sec.id]
+          const secConformes = items.filter(i => (progress[i.id]?.status) === 'conforme').length
 
           return (
-            <div key={fase.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-              {/* Phase header */}
+            <div key={sec.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden">
               <button
-                onClick={() => setOpenFases(prev => ({ ...prev, [fase.id]: !prev[fase.id] }))}
-                className={`w-full flex items-center justify-between px-5 py-4 ${colors.bg} hover:opacity-90 no-print`}
+                onClick={() => setOpenSecs(prev => ({ ...prev, [sec.id]: !prev[sec.id] }))}
+                className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-gray-50 no-print"
               >
                 <div className="flex items-center gap-3">
-                  {isOpen ? <ChevronDown className={`w-4 h-4 ${colors.text}`} /> : <ChevronRight className={`w-4 h-4 ${colors.text}`} />}
+                  {isOpen ? <ChevronDown className="w-4 h-4 text-gray-400" /> : <ChevronRight className="w-4 h-4 text-gray-400" />}
                   <div className="text-left">
-                    <div className="flex items-center gap-2">
-                      <span className={`text-xs font-bold uppercase tracking-wide ${colors.text}`}>
-                        {fase.icone} Fase {fase.num}
-                      </span>
-                      <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${colors.badge}`}>
-                        {faseDone}/{items.length}
-                      </span>
-                    </div>
-                    <p className={`text-sm font-bold ${colors.text}`}>{fase.nome}</p>
-                    <p className="text-xs text-gray-500 mt-0.5 hidden md:block">{fase.descricao}</p>
+                    <p className="text-sm font-semibold text-gray-800">{sec.titulo}</p>
+                    <p className="text-xs text-gray-400 mt-0.5">{sec.descricao}</p>
                   </div>
                 </div>
-                <div className="hidden md:block w-24 ml-4">
-                  <div className="w-full bg-white/60 rounded-full h-2">
-                    <div className={`h-2 rounded-full ${fasePct >= 70 ? 'bg-green-500' : fasePct >= 40 ? 'bg-yellow-500' : 'bg-red-500'}`}
-                      style={{ width: `${fasePct}%` }} />
-                  </div>
-                  <p className="text-xs text-gray-500 text-right mt-0.5">{fasePct}%</p>
+                <div className="flex items-center gap-2 ml-3 flex-shrink-0">
+                  <span className="text-xs text-gray-400">{secConformes}/{items.length}</span>
                 </div>
               </button>
 
-              {/* Print phase header */}
               <div className="print-only px-5 py-3 border-b border-gray-200">
-                <p className="text-sm font-bold">{fase.icone} Fase {fase.num} — {fase.nome}</p>
+                <p className="text-sm font-bold text-gray-800">{sec.titulo}</p>
               </div>
 
-              {/* Items */}
-              {isOpen && (
+              {(isOpen || !Object.keys(openSecs).includes(sec.id)) && (
                 <div className="divide-y divide-gray-100">
                   {items.map(item => {
                     const p = progress[item.id]
@@ -152,17 +166,15 @@ export default function ChecklistImplementacao() {
                               <RiscoTag nivel={item.prioridade} small />
                               <StatusBadge status={status} small />
                             </div>
-                            <p className="text-sm font-semibold text-gray-800 mb-1">{item.tarefa}</p>
+                            <p className="text-sm font-semibold text-gray-800 mb-1">{item.item}</p>
                             <p className="text-xs text-gray-500 leading-relaxed mb-2">{item.descricao}</p>
                             <div className="flex flex-wrap gap-3 text-xs text-gray-400">
+                              <span>📖 {item.artigos}</span>
                               <span>👤 {item.responsavel}</span>
-                              <span>📋 {item.entregavel}</span>
                             </div>
+                            <p className="text-xs text-blue-600 mt-1">📋 {item.entregavel}</p>
                             {p?.evidence && (
-                              <p className="text-xs text-green-700 mt-1.5">📎 Evidência: {p.evidence}</p>
-                            )}
-                            {p?.notes && (
-                              <p className="text-xs text-gray-500 mt-0.5">💬 {p.notes}</p>
+                              <p className="text-xs text-green-700 mt-1">📎 Evidência: {p.evidence}</p>
                             )}
                           </div>
                           <button
@@ -186,13 +198,13 @@ export default function ChecklistImplementacao() {
       {editItem && (
         <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4 no-print">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6">
-            <h3 className="font-bold text-gray-900 mb-1">{editItem.id} — {editItem.tarefa}</h3>
+            <h3 className="font-bold text-gray-900 mb-1">{editItem.id} — {editItem.item}</h3>
             <p className="text-sm text-gray-500 mb-4">{editItem.descricao}</p>
             <div className="space-y-4">
               <div>
                 <label className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-1.5 block">Status</label>
                 <div className="grid grid-cols-2 gap-2">
-                  {STATUS_OPTS.map(opt => (
+                  {STATUS_OPTIONS.map(opt => (
                     <button key={opt.value} onClick={() => setForm(f => ({ ...f, status: opt.value }))}
                       className={`px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
                         form.status === opt.value ? 'border-brand-500 bg-brand-50 text-brand-700' : 'border-gray-200 text-gray-600 hover:border-gray-300'

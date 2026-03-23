@@ -4,7 +4,7 @@ import { api } from '../../lib/api'
 import Layout from '../../components/Layout'
 import StatusBadge from '../../components/StatusBadge'
 import RiscoTag from '../../components/RiscoTag'
-import { checklistPrincipal, CAPITULOS, STATUS_OPTIONS } from '../../data/checklistPrincipal'
+import { checklistPrincipal, MODULO_NOME, MODULO_SUBTITULO, STATUS_OPTIONS } from '../../data/checklistPrincipal'
 import { Filter, ChevronDown, ChevronRight, Save } from 'lucide-react'
 
 export default function ChecklistPrincipal() {
@@ -76,8 +76,8 @@ export default function ChecklistPrincipal() {
 
   return (
     <Layout
-      title="Checklist Principal"
-      subtitle="52 obrigações da Lei 15.211/2025 adaptadas para Escolas e EdTechs"
+      title={MODULO_NOME}
+      subtitle={MODULO_SUBTITULO}
       printable
     >
       {/* Stats bar */}

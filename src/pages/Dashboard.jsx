@@ -8,9 +8,9 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, Tooltip, Cell
 } from 'recharts'
-import { ClipboardList, AlertTriangle, CheckCircle, Clock, ArrowRight } from 'lucide-react'
+import { ClipboardList, AlertTriangle, CheckCircle, Clock, ArrowRight, Printer } from 'lucide-react'
 
-const TOTAL_ITEMS = { principal: 52, implementacao: 15, riscos: 15, calor: 10, funcoes: 10 }
+const TOTAL_ITEMS = { principal: 30, implementacao: 24, edtech: 18, riscos: 15, calor: 10, funcoes: 10 }
 
 export default function Dashboard() {
   const { user } = useAuth()
@@ -35,8 +35,9 @@ export default function Dashboard() {
   }
 
   const modules = [
-    { key: 'principal', label: 'Checklist Principal', path: '/checklist' },
+    { key: 'principal', label: 'Protocolo ECA Escolar', path: '/checklist' },
     { key: 'implementacao', label: 'Implementação', path: '/implementacao' },
+    { key: 'edtech', label: 'EdTech Contratual', path: '/edtech' },
     { key: 'riscos', label: 'Mapa de Riscos', path: '/riscos' },
     { key: 'funcoes', label: 'Funções', path: '/funcoes' },
   ]
@@ -68,6 +69,17 @@ export default function Dashboard() {
 
   return (
     <Layout title="Dashboard de Compliance" subtitle={`${user?.school_name || 'Minha Escola'} — ECA Digital (Lei 15.211/2025)`}>
+      {/* Print report button */}
+      <div className="flex justify-end mb-4 no-print">
+        <button
+          onClick={() => window.print()}
+          className="flex items-center gap-2 px-4 py-2.5 bg-brand-600 text-white rounded-lg text-sm font-semibold hover:bg-brand-700 transition-colors shadow-sm"
+        >
+          <Printer className="w-4 h-4" />
+          Gerar Relatório Completo + Imprimir
+        </button>
+      </div>
+
       {/* Score geral */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
         <div className="md:col-span-1 bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center justify-center text-center">
@@ -130,7 +142,7 @@ export default function Dashboard() {
       </div>
 
       {/* Module cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
         {stats.map(s => (
           <button
             key={s.key}
@@ -167,7 +179,7 @@ export default function Dashboard() {
               <p className="text-sm text-red-600 mt-1">
                 Nenhum item marcado como conforme ainda. Comece pelo{' '}
                 <button onClick={() => navigate('/checklist')} className="underline font-medium">
-                  Checklist Principal
+                  Protocolo ECA Escolar
                 </button>{' '}
                 para avaliar a situação atual da sua instituição.
               </p>

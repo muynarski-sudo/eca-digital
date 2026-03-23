@@ -8,6 +8,7 @@ import CriteriosMetodologicos from './pages/criterios/CriteriosMetodologicos'
 import MapaRiscos from './pages/riscos/MapaRiscos'
 import MapaCalor from './pages/calor/MapaCalor'
 import FuncoesAtribuicoes from './pages/funcoes/FuncoesAtribuicoes'
+import EdtechContratual from './pages/edtech/EdtechContratual'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import Clientes from './pages/admin/Clientes'
 import Usuarios from './pages/admin/Usuarios'
@@ -40,6 +41,7 @@ export default function App() {
       <Route path="/riscos" element={<ProtectedRoute><MapaRiscos /></ProtectedRoute>} />
       <Route path="/calor" element={<ProtectedRoute><MapaCalor /></ProtectedRoute>} />
       <Route path="/funcoes" element={<ProtectedRoute><FuncoesAtribuicoes /></ProtectedRoute>} />
+      <Route path="/edtech" element={<ProtectedRoute><EdtechContratual /></ProtectedRoute>} />
 
       {/* Admin routes */}
       <Route path="/admin" element={<ProtectedRoute adminOnly><AdminDashboard /></ProtectedRoute>} />
