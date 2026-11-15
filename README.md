@@ -101,3 +101,22 @@ Veja `CLAUDE.md` para comandos, convenções e mapa de pastas. Decisões e risco
 ## Demo no navegador (artefato)
 
 `artifact/` gera uma página única que roda tudo no navegador, sem servidor (estado no `localStorage`). Reaproveita a lógica real de `src/lib/domain` e o conteúdo do e-book. Serve só para demonstração: sem login de verdade, e professora e aluno dividem o mesmo aparelho. Gere com `./artifact/build.sh` (saída em `artifact/dist/`).
+
+## App no celular (PWA, funciona sem internet)
+
+`docs/` contém a versão instalável da demo: abre pelo navegador, instala na tela inicial e depois roda **dentro do celular, sem internet**. Os dados (alunos, progresso, tarefas) ficam só naquele aparelho. É a mesma demonstração do artefato, não o sistema completo (sem login de verdade e sem compartilhar dados entre aparelhos).
+
+Gerar de novo depois de mudar o conteúdo ou a lógica: `./artifact/build-pwa.sh` (saída em `docs/`, que deve ser commitada).
+
+Publicar no GitHub Pages (uma vez):
+
+1. No GitHub: Settings, Pages, Source "Deploy from a branch".
+2. Branch: a que contém a pasta `docs` (hoje `ccr-98e04149-k3m6yd`; depois de mesclar, `main`), pasta `/docs`, Save.
+3. Em alguns minutos o app fica em `https://SEU-USUARIO.github.io/eca-digital/`.
+
+No celular: abra esse endereço, espere carregar uma vez (precisa de internet só nessa primeira vez) e instale.
+
+- Android (Chrome): botão "Instalar" na própria tela, ou menu do Chrome, "Instalar app" ou "Adicionar à tela inicial".
+- iPhone (Safari): Compartilhar, "Adicionar à Tela de Início".
+
+Atenção: o Pages de um repositório público é público, e o app leva dentro todo o banco de exercícios derivado do e-book. Se o e-book é um produto pago, hospede em um lugar privado (por exemplo, um site protegido por senha) ou use o link privado do artefato.
