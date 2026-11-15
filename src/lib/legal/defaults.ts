@@ -10,7 +10,7 @@ Falando Francês Prática é uma plataforma de estudo usada por alunos das aulas
 - Cadastro: nome, e-mail e senha (guardada com criptografia pelo provedor de autenticação).
 - Estudo: respostas aos exercícios, tempo de resposta, progresso e revisões.
 - Voz: só quando você usa o treino de fala. O áudio é enviado ao provedor de transcrição e não é guardado, a menos que você marque a opção de guardar por 30 dias. Gravações guardadas são apagadas automaticamente após 30 dias e você pode apagá-las antes.
-- Assinatura: situação do acesso (ativo, cancelado etc.) e origem (manual ou Hotmart).
+- Assinatura: situação do acesso (ativo, cancelado etc.) e concedida pela professora.
 - Registro de aceite: versão dos documentos que você aceitou e a data.
 
 ## O que não fazemos

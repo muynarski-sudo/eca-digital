@@ -19,7 +19,7 @@ export default async function Convidar() {
           <Field label="E-mail do aluno" name="email" type="email" autoComplete="off" />
           <p className="text-sm text-ink-muted">
             O acesso depende de assinatura ativa. Depois do convite, conceda acesso manual na página
-            do aluno ou aguarde a compra pela Hotmart.
+            do aluno.
           </p>
         </ActionForm>
       </Card>

@@ -51,7 +51,6 @@ beforeAll(async () => {
     insert into consents (user_id, kind, version) values ('${ID.s1}', 'privacy', 1), ('${ID.s2}', 'privacy', 1);
     insert into voice_recordings (student_id, question_id, storage_path) values ('${ID.s1}', 'q1', 's1/a.webm'), ('${ID.s2}', 'q1', 's2/a.webm');
     insert into legal_documents (kind, version, title, body_md) values ('privacy', 1, 'Política', 'texto');
-    insert into webhook_events (provider, event_key) values ('hotmart', 'k1');
   `);
 });
 afterAll(async () => db.close());
@@ -140,16 +139,7 @@ describe('RLS: aluno só acessa os próprios dados', () => {
     expect(del.affectedRows).toBe(1);
   });
 
-  it('não vê o log de webhooks nem escreve assinatura', async () => {
-    expect(
-      await asUser(db, ID.s1, async () => {
-        try {
-          return (await db.query('select * from webhook_events')).rows;
-        } catch {
-          return 'denied';
-        }
-      }),
-    ).toEqual([]);
+  it('não escreve assinatura', async () => {
     await denied(() =>
       asUser(db, ID.s1, () =>
         db.query(
@@ -227,7 +217,7 @@ describe('RLS: acesso depende de assinatura ativa', () => {
     const ids = async () =>
       (await asUser(db, ID.s3, () => rows('select id from questions'))).map((r) => r.id);
     await db.exec(
-      `insert into subscriptions (student_id, status, origin, external_id, valid_until) values ('${ID.s3}', 'active', 'hotmart', 'h1', now() - interval '1 day')`,
+      `insert into subscriptions (student_id, status, origin, external_id, valid_until) values ('${ID.s3}', 'active', 'manual', 'h1', now() - interval '1 day')`,
     );
     expect(await ids()).toEqual([]);
     await db.exec(
@@ -315,7 +305,7 @@ describe('RLS: professora lê só os alunos vinculados', () => {
     );
     expect(r.affectedRows).toBe(0);
   });
-  it('professora concede acesso manual, mas não cria assinatura Hotmart nem para aluno alheio', async () => {
+  it('professora concede acesso manual, mas não cria assinatura de outra origem nem para aluno alheio', async () => {
     await asUser(db, ID.t1, () =>
       db.query(
         `insert into subscriptions (student_id, status, origin, external_id) values ('${ID.s1}', 'active', 'manual', 'm1b')`,
@@ -366,17 +356,6 @@ describe('RLS: professora lê só os alunos vinculados', () => {
     );
     expect(r.affectedRows).toBe(0);
   });
-  it('professora não vê webhooks', async () => {
-    expect(
-      await asUser(db, ID.t1, async () => {
-        try {
-          return (await db.query('select * from webhook_events')).rows;
-        } catch {
-          return 'denied';
-        }
-      }),
-    ).toEqual([]);
-  });
   it('professora vincula aluno a si, mas aluno não se vincula a professora alheia', async () => {
     await asUser(db, ID.t1, () =>
       db.query(`insert into teacher_students values ('${ID.t1}', '${ID.s3}')`),
@@ -418,7 +397,6 @@ describe('RLS: admin e anônimo', () => {
     expect(
       (await asUser(db, ID.admin, () => rows('select distinct student_id from attempts'))).length,
     ).toBe(2);
-    expect((await asUser(db, ID.admin, () => rows('select * from webhook_events'))).length).toBe(1);
   });
   it('admin edita conteúdo', async () => {
     await asUser(db, ID.admin, () =>
@@ -433,21 +411,6 @@ describe('RLS: admin e anônimo', () => {
     expect((await asUser(db, null, () => rows('select title from legal_documents'))).length).toBe(
       1,
     );
-  });
-});
-
-describe('compra antes do cadastro', () => {
-  it('pending_grants não é legível por aluno e vira assinatura no cadastro', async () => {
-    await db.exec(
-      `insert into pending_grants (email, origin, external_id, status, valid_until) values ('Comprador@x.com', 'hotmart', 'HP1', 'active', now() + interval '30 days')`,
-    );
-    await denied(() => asUser(db, ID.s1, () => db.query('select * from pending_grants')));
-    await addUser(db, '00000000-0000-0000-0000-0000000000e1', 'comprador@x.com');
-    const sub = await rows(
-      `select status, origin from subscriptions where student_id = '00000000-0000-0000-0000-0000000000e1'`,
-    );
-    expect(sub).toEqual([{ status: 'active', origin: 'hotmart' }]);
-    expect(await rows('select * from pending_grants')).toEqual([]);
   });
 });
 

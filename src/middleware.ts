@@ -9,7 +9,7 @@ const PUBLIC = [
   '/auth',
   '/politica-de-privacidade',
   '/termos',
-  '/api/webhooks',
+
   '/api/health',
 ];
 

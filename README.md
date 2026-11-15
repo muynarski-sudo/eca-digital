@@ -31,7 +31,7 @@ Para o admin: `update profiles set role = 'admin' where email = '...'` no SQL Ed
 ## Testes
 
 ```bash
-npm test                  # Vitest: correção, SRS, domínio, RLS (PGlite), webhook Hotmart, conteúdo, fala, métricas, contraste
+npm test                  # Vitest: correção, SRS, domínio, RLS (PGlite), conteúdo, fala, métricas, contraste
 npm run typecheck
 npm run lint
 npm run check             # tudo acima mais a validação de conteúdo
@@ -55,10 +55,10 @@ O app, o HTTPS e os jobs rodam na VPS com docker compose. O banco, a autenticaç
 
 1. Crie o projeto no Supabase e aplique as migrations: `npx supabase link --project-ref <ref>` e `npx supabase db push`.
 2. Em Authentication, configure a URL do site e as URLs de redirecionamento (`https://SEU-DOMINIO/auth/callback`) e o SMTP.
-3. Na VPS: clone o repositório, `cp .env.example .env` e preencha tudo (domínio, chaves do Supabase, `HOTMART_HOTTOK`, `DATABASE_URL`, SMTP).
+3. Na VPS: clone o repositório, `cp .env.example .env` e preencha tudo (domínio, chaves do Supabase, `DATABASE_URL`, SMTP).
 4. `docker compose --env-file .env up -d --build`. O Caddy emite o certificado HTTPS sozinho (aponte o DNS do domínio para a VPS antes).
 5. Rode uma vez, de qualquer máquina com o `.env` de produção: `npm run content:seed` e `npm run audio:generate`.
-6. Na Hotmart, cadastre o webhook em `https://SEU-DOMINIO/api/webhooks/hotmart` com o mesmo hottok do `.env`. Confira com um evento de teste (ver DECISIONS.md, item D5: nomes de evento e payload ainda não foram conferidos na documentação oficial).
+6. Conceda acesso aos alunos pela página de cada aluno (acesso manual, com dias de validade).
 
 Serviços do compose: `app` (Next.js), `caddy` (HTTPS), `jobs` (lembretes de tarefa às 09:00 e purga de gravações às 03:00, no fuso de São Paulo) e `backup`.
 

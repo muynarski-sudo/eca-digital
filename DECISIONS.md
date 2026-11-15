@@ -6,7 +6,7 @@ Registro de decisões técnicas do Falando Francês Prática. Cada decisão tem 
 
 1. Fundação: Next.js, tokens de cor, contraste AA, qualidade (TS estrito, ESLint, Prettier, Vitest).
 2. Parte 1: conteúdo estruturado (zod, 7 arquivos JSON, seed idempotente, relatório).
-3. Parte 2: domínio puro (correção, SRS, domínio), migrations com RLS e testes de RLS, webhook Hotmart, telas do aluno e da professora.
+3. Parte 2: domínio puro (correção, SRS, domínio), migrations com RLS e testes de RLS, telas do aluno e da professora.
 4. Parte 3: áudio (TTS), fala (STT), ditado, tarefa de casa, lembretes, purga de gravações.
 5. Parte 4: multi-nível, conversa guiada (desligada), métricas administrativas.
 6. LGPD, deploy (docker compose, HTTPS, backup), README, CLAUDE.md, relatório final.
@@ -15,7 +15,6 @@ Registro de decisões técnicas do Falando Francês Prática. Cada decisão tem 
 
 - **Conteúdo de francês**: o e-book tem erros e inconsistências próprias (ver content/REVIEW.md). Nada foi corrigido em silêncio.
 - **Ambiente de build sem Docker**: o Supabase local (Docker) não roda neste ambiente. Testes de RLS usam PGlite (Postgres em WebAssembly) com as migrations reais. O teste Playwright ponta a ponta exige Supabase local e não foi executado aqui (ver relatório).
-- **Hotmart**: nomes de eventos e formato do payload precisam de conferência na documentação atual (seção própria abaixo).
 - **LGPD**: menores de 18 anos e transferência internacional de dados dependem de validação do advogado responsável.
 
 ## Decisões
@@ -42,18 +41,10 @@ Os tokens pedidos foram mantidos para fundos, botões e anel. Dois pares não pa
 
 Os pares são verificados por teste (`tests/contrast.test.ts`).
 
-### D5. Hotmart: eventos e payload NÃO confirmados na documentação oficial
-A tarefa pedia confirmar os nomes dos eventos e o formato do payload na documentação atual da Hotmart. Isso **não foi possível**: o host `developers.hotmart.com` está fora da rede permitida deste ambiente, e a liberação do host foi recusada. A busca na web só trouxe fontes de terceiros (Zapier, n8n, Voxuy, Stract), sem a documentação oficial.
+### D5. Hotmart removida
+Por decisão do responsável, a venda do e-book pela Hotmart foi descartada. O webhook, o log de eventos e as compras pendentes foram removidos (migration `20260101000007_remove_hotmart.sql`). O acesso depende de `subscriptions` ativa concedida manualmente pela professora (dias de validade). A integração antiga continua recuperável no commit `aff1e15` caso a venda volte. O valor `hotmart` do enum `subscription_origin` permanece no banco (enums não perdem valores com segurança), sem uso.
 
-O que foi implementado vem de (a) integrações de terceiros e (b) conhecimento prévio do formato da versão 2.0.0, e **precisa de conferência** com um webhook de teste enviado pelo painel da Hotmart antes de ir para produção:
-
-- Token: cabeçalho `X-HOTMART-HOTTOK` (citado por integrações de terceiros); como reserva, campo `hottok` no corpo. Comparação em tempo constante (SHA-256 dos dois lados e `timingSafeEqual`). Token inválido gera 401 e não toca no banco.
-- Eventos tratados (`src/lib/billing/hotmart.ts`, tabela `EVENT_ACTIONS`): `PURCHASE_APPROVED` e `PURCHASE_COMPLETE` (ativa), `PURCHASE_CANCELED` e `SUBSCRIPTION_CANCELLATION` (cancela), `PURCHASE_REFUNDED` (reembolso), `PURCHASE_CHARGEBACK` (chargeback), `PURCHASE_DELAYED` e `PURCHASE_EXPIRED` (atraso). Qualquer outro evento é registrado e ignorado.
-- Campos lidos: `id`, `event`, `creation_date`, `data.buyer.email` (ou `data.subscriber.email`), `data.purchase.transaction`, `data.purchase.approved_date`. Se algum nome estiver diferente, só o schema em `hotmart.ts` muda.
-- Idempotência: tabela `webhook_events` com chave única (provider, id do evento; sem id, hash do corpo). Evento que falhou volta a ser processável no reenvio. Eventos mais antigos que o último aplicado à mesma transação não desfazem o estado.
-- Regra de acesso: ativa dentro da validade; cancelada mantém o período já pago; reembolso, chargeback e atraso bloqueiam na hora. Cada aprovação concede 32 dias (`HOTMART_PERIOD_DAYS`).
-- Comprador sem conta: o acesso fica em `pending_grants` e vira assinatura no cadastro (por e-mail). Convite automático por e-mail é opcional (`HOTMART_AUTO_INVITE=true`).
-- Pendência: confirmar também a política de reenvio (tentativas e código HTTP esperado). A rota responde 200 para processado, duplicado e ignorado, e 500 quando falha (para provocar novo envio).
+Regra de acesso (`has_active_access`): perfil ativo e assinatura ativa dentro da validade; assinatura cancelada mantém o período já pago; reembolso, chargeback e atraso bloqueiam na hora (estados mantidos para um futuro adaptador de cobrança).
 
 ### D6. Testes de RLS com PGlite
 Sem Docker, os testes de RLS (`tests/rls.test.ts`) aplicam as migrations reais em PGlite (Postgres em WebAssembly), com um shim mínimo de `auth.users`, `auth.uid()` e dos papéis `anon`/`authenticated`. Cobertura: aluno não lê nem escreve dados de outro, professora vê só alunos vinculados, admin vê tudo, anônimo não lê nada, gatilhos de proteção de colunas, acesso por assinatura. Limitação: não cobre o Storage nem o GoTrue reais; rode o mesmo cenário contra `supabase start` quando tiver Docker.
@@ -74,7 +65,6 @@ Cada provedor abaixo só recebe dados se for ativado. Todos estão desligados ou
 | Provedor | O que recebe | Quando | Observação |
 |---|---|---|---|
 | Supabase (banco, Auth, Storage) | todos os dados da plataforma | sempre | Escolher a região São Paulo (sa-east-1) mantém os dados no Brasil |
-| Hotmart | e-mail do comprador (já é dado da Hotmart) | webhook de entrada | só recebemos; não enviamos dados à Hotmart |
 | TTS (`TTS_PROVIDER=openai`) | apenas textos em francês do e-book | ao rodar `audio:generate` | sem dado pessoal; EUA no caso da OpenAI |
 | STT (`STT_PROVIDER=openai`) | áudio da voz do aluno | a cada tentativa de fala | dado pessoal (voz). Não guardamos o áudio, salvo opção do aluno (30 dias). EUA no caso da OpenAI |
 | IA de conversa (`AI_CONVERSATION_ENABLED=true`) | texto digitado pelo aluno na cena | a cada mensagem | desligada por padrão; nada é gravado no nosso banco; EUA no caso da Anthropic |

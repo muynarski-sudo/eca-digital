@@ -19,8 +19,8 @@ export default async function AccessPage() {
       }
     >
       <p className="text-ink-soft">
-        Se você comprou pela Hotmart, use o mesmo e-mail da compra. Se acabou de pagar, pode levar
-        alguns minutos. Em caso de dúvida, fale com a sua professora.
+        O acesso é liberado pela sua professora. Se você acha que deveria estar liberado, fale com
+        ela.
       </p>
       <div className="flex flex-wrap gap-3">
         <LinkButton href="/acesso" variant="secondary">

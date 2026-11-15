@@ -18,7 +18,7 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 - Regras de negócio ficam em funções puras testadas em `src/lib/domain` (correção, SRS, domínio, plano diário, métricas). Telas só chamam essas funções.
 - Cores só em `src/styles/tokens.css` e `tailwind.config.ts`. Mudou uma cor? Rode `tests/contrast.test.ts` (AA).
 - Erro sempre com ícone e texto, nunca só cor. Pronúncia aportuguesada entre parênteses e em cinza.
-- Segredos (service role, TTS, STT, IA, hottok) só no servidor. Nada com `NEXT_PUBLIC_` além da URL e da anon key do Supabase.
+- Segredos (service role, TTS, STT, IA) só no servidor. Nada com `NEXT_PUBLIC_` além da URL e da anon key do Supabase.
 - Conteúdo de francês nunca é inventado: vem do e-book ou fica `source: "generated"`. Itens `needs_review: true` não vão para exercícios, flashcards nem áudio e precisam estar em `content/REVIEW.md`.
 - Mudou o banco? Nova migration em `supabase/migrations` e teste em `tests/rls.test.ts`.
 
@@ -28,7 +28,7 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 - `scripts/content`: autoria do conteúdo. `scripts/*.ts`: build, validação, seed, áudio, jobs.
 - `supabase/migrations`: esquema, RLS, cobrança, privilégios.
 - `src/lib/domain`: grade, srs, mastery, plan, metrics. `src/lib/content`: schemas e carga. `src/lib/practice`: persistência das respostas.
-- `src/lib/billing`: webhook Hotmart (parse, token, processamento idempotente). `src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
-- `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login e cadastro. `src/app/api`: webhook, áudio, fala, exportação, conversa.
+`src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
+- `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login e cadastro. `src/app/api`: áudio, fala, exportação, conversa.
 - `src/components/ui`: Card, Button, ProgressRing, MasteryBadge, AudioButton, StreakChip, EmptyState, TricolorBar. `src/components/practice`: ExerciseShell, executor, flashcards, gravador.
 - `deploy`: Caddyfile, backup e jobs. `Dockerfile` e `docker-compose.yml` na raiz.
