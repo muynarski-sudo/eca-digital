@@ -1,0 +1,523 @@
+[
+ {
+  "id": "ph-u01-001",
+  "unit": "u01",
+  "situation": "Cumprimentar",
+  "fr": "Bonjour, comment ça va ?",
+  "pt": "Bom dia, como você está?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-002",
+  "unit": "u01",
+  "situation": "Cumprimentar",
+  "fr": "Ça va bien, merci. Et vous ?",
+  "pt": "Estou bem, obrigado(a). E você?",
+  "pron": "Ça vá bian, merci, ê vu?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-003",
+  "unit": "u01",
+  "situation": "Apresentar-se",
+  "fr": "Je m'appelle Claire.",
+  "pt": "Eu me chamo Claire.",
+  "pron": "Jô má-péle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-004",
+  "unit": "u01",
+  "situation": "Apresentar-se",
+  "fr": "Je suis étudiant.",
+  "pt": "Eu sou estudante.",
+  "pron": "Jô suízêtudian",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-005",
+  "unit": "u01",
+  "situation": "Apresentar-se",
+  "fr": "Je suis brésilien(ne).",
+  "pt": "Eu sou brasileiro(a).",
+  "pron": "jô suí brêzilian(e)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-006",
+  "unit": "u01",
+  "situation": "Apresentar-se",
+  "fr": "Nous sommes ici.",
+  "pt": "Nós estamos aqui.",
+  "pron": "nu somezicí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u01-007",
+  "unit": "u01",
+  "situation": "Pedir ajuda",
+  "fr": "Vous pouvez m'aider, s'il vous plaît ?",
+  "pt": "Você pode me ajudar, por favor?",
+  "pron": "Vú puvê mêdê, si vu plé?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u02-008",
+  "unit": "u02",
+  "situation": "Praticar pronúncia",
+  "fr": "Bonjour, comment ça va ?",
+  "pt": "Bom dia, como você está?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u02-009",
+  "unit": "u02",
+  "situation": "Praticar pronúncia",
+  "fr": "Merci beaucoup.",
+  "pt": "Muito obrigado(a).",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u02-010",
+  "unit": "u02",
+  "situation": "Praticar pronúncia",
+  "fr": "Où est la gare ?",
+  "pt": "Onde fica a estação?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-011",
+  "unit": "u03",
+  "situation": "No café",
+  "fr": "Bonjour, j'aimerais un café, s'il vous plaît.",
+  "pt": "Bom dia, eu gostaria de um café, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-012",
+  "unit": "u03",
+  "situation": "Pedindo informações",
+  "fr": "Excusez-moi, où sont les toilettes, s'il vous plaît ?",
+  "pt": "Com licença, onde fica o banheiro, por favor?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-013",
+  "unit": "u03",
+  "situation": "Pedindo informações",
+  "fr": "Bonjour, est-ce que vous savez où est cette adresse ?",
+  "pt": "Bom dia, você sabe onde fica esse endereço?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-014",
+  "unit": "u03",
+  "situation": "No restaurante",
+  "fr": "L'addition, s'il vous plaît.",
+  "pt": "A conta, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-015",
+  "unit": "u03",
+  "situation": "No restaurante",
+  "fr": "Bonjour, c'est combien, s'il vous plaît ?",
+  "pt": "Bom dia, quanto custa, por favor?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-016",
+  "unit": "u03",
+  "situation": "Compras",
+  "fr": "Je voudrais six pommes, s'il vous plaît.",
+  "pt": "Eu queria seis maçãs, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-017",
+  "unit": "u03",
+  "situation": "Compras",
+  "fr": "J'aimerais un kilo de carottes, s'il vous plaît.",
+  "pt": "Eu gostaria de um quilo de cenouras, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-018",
+  "unit": "u03",
+  "situation": "No hotel",
+  "fr": "J'ai une réservation au nom de Dupont.",
+  "pt": "Eu tenho uma reserva em nome de Dupont.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-019",
+  "unit": "u03",
+  "situation": "Na estação",
+  "fr": "Où est le quai du train pour Lyon ?",
+  "pt": "Onde fica a plataforma do trem para Lyon?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-020",
+  "unit": "u03",
+  "situation": "No táxi",
+  "fr": "Pouvez-vous m'emmener à l'aéroport ?",
+  "pt": "Você pode me levar ao aeroporto?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-021",
+  "unit": "u03",
+  "situation": "Transporte",
+  "fr": "Excusez-moi, où est l'arrêt du bus 43 ?",
+  "pt": "Com licença, onde fica o ponto do ônibus 43?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-022",
+  "unit": "u03",
+  "situation": "Transporte",
+  "fr": "Quelle ligne pour aller à la Tour Eiffel ?",
+  "pt": "Qual linha para ir à Torre Eiffel?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-023",
+  "unit": "u03",
+  "situation": "Transporte",
+  "fr": "À quelle heure part le prochain bateau ?",
+  "pt": "A que horas sai o próximo barco?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u03-024",
+  "unit": "u03",
+  "situation": "Transporte",
+  "fr": "Combien coûte un billet ?",
+  "pt": "Quanto custa um bilhete?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u04-025",
+  "unit": "u04",
+  "situation": "Perguntar",
+  "fr": "Parlez-vous français ?",
+  "pt": "Você fala francês?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u04-026",
+  "unit": "u04",
+  "situation": "Perguntar",
+  "fr": "Est-ce que tu parles français ?",
+  "pt": "Você fala francês?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u04-027",
+  "unit": "u04",
+  "situation": "Perguntar",
+  "fr": "Comment allez-vous ?",
+  "pt": "Como você está?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u04-028",
+  "unit": "u04",
+  "situation": "Negar",
+  "fr": "Je ne sais pas.",
+  "pt": "Eu não sei.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u04-029",
+  "unit": "u04",
+  "situation": "Negar",
+  "fr": "Il est brésilien, mais il habite en France.",
+  "pt": "Ele é brasileiro, mas mora na França.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u05-030",
+  "unit": "u05",
+  "situation": "Dia a dia",
+  "fr": "J'ai faim. Où est le restaurant ?",
+  "pt": "Eu tenho fome. Onde é o restaurante?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u05-031",
+  "unit": "u05",
+  "situation": "Dia a dia",
+  "fr": "Je vais au marché.",
+  "pt": "Eu vou ao mercado.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u05-032",
+  "unit": "u05",
+  "situation": "Dia a dia",
+  "fr": "Nous faisons les courses au marché.",
+  "pt": "Nós fazemos compras no mercado.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u05-033",
+  "unit": "u05",
+  "situation": "Dia a dia",
+  "fr": "Il fait beau aujourd'hui.",
+  "pt": "Está um dia bonito hoje.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u05-034",
+  "unit": "u05",
+  "situation": "Dia a dia",
+  "fr": "Elle va au cinéma.",
+  "pt": "Ela vai ao cinema.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u07-035",
+  "unit": "u07",
+  "situation": "Pedir comida",
+  "fr": "Je voudrais du poulet.",
+  "pt": "Eu queria frango.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u07-036",
+  "unit": "u07",
+  "situation": "Pedir comida",
+  "fr": "J'aimerais de la soupe.",
+  "pt": "Eu gostaria de sopa.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u08-037",
+  "unit": "u08",
+  "situation": "Horas",
+  "fr": "Quelle heure est-il ?",
+  "pt": "Que horas são?",
+  "pron": "quéle hórr é til",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u08-038",
+  "unit": "u08",
+  "situation": "Horas",
+  "fr": "Il est midi.",
+  "pt": "É meio-dia.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u08-039",
+  "unit": "u08",
+  "situation": "Clima",
+  "fr": "Quel temps fait-il ?",
+  "pt": "Que tempo está fazendo?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u08-040",
+  "unit": "u08",
+  "situation": "Clima",
+  "fr": "Il pleut.",
+  "pt": "Está chovendo.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u09-041",
+  "unit": "u09",
+  "situation": "Localização",
+  "fr": "Le livre est dans le sac.",
+  "pt": "O livro está dentro da mochila.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u09-042",
+  "unit": "u09",
+  "situation": "Localização",
+  "fr": "Le chat est sous la table.",
+  "pt": "O gato está debaixo da mesa.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u09-043",
+  "unit": "u09",
+  "situation": "Localização",
+  "fr": "Il y a un café à côté de l'hôtel.",
+  "pt": "Tem um café ao lado do hotel.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u09-044",
+  "unit": "u09",
+  "situation": "Localização",
+  "fr": "Où est mon portable ?",
+  "pt": "Onde está meu celular?",
+  "pron": "U é mon portable?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u09-045",
+  "unit": "u09",
+  "situation": "Localização",
+  "fr": "Je suis chez ma mère.",
+  "pt": "Eu estou na casa da minha mãe.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-046",
+  "unit": "u10",
+  "situation": "Aeroporto",
+  "fr": "Où est la porte d'embarquement ?",
+  "pt": "Onde é o portão de embarque?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-047",
+  "unit": "u10",
+  "situation": "Aeroporto",
+  "fr": "Je voudrais un billet pour Paris.",
+  "pt": "Eu gostaria de um bilhete para Paris.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-048",
+  "unit": "u10",
+  "situation": "Restaurante",
+  "fr": "Je voudrais voir le menu, s'il vous plaît.",
+  "pt": "Eu gostaria de ver o cardápio, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-049",
+  "unit": "u10",
+  "situation": "Restaurante",
+  "fr": "Je prends un café et une salade.",
+  "pt": "Eu vou querer um café e uma salada.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-050",
+  "unit": "u10",
+  "situation": "Restaurante",
+  "fr": "Pour le dessert, une crème brûlée, s'il vous plaît.",
+  "pt": "De sobremesa, um crème brûlée, por favor.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-051",
+  "unit": "u10",
+  "situation": "Emergência",
+  "fr": "J'ai besoin d'un médecin.",
+  "pt": "Eu preciso de um médico.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-052",
+  "unit": "u10",
+  "situation": "Emergência",
+  "fr": "Appelez une ambulance, s'il vous plaît !",
+  "pt": "Chame uma ambulância, por favor!",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-053",
+  "unit": "u10",
+  "situation": "Emergência",
+  "fr": "Où est l'hôpital le plus proche ?",
+  "pt": "Onde fica o hospital mais perto?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-054",
+  "unit": "u10",
+  "situation": "Emergência",
+  "fr": "J'ai besoin d'un médicament pour la fièvre.",
+  "pt": "Eu preciso de um remédio para febre.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-055",
+  "unit": "u10",
+  "situation": "Direções",
+  "fr": "Est-ce que c'est loin ?",
+  "pt": "É longe?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-056",
+  "unit": "u10",
+  "situation": "Direções",
+  "fr": "Tournez à droite.",
+  "pt": "Vire à direita.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "ph-u10-057",
+  "unit": "u10",
+  "situation": "Direções",
+  "fr": "Où est la pharmacie ?",
+  "pt": "Onde fica a farmácia?",
+  "source": "ebook",
+  "needs_review": false
+ }
+]

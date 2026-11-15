@@ -1,0 +1,3072 @@
+[
+ {
+  "id": "v-u01-001",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Bonjour",
+  "pt": "Bom dia",
+  "pron": "Bom júr",
+  "example": {
+   "fr": "Bonjour, je m'appelle André.",
+   "pt": "Bom dia, meu nome é André."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-002",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Salut",
+  "pt": "Olá (informal)",
+  "pron": "Sa-lhú",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-003",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Coucou",
+  "pt": "Oi (forma carinhosa e informal)",
+  "pron": "cucúu",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-004",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Bonsoir",
+  "pt": "Boa noite (ao chegar)",
+  "pron": "Bonsuar",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-005",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Ça va ?",
+  "pt": "Tudo bom?",
+  "pron": "Çá vá?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-006",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Au revoir",
+  "pt": "Tchau",
+  "pron": "ôrevoá",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-007",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Bonne nuit",
+  "pt": "Boa noite (para dormir)",
+  "pron": "bonuí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-008",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "À plus tard",
+  "pt": "Até mais tarde",
+  "pron": "a plú tar",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-009",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Bonne journée",
+  "pt": "Tenha um bom dia",
+  "pron": "Bone jurnê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-010",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Bonne soirée",
+  "pt": "Tenha uma boa noite",
+  "pron": "bonne soarê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-011",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "À demain",
+  "pt": "Até amanhã",
+  "pron": "A dômam",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-012",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "À bientôt",
+  "pt": "Até logo",
+  "pron": "A biantô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-013",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Enchanté(e)",
+  "pt": "Prazer",
+  "pron": "anchantê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-014",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Je m'appelle",
+  "pt": "Eu me chamo",
+  "pron": "Jô má-péle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-015",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Comment vous appelez-vous ?",
+  "pt": "Como você se chama? (formal)",
+  "pron": "comõ vuzapêlê vu",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-016",
+  "unit": "u01",
+  "category": "saudacoes",
+  "fr": "Comment tu t'appelles ?",
+  "pt": "Como tu te chamas? (informal)",
+  "pron": "comon tu tapéle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-017",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "je",
+  "pt": "eu",
+  "pron": "jô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-018",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "tu",
+  "pt": "tu (informal)",
+  "pron": "txú",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-019",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "il",
+  "pt": "ele",
+  "pron": "íle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-020",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "elle",
+  "pt": "ela",
+  "pron": "éle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-021",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "on",
+  "pt": "a gente",
+  "pron": "on",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-022",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "nous",
+  "pt": "nós",
+  "pron": "nu",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-023",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "vous",
+  "pt": "vocês, ou você (formal)",
+  "pron": "vu",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-024",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "ils",
+  "pt": "eles",
+  "pron": "íle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-025",
+  "unit": "u01",
+  "category": "pronomes",
+  "fr": "elles",
+  "pt": "elas",
+  "pron": "éle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-026",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "brésilien(ne)",
+  "pt": "brasileiro(a)",
+  "pron": "brêzilian(e)",
+  "example": {
+   "fr": "Je suis brésilien(ne).",
+   "pt": "Eu sou brasileiro(a)."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-027",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "professeur",
+  "pt": "professor(a)",
+  "example": {
+   "fr": "Je suis professeur.",
+   "pt": "Eu sou professor(a)."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-028",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "célibataire",
+  "pt": "solteiro(a)",
+  "pron": "cêlibatér",
+  "example": {
+   "fr": "Je suis célibataire.",
+   "pt": "Eu sou solteiro(a)."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-029",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "blond(e)",
+  "pt": "loiro(a)",
+  "pron": "blon(de)",
+  "example": {
+   "fr": "Je suis blond(e).",
+   "pt": "Eu sou loiro(a)."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-030",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "amusant(e)",
+  "pt": "divertido(a)",
+  "example": {
+   "fr": "Je suis amusant(e).",
+   "pt": "Eu sou divertido(a)."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u01-031",
+  "unit": "u01",
+  "category": "descricoes",
+  "fr": "étudiant",
+  "pt": "estudante",
+  "example": {
+   "fr": "Je suis étudiant.",
+   "pt": "Eu sou estudante."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-001",
+  "unit": "u02",
+  "category": "pronuncia_r",
+  "fr": "trois",
+  "pt": "três",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-002",
+  "unit": "u02",
+  "category": "pronuncia_r",
+  "fr": "roi",
+  "pt": "rei",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-003",
+  "unit": "u02",
+  "category": "pronuncia_r",
+  "fr": "merci",
+  "pt": "obrigado(a)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-004",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "infirmière",
+  "pt": "enfermeira",
+  "pron": "ãfirmiérre",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-005",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "simple",
+  "pt": "simples",
+  "pron": "sãple",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-006",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "sympathique",
+  "pt": "simpático",
+  "pron": "sãpatique",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-007",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "martien",
+  "pt": "marciano",
+  "pron": "martiã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-008",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "ressembler",
+  "pt": "parecer",
+  "pron": "ressãbler",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-009",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "un",
+  "pt": "um",
+  "pron": "an",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-010",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "quelqu'un",
+  "pt": "alguém",
+  "pron": "quelcã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-011",
+  "unit": "u02",
+  "category": "vogais_nasais",
+  "fr": "enfant",
+  "pt": "criança",
+  "pron": "ãnfã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-012",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "maison",
+  "pt": "casa",
+  "pron": "mezon",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-013",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "japonais",
+  "pt": "japonês",
+  "pron": "japone",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-014",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "aimer",
+  "pt": "amar",
+  "pron": "emer",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-015",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "moi",
+  "pt": "eu (tônico)",
+  "pron": "moa",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-016",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "noir",
+  "pt": "preto",
+  "pron": "noar",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-017",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "chinois",
+  "pt": "chinês",
+  "pron": "chinoa",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-018",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "danseur",
+  "pt": "dançarino",
+  "pron": "Dançôr",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-019",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "acteur",
+  "pt": "ator",
+  "pron": "Actôr",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-020",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "lieu",
+  "pt": "lugar",
+  "pron": "liô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-021",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "aussi",
+  "pt": "também",
+  "pron": "ôssi",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-022",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "gâteau",
+  "pt": "bolo",
+  "pron": "gatô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-023",
+  "unit": "u02",
+  "category": "vogais_juntas",
+  "fr": "restaurant",
+  "pt": "restaurante",
+  "pron": "restôron",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-024",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "gentille",
+  "pt": "gentil (fem.)",
+  "pron": "gentéiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-025",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "famille",
+  "pt": "família",
+  "pron": "famíiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-026",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "fille",
+  "pt": "filha, menina",
+  "pron": "fíiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-027",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "bouteille",
+  "pt": "garrafa",
+  "pron": "butéiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-028",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "billet",
+  "pt": "bilhete",
+  "pron": "bíiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-029",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "cédille",
+  "pt": "cedilha",
+  "pron": "cêdíiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-030",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "présentation",
+  "pt": "apresentação",
+  "pron": "prêsentacion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-031",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "négation",
+  "pt": "negação",
+  "pron": "negacion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-032",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "imitation",
+  "pt": "imitação",
+  "pron": "imitacion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-033",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "situation",
+  "pt": "situação",
+  "pron": "situacion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-034",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "solution",
+  "pt": "solução",
+  "pron": "solucion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-035",
+  "unit": "u02",
+  "category": "ille_tion",
+  "fr": "éducation",
+  "pt": "educação",
+  "pron": "êducacion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u02-036",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "A",
+  "pt": "letra A",
+  "pron": "a",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-037",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "B",
+  "pt": "letra B",
+  "pron": "b",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-038",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "C",
+  "pt": "letra C",
+  "pron": "c",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-039",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "D",
+  "pt": "letra D",
+  "pron": "d",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-040",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "E",
+  "pt": "letra E",
+  "pron": "õ",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-041",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "F",
+  "pt": "letra F",
+  "pron": "f",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-042",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "G",
+  "pt": "letra G",
+  "pron": "g",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-043",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "H",
+  "pt": "letra H",
+  "pron": "áche",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-044",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "I",
+  "pt": "letra I",
+  "pron": "i",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-045",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "J",
+  "pt": "letra J",
+  "pron": "jí",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-046",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "K",
+  "pt": "letra K",
+  "pron": "k",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-047",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "L",
+  "pt": "letra L",
+  "pron": "éle",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-048",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "M",
+  "pt": "letra M",
+  "pron": "éme",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-049",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "N",
+  "pt": "letra N",
+  "pron": "éne",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-050",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "O",
+  "pt": "letra O",
+  "pron": "ô",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-051",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "P",
+  "pt": "letra P",
+  "pron": "pê",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-052",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "Q",
+  "pt": "letra Q",
+  "pron": "quiu (c/bico)",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-053",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "R",
+  "pt": "letra R",
+  "pron": "érrr",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-054",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "S",
+  "pt": "letra S",
+  "pron": "s",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-055",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "T",
+  "pt": "letra T",
+  "pron": "t",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-056",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "U",
+  "pt": "letra U",
+  "pron": "ú (c/bico)",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-057",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "V",
+  "pt": "letra V",
+  "pron": "v",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-058",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "W",
+  "pt": "letra W",
+  "pron": "duble v",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-059",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "X",
+  "pt": "letra X",
+  "pron": "íquis",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-060",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "Y",
+  "pt": "letra Y",
+  "pron": "igréque",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u02-061",
+  "unit": "u02",
+  "category": "alfabeto",
+  "fr": "Z",
+  "pt": "letra Z",
+  "pron": "zéde",
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "v-u03-001",
+  "unit": "u03",
+  "category": "cortesia",
+  "fr": "Merci",
+  "pt": "Obrigado(a)",
+  "pron": "mer-cí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-002",
+  "unit": "u03",
+  "category": "cortesia",
+  "fr": "De rien",
+  "pt": "De nada",
+  "pron": "dô rriã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-003",
+  "unit": "u03",
+  "category": "cortesia",
+  "fr": "S'il vous plaît",
+  "pt": "Por favor (formal)",
+  "pron": "sil vu plé",
+  "example": {
+   "fr": "L'addition, s'il vous plaît.",
+   "pt": "A conta, por favor."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-004",
+  "unit": "u03",
+  "category": "cortesia",
+  "fr": "Excusez-moi",
+  "pt": "Com licença, desculpa",
+  "pron": "eks-ku-zê mua",
+  "example": {
+   "fr": "Excusez-moi, où sont les toilettes, s'il vous plaît ?",
+   "pt": "Com licença, onde fica o banheiro, por favor?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-005",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "un",
+  "pt": "1",
+  "pron": "an",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-006",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "deux",
+  "pt": "2",
+  "pron": "dû",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-007",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "trois",
+  "pt": "3",
+  "pron": "trruá",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-008",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre",
+  "pt": "4",
+  "pron": "kátrê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-009",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "cinq",
+  "pt": "5",
+  "pron": "sanque",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-010",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "six",
+  "pt": "6",
+  "pron": "sis",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-011",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "sept",
+  "pt": "7",
+  "pron": "set",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-012",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "huit",
+  "pt": "8",
+  "pron": "uít",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-013",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "neuf",
+  "pt": "9",
+  "pron": "nóf",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-014",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "dix",
+  "pt": "10",
+  "pron": "diz",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-015",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "onze",
+  "pt": "11",
+  "pron": "Onze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-016",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "douze",
+  "pt": "12",
+  "pron": "duze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-017",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "treize",
+  "pt": "13",
+  "pron": "treze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-018",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatorze",
+  "pt": "14",
+  "pron": "Catórze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-019",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quinze",
+  "pt": "15",
+  "pron": "canze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-020",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "seize",
+  "pt": "16",
+  "pron": "céze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-021",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "dix-sept",
+  "pt": "17",
+  "pron": "díz sét",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-022",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "dix-huit",
+  "pt": "18",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-023",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "dix-neuf",
+  "pt": "19",
+  "pron": "díz nóf",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-024",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "vingt",
+  "pt": "20",
+  "pron": "vante",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-025",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "vingt et un",
+  "pt": "21",
+  "pron": "vante ê an",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-026",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "vingt-deux",
+  "pt": "22",
+  "pron": "vante dû",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-027",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "vingt-trois",
+  "pt": "23",
+  "pron": "vante truá",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-028",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "trente",
+  "pt": "30",
+  "pron": "trante",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-029",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quarante",
+  "pt": "40",
+  "pron": "karronte",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-030",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "cinquante",
+  "pt": "50",
+  "pron": "sanconte",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-031",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "soixante",
+  "pt": "60",
+  "pron": "suassonte",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-032",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "soixante-dix",
+  "pt": "70",
+  "pron": "suassonte díz",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-033",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "soixante et onze",
+  "pt": "71",
+  "pron": "suassonte onze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-034",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "soixante-douze",
+  "pt": "72",
+  "pron": "suassonte dúze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-035",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "soixante-treize",
+  "pt": "73",
+  "pron": "suassonte treze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-036",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt",
+  "pt": "80",
+  "pron": "catrô van",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-037",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt-un",
+  "pt": "81",
+  "pron": "catrô vantan",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-038",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt-deux",
+  "pt": "82",
+  "pron": "catrô van dû",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-039",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt-dix",
+  "pt": "90",
+  "pron": "catrô van díz",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-040",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt-onze",
+  "pt": "91",
+  "pron": "catrô van onze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-041",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "quatre-vingt-douze",
+  "pt": "92",
+  "pron": "catrô van dúze",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-042",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "cent",
+  "pt": "100",
+  "pron": "san",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-043",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "mille",
+  "pt": "1000",
+  "pron": "míle",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-044",
+  "unit": "u03",
+  "category": "numeros",
+  "fr": "un million",
+  "pt": "1 000 000",
+  "pron": "an milion",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-045",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "l'hôtel",
+  "pt": "o hotel",
+  "pron": "lo-téllll",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-046",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "une réservation",
+  "pt": "uma reserva",
+  "pron": "úne rêservacion",
+  "example": {
+   "fr": "J'ai une réservation.",
+   "pt": "Eu tenho uma reserva."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-047",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "le taxi",
+  "pt": "o táxi",
+  "pron": "lo táxí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-048",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "l'aéroport",
+  "pt": "o aeroporto",
+  "pron": "laêrropórrr",
+  "example": {
+   "fr": "Pouvez-vous m'emmener à l'aéroport ?",
+   "pt": "Você pode me levar ao aeroporto?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-049",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "un billet",
+  "pt": "um bilhete",
+  "pron": "ã binhê",
+  "example": {
+   "fr": "Combien coûte un billet ?",
+   "pt": "Quanto custa um bilhete?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-050",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "Où est… ?",
+  "pt": "Onde fica… ?",
+  "pron": "u é?",
+  "example": {
+   "fr": "Où est la gare, s'il vous plaît ?",
+   "pt": "Onde fica a estação de trem, por favor?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-051",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "le bus",
+  "pt": "o ônibus",
+  "pron": "lo bus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-052",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "le métro",
+  "pt": "o metrô",
+  "pron": "Lo mêtrô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-053",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "aller",
+  "pt": "ir",
+  "pron": "alê",
+  "example": {
+   "fr": "Je voudrais aller à l'aéroport.",
+   "pt": "Eu queria ir ao aeroporto."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u03-054",
+  "unit": "u03",
+  "category": "viagem",
+  "fr": "le bateau",
+  "pt": "o barco",
+  "pron": "Lô batô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-001",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Où",
+  "pt": "Onde",
+  "example": {
+   "fr": "Où est le restaurant ?",
+   "pt": "Onde é o restaurante?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-002",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Quand",
+  "pt": "Quando",
+  "example": {
+   "fr": "Quand est la réunion ?",
+   "pt": "Quando é a reunião?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-003",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Comment",
+  "pt": "Como",
+  "example": {
+   "fr": "Comment allez-vous ?",
+   "pt": "Como você está?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-004",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Combien",
+  "pt": "Quanto, quantos",
+  "example": {
+   "fr": "Combien ça coûte ?",
+   "pt": "Quanto custa?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-005",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Qui",
+  "pt": "Quem",
+  "example": {
+   "fr": "Qui va aujourd'hui ?",
+   "pt": "Quem vai hoje?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-006",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Pourquoi",
+  "pt": "Por que (pergunta)",
+  "example": {
+   "fr": "Pourquoi tu pleures ?",
+   "pt": "Por que você está chorando?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-007",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Parce que",
+  "pt": "Porque (resposta)",
+  "example": {
+   "fr": "Je mange parce que j'ai faim.",
+   "pt": "Eu como porque estou com fome."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-008",
+  "unit": "u04",
+  "category": "interrogativas",
+  "fr": "Est-ce que",
+  "pt": "marca de pergunta (\"será que\")",
+  "example": {
+   "fr": "Est-ce que tu parles français ?",
+   "pt": "Você fala francês?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-009",
+  "unit": "u04",
+  "category": "ligacao",
+  "fr": "et",
+  "pt": "e",
+  "example": {
+   "fr": "Je parle français et anglais.",
+   "pt": "Eu falo francês e inglês."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-010",
+  "unit": "u04",
+  "category": "ligacao",
+  "fr": "donc",
+  "pt": "então, portanto",
+  "example": {
+   "fr": "Il est tard, donc je dois partir.",
+   "pt": "Está tarde, então eu preciso ir."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-011",
+  "unit": "u04",
+  "category": "ligacao",
+  "fr": "mais",
+  "pt": "mas",
+  "example": {
+   "fr": "Je voudrais venir, mais je suis occupé.",
+   "pt": "Eu gostaria de vir, mas estou ocupado."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-012",
+  "unit": "u04",
+  "category": "ligacao",
+  "fr": "plus",
+  "pt": "mais (adição)",
+  "example": {
+   "fr": "Il est plus haut que Pierre.",
+   "pt": "Ele é mais alto que Pierre."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u04-013",
+  "unit": "u04",
+  "category": "ligacao",
+  "fr": "ne ... pas",
+  "pt": "não",
+  "example": {
+   "fr": "Je ne parle pas français.",
+   "pt": "Eu não falo francês."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-001",
+  "unit": "u05",
+  "category": "verbos",
+  "fr": "être",
+  "pt": "ser, estar",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-002",
+  "unit": "u05",
+  "category": "verbos",
+  "fr": "avoir",
+  "pt": "ter",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-003",
+  "unit": "u05",
+  "category": "verbos",
+  "fr": "faire",
+  "pt": "fazer",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-004",
+  "unit": "u05",
+  "category": "verbos",
+  "fr": "aller",
+  "pt": "ir",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-005",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir faim",
+  "pt": "estar com fome",
+  "example": {
+   "fr": "J'ai faim.",
+   "pt": "Eu tenho fome."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-006",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir soif",
+  "pt": "estar com sede",
+  "example": {
+   "fr": "Elle a soif après la course.",
+   "pt": "Ela tem sede depois do treino."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-007",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir froid",
+  "pt": "estar com frio",
+  "example": {
+   "fr": "Elle a froid.",
+   "pt": "Ela tem frio."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-008",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir chaud",
+  "pt": "estar com calor",
+  "example": {
+   "fr": "Nous avons chaud.",
+   "pt": "Nós temos calor."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-009",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir peur",
+  "pt": "ter medo",
+  "example": {
+   "fr": "Tu as peur.",
+   "pt": "Você tem medo."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-010",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "avoir raison",
+  "pt": "ter razão",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u05-011",
+  "unit": "u05",
+  "category": "expressoes_avoir",
+  "fr": "être en retard",
+  "pt": "estar atrasado",
+  "example": {
+   "fr": "Il est en retard pour le travail.",
+   "pt": "Ele está atrasado para o trabalho."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-001",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "grand / grande",
+  "pt": "grande",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-002",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "blond / blonde",
+  "pt": "loiro / loira",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-003",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "étudiant / étudiante",
+  "pt": "estudante",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-004",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "marié / mariée",
+  "pt": "casado / casada",
+  "example": {
+   "fr": "Il est marié. Elle est mariée.",
+   "pt": "Ele é casado. Ela é casada."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-005",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "jeune",
+  "pt": "jovem (não muda)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-006",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "professeur",
+  "pt": "professor(a) (não muda)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-007",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "italien / italienne",
+  "pt": "italiano / italiana",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-008",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "bon / bonne",
+  "pt": "bom / boa",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-009",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "mignon / mignonne",
+  "pt": "fofo / fofa",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-010",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "infirmier / infirmière",
+  "pt": "enfermeiro / enfermeira",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-011",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "étranger / étrangère",
+  "pt": "estrangeiro / estrangeira",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-012",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "serveur / serveuse",
+  "pt": "garçom / garçonete",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-013",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "heureux / heureuse",
+  "pt": "feliz",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-014",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "acteur / actrice",
+  "pt": "ator / atriz",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-015",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "éditeur / éditrice",
+  "pt": "editor / editora",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-016",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "chanteur / chanteuse",
+  "pt": "cantor / cantora",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-017",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "beau / belle",
+  "pt": "belo / bela",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-018",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "vieux / vieille",
+  "pt": "velho / velha",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-019",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "blanc / blanche",
+  "pt": "branco / branca",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-020",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "boulanger / boulangère",
+  "pt": "padeiro / padeira",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-021",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "musicien / musicienne",
+  "pt": "músico / música",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u06-022",
+  "unit": "u06",
+  "category": "feminino",
+  "fr": "danseur / danseuse",
+  "pt": "dançarino / dançarina",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-001",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "le",
+  "pt": "o (artigo definido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-002",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "la",
+  "pt": "a (artigo definido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-003",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "les",
+  "pt": "os, as (artigo definido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-004",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "un",
+  "pt": "um (artigo indefinido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-005",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "une",
+  "pt": "uma (artigo indefinido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-006",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "des",
+  "pt": "uns, umas (artigo indefinido)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-007",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "au",
+  "pt": "à + le (no, ao)",
+  "example": {
+   "fr": "Je vais au Louvre.",
+   "pt": "Eu vou ao Louvre."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-008",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "aux",
+  "pt": "à + les (nos, aos)",
+  "example": {
+   "fr": "Je suis aux Invalides.",
+   "pt": "Eu estou nos Invalides."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-009",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "à la",
+  "pt": "à + la (na, à)",
+  "example": {
+   "fr": "Je suis à la piscine.",
+   "pt": "Eu estou na piscina."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-010",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "du",
+  "pt": "de + le (do)",
+  "example": {
+   "fr": "Le micro du chanteur.",
+   "pt": "O microfone do cantor."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-011",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "de la",
+  "pt": "de + la (da)",
+  "example": {
+   "fr": "Le portable de la mère.",
+   "pt": "O celular da mãe."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-012",
+  "unit": "u07",
+  "category": "artigos",
+  "fr": "des",
+  "pt": "de + les (dos, das)",
+  "example": {
+   "fr": "Les amis des amis.",
+   "pt": "Os amigos dos amigos."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-013",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "mon / ma / mes",
+  "pt": "meu / minha / meus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-014",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "ton / ta / tes",
+  "pt": "teu / tua / teus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-015",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "son / sa / ses",
+  "pt": "dele, dela / seus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-016",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "notre / nos",
+  "pt": "nosso / nossa / nossos",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-017",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "votre / vos",
+  "pt": "seu, de vocês / seus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-018",
+  "unit": "u07",
+  "category": "possessivos",
+  "fr": "leur / leurs",
+  "pt": "deles, delas",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-019",
+  "unit": "u07",
+  "category": "demonstrativos",
+  "fr": "ce",
+  "pt": "este, esse (masculino)",
+  "example": {
+   "fr": "Regarde ce chat.",
+   "pt": "Olhe esse gato."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-020",
+  "unit": "u07",
+  "category": "demonstrativos",
+  "fr": "cette",
+  "pt": "esta, essa (feminino)",
+  "example": {
+   "fr": "Cette fourmi m'a piqué.",
+   "pt": "Essa formiga me picou."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-021",
+  "unit": "u07",
+  "category": "demonstrativos",
+  "fr": "cet",
+  "pt": "este, esse (masculino antes de vogal ou h)",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u07-022",
+  "unit": "u07",
+  "category": "demonstrativos",
+  "fr": "ces",
+  "pt": "estes, esses, estas, essas",
+  "example": {
+   "fr": "Ces arbres sont énormes.",
+   "pt": "Essas árvores são enormes."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-001",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "lundi",
+  "pt": "segunda-feira",
+  "pron": "landí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-002",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "mardi",
+  "pt": "terça-feira",
+  "pron": "mardí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-003",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "mercredi",
+  "pt": "quarta-feira",
+  "pron": "merrrcrêdí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-004",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "jeudi",
+  "pt": "quinta-feira",
+  "pron": "Judí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-005",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "vendredi",
+  "pt": "sexta-feira",
+  "pron": "vandrêdí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-006",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "samedi",
+  "pt": "sábado",
+  "pron": "samidí",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-007",
+  "unit": "u08",
+  "category": "dias",
+  "fr": "dimanche",
+  "pt": "domingo",
+  "pron": "dimonxe",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-008",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "janvier",
+  "pt": "janeiro",
+  "pron": "janviê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-009",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "février",
+  "pt": "fevereiro",
+  "pron": "fêvriê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-010",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "mars",
+  "pt": "março",
+  "pron": "maarrs",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-011",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "avril",
+  "pt": "abril",
+  "pron": "avrile",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-012",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "mai",
+  "pt": "maio",
+  "pron": "mé",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-013",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "juin",
+  "pt": "junho",
+  "pron": "Juan",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-014",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "juillet",
+  "pt": "julho",
+  "pron": "juiê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-015",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "août",
+  "pt": "agosto",
+  "pron": "ôut",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-016",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "septembre",
+  "pt": "setembro",
+  "pron": "septombre",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-017",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "octobre",
+  "pt": "outubro",
+  "pron": "octóbre",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-018",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "novembre",
+  "pt": "novembro",
+  "pron": "novambre",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-019",
+  "unit": "u08",
+  "category": "meses",
+  "fr": "décembre",
+  "pt": "dezembro",
+  "pron": "dêsambre",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-020",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "Quelle heure est-il ?",
+  "pt": "Que horas são?",
+  "pron": "quéle hórr é til",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-021",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "midi",
+  "pt": "meio-dia",
+  "example": {
+   "fr": "Il est midi.",
+   "pt": "É meio-dia."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-022",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "minuit",
+  "pt": "meia-noite",
+  "example": {
+   "fr": "Il est minuit.",
+   "pt": "É meia-noite."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-023",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "et quart",
+  "pt": "e quinze",
+  "example": {
+   "fr": "Il est une heure et quart.",
+   "pt": "É uma e quinze."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-024",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "et demie",
+  "pt": "e meia",
+  "example": {
+   "fr": "Il est quatre heures et demie.",
+   "pt": "São quatro e meia."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-025",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "moins le quart",
+  "pt": "quinze para",
+  "example": {
+   "fr": "Il est huit heures moins le quart.",
+   "pt": "São quinze para as oito."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-026",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "du matin",
+  "pt": "da manhã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-027",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "de l'après-midi",
+  "pt": "da tarde",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-028",
+  "unit": "u08",
+  "category": "horas",
+  "fr": "du soir",
+  "pt": "da noite",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-029",
+  "unit": "u08",
+  "category": "estacoes",
+  "fr": "le printemps",
+  "pt": "primavera",
+  "pron": "prantom",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-030",
+  "unit": "u08",
+  "category": "estacoes",
+  "fr": "l'été",
+  "pt": "verão",
+  "pron": "êtê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-031",
+  "unit": "u08",
+  "category": "estacoes",
+  "fr": "l'automne",
+  "pt": "outono",
+  "pron": "ôtone",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-032",
+  "unit": "u08",
+  "category": "estacoes",
+  "fr": "l'hiver",
+  "pt": "inverno",
+  "pron": "íver",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-033",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il fait chaud",
+  "pt": "Está quente",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-034",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il fait froid",
+  "pt": "Está frio",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-035",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il fait beau",
+  "pt": "Está um dia bonito",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-036",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il fait dix degrés",
+  "pt": "Está fazendo 10 graus",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-037",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il neige",
+  "pt": "Está nevando",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-038",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Il pleut",
+  "pt": "Está chovendo",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u08-039",
+  "unit": "u08",
+  "category": "clima",
+  "fr": "Quel temps fait-il ?",
+  "pt": "Que tempo está fazendo?",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-001",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "dans",
+  "pt": "dentro de, no",
+  "example": {
+   "fr": "Le livre est dans le sac.",
+   "pt": "O livro está dentro da mochila."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-002",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "sous",
+  "pt": "debaixo de",
+  "example": {
+   "fr": "Le chat est sous la table.",
+   "pt": "O gato está debaixo da mesa."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-003",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "sur",
+  "pt": "em cima de",
+  "example": {
+   "fr": "Le téléphone est sur la chaise.",
+   "pt": "O telefone está em cima da cadeira."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-004",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "devant",
+  "pt": "na frente de",
+  "example": {
+   "fr": "Il y a une voiture devant la maison.",
+   "pt": "Tem um carro na frente da casa."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-005",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "derrière",
+  "pt": "atrás de",
+  "example": {
+   "fr": "Le jardin est derrière la maison.",
+   "pt": "O jardim fica atrás da casa."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-006",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "près de",
+  "pt": "perto de",
+  "example": {
+   "fr": "L'école est près de la banque.",
+   "pt": "A escola é perto do banco."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-007",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "loin de",
+  "pt": "longe de",
+  "example": {
+   "fr": "Mon appartement est loin d'ici.",
+   "pt": "Meu apartamento é longe daqui."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-008",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "à côté de",
+  "pt": "ao lado de",
+  "example": {
+   "fr": "Il y a un café à côté de l'hôtel.",
+   "pt": "Tem um café ao lado do hotel."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-009",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "entre",
+  "pt": "entre",
+  "example": {
+   "fr": "Le parc est entre deux rues.",
+   "pt": "O parque fica entre duas ruas."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-010",
+  "unit": "u09",
+  "category": "preposicoes_lugar",
+  "fr": "chez",
+  "pt": "na casa de, no local de trabalho de",
+  "example": {
+   "fr": "Je vais chez Paul.",
+   "pt": "Eu vou à casa do Paul."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-011",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "il y a",
+  "pt": "há, tem (existência)",
+  "example": {
+   "fr": "Il y a un livre sur la table.",
+   "pt": "Tem um livro em cima da mesa."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-012",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "c'est",
+  "pt": "é, está (identificar)",
+  "example": {
+   "fr": "C'est la maison de Marie.",
+   "pt": "É a casa da Marie."
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-013",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "Où est… ?",
+  "pt": "Onde está… ?",
+  "example": {
+   "fr": "Où est le livre ?",
+   "pt": "Onde está o livro?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-014",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "Où sont… ?",
+  "pt": "Onde estão… ?",
+  "example": {
+   "fr": "Où sont les enfants ?",
+   "pt": "Onde estão as crianças?"
+  },
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-015",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "où",
+  "pt": "onde",
+  "pron": "u",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u09-016",
+  "unit": "u09",
+  "category": "expressoes",
+  "fr": "ou",
+  "pt": "ou (opção)",
+  "pron": "ô",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-001",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "un billet d'avion",
+  "pt": "um bilhete de avião",
+  "pron": "an biê daviõ",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-002",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "la porte d'embarquement",
+  "pt": "o portão de embarque",
+  "pron": "la port dã-bar-camã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-003",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "le vol",
+  "pt": "o voo",
+  "pron": "le vôl",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-004",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "la gare",
+  "pt": "a estação de trem",
+  "pron": "la garr",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-005",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "aller simple",
+  "pt": "só ida",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-006",
+  "unit": "u10",
+  "category": "aeroporto",
+  "fr": "aller-retour",
+  "pt": "ida e volta",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-007",
+  "unit": "u10",
+  "category": "restaurante",
+  "fr": "un menu",
+  "pt": "um cardápio",
+  "pron": "ã menúu",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-008",
+  "unit": "u10",
+  "category": "restaurante",
+  "fr": "une entrée",
+  "pt": "uma entrada",
+  "pron": "úne antrê",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-009",
+  "unit": "u10",
+  "category": "restaurante",
+  "fr": "un plat principal",
+  "pt": "um prato principal",
+  "pron": "ã plá prãncipal",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-010",
+  "unit": "u10",
+  "category": "restaurante",
+  "fr": "une boisson",
+  "pt": "uma bebida",
+  "pron": "úne bôasson",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-011",
+  "unit": "u10",
+  "category": "restaurante",
+  "fr": "l'addition",
+  "pt": "a conta",
+  "pron": "ladission",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-012",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "J'ai besoin d'aide",
+  "pt": "Preciso de ajuda",
+  "pron": "Jô bêsoan déd",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-013",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "Appelez la police",
+  "pt": "Chame a polícia",
+  "pron": "Apelê la police",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-014",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "un médecin",
+  "pt": "um médico",
+  "pron": "An mêdissan",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-015",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "une ambulance",
+  "pt": "uma ambulância",
+  "pron": "Úne ambulance",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-016",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "C'est une urgence",
+  "pt": "É uma emergência",
+  "pron": "Cetxúne urjance",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-017",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "l'hôpital",
+  "pt": "o hospital",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-018",
+  "unit": "u10",
+  "category": "emergencias",
+  "fr": "la pharmacie",
+  "pt": "a farmácia",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-019",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "tout droit",
+  "pt": "em frente",
+  "pron": "tu drôa",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-020",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "à gauche",
+  "pt": "à esquerda",
+  "pron": "a gôsh",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-021",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "à droite",
+  "pt": "à direita",
+  "pron": "a druate",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-022",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "près d'ici",
+  "pt": "perto daqui",
+  "pron": "Pré dici",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-023",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "loin",
+  "pt": "longe",
+  "pron": "luã",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "v-u10-024",
+  "unit": "u10",
+  "category": "direcoes",
+  "fr": "à côté",
+  "pt": "ao lado",
+  "pron": "a côtê",
+  "source": "ebook",
+  "needs_review": false
+ }
+]

@@ -1,0 +1,6440 @@
+[
+ {
+  "id": "q-u01-001",
+  "unit": "u01",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Bonjour, je _______ Claire. (Bom dia, eu sou Claire.)",
+  "answers": [
+   "suis"
+  ],
+  "hint": "Verbo être: je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+  "explanation": "Com \"je\", o verbo être fica \"suis\".",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u01-002",
+  "unit": "u01",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Vous _______ brésilien(ne) ? (Você é brasileiro(a)?)",
+  "answers": [
+   "êtes"
+  ],
+  "hint": "Verbo être: je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+  "explanation": "Com \"vous\", o verbo être fica \"êtes\".",
+  "error_tags": [
+   "conjugacao_etre",
+   "acentuacao"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u01-003",
+  "unit": "u01",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Nous _______ à l'école. (Nós estamos na escola.)",
+  "answers": [
+   "sommes"
+  ],
+  "hint": "Verbo être: je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+  "explanation": "Com \"nous\", o verbo être fica \"sommes\".",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u01-004",
+  "unit": "u01",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Il _______ ici ? (Ele está aqui?)",
+  "answers": [
+   "est"
+  ],
+  "hint": "Verbo être: je suis, tu es, il est, nous sommes, vous êtes, ils sont.",
+  "explanation": "Com \"il\", o verbo être fica \"est\".",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-001",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Bom dia, eu gostaria de um café, por favor.",
+  "answers": [
+   "Bonjour, j'aimerais un café, s'il vous plaît.",
+   "Bonjour, j'aimerais un café, s'il vous plaît"
+  ],
+  "explanation": "Para pedir com educação, use j'aimerais (eu gostaria) e feche com s'il vous plaît.",
+  "error_tags": [
+   "cortesia"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-002",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "A conta, por favor.",
+  "answers": [
+   "L'addition, s'il vous plaît."
+  ],
+  "explanation": "A conta é \"l'addition\".",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-003",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eu tenho uma reserva.",
+  "answers": [
+   "J'ai une réservation."
+  ],
+  "explanation": "Avoir + une réservation. \"Je ai\" vira \"j'ai\".",
+  "error_tags": [
+   "elisao_apostrofo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-004",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Onde fica a estação de trem, por favor?",
+  "answers": [
+   "Où est la gare, s'il vous plaît ?"
+  ],
+  "explanation": "\"Où est...\" pergunta onde algo fica. Atenção ao acento de \"où\".",
+  "error_tags": [
+   "vocabulario_viagem",
+   "acentuacao"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-005",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Quanto custa um bilhete?",
+  "answers": [
+   "Combien coûte un billet ?"
+  ],
+  "explanation": "\"Combien coûte...\" pergunta o preço.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-006",
+  "unit": "u03",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Com licença, onde fica o banheiro, por favor?",
+  "answers": [
+   "Excusez-moi, où sont les toilettes, s'il vous plaît ?"
+  ],
+  "explanation": "No francês, \"toilettes\" é plural, então usamos \"où sont\".",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-007",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 22",
+  "answers": [
+   "vingt-deux"
+  ],
+  "explanation": "A partir de 21, soma-se a unidade com hífen: vingt-deux.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-008",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 21",
+  "answers": [
+   "vingt et un"
+  ],
+  "explanation": "No 21, 31, 41... usa-se \"et\": vingt et un.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-009",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 71",
+  "answers": [
+   "soixante et onze"
+  ],
+  "explanation": "O 70 é 60+10. O 71 usa \"et\": soixante et onze.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-010",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 73",
+  "answers": [
+   "soixante-treize"
+  ],
+  "explanation": "70 + 3 = soixante-treize (60 + 13).",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-011",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 81",
+  "answers": [
+   "quatre-vingt-un"
+  ],
+  "explanation": "80 é 4x20. O 81 não leva \"et\": quatre-vingt-un.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-012",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 91",
+  "answers": [
+   "quatre-vingt-onze"
+  ],
+  "explanation": "90 é 80+10: quatre-vingt-onze.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-013",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 92",
+  "answers": [
+   "quatre-vingt-douze"
+  ],
+  "explanation": "90 é 80+10: quatre-vingt-douze.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-014",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 45",
+  "answers": [
+   "quarante-cinq"
+  ],
+  "explanation": "Dezena + hífen + unidade: quarante-cinq.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 1,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-015",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 58",
+  "answers": [
+   "cinquante-huit"
+  ],
+  "explanation": "Dezena + hífen + unidade: cinquante-huit.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 1,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-016",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 64",
+  "answers": [
+   "soixante-quatre"
+  ],
+  "explanation": "Dezena + hífen + unidade: soixante-quatre.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 1,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-017",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 85",
+  "answers": [
+   "quatre-vingt-cinq"
+  ],
+  "explanation": "80 + 5, sem \"et\": quatre-vingt-cinq.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 3,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u03-018",
+  "unit": "u03",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva por extenso: 99",
+  "answers": [
+   "quatre-vingt-dix-neuf"
+  ],
+  "explanation": "80 + 19: quatre-vingt-dix-neuf.",
+  "error_tags": [
+   "numeros"
+  ],
+  "difficulty": 3,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-001",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em negativa: \"Je parle français.\"",
+  "answers": [
+   "Je ne parle pas français"
+  ],
+  "explanation": "Negativa: sujeito + ne + verbo + pas + complemento.",
+  "error_tags": [
+   "negacao_ne_pas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-002",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em negativa: \"Il mange une pizza.\"",
+  "answers": [
+   "Il ne mange pas de pizza"
+  ],
+  "explanation": "Na negativa, o artigo (une) vira \"de\": pas de pizza.",
+  "error_tags": [
+   "negacao_de"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-003",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em negativa: \"J'ai deux chiens.\"",
+  "answers": [
+   "Je n'ai pas de chien"
+  ],
+  "explanation": "Antes de vogal, \"ne\" vira n'. E a quantidade vira \"pas de\".",
+  "error_tags": [
+   "negacao_de",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-004",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em negativa: \"Il mange trois cookies.\"",
+  "answers": [
+   "Il ne mange pas de cookies"
+  ],
+  "explanation": "Na negativa, o número ou artigo vira \"de\".",
+  "error_tags": [
+   "negacao_de"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-005",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em negativa: \"Il mange de la viande.\"",
+  "answers": [
+   "Il ne mange pas de viande"
+  ],
+  "explanation": "Na negativa, \"de la\" vira \"de\".",
+  "error_tags": [
+   "negacao_de"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-006",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em pergunta: \"Vous avez une voiture.\"",
+  "answers": [
+   "Vous avez une voiture ?",
+   "Est-ce que vous avez une voiture ?",
+   "Avez-vous une voiture ?"
+  ],
+  "explanation": "Três formas: entonação, est-ce que ou inversão.",
+  "error_tags": [
+   "interrogativa"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-007",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Transforme em pergunta: \"Ils vont au restaurant.\"",
+  "answers": [
+   "Est-ce qu'ils vont au restaurant ?",
+   "Ils vont au restaurant ?",
+   "Vont-ils au restaurant ?"
+  ],
+  "explanation": "Com est-ce que, \"que\" vira \"qu'\" antes de vogal.",
+  "error_tags": [
+   "interrogativa",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-008",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ êtes-vous ? (Onde você está?)",
+  "answers": [
+   "Où"
+  ],
+  "explanation": "\"Où\" (com acento) pergunta lugar.",
+  "error_tags": [
+   "interrogativa",
+   "acentuacao"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u04-009",
+  "unit": "u04",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Il parle français _______ anglais. (Ele fala francês e inglês.)",
+  "answers": [
+   "et"
+  ],
+  "explanation": "\"et\" liga informações.",
+  "error_tags": [
+   "conectivos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-001",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Nous _______ un examen demain. (avoir)",
+  "answers": [
+   "avons"
+  ],
+  "explanation": "Avoir com nous: avons.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-002",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Ils _______ une grande maison. (avoir)",
+  "answers": [
+   "ont"
+  ],
+  "explanation": "Avoir com ils/elles: ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-003",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Tu _______ de la chance ! (avoir)",
+  "answers": [
+   "as"
+  ],
+  "explanation": "Avoir com tu: as.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-004",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "J'_______ un chien. (avoir)",
+  "answers": [
+   "ai"
+  ],
+  "explanation": "Avoir com je: j'ai.",
+  "error_tags": [
+   "conjugacao_avoir",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-005",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "On _______ un rendez-vous aujourd'hui. (avoir)",
+  "answers": [
+   "a"
+  ],
+  "explanation": "Avoir com il/elle/on: a.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-006",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Vous _______ du vélo le week-end ? (faire)",
+  "answers": [
+   "faites"
+  ],
+  "explanation": "Faire com vous: faites.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-007",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Je _______ mes devoirs tous les jours. (faire)",
+  "answers": [
+   "fais"
+  ],
+  "explanation": "Faire com je: fais.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-008",
+  "unit": "u05",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Ils _______ du bruit dans la classe. (faire)",
+  "answers": [
+   "font"
+  ],
+  "explanation": "Faire com ils/elles: font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-009",
+  "unit": "u05",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eu estou doente.",
+  "answers": [
+   "Je suis malade."
+  ],
+  "explanation": "Estar doente usa être: je suis malade.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-010",
+  "unit": "u05",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Você tem um gato?",
+  "answers": [
+   "Vous avez un chat ?",
+   "Tu as un chat ?",
+   "Est-ce que vous avez un chat ?",
+   "Est-ce que tu as un chat ?",
+   "Avez-vous un chat ?",
+   "As-tu un chat ?"
+  ],
+  "explanation": "Avoir + un chat. \"Você\" pode ser tu (informal) ou vous (formal).",
+  "error_tags": [
+   "conjugacao_avoir",
+   "interrogativa"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-011",
+  "unit": "u05",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Nós fazemos uma caminhada.",
+  "answers": [
+   "Nous faisons une promenade."
+  ],
+  "explanation": "Faire com nous: faisons. \"Faire une promenade\" é dar uma caminhada.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-012",
+  "unit": "u05",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eles vão ao mercado.",
+  "answers": [
+   "Ils vont au marché."
+  ],
+  "explanation": "Aller com ils: vont. à + le = au.",
+  "error_tags": [
+   "conjugacao_aller",
+   "artigo_contraido"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u05-013",
+  "unit": "u05",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Ela é estudante.",
+  "answers": [
+   "Elle est étudiante."
+  ],
+  "explanation": "Être com elle: est. Estudante no feminino: étudiante.",
+  "error_tags": [
+   "conjugacao_etre",
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-001",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Infirmier",
+  "answers": [
+   "Infirmière"
+  ],
+  "explanation": "Finais \"er\" viram \"ère\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-002",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Acteur",
+  "answers": [
+   "Actrice"
+  ],
+  "explanation": "Finais \"teur\" viram \"trice\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-003",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Boulanger",
+  "answers": [
+   "Boulangère"
+  ],
+  "explanation": "Finais \"er\" viram \"ère\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-004",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Serveur",
+  "answers": [
+   "Serveuse"
+  ],
+  "explanation": "Finais \"eur\" viram \"euse\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-005",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Chanteur",
+  "answers": [
+   "Chanteuse"
+  ],
+  "explanation": "Exceção: chanteur vira chanteuse, e não \"trice\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-006",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Professeur",
+  "answers": [
+   "Professeur"
+  ],
+  "explanation": "Professeur não muda no feminino.",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-007",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Musicien",
+  "answers": [
+   "Musicienne"
+  ],
+  "explanation": "Finais \"en\" dobram o n antes do e.",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-008",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Passe para o feminino: Danseur",
+  "answers": [
+   "Danseuse"
+  ],
+  "explanation": "Finais \"eur\" viram \"euse\".",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-009",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no feminino: \"Il est un bon chirurgien.\"",
+  "answers": [
+   "Elle est une bonne chirurgienne"
+  ],
+  "explanation": "Item pendente de revisão com nativo (gabarito do e-book).",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": true
+ },
+ {
+  "id": "q-u06-010",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no feminino: \"Il est jeune et beau.\"",
+  "answers": [
+   "Elle est jeune et belle"
+  ],
+  "explanation": "Jeune não muda. Beau vira belle (irregular).",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-011",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no feminino: \"Il est très gentil.\"",
+  "answers": [
+   "Elle est très gentille"
+  ],
+  "explanation": "Gentil vira gentille.",
+  "error_tags": [
+   "concordancia_feminino"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-012",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no plural: \"Il est grand.\"",
+  "answers": [
+   "Ils sont grands"
+  ],
+  "explanation": "Plural: ils sont + adjetivo com s.",
+  "error_tags": [
+   "concordancia_plural"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-013",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no plural: \"Il est beau.\"",
+  "answers": [
+   "Ils sont beaux"
+  ],
+  "explanation": "Exceção: beau vira beaux, com x.",
+  "error_tags": [
+   "concordancia_plural"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-014",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no plural: \"Elle est brésilienne.\"",
+  "answers": [
+   "Elles sont brésiliennes"
+  ],
+  "explanation": "Elle vira elles, est vira sont, e o adjetivo ganha s.",
+  "error_tags": [
+   "concordancia_plural"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u06-015",
+  "unit": "u06",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Coloque no plural: \"Il est français.\"",
+  "answers": [
+   "Ils sont français"
+  ],
+  "explanation": "Palavras que já terminam em s ou x não mudam.",
+  "error_tags": [
+   "concordancia_plural"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-001",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ tour Eiffel",
+  "answers": [
+   "La"
+  ],
+  "explanation": "\"Tour\" é feminino e a torre é específica: la tour Eiffel.",
+  "error_tags": [
+   "artigo_definido_indefinido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-002",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ pont",
+  "answers": [
+   "Un",
+   "Le"
+  ],
+  "explanation": "Pont é masculino. Gabarito do e-book: un pont.",
+  "error_tags": [
+   "artigo_definido_indefinido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-003",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ vélo de Pierre",
+  "answers": [
+   "Le",
+   "Un"
+  ],
+  "explanation": "Vélo é masculino. Gabarito do e-book: le vélo de Pierre.",
+  "error_tags": [
+   "artigo_definido_indefinido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-004",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ pomme",
+  "answers": [
+   "Une",
+   "La"
+  ],
+  "explanation": "Pomme é feminino. Gabarito do e-book: une pomme.",
+  "error_tags": [
+   "artigo_definido_indefinido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-005",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ école de Marie",
+  "answers": [
+   "L'"
+  ],
+  "explanation": "Antes de vogal, o artigo definido vira l'.",
+  "error_tags": [
+   "artigo_definido_indefinido",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-006",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Je suis _______ maison. (à + artigo)",
+  "answers": [
+   "à la"
+  ],
+  "explanation": "à + la = à la.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-007",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Je vais _______ Tour Eiffel. (à + artigo)",
+  "answers": [
+   "à la"
+  ],
+  "explanation": "à + la = à la.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-008",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Il va _______ EUA. (à + artigo)",
+  "answers": [
+   "aux"
+  ],
+  "explanation": "à + les = aux.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-009",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Nous sommes _______ marché. (à + artigo)",
+  "answers": [
+   "au"
+  ],
+  "explanation": "à + le = au.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-010",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Tu dois aller _______ école. (à + artigo)",
+  "answers": [
+   "à l'"
+  ],
+  "explanation": "Antes de vogal: à l'.",
+  "error_tags": [
+   "artigo_contraido",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-011",
+  "unit": "u07",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Os chifres do touro.",
+  "answers": [
+   "Les cornes du taureau"
+  ],
+  "explanation": "de + le = du.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-012",
+  "unit": "u07",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "O microfone do cantor.",
+  "answers": [
+   "Le micro du chanteur"
+  ],
+  "explanation": "de + le = du.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-013",
+  "unit": "u07",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "A coroa da princesa.",
+  "answers": [
+   "La couronne de la princesse"
+  ],
+  "explanation": "de + la = de la.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-014",
+  "unit": "u07",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Os livros dos alunos.",
+  "answers": [
+   "Les livres des élèves"
+  ],
+  "explanation": "de + les = des.",
+  "error_tags": [
+   "artigo_contraido"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-015",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ frère (meu irmão)",
+  "answers": [
+   "Mon"
+  ],
+  "explanation": "Frère é masculino: mon.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-016",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ soeur (minha irmã)",
+  "answers": [
+   "Ma"
+  ],
+  "explanation": "Soeur é feminino: ma.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-017",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ amis (meus amigos)",
+  "answers": [
+   "Mes"
+  ],
+  "explanation": "Plural: mes.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-018",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. J'aime [___] parents.",
+  "answers": [
+   "mes"
+  ],
+  "explanation": "Parents é plural: mes.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-019",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. [___] mère est très jolie et intelligente.",
+  "answers": [
+   "ma"
+  ],
+  "explanation": "Mère é feminino: ma.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-020",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. ... et [___] père est patient et amusant.",
+  "answers": [
+   "mon"
+  ],
+  "explanation": "Père é masculino: mon.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-021",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. Parfois, je joue chez [___] ami Jean.",
+  "answers": [
+   "mon"
+  ],
+  "explanation": "Antes de vogal usa-se mon: mon ami.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-022",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. [___] parents travaillent \"home office\", alors, ils sont toujours à la maison. (os pais de Jean)",
+  "answers": [
+   "ses"
+  ],
+  "explanation": "Plural de \"dele\": ses.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-023",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. [___] frère habite aussi avec lui, (o irmão de Jean)",
+  "answers": [
+   "son"
+  ],
+  "explanation": "Frère é masculino: son.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-024",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. ... mais [___] soeur habite en Italie. (a irmã de Jean)",
+  "answers": [
+   "sa"
+  ],
+  "explanation": "Soeur é feminino: sa.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-025",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. Nous avons les mêmes amis, mais [___] amis ne sortent pas beaucoup",
+  "answers": [
+   "nos"
+  ],
+  "explanation": "Plural de \"nosso\": nos.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-026",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Texto: complete com o possessivo. ... parce que [___] parents ne laissent pas.",
+  "answers": [
+   "ses"
+  ],
+  "explanation": "Plural de \"dele/dela\": ses.",
+  "error_tags": [
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-027",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ livre est intéressant",
+  "answers": [
+   "Ce"
+  ],
+  "explanation": "Escolha pelo gênero e número: ce, cette, ces.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-028",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ fille est jolie",
+  "answers": [
+   "Cette"
+  ],
+  "explanation": "Escolha pelo gênero e número: ce, cette, ces.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-029",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "J'aime _______ chanson",
+  "answers": [
+   "cette"
+  ],
+  "explanation": "Escolha pelo gênero e número: ce, cette, ces.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-030",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "Tu connais _______ acteur",
+  "answers": [
+   "cet"
+  ],
+  "explanation": "Antes de vogal ou h, masculino usa cet.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-031",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ appartement est petit",
+  "answers": [
+   "Cet"
+  ],
+  "explanation": "Antes de vogal ou h, masculino usa cet.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u07-032",
+  "unit": "u07",
+  "type": "fill_blank",
+  "skill": "gramatica",
+  "prompt": "_______ robes sont à moi",
+  "answers": [
+   "Ces"
+  ],
+  "explanation": "Escolha pelo gênero e número: ce, cette, ces.",
+  "error_tags": [
+   "demonstrativo"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-001",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Quel est le premier jour de la semaine ?",
+  "answers": [
+   "Lundi"
+  ],
+  "explanation": "A semana francesa começa na segunda-feira: lundi.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-002",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Quels sont les jours du week-end ?",
+  "answers": [
+   "Samedi et dimanche"
+  ],
+  "explanation": "Fim de semana: samedi et dimanche.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-003",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Après le jeudi, c'est _______",
+  "answers": [
+   "vendredi"
+  ],
+  "explanation": "Depois de jeudi vem vendredi.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-004",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Le troisième jour de la semaine est le _______",
+  "answers": [
+   "mercredi"
+  ],
+  "explanation": "Lundi, mardi, mercredi: o terceiro é mercredi.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-005",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Le mois de Noël est en _______",
+  "answers": [
+   "décembre"
+  ],
+  "explanation": "Natal é em décembre.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-006",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Généralement, le carnaval au Brésil se passe en _______",
+  "answers": [
+   "février",
+   "mars"
+  ],
+  "explanation": "Gabarito do e-book: février. Mars também é aceito, pois o carnaval pode cair em março.",
+  "error_tags": [
+   "dias_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-007",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 10h15",
+  "answers": [
+   "Dix heures et quart",
+   "Il est dix heures et quart"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-008",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 12h",
+  "answers": [
+   "Midi",
+   "Il est midi"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-009",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 00h",
+  "answers": [
+   "Minuit",
+   "Il est minuit"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-010",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 11h30",
+  "answers": [
+   "Onze heures trente",
+   "Il est onze heures trente",
+   "Onze heures et demie",
+   "Il est onze heures et demie"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-011",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 14h40",
+  "answers": [
+   "Trois heures moins vingt",
+   "Il est trois heures moins vingt"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-012",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 18h45",
+  "answers": [
+   "Sept heures moins le quart",
+   "Il est sept heures moins le quart"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-013",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 8h50",
+  "answers": [
+   "Neuf heures moins dix",
+   "Il est neuf heures moins dix"
+  ],
+  "explanation": "Até 30 minutos some os minutos. Depois de 30, diminua da próxima hora (moins).",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-014",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 15h30",
+  "answers": [
+   "Trois heures et demie",
+   "Il est trois heures et demie"
+  ],
+  "explanation": "Meia hora: et demie.",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-015",
+  "unit": "u08",
+  "type": "write_out",
+  "skill": "vocabulario",
+  "prompt": "Escreva a hora por extenso: 20h15",
+  "answers": [
+   "Huit heures et quart",
+   "Il est huit heures et quart"
+  ],
+  "explanation": "Quinze minutos: et quart.",
+  "error_tags": [
+   "horas"
+  ],
+  "difficulty": 2,
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-016",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Complete: En _______, il fait très chaud et on va souvent à la plage.",
+  "answers": [
+   "été"
+  ],
+  "explanation": "O e-book usa \"en\" para as estações. Atenção: no francês padrão, primavera costuma ser \"au printemps\". Item registrado em content/REVIEW.md.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-017",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Complete: En _______, les arbres perdent leurs feuilles.",
+  "answers": [
+   "automne"
+  ],
+  "explanation": "O e-book usa \"en\" para as estações. Atenção: no francês padrão, primavera costuma ser \"au printemps\". Item registrado em content/REVIEW.md.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-018",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Complete: En _______, il neige et on porte des vêtements chauds.",
+  "answers": [
+   "hiver"
+  ],
+  "explanation": "O e-book usa \"en\" para as estações. Atenção: no francês padrão, primavera costuma ser \"au printemps\". Item registrado em content/REVIEW.md.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-019",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Complete: En _______, les fleurs commencent à pousser.",
+  "answers": [
+   "printemps"
+  ],
+  "explanation": "O e-book usa \"en\" para as estações. Atenção: no francês padrão, primavera costuma ser \"au printemps\". Item registrado em content/REVIEW.md.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-020",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "En hiver, _______.",
+  "answers": [
+   "Il fait froid"
+  ],
+  "explanation": "Para o tempo usamos \"il\": il fait chaud, il fait froid, il fait beau, il pleut, il neige.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-021",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "En été, _______.",
+  "answers": [
+   "Il fait chaud"
+  ],
+  "explanation": "Para o tempo usamos \"il\": il fait chaud, il fait froid, il fait beau, il pleut, il neige.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-022",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Aujourd'hui, _______, le ciel est bleu.",
+  "answers": [
+   "Il fait beau"
+  ],
+  "explanation": "Para o tempo usamos \"il\": il fait chaud, il fait froid, il fait beau, il pleut, il neige.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-023",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "En automne, souvent, _______.",
+  "answers": [
+   "Il pleut"
+  ],
+  "explanation": "Para o tempo usamos \"il\": il fait chaud, il fait froid, il fait beau, il pleut, il neige.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u08-024",
+  "unit": "u08",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "En décembre au Canada, _______ beaucoup.",
+  "answers": [
+   "Il neige"
+  ],
+  "explanation": "Para o tempo usamos \"il\": il fait chaud, il fait froid, il fait beau, il pleut, il neige.",
+  "error_tags": [
+   "estacoes_clima"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-001",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Le chat est _______ la table. (embaixo)",
+  "answers": [
+   "sous"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-002",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "La voiture est _______ la maison. (na frente)",
+  "answers": [
+   "devant"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-003",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Le livre est _______ le sac. (dentro)",
+  "answers": [
+   "dans"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-004",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Je vais _______ mes parents. (na casa dos meus pais)",
+  "answers": [
+   "chez"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-005",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "La France est _______ la Suisse. (perto)",
+  "answers": [
+   "près de"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-006",
+  "unit": "u09",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "La France est _______ du Brésil. (longe)",
+  "answers": [
+   "loin"
+  ],
+  "explanation": "Preposições de lugar: sous (embaixo), devant, dans, chez, près de, loin de.",
+  "error_tags": [
+   "preposicao_lugar"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-007",
+  "unit": "u09",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Tem um livro em cima da mesa.",
+  "answers": [
+   "Il y a un livre sur la table."
+  ],
+  "explanation": "\"Il y a\" indica existência.",
+  "error_tags": [
+   "il_y_a"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-008",
+  "unit": "u09",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Há três cadeiras na sala.",
+  "answers": [
+   "Il y a trois chaises dans la salle."
+  ],
+  "explanation": "\"Il y a\" não muda com o plural.",
+  "error_tags": [
+   "il_y_a"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-009",
+  "unit": "u09",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "É a casa da Marie.",
+  "answers": [
+   "C'est la maison de Marie."
+  ],
+  "explanation": "\"C'est\" identifica algo.",
+  "error_tags": [
+   "c_est"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-010",
+  "unit": "u09",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eu vou ao médico.",
+  "answers": [
+   "Je vais chez le médecin."
+  ],
+  "explanation": "Para ir a um profissional, use chez + a pessoa.",
+  "error_tags": [
+   "chez"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u09-011",
+  "unit": "u09",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eu estou na casa da minha mãe.",
+  "answers": [
+   "Je suis chez ma mère."
+  ],
+  "explanation": "chez + possessivo: chez ma mère.",
+  "error_tags": [
+   "chez",
+   "possessivo"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-001",
+  "unit": "u10",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Je voudrais _______ (um prato principal).",
+  "answers": [
+   "un plat principal"
+  ],
+  "explanation": "Plat principal é o prato principal do cardápio.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-002",
+  "unit": "u10",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Où est la _______ (estação de trem) ?",
+  "answers": [
+   "gare"
+  ],
+  "explanation": "Gare é a estação de trem.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-003",
+  "unit": "u10",
+  "type": "fill_blank",
+  "skill": "vocabulario",
+  "prompt": "Appelez une _______, s'il vous plaît. (ambulância)",
+  "answers": [
+   "ambulance"
+  ],
+  "explanation": "Une ambulance, como em português.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-004",
+  "unit": "u10",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Eu gostaria de um bilhete para Paris.",
+  "answers": [
+   "Je voudrais un billet pour Paris."
+  ],
+  "explanation": "Je voudrais = eu gostaria. Pour indica destino.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-005",
+  "unit": "u10",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Preciso de um médico.",
+  "answers": [
+   "J'ai besoin d'un médecin."
+  ],
+  "explanation": "\"Avoir besoin de\" = precisar de.",
+  "error_tags": [
+   "vocabulario_viagem",
+   "elisao_apostrofo"
+  ],
+  "difficulty": 3,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-u10-006",
+  "unit": "u10",
+  "type": "translate_pt_fr",
+  "skill": "vocabulario",
+  "prompt": "Vire à direita.",
+  "answers": [
+   "Tournez à droite."
+  ],
+  "explanation": "Tournez é o imperativo de tourner (virar), formal.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u01-001",
+  "unit": "u01",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"Bonjour\"?",
+  "answers": [
+   "Bom dia"
+  ],
+  "choices": [
+   "terça-feira",
+   "Bom dia",
+   "Quando",
+   "segunda-feira"
+  ],
+  "hint": "Pronúncia: (Bom júr)",
+  "explanation": "Bonjour significa \"Bom dia\". Exemplo: Bonjour, je m'appelle André. (Bom dia, meu nome é André.)",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u01-002",
+  "unit": "u01",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"À plus tard\"?",
+  "answers": [
+   "Até mais tarde"
+  ],
+  "choices": [
+   "Até mais tarde",
+   "padeiro / padeira",
+   "rei",
+   "músico / música"
+  ],
+  "hint": "Pronúncia: (a plú tar)",
+  "explanation": "À plus tard significa \"Até mais tarde\".",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u01-003",
+  "unit": "u01",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"À demain\"?",
+  "answers": [
+   "Até amanhã"
+  ],
+  "choices": [
+   "ter",
+   "fazer",
+   "Até amanhã",
+   "ser, estar"
+  ],
+  "hint": "Pronúncia: (A dômam)",
+  "explanation": "À demain significa \"Até amanhã\".",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u01-004",
+  "unit": "u01",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"Je m'appelle\"?",
+  "answers": [
+   "Eu me chamo"
+  ],
+  "choices": [
+   "primavera",
+   "Está quente",
+   "na casa de, no local de trabalho de",
+   "Eu me chamo"
+  ],
+  "hint": "Pronúncia: (Jô má-péle)",
+  "explanation": "Je m'appelle significa \"Eu me chamo\".",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u01-005",
+  "unit": "u01",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"elle\"?",
+  "answers": [
+   "ela"
+  ],
+  "choices": [
+   "Tchau",
+   "Tudo bom?",
+   "ela",
+   "Até mais tarde"
+  ],
+  "hint": "Pronúncia: (éle)",
+  "explanation": "elle significa \"ela\".",
+  "error_tags": [
+   "vocabulario_pronomes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u02-001",
+  "unit": "u02",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"trois\"?",
+  "answers": [
+   "três"
+  ],
+  "choices": [
+   "Está fazendo 10 graus",
+   "Está quente",
+   "três",
+   "Está um dia bonito"
+  ],
+  "explanation": "trois significa \"três\".",
+  "error_tags": [
+   "vocabulario_pronuncia_r"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u02-002",
+  "unit": "u02",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"simple\"?",
+  "answers": [
+   "simples"
+  ],
+  "choices": [
+   "seu, de vocês / seus",
+   "segunda-feira",
+   "simples",
+   "nosso / nossa / nossos"
+  ],
+  "hint": "Pronúncia: (sãple)",
+  "explanation": "simple significa \"simples\".",
+  "error_tags": [
+   "vocabulario_vogais_nasais"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u02-003",
+  "unit": "u02",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"ressembler\"?",
+  "answers": [
+   "parecer"
+  ],
+  "choices": [
+   "setembro",
+   "junho",
+   "julho",
+   "parecer"
+  ],
+  "hint": "Pronúncia: (ressãbler)",
+  "explanation": "ressembler significa \"parecer\".",
+  "error_tags": [
+   "vocabulario_vogais_nasais"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u02-004",
+  "unit": "u02",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"enfant\"?",
+  "answers": [
+   "criança"
+  ],
+  "choices": [
+   "Até amanhã",
+   "criança",
+   "Tenha um bom dia",
+   "Tenha uma boa noite"
+  ],
+  "hint": "Pronúncia: (ãnfã)",
+  "explanation": "enfant significa \"criança\".",
+  "error_tags": [
+   "vocabulario_vogais_nasais"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u02-005",
+  "unit": "u02",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"aimer\"?",
+  "answers": [
+   "amar"
+  ],
+  "choices": [
+   "amar",
+   "dançarino / dançarina",
+   "meu / minha / meus",
+   "japonês"
+  ],
+  "hint": "Pronúncia: (emer)",
+  "explanation": "aimer significa \"amar\".",
+  "error_tags": [
+   "vocabulario_vogais_juntas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u03-001",
+  "unit": "u03",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"De rien\"?",
+  "answers": [
+   "De nada"
+  ],
+  "choices": [
+   "De nada",
+   "estar com fome",
+   "estar com sede",
+   "ter medo"
+  ],
+  "hint": "Pronúncia: (dô rriã)",
+  "explanation": "De rien significa \"De nada\".",
+  "error_tags": [
+   "vocabulario_cortesia"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u03-002",
+  "unit": "u03",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"une réservation\"?",
+  "answers": [
+   "uma reserva"
+  ],
+  "choices": [
+   "uma reserva",
+   "segunda-feira",
+   "terça-feira",
+   "maio"
+  ],
+  "hint": "Pronúncia: (úne rêservacion)",
+  "explanation": "une réservation significa \"uma reserva\". Exemplo: J'ai une réservation. (Eu tenho uma reserva.)",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u03-003",
+  "unit": "u03",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"un billet\"?",
+  "answers": [
+   "um bilhete"
+  ],
+  "choices": [
+   "meu / minha / meus",
+   "teu / tua / teus",
+   "dele, dela / seus",
+   "um bilhete"
+  ],
+  "hint": "Pronúncia: (ã binhê)",
+  "explanation": "un billet significa \"um bilhete\". Exemplo: Combien coûte un billet ? (Quanto custa um bilhete?)",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u03-004",
+  "unit": "u03",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"le métro\"?",
+  "answers": [
+   "o metrô"
+  ],
+  "choices": [
+   "perto daqui",
+   "longe",
+   "ao lado",
+   "o metrô"
+  ],
+  "hint": "Pronúncia: (Lo mêtrô)",
+  "explanation": "le métro significa \"o metrô\".",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u04-001",
+  "unit": "u04",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"Où\"?",
+  "answers": [
+   "Onde"
+  ],
+  "choices": [
+   "Onde",
+   "Está quente",
+   "eu",
+   "Está frio"
+  ],
+  "explanation": "Où significa \"Onde\". Exemplo: Où est le restaurant ? (Onde é o restaurante?)",
+  "error_tags": [
+   "vocabulario_interrogativas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u04-002",
+  "unit": "u04",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"Combien\"?",
+  "answers": [
+   "Quanto, quantos"
+  ],
+  "choices": [
+   "casado / casada",
+   "Quanto, quantos",
+   "bom / boa",
+   "italiano / italiana"
+  ],
+  "explanation": "Combien significa \"Quanto, quantos\". Exemplo: Combien ça coûte ? (Quanto custa?)",
+  "error_tags": [
+   "vocabulario_interrogativas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u04-003",
+  "unit": "u04",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"donc\"?",
+  "answers": [
+   "então, portanto"
+  ],
+  "choices": [
+   "novembro",
+   "inverno",
+   "então, portanto",
+   "outubro"
+  ],
+  "explanation": "donc significa \"então, portanto\". Exemplo: Il est tard, donc je dois partir. (Está tarde, então eu preciso ir.)",
+  "error_tags": [
+   "vocabulario_ligacao"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u05-001",
+  "unit": "u05",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"être\"?",
+  "answers": [
+   "ser, estar"
+  ],
+  "choices": [
+   "então, portanto",
+   "ser, estar",
+   "não",
+   "e"
+  ],
+  "explanation": "être significa \"ser, estar\".",
+  "error_tags": [
+   "vocabulario_verbos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u05-002",
+  "unit": "u05",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"aller\"?",
+  "answers": [
+   "ir"
+  ],
+  "choices": [
+   "ir",
+   "situação",
+   "solução",
+   "educação"
+  ],
+  "explanation": "aller significa \"ir\".",
+  "error_tags": [
+   "vocabulario_verbos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u05-003",
+  "unit": "u05",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"avoir froid\"?",
+  "answers": [
+   "estar com frio"
+  ],
+  "choices": [
+   "sexta-feira",
+   "quinta-feira",
+   "quarta-feira",
+   "estar com frio"
+  ],
+  "explanation": "avoir froid significa \"estar com frio\". Exemplo: Elle a froid. (Ela tem frio.)",
+  "error_tags": [
+   "vocabulario_expressoes_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u05-004",
+  "unit": "u05",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"avoir raison\"?",
+  "answers": [
+   "ter razão"
+  ],
+  "choices": [
+   "um bilhete",
+   "o aeroporto",
+   "o táxi",
+   "ter razão"
+  ],
+  "explanation": "avoir raison significa \"ter razão\".",
+  "error_tags": [
+   "vocabulario_expressoes_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u06-001",
+  "unit": "u06",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"grand / grande\"?",
+  "answers": [
+   "grande"
+  ],
+  "choices": [
+   "casado / casada",
+   "estudante",
+   "grande",
+   "italiano / italiana"
+  ],
+  "explanation": "grand / grande significa \"grande\".",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u06-002",
+  "unit": "u06",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"marié / mariée\"?",
+  "answers": [
+   "casado / casada"
+  ],
+  "choices": [
+   "Quanto, quantos",
+   "então, portanto",
+   "e",
+   "casado / casada"
+  ],
+  "explanation": "marié / mariée significa \"casado / casada\". Exemplo: Il est marié. Elle est mariée. (Ele é casado. Ela é casada.)",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u06-003",
+  "unit": "u06",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"mignon / mignonne\"?",
+  "answers": [
+   "fofo / fofa"
+  ],
+  "choices": [
+   "editor / editora",
+   "atrás de",
+   "fofo / fofa",
+   "ator / atriz"
+  ],
+  "explanation": "mignon / mignonne significa \"fofo / fofa\".",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u06-004",
+  "unit": "u06",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"serveur / serveuse\"?",
+  "answers": [
+   "garçom / garçonete"
+  ],
+  "choices": [
+   "marciano",
+   "eu",
+   "garçom / garçonete",
+   "família"
+  ],
+  "explanation": "serveur / serveuse significa \"garçom / garçonete\".",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u06-005",
+  "unit": "u06",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"éditeur / éditrice\"?",
+  "answers": [
+   "editor / editora"
+  ],
+  "choices": [
+   "grande",
+   "editor / editora",
+   "estudante",
+   "loiro / loira"
+  ],
+  "explanation": "éditeur / éditrice significa \"editor / editora\".",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u07-001",
+  "unit": "u07",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"mon / ma / mes\"?",
+  "answers": [
+   "meu / minha / meus"
+  ],
+  "choices": [
+   "Está nevando",
+   "É uma emergência",
+   "meu / minha / meus",
+   "o hospital"
+  ],
+  "explanation": "mon / ma / mes significa \"meu / minha / meus\".",
+  "error_tags": [
+   "vocabulario_possessivos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u07-002",
+  "unit": "u07",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"notre / nos\"?",
+  "answers": [
+   "nosso / nossa / nossos"
+  ],
+  "choices": [
+   "dele, dela / seus",
+   "casado / casada",
+   "italiano / italiana",
+   "nosso / nossa / nossos"
+  ],
+  "explanation": "notre / nos significa \"nosso / nossa / nossos\".",
+  "error_tags": [
+   "vocabulario_possessivos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u07-003",
+  "unit": "u07",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"ces\"?",
+  "answers": [
+   "estes, esses, estas, essas"
+  ],
+  "choices": [
+   "De nada",
+   "mas",
+   "estes, esses, estas, essas",
+   "uma reserva"
+  ],
+  "explanation": "ces significa \"estes, esses, estas, essas\". Exemplo: Ces arbres sont énormes. (Essas árvores são enormes.)",
+  "error_tags": [
+   "vocabulario_demonstrativos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u08-001",
+  "unit": "u08",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"lundi\"?",
+  "answers": [
+   "segunda-feira"
+  ],
+  "choices": [
+   "segunda-feira",
+   "e meia",
+   "e quinze",
+   "da manhã"
+  ],
+  "hint": "Pronúncia: (landí)",
+  "explanation": "lundi significa \"segunda-feira\".",
+  "error_tags": [
+   "vocabulario_dias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u08-002",
+  "unit": "u08",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"jeudi\"?",
+  "answers": [
+   "quinta-feira"
+  ],
+  "choices": [
+   "um",
+   "quinta-feira",
+   "criança",
+   "parecer"
+  ],
+  "hint": "Pronúncia: (Judí)",
+  "explanation": "jeudi significa \"quinta-feira\".",
+  "error_tags": [
+   "vocabulario_dias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u08-003",
+  "unit": "u08",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"dimanche\"?",
+  "answers": [
+   "domingo"
+  ],
+  "choices": [
+   "o voo",
+   "uma ambulância",
+   "domingo",
+   "abril"
+  ],
+  "hint": "Pronúncia: (dimonxe)",
+  "explanation": "dimanche significa \"domingo\".",
+  "error_tags": [
+   "vocabulario_dias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u08-004",
+  "unit": "u08",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"mars\"?",
+  "answers": [
+   "março"
+  ],
+  "choices": [
+   "meio-dia",
+   "o hospital",
+   "março",
+   "a farmácia"
+  ],
+  "hint": "Pronúncia: (maarrs)",
+  "explanation": "mars significa \"março\".",
+  "error_tags": [
+   "vocabulario_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u08-005",
+  "unit": "u08",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"juin\"?",
+  "answers": [
+   "junho"
+  ],
+  "choices": [
+   "mas",
+   "junho",
+   "ser, estar",
+   "não"
+  ],
+  "hint": "Pronúncia: (Juan)",
+  "explanation": "juin significa \"junho\".",
+  "error_tags": [
+   "vocabulario_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u09-001",
+  "unit": "u09",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"dans\"?",
+  "answers": [
+   "dentro de, no"
+  ],
+  "choices": [
+   "Até amanhã",
+   "dentro de, no",
+   "Onde",
+   "elas"
+  ],
+  "explanation": "dans significa \"dentro de, no\". Exemplo: Le livre est dans le sac. (O livro está dentro da mochila.)",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u09-002",
+  "unit": "u09",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"devant\"?",
+  "answers": [
+   "na frente de"
+  ],
+  "choices": [
+   "na frente de",
+   "branco / branca",
+   "estes, esses, estas, essas",
+   "março"
+  ],
+  "explanation": "devant significa \"na frente de\". Exemplo: Il y a une voiture devant la maison. (Tem um carro na frente da casa.)",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u09-003",
+  "unit": "u09",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"loin de\"?",
+  "answers": [
+   "longe de"
+  ],
+  "choices": [
+   "meio-dia",
+   "onde",
+   "Onde estão… ?",
+   "longe de"
+  ],
+  "explanation": "loin de significa \"longe de\". Exemplo: Mon appartement est loin d'ici. (Meu apartamento é longe daqui.)",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u09-004",
+  "unit": "u09",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"chez\"?",
+  "answers": [
+   "na casa de, no local de trabalho de"
+  ],
+  "choices": [
+   "a gente",
+   "ela",
+   "ele",
+   "na casa de, no local de trabalho de"
+  ],
+  "explanation": "chez significa \"na casa de, no local de trabalho de\". Exemplo: Je vais chez Paul. (Eu vou à casa do Paul.)",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u09-005",
+  "unit": "u09",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"où\"?",
+  "answers": [
+   "onde"
+  ],
+  "choices": [
+   "Até amanhã",
+   "Tudo bom?",
+   "onde",
+   "Até logo"
+  ],
+  "hint": "Pronúncia: (u)",
+  "explanation": "où significa \"onde\".",
+  "error_tags": [
+   "vocabulario_expressoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u10-001",
+  "unit": "u10",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"un billet d'avion\"?",
+  "answers": [
+   "um bilhete de avião"
+  ],
+  "choices": [
+   "longe de",
+   "janeiro",
+   "perto de",
+   "um bilhete de avião"
+  ],
+  "hint": "Pronúncia: (an biê daviõ)",
+  "explanation": "un billet d'avion significa \"um bilhete de avião\".",
+  "error_tags": [
+   "vocabulario_aeroporto"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u10-002",
+  "unit": "u10",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"la gare\"?",
+  "answers": [
+   "a estação de trem"
+  ],
+  "choices": [
+   "entre",
+   "na casa de, no local de trabalho de",
+   "a estação de trem",
+   "ao lado de"
+  ],
+  "hint": "Pronúncia: (la garr)",
+  "explanation": "la gare significa \"a estação de trem\".",
+  "error_tags": [
+   "vocabulario_aeroporto"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u10-003",
+  "unit": "u10",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"un menu\"?",
+  "answers": [
+   "um cardápio"
+  ],
+  "choices": [
+   "a gente",
+   "um cardápio",
+   "ela",
+   "apresentação"
+  ],
+  "hint": "Pronúncia: (ã menúu)",
+  "explanation": "un menu significa \"um cardápio\".",
+  "error_tags": [
+   "vocabulario_restaurante"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u10-004",
+  "unit": "u10",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"une boisson\"?",
+  "answers": [
+   "uma bebida"
+  ],
+  "choices": [
+   "a gente",
+   "uma bebida",
+   "ela",
+   "apresentação"
+  ],
+  "hint": "Pronúncia: (úne bôasson)",
+  "explanation": "une boisson significa \"uma bebida\".",
+  "error_tags": [
+   "vocabulario_restaurante"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mc-u10-005",
+  "unit": "u10",
+  "type": "multiple_choice",
+  "skill": "vocabulario",
+  "prompt": "O que significa \"Appelez la police\"?",
+  "answers": [
+   "Chame a polícia"
+  ],
+  "choices": [
+   "ao lado de",
+   "entre",
+   "Chame a polícia",
+   "longe de"
+  ],
+  "hint": "Pronúncia: (Apelê la police)",
+  "explanation": "Appelez la police significa \"Chame a polícia\".",
+  "error_tags": [
+   "vocabulario_emergencias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u01-001",
+  "unit": "u01",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (saudações).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "Bonjour",
+    "right": "Bom dia"
+   },
+   {
+    "left": "Salut",
+    "right": "Olá (informal)"
+   },
+   {
+    "left": "Coucou",
+    "right": "Oi (forma carinhosa e informal)"
+   },
+   {
+    "left": "Bonsoir",
+    "right": "Boa noite (ao chegar)"
+   }
+  ],
+  "explanation": "Bonjour = Bom dia; Salut = Olá (informal); Coucou = Oi (forma carinhosa e informal); Bonsoir = Boa noite (ao chegar).",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u03-002",
+  "unit": "u03",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (viagem).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "l'hôtel",
+    "right": "o hotel"
+   },
+   {
+    "left": "une réservation",
+    "right": "uma reserva"
+   },
+   {
+    "left": "le taxi",
+    "right": "o táxi"
+   },
+   {
+    "left": "l'aéroport",
+    "right": "o aeroporto"
+   }
+  ],
+  "explanation": "l'hôtel = o hotel; une réservation = uma reserva; le taxi = o táxi; l'aéroport = o aeroporto.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u04-003",
+  "unit": "u04",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (palavras de pergunta).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "Où",
+    "right": "Onde"
+   },
+   {
+    "left": "Quand",
+    "right": "Quando"
+   },
+   {
+    "left": "Comment",
+    "right": "Como"
+   },
+   {
+    "left": "Combien",
+    "right": "Quanto, quantos"
+   }
+  ],
+  "explanation": "Où = Onde; Quand = Quando; Comment = Como; Combien = Quanto, quantos.",
+  "error_tags": [
+   "vocabulario_interrogativas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u05-004",
+  "unit": "u05",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (expressões com avoir).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "avoir faim",
+    "right": "estar com fome"
+   },
+   {
+    "left": "avoir soif",
+    "right": "estar com sede"
+   },
+   {
+    "left": "avoir froid",
+    "right": "estar com frio"
+   },
+   {
+    "left": "avoir chaud",
+    "right": "estar com calor"
+   }
+  ],
+  "explanation": "avoir faim = estar com fome; avoir soif = estar com sede; avoir froid = estar com frio; avoir chaud = estar com calor.",
+  "error_tags": [
+   "vocabulario_expressoes_avoir"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u08-005",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (dias da semana).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "lundi",
+    "right": "segunda-feira"
+   },
+   {
+    "left": "mardi",
+    "right": "terça-feira"
+   },
+   {
+    "left": "mercredi",
+    "right": "quarta-feira"
+   },
+   {
+    "left": "jeudi",
+    "right": "quinta-feira"
+   }
+  ],
+  "explanation": "lundi = segunda-feira; mardi = terça-feira; mercredi = quarta-feira; jeudi = quinta-feira.",
+  "error_tags": [
+   "vocabulario_dias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u08-006",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (meses).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "janvier",
+    "right": "janeiro"
+   },
+   {
+    "left": "février",
+    "right": "fevereiro"
+   },
+   {
+    "left": "mars",
+    "right": "março"
+   },
+   {
+    "left": "avril",
+    "right": "abril"
+   }
+  ],
+  "explanation": "janvier = janeiro; février = fevereiro; mars = março; avril = abril.",
+  "error_tags": [
+   "vocabulario_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u08-007",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (estações).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "le printemps",
+    "right": "primavera"
+   },
+   {
+    "left": "l'été",
+    "right": "verão"
+   },
+   {
+    "left": "l'automne",
+    "right": "outono"
+   },
+   {
+    "left": "l'hiver",
+    "right": "inverno"
+   }
+  ],
+  "explanation": "le printemps = primavera; l'été = verão; l'automne = outono; l'hiver = inverno.",
+  "error_tags": [
+   "vocabulario_estacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u09-008",
+  "unit": "u09",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (preposições de lugar).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "dans",
+    "right": "dentro de, no"
+   },
+   {
+    "left": "sous",
+    "right": "debaixo de"
+   },
+   {
+    "left": "sur",
+    "right": "em cima de"
+   },
+   {
+    "left": "devant",
+    "right": "na frente de"
+   }
+  ],
+  "explanation": "dans = dentro de, no; sous = debaixo de; sur = em cima de; devant = na frente de.",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u10-009",
+  "unit": "u10",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (restaurante).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "un menu",
+    "right": "um cardápio"
+   },
+   {
+    "left": "une entrée",
+    "right": "uma entrada"
+   },
+   {
+    "left": "un plat principal",
+    "right": "um prato principal"
+   },
+   {
+    "left": "une boisson",
+    "right": "uma bebida"
+   }
+  ],
+  "explanation": "un menu = um cardápio; une entrée = uma entrada; un plat principal = um prato principal; une boisson = uma bebida.",
+  "error_tags": [
+   "vocabulario_restaurante"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u10-010",
+  "unit": "u10",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (direções).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "tout droit",
+    "right": "em frente"
+   },
+   {
+    "left": "à gauche",
+    "right": "à esquerda"
+   },
+   {
+    "left": "à droite",
+    "right": "à direita"
+   },
+   {
+    "left": "près d'ici",
+    "right": "perto daqui"
+   }
+  ],
+  "explanation": "tout droit = em frente; à gauche = à esquerda; à droite = à direita; près d'ici = perto daqui.",
+  "error_tags": [
+   "vocabulario_direcoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mp-u10-011",
+  "unit": "u10",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (emergências).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "J'ai besoin d'aide",
+    "right": "Preciso de ajuda"
+   },
+   {
+    "left": "Appelez la police",
+    "right": "Chame a polícia"
+   },
+   {
+    "left": "un médecin",
+    "right": "um médico"
+   },
+   {
+    "left": "une ambulance",
+    "right": "uma ambulância"
+   }
+  ],
+  "explanation": "J'ai besoin d'aide = Preciso de ajuda; Appelez la police = Chame a polícia; un médecin = um médico; une ambulance = uma ambulância.",
+  "error_tags": [
+   "vocabulario_emergencias"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u01-001",
+  "unit": "u01",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Bom dia, como você está?\"",
+  "answers": [
+   "Bonjour, comment ça va?",
+   "Bonjour, comment ça va ?"
+  ],
+  "words": [
+   "Bonjour,",
+   "comment",
+   "ça",
+   "va?"
+  ],
+  "explanation": "Bonjour, comment ça va ? (Bom dia, como você está?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u02-002",
+  "unit": "u02",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Onde fica a estação?\"",
+  "answers": [
+   "Où est la gare?",
+   "Où est la gare ?"
+  ],
+  "words": [
+   "est",
+   "Où",
+   "gare?",
+   "la"
+  ],
+  "explanation": "Où est la gare ? (Onde fica a estação?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u03-003",
+  "unit": "u03",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Bom dia, quanto custa, por favor?\"",
+  "answers": [
+   "Bonjour, c'est combien, s'il vous plaît?",
+   "Bonjour, c'est combien, s'il vous plaît ?"
+  ],
+  "words": [
+   "plaît?",
+   "vous",
+   "c'est",
+   "Bonjour,",
+   "s'il",
+   "combien,"
+  ],
+  "explanation": "Bonjour, c'est combien, s'il vous plaît ? (Bom dia, quanto custa, por favor?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u03-004",
+  "unit": "u03",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Eu tenho uma reserva em nome de Dupont.\"",
+  "answers": [
+   "J'ai une réservation au nom de Dupont.",
+   "J'ai une réservation au nom de Dupont."
+  ],
+  "words": [
+   "nom",
+   "de",
+   "Dupont.",
+   "J'ai",
+   "une",
+   "réservation",
+   "au"
+  ],
+  "explanation": "J'ai une réservation au nom de Dupont. (Eu tenho uma reserva em nome de Dupont.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u03-005",
+  "unit": "u03",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"A que horas sai o próximo barco?\"",
+  "answers": [
+   "À quelle heure part le prochain bateau?",
+   "À quelle heure part le prochain bateau ?"
+  ],
+  "words": [
+   "heure",
+   "part",
+   "À",
+   "quelle",
+   "bateau?",
+   "le",
+   "prochain"
+  ],
+  "explanation": "À quelle heure part le prochain bateau ? (A que horas sai o próximo barco?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u04-006",
+  "unit": "u04",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Eu não sei.\"",
+  "answers": [
+   "Je ne sais pas.",
+   "Je ne sais pas."
+  ],
+  "words": [
+   "sais",
+   "pas.",
+   "Je",
+   "ne"
+  ],
+  "explanation": "Je ne sais pas. (Eu não sei.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u05-007",
+  "unit": "u05",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Eu vou ao mercado.\"",
+  "answers": [
+   "Je vais au marché.",
+   "Je vais au marché."
+  ],
+  "words": [
+   "vais",
+   "Je",
+   "marché.",
+   "au"
+  ],
+  "explanation": "Je vais au marché. (Eu vou ao mercado.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u05-008",
+  "unit": "u05",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Ela vai ao cinema.\"",
+  "answers": [
+   "Elle va au cinéma.",
+   "Elle va au cinéma."
+  ],
+  "words": [
+   "Elle",
+   "va",
+   "au",
+   "cinéma."
+  ],
+  "explanation": "Elle va au cinéma. (Ela vai ao cinema.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u08-009",
+  "unit": "u08",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Que horas são?\"",
+  "answers": [
+   "Quelle heure est-il?",
+   "Quelle heure est-il ?"
+  ],
+  "words": [
+   "est-il?",
+   "Quelle",
+   "heure"
+  ],
+  "explanation": "Quelle heure est-il ? (Que horas são?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u09-010",
+  "unit": "u09",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"O gato está debaixo da mesa.\"",
+  "answers": [
+   "Le chat est sous la table.",
+   "Le chat est sous la table."
+  ],
+  "words": [
+   "table.",
+   "la",
+   "sous",
+   "est",
+   "chat",
+   "Le"
+  ],
+  "explanation": "Le chat est sous la table. (O gato está debaixo da mesa.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u10-011",
+  "unit": "u10",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Onde é o portão de embarque?\"",
+  "answers": [
+   "Où est la porte d'embarquement?",
+   "Où est la porte d'embarquement ?"
+  ],
+  "words": [
+   "est",
+   "Où",
+   "porte",
+   "la",
+   "d'embarquement?"
+  ],
+  "explanation": "Où est la porte d'embarquement ? (Onde é o portão de embarque?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u10-012",
+  "unit": "u10",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Eu vou querer um café e uma salada.\"",
+  "answers": [
+   "Je prends un café et une salade.",
+   "Je prends un café et une salade."
+  ],
+  "words": [
+   "un",
+   "café",
+   "Je",
+   "prends",
+   "salade.",
+   "et",
+   "une"
+  ],
+  "explanation": "Je prends un café et une salade. (Eu vou querer um café e uma salada.)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u10-013",
+  "unit": "u10",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Onde fica o hospital mais perto?\"",
+  "answers": [
+   "Où est l'hôpital le plus proche?",
+   "Où est l'hôpital le plus proche ?"
+  ],
+  "words": [
+   "le",
+   "l'hôpital",
+   "est",
+   "Où",
+   "proche?",
+   "plus"
+  ],
+  "explanation": "Où est l'hôpital le plus proche ? (Onde fica o hospital mais perto?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-ow-u10-014",
+  "unit": "u10",
+  "type": "order_words",
+  "skill": "gramatica",
+  "prompt": "Coloque as palavras na ordem: \"Onde fica a farmácia?\"",
+  "answers": [
+   "Où est la pharmacie?",
+   "Où est la pharmacie ?"
+  ],
+  "words": [
+   "pharmacie?",
+   "la",
+   "est",
+   "Où"
+  ],
+  "explanation": "Où est la pharmacie ? (Onde fica a farmácia?)",
+  "error_tags": [
+   "ordem_palavras"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u01-001",
+  "unit": "u01",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Ça va bien, merci. Et vous ?"
+  ],
+  "audio_text": "Ça va bien, merci. Et vous ?",
+  "hint": "Situação: Cumprimentar",
+  "explanation": "Ça va bien, merci. Et vous ? (Estou bem, obrigado(a). E você?)",
+  "error_tags": [
+   "escuta_u01"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u01-002",
+  "unit": "u01",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Nous sommes ici."
+  ],
+  "audio_text": "Nous sommes ici.",
+  "hint": "Situação: Apresentar-se",
+  "explanation": "Nous sommes ici. (Nós estamos aqui.)",
+  "error_tags": [
+   "escuta_u01"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u02-003",
+  "unit": "u02",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Où est la gare ?"
+  ],
+  "audio_text": "Où est la gare ?",
+  "hint": "Situação: Praticar pronúncia",
+  "explanation": "Où est la gare ? (Onde fica a estação?)",
+  "error_tags": [
+   "escuta_u02"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u03-004",
+  "unit": "u03",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "L'addition, s'il vous plaît."
+  ],
+  "audio_text": "L'addition, s'il vous plaît.",
+  "hint": "Situação: No restaurante",
+  "explanation": "L'addition, s'il vous plaît. (A conta, por favor.)",
+  "error_tags": [
+   "escuta_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u03-005",
+  "unit": "u03",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "J'aimerais un kilo de carottes, s'il vous plaît."
+  ],
+  "audio_text": "J'aimerais un kilo de carottes, s'il vous plaît.",
+  "hint": "Situação: Compras",
+  "explanation": "J'aimerais un kilo de carottes, s'il vous plaît. (Eu gostaria de um quilo de cenouras, por favor.)",
+  "error_tags": [
+   "escuta_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u03-006",
+  "unit": "u03",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Pouvez-vous m'emmener à l'aéroport ?"
+  ],
+  "audio_text": "Pouvez-vous m'emmener à l'aéroport ?",
+  "hint": "Situação: No táxi",
+  "explanation": "Pouvez-vous m'emmener à l'aéroport ? (Você pode me levar ao aeroporto?)",
+  "error_tags": [
+   "escuta_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u03-007",
+  "unit": "u03",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "À quelle heure part le prochain bateau ?"
+  ],
+  "audio_text": "À quelle heure part le prochain bateau ?",
+  "hint": "Situação: Transporte",
+  "explanation": "À quelle heure part le prochain bateau ? (A que horas sai o próximo barco?)",
+  "error_tags": [
+   "escuta_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u04-008",
+  "unit": "u04",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Est-ce que tu parles français ?"
+  ],
+  "audio_text": "Est-ce que tu parles français ?",
+  "hint": "Situação: Perguntar",
+  "explanation": "Est-ce que tu parles français ? (Você fala francês?)",
+  "error_tags": [
+   "escuta_u04"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u04-009",
+  "unit": "u04",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Il est brésilien, mais il habite en France."
+  ],
+  "audio_text": "Il est brésilien, mais il habite en France.",
+  "hint": "Situação: Negar",
+  "explanation": "Il est brésilien, mais il habite en France. (Ele é brasileiro, mas mora na França.)",
+  "error_tags": [
+   "escuta_u04"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u05-010",
+  "unit": "u05",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Nous faisons les courses au marché."
+  ],
+  "audio_text": "Nous faisons les courses au marché.",
+  "hint": "Situação: Dia a dia",
+  "explanation": "Nous faisons les courses au marché. (Nós fazemos compras no mercado.)",
+  "error_tags": [
+   "escuta_u05"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u07-011",
+  "unit": "u07",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Je voudrais du poulet."
+  ],
+  "audio_text": "Je voudrais du poulet.",
+  "hint": "Situação: Pedir comida",
+  "explanation": "Je voudrais du poulet. (Eu queria frango.)",
+  "error_tags": [
+   "escuta_u07"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u08-012",
+  "unit": "u08",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Il est midi."
+  ],
+  "audio_text": "Il est midi.",
+  "hint": "Situação: Horas",
+  "explanation": "Il est midi. (É meio-dia.)",
+  "error_tags": [
+   "escuta_u08"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u09-013",
+  "unit": "u09",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Le livre est dans le sac."
+  ],
+  "audio_text": "Le livre est dans le sac.",
+  "hint": "Situação: Localização",
+  "explanation": "Le livre est dans le sac. (O livro está dentro da mochila.)",
+  "error_tags": [
+   "escuta_u09"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u09-014",
+  "unit": "u09",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Où est mon portable ?"
+  ],
+  "audio_text": "Où est mon portable ?",
+  "hint": "Situação: Localização",
+  "explanation": "Où est mon portable ? (Onde está meu celular?)",
+  "error_tags": [
+   "escuta_u09"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u10-015",
+  "unit": "u10",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Je voudrais un billet pour Paris."
+  ],
+  "audio_text": "Je voudrais un billet pour Paris.",
+  "hint": "Situação: Aeroporto",
+  "explanation": "Je voudrais un billet pour Paris. (Eu gostaria de um bilhete para Paris.)",
+  "error_tags": [
+   "escuta_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u10-016",
+  "unit": "u10",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Pour le dessert, une crème brûlée, s'il vous plaît."
+  ],
+  "audio_text": "Pour le dessert, une crème brûlée, s'il vous plaît.",
+  "hint": "Situação: Restaurante",
+  "explanation": "Pour le dessert, une crème brûlée, s'il vous plaît. (De sobremesa, um crème brûlée, por favor.)",
+  "error_tags": [
+   "escuta_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u10-017",
+  "unit": "u10",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Où est l'hôpital le plus proche ?"
+  ],
+  "audio_text": "Où est l'hôpital le plus proche ?",
+  "hint": "Situação: Emergência",
+  "explanation": "Où est l'hôpital le plus proche ? (Onde fica o hospital mais perto?)",
+  "error_tags": [
+   "escuta_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-di-u10-018",
+  "unit": "u10",
+  "type": "dictation",
+  "skill": "escuta",
+  "prompt": "Ouça e escreva o que você ouviu.",
+  "answers": [
+   "Tournez à droite."
+  ],
+  "audio_text": "Tournez à droite.",
+  "hint": "Situação: Direções",
+  "explanation": "Tournez à droite. (Vire à direita.)",
+  "error_tags": [
+   "escuta_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u01-001",
+  "unit": "u01",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Je m'appelle Claire."
+  ],
+  "audio_text": "Je m'appelle Claire.",
+  "hint": "Pronúncia: (Jô má-péle)",
+  "explanation": "Je m'appelle Claire. (Eu me chamo Claire.)",
+  "error_tags": [
+   "fala_u01"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u01-002",
+  "unit": "u01",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Vous pouvez m'aider, s'il vous plaît ?"
+  ],
+  "audio_text": "Vous pouvez m'aider, s'il vous plaît ?",
+  "hint": "Pronúncia: (Vú puvê mêdê, si vu plé?)",
+  "explanation": "Vous pouvez m'aider, s'il vous plaît ? (Você pode me ajudar, por favor?)",
+  "error_tags": [
+   "fala_u01"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u03-003",
+  "unit": "u03",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Bonjour, j'aimerais un café, s'il vous plaît."
+  ],
+  "audio_text": "Bonjour, j'aimerais un café, s'il vous plaît.",
+  "explanation": "Bonjour, j'aimerais un café, s'il vous plaît. (Bom dia, eu gostaria de um café, por favor.)",
+  "error_tags": [
+   "fala_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u03-004",
+  "unit": "u03",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Bonjour, c'est combien, s'il vous plaît ?"
+  ],
+  "audio_text": "Bonjour, c'est combien, s'il vous plaît ?",
+  "explanation": "Bonjour, c'est combien, s'il vous plaît ? (Bom dia, quanto custa, por favor?)",
+  "error_tags": [
+   "fala_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u03-005",
+  "unit": "u03",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "J'ai une réservation au nom de Dupont."
+  ],
+  "audio_text": "J'ai une réservation au nom de Dupont.",
+  "explanation": "J'ai une réservation au nom de Dupont. (Eu tenho uma reserva em nome de Dupont.)",
+  "error_tags": [
+   "fala_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u03-006",
+  "unit": "u03",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Excusez-moi, où est l'arrêt du bus 43 ?"
+  ],
+  "audio_text": "Excusez-moi, où est l'arrêt du bus 43 ?",
+  "explanation": "Excusez-moi, où est l'arrêt du bus 43 ? (Com licença, onde fica o ponto do ônibus 43?)",
+  "error_tags": [
+   "fala_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u03-007",
+  "unit": "u03",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Combien coûte un billet ?"
+  ],
+  "audio_text": "Combien coûte un billet ?",
+  "explanation": "Combien coûte un billet ? (Quanto custa um bilhete?)",
+  "error_tags": [
+   "fala_u03"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u04-008",
+  "unit": "u04",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Comment allez-vous ?"
+  ],
+  "audio_text": "Comment allez-vous ?",
+  "explanation": "Comment allez-vous ? (Como você está?)",
+  "error_tags": [
+   "fala_u04"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u05-009",
+  "unit": "u05",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "J'ai faim. Où est le restaurant ?"
+  ],
+  "audio_text": "J'ai faim. Où est le restaurant ?",
+  "explanation": "J'ai faim. Où est le restaurant ? (Eu tenho fome. Onde é o restaurante?)",
+  "error_tags": [
+   "fala_u05"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u05-010",
+  "unit": "u05",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Il fait beau aujourd'hui."
+  ],
+  "audio_text": "Il fait beau aujourd'hui.",
+  "explanation": "Il fait beau aujourd'hui. (Está um dia bonito hoje.)",
+  "error_tags": [
+   "fala_u05"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u07-011",
+  "unit": "u07",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "J'aimerais de la soupe."
+  ],
+  "audio_text": "J'aimerais de la soupe.",
+  "explanation": "J'aimerais de la soupe. (Eu gostaria de sopa.)",
+  "error_tags": [
+   "fala_u07"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u08-012",
+  "unit": "u08",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Quel temps fait-il ?"
+  ],
+  "audio_text": "Quel temps fait-il ?",
+  "explanation": "Quel temps fait-il ? (Que tempo está fazendo?)",
+  "error_tags": [
+   "fala_u08"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u09-013",
+  "unit": "u09",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Le chat est sous la table."
+  ],
+  "audio_text": "Le chat est sous la table.",
+  "explanation": "Le chat est sous la table. (O gato está debaixo da mesa.)",
+  "error_tags": [
+   "fala_u09"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u09-014",
+  "unit": "u09",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Je suis chez ma mère."
+  ],
+  "audio_text": "Je suis chez ma mère.",
+  "explanation": "Je suis chez ma mère. (Eu estou na casa da minha mãe.)",
+  "error_tags": [
+   "fala_u09"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u10-015",
+  "unit": "u10",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Je voudrais voir le menu, s'il vous plaît."
+  ],
+  "audio_text": "Je voudrais voir le menu, s'il vous plaît.",
+  "explanation": "Je voudrais voir le menu, s'il vous plaît. (Eu gostaria de ver o cardápio, por favor.)",
+  "error_tags": [
+   "fala_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u10-016",
+  "unit": "u10",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "J'ai besoin d'un médecin."
+  ],
+  "audio_text": "J'ai besoin d'un médecin.",
+  "explanation": "J'ai besoin d'un médecin. (Eu preciso de um médico.)",
+  "error_tags": [
+   "fala_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u10-017",
+  "unit": "u10",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "J'ai besoin d'un médicament pour la fièvre."
+  ],
+  "audio_text": "J'ai besoin d'un médicament pour la fièvre.",
+  "explanation": "J'ai besoin d'un médicament pour la fièvre. (Eu preciso de um remédio para febre.)",
+  "error_tags": [
+   "fala_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-sp-u10-018",
+  "unit": "u10",
+  "type": "speak",
+  "skill": "fala",
+  "prompt": "Ouça o modelo e repita a frase.",
+  "answers": [
+   "Où est la pharmacie ?"
+  ],
+  "audio_text": "Où est la pharmacie ?",
+  "explanation": "Où est la pharmacie ? (Onde fica a farmácia?)",
+  "error_tags": [
+   "fala_u10"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-je",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: je _____",
+  "answers": [
+   "suis"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-tu",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: tu _____",
+  "answers": [
+   "es"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-il",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: il/elle/on _____",
+  "answers": [
+   "est"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-nous",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: nous _____",
+  "answers": [
+   "sommes"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-vous",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: vous _____",
+  "answers": [
+   "êtes"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-etre-present-ils",
+  "unit": "u01",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue être (ser/estar) no présent: ils/elles _____",
+  "answers": [
+   "sont"
+  ],
+  "explanation": "Présent de être: je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont.",
+  "error_tags": [
+   "conjugacao_etre"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-je",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: j'_____",
+  "answers": [
+   "ai"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-tu",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: tu _____",
+  "answers": [
+   "as"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-il",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: il/elle/on _____",
+  "answers": [
+   "a"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-nous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: nous _____",
+  "answers": [
+   "avons"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-vous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: vous _____",
+  "answers": [
+   "avez"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-avoir-present-ils",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue avoir (ter) no présent: ils/elles _____",
+  "answers": [
+   "ont"
+  ],
+  "explanation": "Présent de avoir: j'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont.",
+  "error_tags": [
+   "conjugacao_avoir"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-je",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: je _____",
+  "answers": [
+   "vais"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-tu",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: tu _____",
+  "answers": [
+   "vas"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-il",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: il/elle/on _____",
+  "answers": [
+   "va"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-nous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: nous _____",
+  "answers": [
+   "allons"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-vous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: vous _____",
+  "answers": [
+   "allez"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aller-present-ils",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aller (ir) no présent: ils/elles _____",
+  "answers": [
+   "vont"
+  ],
+  "explanation": "Présent de aller: je vais, tu vas, il/elle/on va, nous allons, vous allez, ils/elles vont.",
+  "error_tags": [
+   "conjugacao_aller"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: je _____",
+  "answers": [
+   "dîne"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: tu _____",
+  "answers": [
+   "dînes"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: il/elle/on _____",
+  "answers": [
+   "dîne"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: nous _____",
+  "answers": [
+   "dînons"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: vous _____",
+  "answers": [
+   "dînez"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-diner-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dîner (jantar) no présent: ils/elles _____",
+  "answers": [
+   "dînent"
+  ],
+  "explanation": "Présent de dîner: je dîne, tu dînes, il/elle/on dîne, nous dînons, vous dînez, ils/elles dînent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: j'_____",
+  "answers": [
+   "achète"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: tu _____",
+  "answers": [
+   "achètes"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: il/elle/on _____",
+  "answers": [
+   "achète"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: nous _____",
+  "answers": [
+   "achetons"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: vous _____",
+  "answers": [
+   "achetez"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-acheter-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue acheter (comprar) no présent: ils/elles _____",
+  "answers": [
+   "achètent"
+  ],
+  "explanation": "Présent de acheter: j'achète, tu achètes, il/elle/on achète, nous achetons, vous achetez, ils/elles achètent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: je _____",
+  "answers": [
+   "mange"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: tu _____",
+  "answers": [
+   "manges"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: il/elle/on _____",
+  "answers": [
+   "mange"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: nous _____",
+  "answers": [
+   "mangeons"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: vous _____",
+  "answers": [
+   "mangez"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-manger-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue manger (comer) no présent: ils/elles _____",
+  "answers": [
+   "mangent"
+  ],
+  "explanation": "Présent de manger: je mange, tu manges, il/elle/on mange, nous mangeons, vous mangez, ils/elles mangent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: je _____",
+  "answers": [
+   "bois"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: tu _____",
+  "answers": [
+   "bois"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: il/elle/on _____",
+  "answers": [
+   "boit"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: nous _____",
+  "answers": [
+   "buvons"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: vous _____",
+  "answers": [
+   "buvez"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-boire-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue boire (beber) no présent: ils/elles _____",
+  "answers": [
+   "boivent"
+  ],
+  "explanation": "Présent de boire: je bois, tu bois, il/elle/on boit, nous buvons, vous buvez, ils/elles boivent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: je _____",
+  "answers": [
+   "dis"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: tu _____",
+  "answers": [
+   "dis"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: il/elle/on _____",
+  "answers": [
+   "dit"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: nous _____",
+  "answers": [
+   "disons"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: vous _____",
+  "answers": [
+   "dites"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-dire-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue dire (dizer) no présent: ils/elles _____",
+  "answers": [
+   "disent"
+  ],
+  "explanation": "Présent de dire: je dis, tu dis, il/elle/on dit, nous disons, vous dites, ils/elles disent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-je",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: je _____",
+  "answers": [
+   "fais"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-tu",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: tu _____",
+  "answers": [
+   "fais"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-il",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: il/elle/on _____",
+  "answers": [
+   "fait"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-nous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: nous _____",
+  "answers": [
+   "faisons"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-vous",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: vous _____",
+  "answers": [
+   "faites"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-faire-present-ils",
+  "unit": "u05",
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue faire (fazer) no présent: ils/elles _____",
+  "answers": [
+   "font"
+  ],
+  "explanation": "Présent de faire: je fais, tu fais, il/elle/on fait, nous faisons, vous faites, ils/elles font.",
+  "error_tags": [
+   "conjugacao_faire"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: je _____",
+  "answers": [
+   "vois"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: tu _____",
+  "answers": [
+   "vois"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: il/elle/on _____",
+  "answers": [
+   "voit"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: nous _____",
+  "answers": [
+   "voyons"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: vous _____",
+  "answers": [
+   "voyez"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-voir-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue voir (ver) no présent: ils/elles _____",
+  "answers": [
+   "voient"
+  ],
+  "explanation": "Présent de voir: je vois, tu vois, il/elle/on voit, nous voyons, vous voyez, ils/elles voient.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: je _____",
+  "answers": [
+   "regarde"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: tu _____",
+  "answers": [
+   "regardes"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: il/elle/on _____",
+  "answers": [
+   "regarde"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: nous _____",
+  "answers": [
+   "regardons"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: vous _____",
+  "answers": [
+   "regardez"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-regarder-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue regarder (olhar) no présent: ils/elles _____",
+  "answers": [
+   "regardent"
+  ],
+  "explanation": "Présent de regarder: je regarde, tu regardes, il/elle/on regarde, nous regardons, vous regardez, ils/elles regardent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: je _____",
+  "answers": [
+   "veux"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: tu _____",
+  "answers": [
+   "veux"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: il/elle/on _____",
+  "answers": [
+   "veut"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: nous _____",
+  "answers": [
+   "voulons"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: vous _____",
+  "answers": [
+   "voulez"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-vouloir-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue vouloir (querer) no présent: ils/elles _____",
+  "answers": [
+   "veulent"
+  ],
+  "explanation": "Présent de vouloir: je veux, tu veux, il/elle/on veut, nous voulons, vous voulez, ils/elles veulent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: j'_____",
+  "answers": [
+   "habite"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: tu _____",
+  "answers": [
+   "habites"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: il/elle/on _____",
+  "answers": [
+   "habite"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: nous _____",
+  "answers": [
+   "habitons"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: vous _____",
+  "answers": [
+   "habitez"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-habiter-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue habiter (morar) no présent: ils/elles _____",
+  "answers": [
+   "habitent"
+  ],
+  "explanation": "Présent de habiter: j'habite, tu habites, il/elle/on habite, nous habitons, vous habitez, ils/elles habitent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: je _____",
+  "answers": [
+   "mets"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: tu _____",
+  "answers": [
+   "mets"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: il/elle/on _____",
+  "answers": [
+   "met"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: nous _____",
+  "answers": [
+   "mettons"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: vous _____",
+  "answers": [
+   "mettez"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-mettre-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue mettre (colocar) no présent: ils/elles _____",
+  "answers": [
+   "mettent"
+  ],
+  "explanation": "Présent de mettre: je mets, tu mets, il/elle/on met, nous mettons, vous mettez, ils/elles mettent.",
+  "error_tags": [
+   "conjugacao_irregular"
+  ],
+  "difficulty": 2,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: j'_____",
+  "answers": [
+   "aime"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: tu _____",
+  "answers": [
+   "aimes"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: il/elle/on _____",
+  "answers": [
+   "aime"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: nous _____",
+  "answers": [
+   "aimons"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: vous _____",
+  "answers": [
+   "aimez"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-aimer-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue aimer (gostar/amar) no présent: ils/elles _____",
+  "answers": [
+   "aiment"
+  ],
+  "explanation": "Présent de aimer: j'aime, tu aimes, il/elle/on aime, nous aimons, vous aimez, ils/elles aiment.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: je _____",
+  "answers": [
+   "commence"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: tu _____",
+  "answers": [
+   "commences"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: il/elle/on _____",
+  "answers": [
+   "commence"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: nous _____",
+  "answers": [
+   "commençons"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: vous _____",
+  "answers": [
+   "commencez"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-commencer-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue commencer (começar) no présent: ils/elles _____",
+  "answers": [
+   "commencent"
+  ],
+  "explanation": "Présent de commencer: je commence, tu commences, il/elle/on commence, nous commençons, vous commencez, ils/elles commencent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-je",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: je _____",
+  "answers": [
+   "finis"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-tu",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: tu _____",
+  "answers": [
+   "finis"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-il",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: il/elle/on _____",
+  "answers": [
+   "finit"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-nous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: nous _____",
+  "answers": [
+   "finissons"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-vous",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: vous _____",
+  "answers": [
+   "finissez"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-conj-finir-present-ils",
+  "unit": null,
+  "type": "conjugate",
+  "skill": "gramatica",
+  "prompt": "Conjugue finir (acabar) no présent: ils/elles _____",
+  "answers": [
+   "finissent"
+  ],
+  "explanation": "Présent de finir: je finis, tu finis, il/elle/on finit, nous finissons, vous finissez, ils/elles finissent.",
+  "error_tags": [
+   "conjugacao_regular"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ }
+]

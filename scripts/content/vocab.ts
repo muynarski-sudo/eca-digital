@@ -1,0 +1,306 @@
+import type { VocabItem } from '../../src/lib/content/schema';
+
+type Row = [fr: string, pt: string, pron?: string, exFr?: string, exPt?: string];
+const counters: Record<string, number> = {};
+
+function block(unit: string, category: string, rows: Row[], opts: { review?: boolean } = {}): VocabItem[] {
+  return rows.map(([fr, pt, pron, exFr, exPt]) => {
+    counters[unit] = (counters[unit] ?? 0) + 1;
+    return {
+      id: `v-${unit}-${String(counters[unit]).padStart(3, '0')}`,
+      unit,
+      category,
+      fr,
+      pt,
+      ...(pron ? { pron } : {}),
+      ...(exFr && exPt ? { example: { fr: exFr, pt: exPt } } : {}),
+      source: 'ebook' as const,
+      needs_review: opts.review ?? false,
+    };
+  });
+}
+
+export const vocab: VocabItem[] = [
+  // ---- U01 Saudações ----
+  ...block('u01', 'saudacoes', [
+    ['Bonjour', 'Bom dia', 'Bom júr', 'Bonjour, je m\'appelle André.', 'Bom dia, meu nome é André.'],
+    ['Salut', 'Olá (informal)', 'Sa-lhú'],
+    ['Coucou', 'Oi (forma carinhosa e informal)', 'cucúu'],
+    ['Bonsoir', 'Boa noite (ao chegar)', 'Bonsuar'],
+    ['Ça va ?', 'Tudo bom?', 'Çá vá?'],
+    ['Au revoir', 'Tchau', 'ôrevoá'],
+    ['Bonne nuit', 'Boa noite (para dormir)', 'bonuí'],
+    ['À plus tard', 'Até mais tarde', 'a plú tar'],
+    ['Bonne journée', 'Tenha um bom dia', 'Bone jurnê'],
+    ['Bonne soirée', 'Tenha uma boa noite', 'bonne soarê'],
+    ['À demain', 'Até amanhã', 'A dômam'],
+    ['À bientôt', 'Até logo', 'A biantô'],
+    ['Enchanté(e)', 'Prazer', 'anchantê'],
+    ['Je m\'appelle', 'Eu me chamo', 'Jô má-péle'],
+    ['Comment vous appelez-vous ?', 'Como você se chama? (formal)', 'comõ vuzapêlê vu'],
+    ['Comment tu t\'appelles ?', 'Como tu te chamas? (informal)', 'comon tu tapéle'],
+  ]),
+  ...block('u01', 'pronomes', [
+    ['je', 'eu', 'jô'],
+    ['tu', 'tu (informal)', 'txú'],
+    ['il', 'ele', 'íle'],
+    ['elle', 'ela', 'éle'],
+    ['on', 'a gente', 'on'],
+    ['nous', 'nós', 'nu'],
+    ['vous', 'vocês, ou você (formal)', 'vu'],
+    ['ils', 'eles', 'íle'],
+    ['elles', 'elas', 'éle'],
+  ]),
+  ...block('u01', 'descricoes', [
+    ['brésilien(ne)', 'brasileiro(a)', 'brêzilian(e)', 'Je suis brésilien(ne).', 'Eu sou brasileiro(a).'],
+    ['professeur', 'professor(a)', undefined, 'Je suis professeur.', 'Eu sou professor(a).'],
+    ['célibataire', 'solteiro(a)', 'cêlibatér', 'Je suis célibataire.', 'Eu sou solteiro(a).'],
+    ['blond(e)', 'loiro(a)', 'blon(de)', 'Je suis blond(e).', 'Eu sou loiro(a).'],
+    ['amusant(e)', 'divertido(a)', undefined, 'Je suis amusant(e).', 'Eu sou divertido(a).'],
+    ['étudiant', 'estudante', undefined, 'Je suis étudiant.', 'Eu sou estudante.'],
+  ]),
+
+  // ---- U02 Pronúncia ----
+  ...block('u02', 'pronuncia_r', [
+    ['trois', 'três'],
+    ['roi', 'rei'],
+    ['merci', 'obrigado(a)'],
+  ]),
+  ...block('u02', 'vogais_nasais', [
+    ['infirmière', 'enfermeira', 'ãfirmiérre'],
+    ['simple', 'simples', 'sãple'],
+    ['sympathique', 'simpático', 'sãpatique'],
+    ['martien', 'marciano', 'martiã'],
+    ['ressembler', 'parecer', 'ressãbler'],
+    ['un', 'um', 'an'],
+    ['quelqu\'un', 'alguém', 'quelcã'],
+    ['enfant', 'criança', 'ãnfã'],
+  ]),
+  ...block('u02', 'vogais_juntas', [
+    ['maison', 'casa', 'mezon'],
+    ['japonais', 'japonês', 'japone'],
+    ['aimer', 'amar', 'emer'],
+    ['moi', 'eu (tônico)', 'moa'],
+    ['noir', 'preto', 'noar'],
+    ['chinois', 'chinês', 'chinoa'],
+    ['danseur', 'dançarino', 'Dançôr'],
+    ['acteur', 'ator', 'Actôr'],
+    ['lieu', 'lugar', 'liô'],
+    ['aussi', 'também', 'ôssi'],
+    ['gâteau', 'bolo', 'gatô'],
+    ['restaurant', 'restaurante', 'restôron'],
+  ]),
+  ...block('u02', 'ille_tion', [
+    ['gentille', 'gentil (fem.)', 'gentéiê'],
+    ['famille', 'família', 'famíiê'],
+    ['fille', 'filha, menina', 'fíiê'],
+    ['bouteille', 'garrafa', 'butéiê'],
+    ['billet', 'bilhete', 'bíiê'],
+    ['cédille', 'cedilha', 'cêdíiê'],
+    ['présentation', 'apresentação', 'prêsentacion'],
+    ['négation', 'negação', 'negacion'],
+    ['imitation', 'imitação', 'imitacion'],
+    ['situation', 'situação', 'situacion'],
+    ['solution', 'solução', 'solucion'],
+    ['éducation', 'educação', 'êducacion'],
+  ]),
+  // Alfabeto: PENDENTE DE REVISÃO COM NATIVO. Não usar em exercícios, flashcards nem áudio.
+  ...block(
+    'u02',
+    'alfabeto',
+    [
+      ['A', 'letra A', 'a'], ['B', 'letra B', 'b'], ['C', 'letra C', 'c'], ['D', 'letra D', 'd'],
+      ['E', 'letra E', 'õ'], ['F', 'letra F', 'f'], ['G', 'letra G', 'g'], ['H', 'letra H', 'áche'],
+      ['I', 'letra I', 'i'], ['J', 'letra J', 'jí'], ['K', 'letra K', 'k'], ['L', 'letra L', 'éle'],
+      ['M', 'letra M', 'éme'], ['N', 'letra N', 'éne'], ['O', 'letra O', 'ô'], ['P', 'letra P', 'pê'],
+      ['Q', 'letra Q', 'quiu (c/bico)'], ['R', 'letra R', 'érrr'], ['S', 'letra S', 's'], ['T', 'letra T', 't'],
+      ['U', 'letra U', 'ú (c/bico)'], ['V', 'letra V', 'v'], ['W', 'letra W', 'duble v'], ['X', 'letra X', 'íquis'],
+      ['Y', 'letra Y', 'igréque'], ['Z', 'letra Z', 'zéde'],
+    ],
+    { review: true },
+  ),
+
+  // ---- U03 Palavras essenciais, números e viagens ----
+  ...block('u03', 'cortesia', [
+    ['Merci', 'Obrigado(a)', 'mer-cí'],
+    ['De rien', 'De nada', 'dô rriã'],
+    ['S\'il vous plaît', 'Por favor (formal)', 'sil vu plé', 'L\'addition, s\'il vous plaît.', 'A conta, por favor.'],
+    ['Excusez-moi', 'Com licença, desculpa', 'eks-ku-zê mua', 'Excusez-moi, où sont les toilettes, s\'il vous plaît ?', 'Com licença, onde fica o banheiro, por favor?'],
+  ]),
+  ...block('u03', 'numeros', [
+    ['un', '1', 'an'], ['deux', '2', 'dû'], ['trois', '3', 'trruá'], ['quatre', '4', 'kátrê'], ['cinq', '5', 'sanque'],
+    ['six', '6', 'sis'], ['sept', '7', 'set'], ['huit', '8', 'uít'], ['neuf', '9', 'nóf'], ['dix', '10', 'diz'],
+    ['onze', '11', 'Onze'], ['douze', '12', 'duze'], ['treize', '13', 'treze'], ['quatorze', '14', 'Catórze'],
+    ['quinze', '15', 'canze'], ['seize', '16', 'céze'], ['dix-sept', '17', 'díz sét'], ['dix-huit', '18'],
+    ['dix-neuf', '19', 'díz nóf'], ['vingt', '20', 'vante'],
+    ['vingt et un', '21', 'vante ê an'], ['vingt-deux', '22', 'vante dû'], ['vingt-trois', '23', 'vante truá'],
+    ['trente', '30', 'trante'], ['quarante', '40', 'karronte'], ['cinquante', '50', 'sanconte'], ['soixante', '60', 'suassonte'],
+    ['soixante-dix', '70', 'suassonte díz'], ['soixante et onze', '71', 'suassonte onze'],
+    ['soixante-douze', '72', 'suassonte dúze'], ['soixante-treize', '73', 'suassonte treze'],
+    ['quatre-vingt', '80', 'catrô van'], ['quatre-vingt-un', '81', 'catrô vantan'], ['quatre-vingt-deux', '82', 'catrô van dû'],
+    ['quatre-vingt-dix', '90', 'catrô van díz'], ['quatre-vingt-onze', '91', 'catrô van onze'],
+    ['quatre-vingt-douze', '92', 'catrô van dúze'], ['cent', '100', 'san'], ['mille', '1000', 'míle'],
+    ['un million', '1 000 000', 'an milion'],
+  ]),
+  ...block('u03', 'viagem', [
+    ['l\'hôtel', 'o hotel', 'lo-téllll'],
+    ['une réservation', 'uma reserva', 'úne rêservacion', 'J\'ai une réservation.', 'Eu tenho uma reserva.'],
+    ['le taxi', 'o táxi', 'lo táxí'],
+    ['l\'aéroport', 'o aeroporto', 'laêrropórrr', 'Pouvez-vous m\'emmener à l\'aéroport ?', 'Você pode me levar ao aeroporto?'],
+    ['un billet', 'um bilhete', 'ã binhê', 'Combien coûte un billet ?', 'Quanto custa um bilhete?'],
+    ['Où est… ?', 'Onde fica… ?', 'u é?', 'Où est la gare, s\'il vous plaît ?', 'Onde fica a estação de trem, por favor?'],
+    ['le bus', 'o ônibus', 'lo bus'],
+    ['le métro', 'o metrô', 'Lo mêtrô'],
+    ['aller', 'ir', 'alê', 'Je voudrais aller à l\'aéroport.', 'Eu queria ir ao aeroporto.'],
+    ['le bateau', 'o barco', 'Lô batô'],
+  ]),
+
+  // ---- U04 Negativa e interrogativa ----
+  ...block('u04', 'interrogativas', [
+    ['Où', 'Onde', undefined, 'Où est le restaurant ?', 'Onde é o restaurante?'],
+    ['Quand', 'Quando', undefined, 'Quand est la réunion ?', 'Quando é a reunião?'],
+    ['Comment', 'Como', undefined, 'Comment allez-vous ?', 'Como você está?'],
+    ['Combien', 'Quanto, quantos', undefined, 'Combien ça coûte ?', 'Quanto custa?'],
+    ['Qui', 'Quem', undefined, 'Qui va aujourd\'hui ?', 'Quem vai hoje?'],
+    ['Pourquoi', 'Por que (pergunta)', undefined, 'Pourquoi tu pleures ?', 'Por que você está chorando?'],
+    ['Parce que', 'Porque (resposta)', undefined, 'Je mange parce que j\'ai faim.', 'Eu como porque estou com fome.'],
+    ['Est-ce que', 'marca de pergunta ("será que")', undefined, 'Est-ce que tu parles français ?', 'Você fala francês?'],
+  ]),
+  ...block('u04', 'ligacao', [
+    ['et', 'e', undefined, 'Je parle français et anglais.', 'Eu falo francês e inglês.'],
+    ['donc', 'então, portanto', undefined, 'Il est tard, donc je dois partir.', 'Está tarde, então eu preciso ir.'],
+    ['mais', 'mas', undefined, 'Je voudrais venir, mais je suis occupé.', 'Eu gostaria de vir, mas estou ocupado.'],
+    ['plus', 'mais (adição)', undefined, 'Il est plus haut que Pierre.', 'Ele é mais alto que Pierre.'],
+    ['ne ... pas', 'não', undefined, 'Je ne parle pas français.', 'Eu não falo francês.'],
+  ]),
+
+  // ---- U05 Verbos fundamentais ----
+  ...block('u05', 'verbos', [
+    ['être', 'ser, estar'],
+    ['avoir', 'ter'],
+    ['faire', 'fazer'],
+    ['aller', 'ir'],
+  ]),
+  ...block('u05', 'expressoes_avoir', [
+    ['avoir faim', 'estar com fome', undefined, 'J\'ai faim.', 'Eu tenho fome.'],
+    ['avoir soif', 'estar com sede', undefined, 'Elle a soif après la course.', 'Ela tem sede depois do treino.'],
+    ['avoir froid', 'estar com frio', undefined, 'Elle a froid.', 'Ela tem frio.'],
+    ['avoir chaud', 'estar com calor', undefined, 'Nous avons chaud.', 'Nós temos calor.'],
+    ['avoir peur', 'ter medo', undefined, 'Tu as peur.', 'Você tem medo.'],
+    ['avoir raison', 'ter razão'],
+    ['être en retard', 'estar atrasado', undefined, 'Il est en retard pour le travail.', 'Ele está atrasado para o trabalho.'],
+  ]),
+
+  // ---- U06 Feminino e plural ----
+  ...block('u06', 'feminino', [
+    ['grand / grande', 'grande'], ['blond / blonde', 'loiro / loira'], ['étudiant / étudiante', 'estudante'],
+    ['marié / mariée', 'casado / casada', undefined, 'Il est marié. Elle est mariée.', 'Ele é casado. Ela é casada.'],
+    ['jeune', 'jovem (não muda)'], ['professeur', 'professor(a) (não muda)'],
+    ['italien / italienne', 'italiano / italiana'], ['bon / bonne', 'bom / boa'], ['mignon / mignonne', 'fofo / fofa'],
+    ['infirmier / infirmière', 'enfermeiro / enfermeira'], ['étranger / étrangère', 'estrangeiro / estrangeira'],
+    ['serveur / serveuse', 'garçom / garçonete'], ['heureux / heureuse', 'feliz'],
+    ['acteur / actrice', 'ator / atriz'], ['éditeur / éditrice', 'editor / editora'], ['chanteur / chanteuse', 'cantor / cantora'],
+    ['beau / belle', 'belo / bela'], ['vieux / vieille', 'velho / velha'], ['blanc / blanche', 'branco / branca'],
+    ['boulanger / boulangère', 'padeiro / padeira'], ['musicien / musicienne', 'músico / música'], ['danseur / danseuse', 'dançarino / dançarina'],
+  ]),
+
+  // ---- U07 Artigos, possessivos, demonstrativos ----
+  ...block('u07', 'artigos', [
+    ['le', 'o (artigo definido)'], ['la', 'a (artigo definido)'], ['les', 'os, as (artigo definido)'],
+    ['un', 'um (artigo indefinido)'], ['une', 'uma (artigo indefinido)'], ['des', 'uns, umas (artigo indefinido)'],
+    ['au', 'à + le (no, ao)', undefined, 'Je vais au Louvre.', 'Eu vou ao Louvre.'],
+    ['aux', 'à + les (nos, aos)', undefined, 'Je suis aux Invalides.', 'Eu estou nos Invalides.'],
+    ['à la', 'à + la (na, à)', undefined, 'Je suis à la piscine.', 'Eu estou na piscina.'],
+    ['du', 'de + le (do)', undefined, 'Le micro du chanteur.', 'O microfone do cantor.'],
+    ['de la', 'de + la (da)', undefined, 'Le portable de la mère.', 'O celular da mãe.'],
+    ['des', 'de + les (dos, das)', undefined, 'Les amis des amis.', 'Os amigos dos amigos.'],
+  ]),
+  ...block('u07', 'possessivos', [
+    ['mon / ma / mes', 'meu / minha / meus'], ['ton / ta / tes', 'teu / tua / teus'], ['son / sa / ses', 'dele, dela / seus'],
+    ['notre / nos', 'nosso / nossa / nossos'], ['votre / vos', 'seu, de vocês / seus'], ['leur / leurs', 'deles, delas'],
+  ]),
+  ...block('u07', 'demonstrativos', [
+    ['ce', 'este, esse (masculino)', undefined, 'Regarde ce chat.', 'Olhe esse gato.'],
+    ['cette', 'esta, essa (feminino)', undefined, 'Cette fourmi m\'a piqué.', 'Essa formiga me picou.'],
+    ['cet', 'este, esse (masculino antes de vogal ou h)', undefined, 'cet acteur, cet homme, cet arbre'],
+    ['ces', 'estes, esses, estas, essas', undefined, 'Ces arbres sont énormes.', 'Essas árvores são enormes.'],
+  ]),
+
+  // ---- U08 Dias, meses, horas, estações, clima ----
+  ...block('u08', 'dias', [
+    ['lundi', 'segunda-feira', 'landí'], ['mardi', 'terça-feira', 'mardí'], ['mercredi', 'quarta-feira', 'merrrcrêdí'],
+    ['jeudi', 'quinta-feira', 'Judí'], ['vendredi', 'sexta-feira', 'vandrêdí'], ['samedi', 'sábado', 'samidí'],
+    ['dimanche', 'domingo', 'dimonxe'],
+  ]),
+  ...block('u08', 'meses', [
+    ['janvier', 'janeiro', 'janviê'], ['février', 'fevereiro', 'fêvriê'], ['mars', 'março', 'maarrs'], ['avril', 'abril', 'avrile'],
+    ['mai', 'maio', 'mé'], ['juin', 'junho', 'Juan'], ['juillet', 'julho', 'juiê'], ['août', 'agosto', 'ôut'],
+    ['septembre', 'setembro', 'septombre'], ['octobre', 'outubro', 'octóbre'], ['novembre', 'novembro', 'novambre'], ['décembre', 'dezembro', 'dêsambre'],
+  ]),
+  ...block('u08', 'horas', [
+    ['Quelle heure est-il ?', 'Que horas são?', 'quéle hórr é til'],
+    ['midi', 'meio-dia', undefined, 'Il est midi.', 'É meio-dia.'],
+    ['minuit', 'meia-noite', undefined, 'Il est minuit.', 'É meia-noite.'],
+    ['et quart', 'e quinze', undefined, 'Il est une heure et quart.', 'É uma e quinze.'],
+    ['et demie', 'e meia', undefined, 'Il est quatre heures et demie.', 'São quatro e meia.'],
+    ['moins le quart', 'quinze para', undefined, 'Il est huit heures moins le quart.', 'São quinze para as oito.'],
+    ['du matin', 'da manhã'], ['de l\'après-midi', 'da tarde'], ['du soir', 'da noite'],
+  ]),
+  ...block('u08', 'estacoes', [
+    ['le printemps', 'primavera', 'prantom'], ['l\'été', 'verão', 'êtê'], ['l\'automne', 'outono', 'ôtone'], ['l\'hiver', 'inverno', 'íver'],
+  ]),
+  ...block('u08', 'clima', [
+    ['Il fait chaud', 'Está quente'], ['Il fait froid', 'Está frio'], ['Il fait beau', 'Está um dia bonito'],
+    ['Il fait dix degrés', 'Está fazendo 10 graus'], ['Il neige', 'Está nevando'], ['Il pleut', 'Está chovendo'],
+    ['Quel temps fait-il ?', 'Que tempo está fazendo?'],
+  ]),
+
+  // ---- U09 Localização ----
+  ...block('u09', 'preposicoes_lugar', [
+    ['dans', 'dentro de, no', undefined, 'Le livre est dans le sac.', 'O livro está dentro da mochila.'],
+    ['sous', 'debaixo de', undefined, 'Le chat est sous la table.', 'O gato está debaixo da mesa.'],
+    ['sur', 'em cima de', undefined, 'Le téléphone est sur la chaise.', 'O telefone está em cima da cadeira.'],
+    ['devant', 'na frente de', undefined, 'Il y a une voiture devant la maison.', 'Tem um carro na frente da casa.'],
+    ['derrière', 'atrás de', undefined, 'Le jardin est derrière la maison.', 'O jardim fica atrás da casa.'],
+    ['près de', 'perto de', undefined, 'L\'école est près de la banque.', 'A escola é perto do banco.'],
+    ['loin de', 'longe de', undefined, 'Mon appartement est loin d\'ici.', 'Meu apartamento é longe daqui.'],
+    ['à côté de', 'ao lado de', undefined, 'Il y a un café à côté de l\'hôtel.', 'Tem um café ao lado do hotel.'],
+    ['entre', 'entre', undefined, 'Le parc est entre deux rues.', 'O parque fica entre duas ruas.'],
+    ['chez', 'na casa de, no local de trabalho de', undefined, 'Je vais chez Paul.', 'Eu vou à casa do Paul.'],
+  ]),
+  ...block('u09', 'expressoes', [
+    ['il y a', 'há, tem (existência)', undefined, 'Il y a un livre sur la table.', 'Tem um livro em cima da mesa.'],
+    ['c\'est', 'é, está (identificar)', undefined, 'C\'est la maison de Marie.', 'É a casa da Marie.'],
+    ['Où est… ?', 'Onde está… ?', undefined, 'Où est le livre ?', 'Onde está o livro?'],
+    ['Où sont… ?', 'Onde estão… ?', undefined, 'Où sont les enfants ?', 'Onde estão as crianças?'],
+    ['où', 'onde', 'u'], ['ou', 'ou (opção)', 'ô'],
+  ]),
+
+  // ---- U10 Vocabulário de sobrevivência ----
+  ...block('u10', 'aeroporto', [
+    ['un billet d\'avion', 'um bilhete de avião', 'an biê daviõ'],
+    ['la porte d\'embarquement', 'o portão de embarque', 'la port dã-bar-camã'],
+    ['le vol', 'o voo', 'le vôl'],
+    ['la gare', 'a estação de trem', 'la garr'],
+    ['aller simple', 'só ida'], ['aller-retour', 'ida e volta'],
+  ]),
+  ...block('u10', 'restaurante', [
+    ['un menu', 'um cardápio', 'ã menúu'],
+    ['une entrée', 'uma entrada', 'úne antrê'],
+    ['un plat principal', 'um prato principal', 'ã plá prãncipal'],
+    ['une boisson', 'uma bebida', 'úne bôasson'],
+    ['l\'addition', 'a conta', 'ladission'],
+  ]),
+  ...block('u10', 'emergencias', [
+    ['J\'ai besoin d\'aide', 'Preciso de ajuda', 'Jô bêsoan déd'],
+    ['Appelez la police', 'Chame a polícia', 'Apelê la police'],
+    ['un médecin', 'um médico', 'An mêdissan'],
+    ['une ambulance', 'uma ambulância', 'Úne ambulance'],
+    ['C\'est une urgence', 'É uma emergência', 'Cetxúne urjance'],
+    ['l\'hôpital', 'o hospital'], ['la pharmacie', 'a farmácia'],
+  ]),
+  ...block('u10', 'direcoes', [
+    ['tout droit', 'em frente', 'tu drôa'], ['à gauche', 'à esquerda', 'a gôsh'], ['à droite', 'à direita', 'a druate'],
+    ['près d\'ici', 'perto daqui', 'Pré dici'], ['loin', 'longe', 'luã'], ['à côté', 'ao lado', 'a côtê'],
+  ]),
+];

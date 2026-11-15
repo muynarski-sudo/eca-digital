@@ -1,0 +1,98 @@
+[
+ {
+  "id": "c-u01-001",
+  "unit": "u01",
+  "title": "Bonjour ou salut?",
+  "text": "Na França, a saudação depende do contexto. \"Salut\" é usado em situações informais, como entre amigos, enquanto \"Bonjour\" é preferido em situações formais. Para se despedir à tarde, você também pode dizer \"bonne après-midi\".",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u01-002",
+  "unit": "u01",
+  "title": "Tu ou vous?",
+  "text": "Use \"tu\" com amigos, familiares, crianças ou pessoas da sua idade em momentos descontraídos. Jamais use \"tu\" para pedir informação na rua a um desconhecido. \"Vous\" é a forma de respeito e também o plural.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u02-003",
+  "unit": "u02",
+  "title": "Os acentos têm sons opostos",
+  "text": "O acento agudo tem som de circunflexo e vice-versa: É soa como \"ê\" e Ê soa como \"é\". Exemplo: être (étre), Brésil (brêzil).",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u02-004",
+  "unit": "u02",
+  "title": "Espelho ajuda",
+  "text": "Pratique a pronúncia em frente ao espelho para observar os movimentos da boca.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u03-005",
+  "unit": "u03",
+  "title": "Números sem pânico",
+  "text": "Os números franceses parecem complexos, mas não faça matemática: pense na pronúncia de cada um. Com o tempo sai natural.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u03-006",
+  "unit": "u03",
+  "title": "Polidez vale muito",
+  "text": "Os franceses valorizam a polidez. Bonjour, merci e s'il vous plaît causam uma ótima impressão.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u04-007",
+  "unit": "u04",
+  "title": "No dia a dia o \"ne\" some",
+  "text": "Em conversas informais, muita gente não pronuncia o \"ne\", só o \"pas\": \"je sais pas\". Para começar, pratique a forma completa.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u04-008",
+  "unit": "u04",
+  "title": "Só dois \"porquês\"",
+  "text": "Em francês, \"pourquoi\" é para perguntar e \"parce que\" é para responder.",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u07-009",
+  "unit": "u07",
+  "title": "Como pedir comida",
+  "text": "Para pedir ou dizer que comeu algo, os franceses usam du, de la e des: \"je voudrais du poulet\", \"j'ai mangé de la pizza\". Para falar da comida em si, usam-se os artigos definidos: \"le chocolat suisse est incroyable\".",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u08-010",
+  "unit": "u08",
+  "title": "Horas na fala",
+  "text": "No francês do dia a dia dizemos \"quatre heures\" para 16h. Só em contextos formais se usa \"seize heures\".",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u09-011",
+  "unit": "u09",
+  "title": "Ou e où",
+  "text": "Sem acento, \"ou\" significa \"ou\" e se pronuncia \"ô\". Com acento, \"où\" significa \"onde\" e se pronuncia \"u\".",
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "c-u09-012",
+  "unit": "u09",
+  "title": "Casa de alguém",
+  "text": "\"Chez\" serve para a casa de alguém ou o local de trabalho de um profissional: chez moi, chez le médecin.",
+  "source": "ebook",
+  "needs_review": false
+ }
+]

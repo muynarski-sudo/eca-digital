@@ -1,0 +1,87 @@
+[
+ {
+  "id": "d-u01-001",
+  "unit": "u01",
+  "title": "Apresentações",
+  "scene": "André e Claire se conhecendo.",
+  "lines": [
+   {
+    "speaker": "André",
+    "fr": "Bonjour, je m'appelle André. Et vous, comment vous appelez-vous ?",
+    "pt": "Bom dia, meu nome é André. E você, como se chama?",
+    "pron": "Bom ju, jô mapele André. Ê vu, comon vuzapelê vu?"
+   },
+   {
+    "speaker": "Claire",
+    "fr": "Bonjour, je m'appelle Claire. Enchantée.",
+    "pt": "Bom dia, meu nome é Claire. Prazer.",
+    "pron": "Bom ju, jô mapele Cler anchantê"
+   },
+   {
+    "speaker": "André",
+    "fr": "Enchanté, Claire. Comment ça va ?",
+    "pt": "Prazer, Claire. Como você está?",
+    "pron": "Anchantê, Cler. Comon ça vá?"
+   },
+   {
+    "speaker": "Claire",
+    "fr": "Ça va bien, merci. Et vous ?",
+    "pt": "Estou bem, obrigada. E você?",
+    "pron": "Ça vá bian, merci, ê vu?"
+   },
+   {
+    "speaker": "André",
+    "fr": "Très bien, merci.",
+    "pt": "Muito bem, obrigado.",
+    "pron": "Tré bian, merci"
+   }
+  ],
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "d-u10-001",
+  "unit": "u10",
+  "title": "Na estação de trem",
+  "scene": "Comprando uma passagem.",
+  "lines": [
+   {
+    "speaker": "Vous",
+    "fr": "Bonjour, je voudrais un billet pour Lyon.",
+    "pt": "Bom dia, eu queria um bilhete para Lyon."
+   },
+   {
+    "speaker": "Agent",
+    "fr": "Aller simple ou aller-retour ?",
+    "pt": "Só ida ou ida e volta?"
+   },
+   {
+    "speaker": "Vous",
+    "fr": "Aller-retour, s'il vous plaît.",
+    "pt": "Ida e volta, por favor."
+   }
+  ],
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "d-u10-002",
+  "unit": "u10",
+  "title": "No restaurante",
+  "scene": "Fazendo o pedido.",
+  "lines": [
+   {
+    "speaker": "Serveur",
+    "fr": "Bonjour, vous avez choisi ?",
+    "pt": "Bom dia, já escolheu?"
+   },
+   {
+    "speaker": "Vous",
+    "fr": "Oui, je voudrais un steak et un verre de vin rouge.",
+    "pt": "Sim, eu gostaria de um bife e uma taça de vinho tinto."
+   }
+  ],
+  "source": "generated",
+  "needs_review": false
+ }
+]
