@@ -1,6 +1,7 @@
 // @ts-nocheck
 /* Demo interativa do Falando Francês Prática para rodar como artefato: tudo no navegador, estado no localStorage.
    Reaproveita a lógica real (correção, SRS, domínio, plano diário, métricas) e o conteúdo do e-book. */
+import logoUrl from '../public/logo.png';
 import unitsJson from '../content/data/units.json';
 import vocabJson from '../content/data/vocab.json';
 import questionsJson from '../content/data/questions.json';
@@ -599,7 +600,7 @@ function render() {
       ? `<label class="small">Aluno <select id="who" class="field mini">${S.students.map((s) => `<option value="${s.id}" ${s.id === S.cur ? 'selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`
       : '';
   $('#app').innerHTML =
-    `<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="inner"><a class="brand" href="#${S.role === 'aluno' ? 'inicio' : 'alunos'}">Falando Francês <span>Prática</span></a><div class="who"><div class="seg" role="group" aria-label="Quem está usando"><button data-a="role" data-r="aluno" aria-pressed="${S.role === 'aluno'}">Aluno</button><button data-a="role" data-r="professora" aria-pressed="${S.role === 'professora'}">Professora</button></div>${studs}</div></div><nav aria-label="Principal" class="inner nav">${nav.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></header><main class="inner" id="conteudo">${view(r)}</main><footer><div class="inner row"><span>Demonstração: os dados ficam só neste aparelho.</span><button class="link" data-a="reset">Recomeçar demo</button></div></footer>`;
+    `<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="inner"><a class="brand" href="#${S.role === 'aluno' ? 'inicio' : 'alunos'}" aria-label="Falando Francês Prática, início"><img src="${logoUrl}" alt="Falando Francês" height="40" width="125"><span>Prática</span></a><div class="who"><div class="seg" role="group" aria-label="Quem está usando"><button data-a="role" data-r="aluno" aria-pressed="${S.role === 'aluno'}">Aluno</button><button data-a="role" data-r="professora" aria-pressed="${S.role === 'professora'}">Professora</button></div>${studs}</div></div><nav aria-label="Principal" class="inner nav">${nav.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></header><main class="inner" id="conteudo">${view(r)}</main><footer><div class="inner row"><span>Demonstração: os dados ficam só neste aparelho.</span><button class="link" data-a="reset">Recomeçar demo</button></div></footer>`;
   window.scrollTo(0, 0);
 }
 function msg(id, text, ok = true) {

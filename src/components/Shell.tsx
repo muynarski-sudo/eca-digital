@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { Logo } from '@/components/Logo';
 import { TricolorBar } from '@/components/ui/TricolorBar';
 import { logout } from '@/lib/actions/auth';
 
@@ -26,9 +27,13 @@ export function Shell({
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-3">
           <Link
             href="/"
-            className="text-lg font-bold text-brand-blue-dark no-underline hover:no-underline"
+            aria-label="Falando Francês Prática, início"
+            className="flex items-center gap-2 text-lg font-bold text-brand-blue-dark no-underline hover:no-underline"
           >
-            Falando Francês <span className="text-brand-red-text">Prática</span>
+            <Logo height={40} />
+            <span className="text-xs font-bold uppercase tracking-wide text-brand-red-text">
+              Prática
+            </span>
             {badge && (
               <span className="ml-2 rounded-full bg-brand-tint px-2 py-0.5 text-xs text-brand-blue-dark">
                 {badge}

@@ -4,7 +4,7 @@ set -eu
 cd "$(dirname "$0")/.."
 mkdir -p artifact/dist
 STUB="$(mktemp -d)/empty.js"; echo "export {}" > "$STUB"
-npx esbuild artifact/app.ts --bundle --minify --format=iife --target=es2020 --loader:.json=json --alias:@=./src --alias:server-only="$STUB" --outfile=artifact/dist/app.js --log-level=warning
+npx esbuild artifact/app.ts --bundle --minify --format=iife --target=es2020 --loader:.json=json --loader:.png=dataurl --alias:@=./src --alias:server-only="$STUB" --outfile=artifact/dist/app.js --log-level=warning
 python3 - <<'PY'
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
 css = open('artifact/style.css', encoding='utf8').read()
