@@ -4,9 +4,10 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 
 ## Comandos
 
+- `npm run dev:local`: roda o app sem Supabase (banco embutido PGlite em `.local-data`, usuários `professora@teste.local` e `aluno@teste.local`). `npm run local:reset` apaga os dados locais.
 - `npm run dev` / `build` / `start`
 - `npm run check`: typecheck, lint, validação de conteúdo e testes
-- `npm test`: Vitest (inclui RLS em PGlite). `npm run test:e2e`: Playwright (`E2E_FLOW=1` para o fluxo completo)
+- `npm test`: Vitest (inclui RLS em PGlite). `npm run test:e2e`: Playwright contra o app em modo local (`E2E_BASE_URL`, `E2E_NO_SERVER=1`, `PW_CHROMIUM_PATH`)
 - `npm run content:build | content:validate | content:seed`
 - `npm run db:start | db:reset | db:seed-dev`
 - `npm run audio:generate`, `npm run jobs:reminders`, `npm run jobs:purge-recordings`
@@ -26,9 +27,10 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 
 - `content/source`: texto do e-book. `content/data`: JSON validado por zod. `content/REVIEW.md`: pendências.
 - `scripts/content`: autoria do conteúdo. `scripts/*.ts`: build, validação, seed, áudio, jobs.
+- `src/lib/local`: modo local. `client.ts` imita o supabase-js sobre o PGlite (com a RLS real, cada consulta numa transação com `set local role`); `db.ts` abre o banco e faz o bootstrap; `session.ts` assina o cookie de sessão. Metadados (tipos de coluna) devem ser lidos ANTES de abrir a transação, senão o PGlite trava.
 - `supabase/migrations`: esquema, RLS, cobrança, privilégios.
 - `src/lib/domain`: grade, srs, mastery, plan, metrics. `src/lib/content`: schemas e carga. `src/lib/practice`: persistência das respostas.
 `src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
-- `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login e cadastro. `src/app/api`: áudio, fala, exportação, conversa.
+- `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login (não há autocadastro; a professora cadastra os alunos). `src/app/api`: áudio, fala, exportação, conversa.
 - `src/components/ui`: Card, Button, ProgressRing, MasteryBadge, AudioButton, StreakChip, EmptyState, TricolorBar. `src/components/practice`: ExerciseShell, executor, flashcards, gravador.
 - `deploy`: Caddyfile, backup e jobs. `Dockerfile` e `docker-compose.yml` na raiz.

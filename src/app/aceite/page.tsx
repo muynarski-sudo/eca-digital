@@ -1,26 +1,24 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import { AuthFrame } from '@/components/AuthFrame';
-import { ActionForm, CheckField, Field } from '@/components/FormParts';
-import { signup } from '@/lib/actions/auth';
+import { ActionForm, CheckField } from '@/components/FormParts';
+import { acceptTerms } from '@/lib/actions/auth';
+import { hasAcceptedTerms } from '@/lib/legal/consent';
+import { requireMe } from '@/lib/session';
+import { serverClient } from '@/lib/supabase/server';
 
-export const metadata = { title: 'Criar conta' };
+export const metadata = { title: 'Antes de começar' };
+export const dynamic = 'force-dynamic';
 
-export default function SignupPage() {
+export default async function Aceite() {
+  const me = await requireMe();
+  if (await hasAcceptedTerms(await serverClient(), me.id)) redirect('/');
   return (
     <AuthFrame
-      title="Criar conta"
-      subtitle="Use o mesmo e-mail da sua compra ou do convite da professora."
+      title="Antes de começar"
+      subtitle="Sua professora criou o seu acesso. Falta só confirmar três coisas."
     >
-      <ActionForm action={signup} submitLabel="Criar minha conta">
-        <Field label="Nome" name="name" autoComplete="name" />
-        <Field label="E-mail" name="email" type="email" autoComplete="email" />
-        <Field
-          label="Senha"
-          name="password"
-          type="password"
-          autoComplete="new-password"
-          hint="Mínimo de 8 caracteres."
-        />
+      <ActionForm action={acceptTerms} submitLabel="Aceitar e continuar">
         <fieldset className="space-y-3 rounded-xl bg-brand-tint p-3">
           <legend className="sr-only">Aceites</legend>
           <CheckField name="privacy">
@@ -42,9 +40,6 @@ export default function SignupPage() {
           </CheckField>
         </fieldset>
       </ActionForm>
-      <p className="text-sm">
-        Já tem conta? <Link href="/login">Entrar</Link>
-      </p>
     </AuthFrame>
   );
 }

@@ -21,7 +21,10 @@
     "jobs:reminders": "tsx --conditions=react-server scripts/jobs.ts reminders",
     "db:start": "supabase start",
     "db:reset": "supabase db reset",
-    "check": "npm run typecheck && npm run lint && npm run content:validate && npm test"
+    "check": "npm run typecheck && npm run lint && npm run content:validate && npm test",
+    "dev:local": "APP_BACKEND=local next dev",
+    "start:local": "APP_BACKEND=local next build && APP_BACKEND=local next start",
+    "local:reset": "rm -rf .local-data"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

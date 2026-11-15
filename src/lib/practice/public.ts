@@ -1,5 +1,6 @@
 import type { Question } from '@/lib/content/schema';
 import { audioKey } from '@/lib/audio/key';
+import { isLocalMode } from '@/lib/local/mode';
 import type { PublicQuestion } from './types';
 
 function det(seed: string) {
@@ -34,5 +35,6 @@ export function toPublic(q: Question): PublicQuestion {
       : undefined,
     speakText: q.type === 'speak' ? q.audio_text : undefined,
     audioKey: q.audio_text ? audioKey(q.audio_text) : undefined,
+    audioFallback: q.type === 'dictation' && isLocalMode() ? q.audio_text : undefined,
   };
 }

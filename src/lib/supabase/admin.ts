@@ -1,8 +1,12 @@
 import 'server-only';
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { LocalClient } from '@/lib/local/client';
+import { isLocalMode } from '@/lib/local/mode';
 
-/** Cliente com service role. Só no servidor, nunca em componente de cliente. */
-export function adminClient() {
+/** Cliente com service role (ignora a RLS). Só no servidor. No modo local usa o banco embutido. */
+export function adminClient(): SupabaseClient {
+  if (isLocalMode())
+    return new LocalClient({ role: 'service', uid: null }) as unknown as SupabaseClient;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key)

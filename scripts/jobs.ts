@@ -8,29 +8,40 @@ async function reminders() {
   const db = serviceClient();
   const { data } = await db
     .from('assignments')
-    .select(
-      'id,title,due_at,status,student_id,reminder_sent_at,profiles:student_id(email,full_name)',
-    )
+    .select('id,title,due_at,status,student_id')
     .in('status', ['assigned', 'in_progress'])
     .is('reminder_sent_at', null)
     .lte('due_at', new Date(Date.now() + 86_400_000).toISOString());
-  const list: PendingAssignment[] = (data ?? [])
-    .map((a) => {
-      const p = (Array.isArray(a.profiles) ? a.profiles[0] : a.profiles) as {
-        email: string;
-        full_name: string | null;
-      } | null;
-      return {
-        id: a.id as string,
-        title: a.title as string,
-        dueAt: new Date(a.due_at as string),
-        studentId: a.student_id as string,
-        studentEmail: p?.email ?? '',
-        studentName: p?.full_name ?? null,
-        status: a.status as string,
-        alreadyReminded: false,
-      };
-    })
+  const rows = (data ?? []) as Array<{
+    id: string;
+    title: string;
+    due_at: string;
+    status: string;
+    student_id: string;
+  }>;
+  const { data: profs } = rows.length
+    ? await db
+        .from('profiles')
+        .select('id,email,full_name')
+        .in('id', [...new Set(rows.map((r) => r.student_id))])
+    : { data: [] };
+  const byId = new Map(
+    ((profs ?? []) as Array<{ id: string; email: string; full_name: string | null }>).map((p) => [
+      p.id,
+      p,
+    ]),
+  );
+  const list: PendingAssignment[] = rows
+    .map((a) => ({
+      id: a.id,
+      title: a.title,
+      dueAt: new Date(a.due_at),
+      studentId: a.student_id,
+      studentEmail: byId.get(a.student_id)?.email ?? '',
+      studentName: byId.get(a.student_id)?.full_name ?? null,
+      status: a.status,
+      alreadyReminded: false,
+    }))
     .filter((a) => a.studentEmail);
   const sent = await sendReminders(list, emailFromEnv(), process.env.NEXT_PUBLIC_SITE_URL ?? '');
   for (const id of sent) {

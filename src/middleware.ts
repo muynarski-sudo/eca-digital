@@ -1,26 +1,36 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { LOCAL_COOKIE, isLocalMode, localSecret } from '@/lib/local/mode';
+import { verifySession } from '@/lib/local/session';
 
 const PUBLIC = [
   '/login',
-  '/cadastro',
   '/recuperar-senha',
   '/redefinir-senha',
   '/auth',
   '/politica-de-privacidade',
   '/termos',
-
   '/api/health',
 ];
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next({ request: req });
+  const path = req.nextUrl.pathname;
+  const isPublic = PUBLIC.some((p) => path === p || path.startsWith(p + '/'));
+  const toLogin = () => {
+    const to = new URL('/login', req.url);
+    if (path !== '/') to.searchParams.set('next', path);
+    return NextResponse.redirect(to);
+  };
+
+  if (isLocalMode()) {
+    const uid = await verifySession(localSecret(), req.cookies.get(LOCAL_COOKIE)?.value);
+    return uid || isPublic ? res : toLogin();
+  }
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  const path = req.nextUrl.pathname;
-  const isPublic = path === '/' || PUBLIC.some((p) => path === p || path.startsWith(p + '/'));
-  if (!url || !key) return isPublic ? res : NextResponse.redirect(new URL('/login', req.url));
-
+  if (!url || !key) return isPublic ? res : toLogin();
   const supabase = createServerClient(url, key, {
     cookies: {
       getAll: () => req.cookies.getAll(),
@@ -31,12 +41,7 @@ export async function middleware(req: NextRequest) {
     },
   });
   const { data } = await supabase.auth.getUser();
-  if (!data.user && !isPublic) {
-    const to = new URL('/login', req.url);
-    to.searchParams.set('next', path);
-    return NextResponse.redirect(to);
-  }
-  return res;
+  return data.user || isPublic ? res : toLogin();
 }
 
 export const config = {

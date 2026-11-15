@@ -10,3 +10,4 @@ playwright-report
 coverage
 .audio-cache
 supabase/.temp
+.local-data

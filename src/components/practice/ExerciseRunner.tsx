@@ -164,7 +164,7 @@ export function ExerciseRunner({
 
       {q.type === 'dictation' && (
         <div className="space-y-2">
-          <AudioButton audioKey={q.audioKey} label="Ouvir a frase" />
+          <AudioButton audioKey={q.audioKey} fallbackText={q.audioFallback} label="Ouvir a frase" />
           {!answered && !revealed && (
             <button
               type="button"

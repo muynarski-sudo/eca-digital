@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ChangePasswordForm } from '@/components/ChangePasswordForm';
 import { DeleteAccountForm } from '@/components/DeleteAccountForm';
 import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -123,6 +124,13 @@ export default async function MeusDados() {
             <li className="text-ink-soft">Nenhum aceite registrado.</li>
           )}
         </ul>
+      </Card>
+
+      <Card as="section" aria-labelledby="senha" className="space-y-3">
+        <h2 id="senha" className="text-xl">
+          Trocar minha senha
+        </h2>
+        <ChangePasswordForm />
       </Card>
 
       <Card as="section" aria-labelledby="excluir" className="space-y-3 border-brand-red-text">

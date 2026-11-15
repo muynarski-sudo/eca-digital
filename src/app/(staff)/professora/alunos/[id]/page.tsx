@@ -5,6 +5,7 @@ import { Badge, MasteryBadge } from '@/components/ui/MasteryBadge';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { ResetPasswordForm, UnregisterForm } from '@/components/StudentAdminForms';
 import {
   createAssignment,
   grantManualAccess,
@@ -250,6 +251,24 @@ export default async function AlunoDetalhe({ params }: { params: Promise<{ id: s
           ))}
         </ul>
       </Card>
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card as="section" aria-labelledby="senha" className="space-y-3">
+          <h2 id="senha" className="text-xl">
+            Senha do aluno
+          </h2>
+          <ResetPasswordForm studentId={id} />
+        </Card>
+        <Card
+          as="section"
+          aria-labelledby="descadastrar"
+          className="space-y-3 border-brand-red-text"
+        >
+          <h2 id="descadastrar" className="text-xl text-brand-red-text">
+            Descadastrar
+          </h2>
+          <UnregisterForm studentId={id} name={(s.full_name as string) ?? (s.email as string)} />
+        </Card>
+      </div>
       <p>
         <Link href="/professora">← Voltar para a lista</Link>
       </p>

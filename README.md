@@ -4,29 +4,46 @@ Plataforma web de estudo para alunos das aulas particulares de francês. A profe
 
 Stack: Next.js 15 (App Router), TypeScript estrito, Tailwind, Supabase (Auth, Postgres com RLS, Storage), zod, Vitest e Playwright.
 
-## Requisitos
-
-- Node 22 ou superior
-- Docker (para o Supabase local)
-
-## Rodar em desenvolvimento
+## Rodar localmente (sem Supabase, sem Docker)
 
 ```bash
 npm install
-cp .env.example .env.local
-npm run db:start                 # sobe o Supabase local e aplica as migrations (imprime as chaves)
-# copie API URL, anon key e service_role key para o .env.local
-npm run content:build            # opcional: regenera content/data/*.json a partir do e-book
-npm run content:validate         # valida o conteúdo e imprime o relatório
-npm run content:seed             # grava unidades, vocabulário e questões no banco (idempotente)
-npm run db:seed-dev              # 1 professora, 2 alunos e histórico simulado
-npm run audio:generate           # gera só os áudios que faltam (provider simulado sem chave)
-npm run dev                      # http://localhost:3000
+npm run dev:local        # http://localhost:3000
 ```
 
-Logins de desenvolvimento (senha `senha-dev-123`): `professora@dev.local`, `ana@dev.local`, `bruno@dev.local`. Os e-mails do Supabase local chegam no Inbucket (http://127.0.0.1:54324).
+Na primeira vez o app prepara sozinho um banco embutido (PGlite, com as migrations e a RLS reais), carrega o conteúdo do e-book e cria dois usuários de teste. Os dados ficam em `.local-data/` (ignorado pelo git).
 
-Para o admin: `update profiles set role = 'admin' where email = '...'` no SQL Editor (o papel nunca é definido pelo cadastro).
+| Papel | E-mail | Senha |
+|---|---|---|
+| Professora (admin, vê tudo) | `professora@teste.local` | `professora123` |
+| Aluno | `aluno@teste.local` | `aluno123` |
+
+O aluno de teste já vem com histórico simulado de 14 dias. Para recomeçar do zero: pare o servidor e rode `npm run local:reset`.
+
+Como funciona o acesso (por enquanto, só alunos do seu círculo):
+
+- Não existe autocadastro. A professora cadastra o aluno em **Cadastrar aluno** (nome, e-mail e a senha que ela gera; há um botão "Gerar") e passa os dados a ele.
+- No primeiro acesso o aluno aceita a Política de Privacidade, o Termo de Uso e o aviso de maioridade.
+- Na página de cada aluno a professora pode pausar ou liberar o acesso, definir uma nova senha, conceder ou encerrar acesso por prazo e **descadastrar** (apaga a conta e todos os dados do aluno).
+- Esqueceu a senha? O aluno pede à professora, que define outra.
+- Pagamento (Hotmart, Pix, cartão) fica para uma versão futura.
+
+Limites do modo local: sem envio de e-mail, sem provedores reais de voz e IA (usa os simulados; o áudio de referência usa a voz do navegador), um processo por vez no banco (não rode seeds com o servidor ligado).
+
+## Rodar com Supabase (produção ou desenvolvimento com Docker)
+
+Requisitos: Node 22 e Docker.
+
+```bash
+cp .env.example .env.local   # preencha NEXT_PUBLIC_SUPABASE_URL e as chaves; isso desliga o modo local
+npm run db:start             # sobe o Supabase local e aplica as migrations (imprime as chaves)
+npm run content:validate && npm run content:seed
+npm run db:seed-dev          # opcional: professora, 2 alunos e histórico simulado
+npm run audio:generate       # opcional: gera os áudios que faltam (provider simulado sem chave)
+npm run dev
+```
+
+Para o admin no Supabase: `update profiles set role = 'admin' where email = '...'` (o papel nunca é definido pelo cadastro). Os alunos são cadastrados pela professora na tela, como no modo local.
 
 ## Testes
 
@@ -35,8 +52,8 @@ npm test                  # Vitest: correção, SRS, domínio, RLS (PGlite), con
 npm run typecheck
 npm run lint
 npm run check             # tudo acima mais a validação de conteúdo
-npm run test:e2e          # Playwright
-E2E_FLOW=1 npm run test:e2e   # inclui o fluxo completo (precisa do Supabase local e dos seeds)
+npm run dev:local &       # o e2e usa o app em modo local
+npm run test:e2e          # Playwright: login, exercícios, flashcards, professora, cadastrar/descadastrar aluno, pausar acesso
 ```
 
 - Os testes de RLS aplicam as migrations reais em PGlite (Postgres em WebAssembly), sem Docker.
@@ -54,8 +71,8 @@ E2E_FLOW=1 npm run test:e2e   # inclui o fluxo completo (precisa do Supabase loc
 O app, o HTTPS e os jobs rodam na VPS com docker compose. O banco, a autenticação e o Storage ficam no Supabase (recomendado: projeto na região São Paulo).
 
 1. Crie o projeto no Supabase e aplique as migrations: `npx supabase link --project-ref <ref>` e `npx supabase db push`.
-2. Em Authentication, configure a URL do site e as URLs de redirecionamento (`https://SEU-DOMINIO/auth/callback`) e o SMTP.
-3. Na VPS: clone o repositório, `cp .env.example .env` e preencha tudo (domínio, chaves do Supabase, `DATABASE_URL`, SMTP).
+2. Em Authentication, desligue o cadastro público ("Allow new users to sign up") e configure o SMTP.
+3. Na VPS: clone o repositório, `cp .env.example .env` e preencha tudo (domínio, chaves do Supabase, `DATABASE_URL`, SMTP). Com `NEXT_PUBLIC_SUPABASE_URL` preenchido o app não usa o modo local.
 4. `docker compose --env-file .env up -d --build`. O Caddy emite o certificado HTTPS sozinho (aponte o DNS do domínio para a VPS antes).
 5. Rode uma vez, de qualquer máquina com o `.env` de produção: `npm run content:seed` e `npm run audio:generate`.
 6. Conceda acesso aos alunos pela página de cada aluno (acesso manual, com dias de validade).

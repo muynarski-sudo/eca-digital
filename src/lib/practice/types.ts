@@ -14,6 +14,8 @@ export interface PublicQuestion {
   /** Só em "speak": a frase-modelo (aparece na tela). */
   speakText?: string;
   audioKey?: string;
+  /** Só no modo local: texto para a voz do navegador tocar o ditado quando não há arquivo de áudio. */
+  audioFallback?: string;
 }
 
 export interface AnswerResult {

@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { serverClient } from '@/lib/supabase/server';
 import { adminClient } from '@/lib/supabase/admin';
@@ -17,46 +18,112 @@ async function staff() {
 
 const uuid = z.string().uuid();
 
-export async function inviteStudent(_: FormState, form: FormData): Promise<FormState> {
+export async function registerStudent(_: FormState, form: FormData): Promise<FormState> {
   const parsed = z
-    .string()
-    .trim()
-    .toLowerCase()
-    .email('Confira o e-mail.')
-    .safeParse(form.get('email'));
+    .object({
+      name: z.string().trim().min(2, 'Diga o nome do aluno.').max(120),
+      email: z.string().trim().toLowerCase().email('Confira o e-mail.'),
+      password: z.string().min(8, 'A senha precisa de pelo menos 8 caracteres.').max(72),
+      days: z.string().trim().optional(),
+    })
+    .safeParse(Object.fromEntries(form));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message };
-  const { db, uid } = await staff();
-  const { error } = await db.from('invites').insert({ teacher_id: uid, email: parsed.data });
-  if (error) return { error: 'Não foi possível registrar o convite.' };
-  const admin = adminClient();
-  const { data: existing } = await admin
-    .from('profiles')
-    .select('id')
-    .eq('email', parsed.data)
-    .maybeSingle();
-  if (existing) {
-    // já tem conta: vincula direto
-    await admin.from('teacher_students').upsert({ teacher_id: uid, student_id: existing.id });
-    await admin
-      .from('invites')
-      .update({ accepted_at: new Date().toISOString() })
-      .eq('teacher_id', uid)
-      .eq('email', parsed.data)
-      .is('accepted_at', null);
-    revalidatePath('/professora');
-    return { ok: 'Esse e-mail já tinha conta. O aluno foi vinculado a você.' };
-  }
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? '';
-  const { error: mailErr } = await admin.auth.admin.inviteUserByEmail(parsed.data, {
-    redirectTo: `${site}/auth/callback?next=/redefinir-senha`,
-  });
-  if (mailErr)
+  const days = parsed.data.days ? Number(parsed.data.days) : null;
+  if (days !== null && (!Number.isInteger(days) || days < 1 || days > 3650))
     return {
-      error:
-        'O convite foi registrado, mas o e-mail não saiu. Peça ao aluno para criar a conta com esse e-mail.',
+      error: 'Dias de acesso: um número de 1 a 3650, ou deixe em branco para sem data final.',
     };
+  const { uid } = await staff();
+  const admin = adminClient();
+  const { data, error } = await admin.auth.admin.createUser({
+    email: parsed.data.email,
+    password: parsed.data.password,
+    email_confirm: true,
+    user_metadata: { full_name: parsed.data.name },
+  });
+  if (error || !data.user)
+    return {
+      error: /already|registered|exists/i.test(error?.message ?? '')
+        ? 'Já existe um cadastro com esse e-mail.'
+        : 'Não foi possível cadastrar o aluno.',
+    };
+  const sid = data.user.id;
+  await admin.from('profiles').update({ full_name: parsed.data.name }).eq('id', sid);
+  await admin.from('teacher_students').upsert({ teacher_id: uid, student_id: sid });
+  await admin
+    .from('subscriptions')
+    .upsert(
+      {
+        student_id: sid,
+        status: 'active',
+        origin: 'manual',
+        external_id: `manual-${sid}`,
+        valid_until: days ? new Date(Date.now() + days * 86_400_000).toISOString() : null,
+      },
+      { onConflict: 'origin,external_id' },
+    );
   revalidatePath('/professora');
-  return { ok: 'Convite enviado. Quando o aluno entrar, ele já aparece na sua lista.' };
+  return {
+    ok: `Aluno cadastrado. Passe estes dados a ele: e-mail ${parsed.data.email} e senha ${parsed.data.password}. A senha não aparece de novo.`,
+  };
+}
+
+async function ownStudent(studentId: string) {
+  const id = uuid.parse(studentId);
+  const { db, role } = await staff();
+  const { data } = await db
+    .from('profiles')
+    .select('id,full_name,email')
+    .eq('id', id)
+    .eq('role', 'student')
+    .maybeSingle();
+  if (!data) throw new Error('Aluno não encontrado entre os seus alunos.');
+  return {
+    id,
+    role,
+    name: ((data as { full_name: string | null; email: string }).full_name ??
+      (data as { email: string }).email) as string,
+  };
+}
+
+export async function resetStudentPassword(_: FormState, form: FormData): Promise<FormState> {
+  const parsed = z
+    .object({
+      studentId: uuid,
+      password: z.string().min(8, 'A senha precisa de pelo menos 8 caracteres.').max(72),
+    })
+    .safeParse(Object.fromEntries(form));
+  if (!parsed.success) return { error: parsed.error.issues[0]?.message };
+  const { id } = await ownStudent(parsed.data.studentId);
+  const { error } = await adminClient().auth.admin.updateUserById(id, {
+    password: parsed.data.password,
+  });
+  if (error) return { error: 'Não foi possível trocar a senha.' };
+  return { ok: `Nova senha definida: ${parsed.data.password}. Ela não aparece de novo.` };
+}
+
+/** Descadastrar: apaga a conta do aluno e todos os dados dele (cascata no banco) e as gravações de voz. */
+export async function unregisterStudent(_: FormState, form: FormData): Promise<FormState> {
+  const parsed = z
+    .object({ studentId: uuid, confirm: z.string() })
+    .safeParse(Object.fromEntries(form));
+  if (!parsed.success) return { error: 'Pedido inválido.' };
+  if (parsed.data.confirm.trim().toUpperCase() !== 'EXCLUIR')
+    return { error: 'Digite EXCLUIR para confirmar.' };
+  const { id } = await ownStudent(parsed.data.studentId);
+  const admin = adminClient();
+  const { data: recs } = await admin
+    .from('voice_recordings')
+    .select('storage_path')
+    .eq('student_id', id);
+  if (recs?.length)
+    await admin.storage
+      .from('recordings')
+      .remove((recs as Array<{ storage_path: string }>).map((r) => r.storage_path));
+  const { error } = await admin.auth.admin.deleteUser(id);
+  if (error) return { error: 'Não foi possível descadastrar agora.' };
+  revalidatePath('/professora');
+  redirect('/professora?descadastrado=1');
 }
 
 export async function setAccess(studentId: string, access: 'active' | 'paused') {

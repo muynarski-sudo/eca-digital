@@ -19,11 +19,11 @@ test('página protegida redireciona para o login', async ({ page }) => {
   await expect(page).toHaveURL(/\/login/);
 });
 
-test('cadastro exige os três aceites', async ({ page }) => {
+test('não há autocadastro', async ({ page }) => {
   await page.goto('/cadastro');
-  await expect(page.getByText('Política de Privacidade').first()).toBeVisible();
-  await expect(page.getByLabel(/Tenho 18 anos/)).toBeVisible();
-  await expect(page.getByRole('checkbox')).toHaveCount(3);
+  await expect(page).toHaveURL(/\/login/); // sem sessão, qualquer rota fora da lista pública vai ao login
+  await page.goto('/login');
+  await expect(page.getByRole('link', { name: 'Criar conta' })).toHaveCount(0);
 });
 
 test('política de privacidade e termo são públicos', async ({ page }) => {

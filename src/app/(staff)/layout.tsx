@@ -7,7 +7,7 @@ export default async function StaffLayout({ children }: { children: React.ReactN
     { href: '/professora', label: 'Alunos' },
     { href: '/professora/tarefas', label: 'Tarefas' },
     { href: '/professora/resumo', label: 'Resumo semanal' },
-    { href: '/professora/convidar', label: 'Convidar aluno' },
+    { href: '/professora/cadastrar', label: 'Cadastrar aluno' },
     ...(me.role === 'admin'
       ? [
           { href: '/admin', label: 'Métricas' },

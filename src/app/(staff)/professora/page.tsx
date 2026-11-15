@@ -11,7 +11,12 @@ import { serverClient } from '@/lib/supabase/server';
 export const metadata = { title: 'Alunos' };
 export const dynamic = 'force-dynamic';
 
-export default async function Alunos() {
+export default async function Alunos({
+  searchParams,
+}: {
+  searchParams: Promise<{ descadastrado?: string }>;
+}) {
+  const sp = await searchParams;
   await requireStaff();
   const db = await serverClient();
   const { data: students } = await db
@@ -25,19 +30,28 @@ export default async function Alunos() {
       p: await loadProgress(db, s.id as string, s.level as string),
     })),
   );
-  const days = (d: Date | null) => (d ? Math.floor((Date.now() - d.getTime()) / 86_400_000) : null);
+  const days = (d: Date | null) =>
+    d ? Math.max(0, Math.floor((Date.now() - d.getTime()) / 86_400_000)) : null;
 
   return (
     <>
       <PageHeader title="Seus alunos" subtitle="Última atividade e progresso no nível.">
-        <LinkButton href="/professora/convidar">Convidar aluno</LinkButton>
+        <LinkButton href="/professora/cadastrar">Cadastrar aluno</LinkButton>
       </PageHeader>
+      {sp.descadastrado && (
+        <p
+          role="status"
+          className="rounded-xl border-2 border-success bg-success-bg p-3 font-bold text-success-text"
+        >
+          <span aria-hidden="true">✓ </span>Aluno descadastrado.
+        </p>
+      )}
       {rows.length === 0 ? (
         <EmptyState
           title="Nenhum aluno por aqui ainda"
-          action={<LinkButton href="/professora/convidar">Convidar o primeiro aluno</LinkButton>}
+          action={<LinkButton href="/professora/cadastrar">Cadastrar o primeiro aluno</LinkButton>}
         >
-          Convide por e-mail e o aluno entra já vinculado a você.
+          Você gera o e-mail e a senha, e o aluno já entra vinculado a você.
         </EmptyState>
       ) : (
         <ul className="grid gap-3">

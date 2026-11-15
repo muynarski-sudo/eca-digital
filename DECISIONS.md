@@ -90,7 +90,18 @@ Sem chave configurada, TTS e STT usam providers simulados e nada sai do servidor
 
 ### D12. O que não foi verificado neste ambiente
 - Sem Docker: o Supabase local, o Storage real, o Auth real (GoTrue) e o Dockerfile/compose (só a sintaxe do compose foi validada) não rodaram aqui.
-- O fluxo Playwright completo (`e2e/flow.spec.ts`) está escrito, mas não foi executado. O smoke (`e2e/smoke.spec.ts`: login, redirecionamento, cadastro, páginas legais, sem rolagem horizontal) foi executado e passou.
-- As telas autenticadas compilam e passam em typecheck/lint/build, mas não foram abertas contra dados reais.
+- Contra o Supabase real (GoTrue, PostgREST, Storage) nada foi executado. O fluxo Playwright rodou contra o modo local (ver D13).
 - Provider real de TTS/STT/IA e SMTP não foram exercitados (só os simulados e testes unitários).
 - Métricas do admin leem até 20 mil tentativas (`max_rows` do `supabase/config.toml`). Em escala maior, mover para uma view ou RPC.
+
+### D13. Modo local e cadastro feito pela professora
+Decisão do responsável: por enquanto o app roda localmente, sem Supabase, só com um usuário de teste de professora e um de aluno, e a venda é só para alunos do círculo dela.
+
+- **Modo local** (`APP_BACKEND=local`, ou automático quando `NEXT_PUBLIC_SUPABASE_URL` não existe): `src/lib/local` implementa um cliente com a mesma interface do supabase-js para as chamadas que o app usa (select, filtros, insert, update, upsert, delete, rpc, auth e storage em disco) sobre o PGlite. As migrations e a RLS são as mesmas da produção; cada consulta roda numa transação com `set local role authenticated` e o usuário da sessão, então o isolamento entre alunos continua valendo. O código das telas é o mesmo nos dois modos.
+- Login local: senha com scrypt e sal; cookie `ff_session` assinado (HMAC-SHA256, 7 dias, httpOnly). O segredo padrão (`LOCAL_SESSION_SECRET`) é só para uso local.
+- Bootstrap local: aplica migrations, carrega o conteúdo e cria `professora@teste.local` (admin, para testar tudo) e `aluno@teste.local` com histórico simulado.
+- **Sem autocadastro**: removidos `/cadastro` e o convite por e-mail. A professora cadastra (nome, e-mail, senha gerada por ela, prazo opcional), pausa, redefine senha e descadastra (apaga a conta e os dados em cascata, mais as gravações). O aceite de política, termo e aviso de maioridade acontece no primeiro acesso (`/aceite`) e continua registrado em `consents` com a versão.
+- Segurança do modo local: o cookie e o hash existem só no modo local; no Supabase o login é o do Supabase Auth. O modo local não deve ser exposto à internet.
+- Recuperação de senha: no modo local o aluno pede à professora. No Supabase o fluxo por e-mail continua disponível.
+- Limites: um processo por vez no banco (PGlite), então seeds e scripts não rodam com o servidor ligado; sem e-mail; o áudio de referência usa a voz do navegador (e o ditado também, só nesse modo).
+- Verificado: o fluxo Playwright (11 testes) roda de verdade contra o app em modo local, incluindo cadastrar aluno, primeiro acesso, descadastrar, pausar acesso e isolamento do painel da professora.

@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   if (!auth.user) return NextResponse.json({ error: 'não autorizado' }, { status: 401 });
   for (const ext of ['mp3', 'wav']) {
     const { data } = await db.storage.from('audio').createSignedUrl(audioPath(key, ext), 3600);
-    if (data?.signedUrl) return NextResponse.redirect(data.signedUrl, 302);
+    if (data?.signedUrl) return NextResponse.redirect(new URL(data.signedUrl, req.url), 302);
   }
   return NextResponse.json({ error: 'áudio ainda não gerado' }, { status: 404 });
 }

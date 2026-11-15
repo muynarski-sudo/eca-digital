@@ -4,8 +4,8 @@ import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { serverClient } from '@/lib/supabase/server';
-import { adminClient } from '@/lib/supabase/admin';
 import { currentLegal } from '@/lib/legal/data';
+import { isLocalMode } from '@/lib/local/mode';
 
 export interface FormState {
   error?: string;
@@ -34,49 +34,10 @@ export async function login(_: FormState, form: FormData): Promise<FormState> {
   redirect(next.startsWith('/') && !next.startsWith('//') ? next : '/');
 }
 
-export async function signup(_: FormState, form: FormData): Promise<FormState> {
-  const parsed = z
-    .object({ name: z.string().trim().min(2, 'Diga seu nome.').max(120), email, password })
-    .safeParse(Object.fromEntries(form));
-  if (!parsed.success) return { error: parsed.error.issues[0]?.message };
-  if (form.get('privacy') !== 'on' || form.get('terms') !== 'on')
-    return { error: 'Para criar a conta, aceite a Política de Privacidade e o Termo de Uso.' };
-  if (form.get('age') !== 'on')
-    return { error: 'Confirme o aviso sobre maiores de 18 anos ou autorização do responsável.' };
-
-  const db = await serverClient();
-  const { data, error } = await db.auth.signUp({
-    email: parsed.data.email,
-    password: parsed.data.password,
-    options: {
-      data: { full_name: parsed.data.name },
-      emailRedirectTo: `${await siteUrl()}/auth/callback`,
-    },
-  });
-  if (error || !data.user)
-    return {
-      error: 'Não foi possível criar a conta. Se você já tem cadastro, entre ou recupere a senha.',
-    };
-
-  // registro de aceite versionado (service role: ainda pode não haver sessão se o e-mail precisa de confirmação)
-  const [privacy, terms] = await Promise.all([
-    currentLegal(db, 'privacy'),
-    currentLegal(db, 'terms'),
-  ]);
-  await adminClient()
-    .from('consents')
-    .insert([
-      { user_id: data.user.id, kind: 'privacy', version: privacy.version },
-      { user_id: data.user.id, kind: 'terms', version: terms.version },
-      { user_id: data.user.id, kind: 'age_notice', version: 1 },
-    ]);
-  if (data.session) redirect('/');
-  return { ok: 'Quase lá! Enviamos um e-mail para confirmar seu cadastro.' };
-}
-
 export async function requestReset(_: FormState, form: FormData): Promise<FormState> {
   const parsed = email.safeParse(form.get('email'));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message };
+  if (isLocalMode()) return { ok: 'Fale com a sua professora: ela gera uma nova senha para você.' };
   const db = await serverClient();
   await db.auth.resetPasswordForEmail(parsed.data, {
     redirectTo: `${await siteUrl()}/auth/callback?next=/redefinir-senha`,
@@ -100,4 +61,37 @@ export async function logout() {
   const db = await serverClient();
   await db.auth.signOut();
   redirect('/login');
+}
+
+export async function changePassword(_: FormState, form: FormData): Promise<FormState> {
+  const parsed = password.safeParse(form.get('password'));
+  if (!parsed.success) return { error: parsed.error.issues[0]?.message };
+  if (form.get('password') !== form.get('confirm'))
+    return { error: 'As duas senhas precisam ser iguais.' };
+  const db = await serverClient();
+  const { error } = await db.auth.updateUser({ password: parsed.data });
+  if (error) return { error: 'Não foi possível trocar a senha agora.' };
+  return { ok: 'Senha trocada.' };
+}
+
+/** Primeiro acesso: registra o aceite versionado dos textos legais e do aviso de maioridade. */
+export async function acceptTerms(_: FormState, form: FormData): Promise<FormState> {
+  if (form.get('privacy') !== 'on' || form.get('terms') !== 'on')
+    return { error: 'Para continuar, aceite a Política de Privacidade e o Termo de Uso.' };
+  if (form.get('age') !== 'on')
+    return { error: 'Confirme o aviso sobre maiores de 18 anos ou autorização do responsável.' };
+  const db = await serverClient();
+  const { data } = await db.auth.getUser();
+  if (!data.user) return { error: 'Sessão expirada. Entre de novo.' };
+  const [privacy, terms] = await Promise.all([
+    currentLegal(db, 'privacy'),
+    currentLegal(db, 'terms'),
+  ]);
+  const { error } = await db.from('consents').insert([
+    { user_id: data.user.id, kind: 'privacy', version: privacy.version },
+    { user_id: data.user.id, kind: 'terms', version: terms.version },
+    { user_id: data.user.id, kind: 'age_notice', version: 1 },
+  ]);
+  if (error) return { error: 'Não foi possível registrar o aceite.' };
+  redirect('/');
 }
