@@ -7,7 +7,8 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Política de Privacidade' };
 
 export default async function Page() {
-  const doc = await currentLegal(await serverClient(), 'privacy');
+  const db = await serverClient().catch(() => null);
+  const doc = await currentLegal(db, 'privacy');
   return (
     <>
       <TricolorBar />

@@ -120,6 +120,12 @@ const okPhrases = phrases.filter((p) => {
 });
 const wc = (s: string) => s.split(/\s+/).length;
 
+/** Embaralha de forma determinística, garantindo que a ordem final seja diferente da correta. */
+function scrambled(words: string[], seed: string): string[] {
+  const out = shuffled(words, seed);
+  return out.join(' ') === words.join(' ') ? [...out].reverse() : out;
+}
+
 function orderWords(): Question[] {
   const picks = okPhrases.filter((p) => wc(p.fr) >= 4 && wc(p.fr) <= 8 && !/[()]/.test(p.fr)).filter((_, i) => i % 3 === 0).slice(0, 14);
   return picks.map((p, i) => {
@@ -127,7 +133,7 @@ function orderWords(): Question[] {
     const words = joined.split(/\s+/);
     return {
       id: `q-ow-${p.unit}-${String(i + 1).padStart(3, '0')}`, unit: p.unit, type: 'order_words' as const, skill: 'gramatica' as const,
-      prompt: `Coloque as palavras na ordem: "${p.pt}"`, answers: [joined, p.fr], words: shuffled(words, p.id),
+      prompt: `Coloque as palavras na ordem: "${p.pt}"`, answers: [joined, p.fr], words: scrambled(words, p.id),
       explanation: `${p.fr} (${p.pt})`, error_tags: ['ordem_palavras'], difficulty: 2 as const, source: 'ebook' as const, needs_review: false,
     };
   });

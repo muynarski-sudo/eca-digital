@@ -17,7 +17,7 @@ export function supabaseBillingStore(): BillingStore {
       await db.from('webhook_events').update({ status, detail: detail ?? null }).eq('provider', 'hotmart').eq('event_key', key);
     },
     async findStudentByEmail(email) {
-      const { data } = await db.from('profiles').select('id').ilike('email', email).maybeSingle();
+      const { data } = await db.from('profiles').select('id').eq('email', email.toLowerCase()).maybeSingle();
       return data?.id ?? null;
     },
     async getSubscription(externalId) {

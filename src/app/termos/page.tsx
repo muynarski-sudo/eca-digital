@@ -7,7 +7,8 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Termo de Uso' };
 
 export default async function Page() {
-  const doc = await currentLegal(await serverClient(), 'terms');
+  const db = await serverClient().catch(() => null);
+  const doc = await currentLegal(db, 'terms');
   return (
     <>
       <TricolorBar />

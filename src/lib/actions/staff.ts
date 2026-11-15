@@ -24,11 +24,11 @@ export async function inviteStudent(_: FormState, form: FormData): Promise<FormS
   const { error } = await db.from('invites').insert({ teacher_id: uid, email: parsed.data });
   if (error) return { error: 'Não foi possível registrar o convite.' };
   const admin = adminClient();
-  const { data: existing } = await admin.from('profiles').select('id').ilike('email', parsed.data).maybeSingle();
+  const { data: existing } = await admin.from('profiles').select('id').eq('email', parsed.data).maybeSingle();
   if (existing) {
     // já tem conta: vincula direto
     await admin.from('teacher_students').upsert({ teacher_id: uid, student_id: existing.id });
-    await admin.from('invites').update({ accepted_at: new Date().toISOString() }).eq('teacher_id', uid).ilike('email', parsed.data).is('accepted_at', null);
+    await admin.from('invites').update({ accepted_at: new Date().toISOString() }).eq('teacher_id', uid).eq('email', parsed.data).is('accepted_at', null);
     revalidatePath('/professora');
     return { ok: 'Esse e-mail já tinha conta. O aluno foi vinculado a você.' };
   }

@@ -203,6 +203,19 @@ describe('RLS: professora lê só os alunos vinculados', () => {
   });
 });
 
+describe('funções auxiliares', () => {
+  it('aluno não sonda o acesso de outro aluno', async () => {
+    const r = await asUser(db, ID.s1, () => rows(`select public.has_active_access('${ID.s2}') as ok`));
+    expect(r[0]?.ok).toBe(false);
+    const own = await asUser(db, ID.s1, () => rows(`select public.has_active_access('${ID.s1}') as ok`));
+    expect(own[0]?.ok).toBe(true);
+  });
+  it('professora consulta o acesso de qualquer aluno e anônimo não executa as funções', async () => {
+    expect((await asUser(db, ID.t1, () => rows(`select public.has_active_access('${ID.s2}') as ok`)))[0]?.ok).toBe(true);
+    await denied(() => asUser(db, null, () => db.query(`select public.is_admin()`)));
+  });
+});
+
 describe('RLS: admin e anônimo', () => {
   it('admin lê tudo', async () => {
     expect((await asUser(db, ID.admin, () => rows('select id from profiles'))).length).toBe(6);
