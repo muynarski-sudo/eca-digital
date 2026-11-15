@@ -14,7 +14,10 @@ export default async function Trilha() {
   const progress = await loadProgress(await serverClient(), me.id, me.level);
   return (
     <>
-      <PageHeader title={`Trilha ${me.level}`} subtitle="Dominando 70% de uma unidade, a próxima se abre. A professora também pode liberar." />
+      <PageHeader
+        title={`Trilha ${me.level}`}
+        subtitle="Dominando 70% de uma unidade, a próxima se abre. A professora também pode liberar."
+      />
       <ol className="grid gap-4 md:grid-cols-2">
         {progress.units.map((u) => (
           <li key={u.unit.id}>
@@ -30,10 +33,14 @@ export default async function Trilha() {
               {u.state !== 'locked' ? (
                 <>
                   <MasteryBadge value={u.mastery} />
-                  <Link href={`/unidade/${u.unit.id}`} className="inline-block font-bold">Abrir unidade →</Link>
+                  <Link href={`/unidade/${u.unit.id}`} className="inline-block font-bold">
+                    Abrir unidade →
+                  </Link>
                 </>
               ) : (
-                <p className="text-sm text-ink-muted">Abre quando você dominar 70% da unidade anterior.</p>
+                <p className="text-sm text-ink-muted">
+                  Abre quando você dominar 70% da unidade anterior.
+                </p>
               )}
             </Card>
           </li>

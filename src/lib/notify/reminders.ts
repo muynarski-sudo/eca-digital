@@ -21,7 +21,10 @@ export function dueForReminder(list: PendingAssignment[], now: Date): PendingAss
   });
 }
 
-export function reminderEmail(a: PendingAssignment, siteUrl: string): { subject: string; text: string } {
+export function reminderEmail(
+  a: PendingAssignment,
+  siteUrl: string,
+): { subject: string; text: string } {
   const first = (a.studentName ?? '').split(' ')[0] || 'Bonjour';
   return {
     subject: `Lembrete: tarefa "${a.title}" vence ${a.dueAt.getTime() < Date.now() ? 'hoje ou já venceu' : 'em breve'}`,
@@ -29,7 +32,12 @@ export function reminderEmail(a: PendingAssignment, siteUrl: string): { subject:
   };
 }
 
-export async function sendReminders(list: PendingAssignment[], email: EmailProvider, siteUrl: string, now = new Date()): Promise<string[]> {
+export async function sendReminders(
+  list: PendingAssignment[],
+  email: EmailProvider,
+  siteUrl: string,
+  now = new Date(),
+): Promise<string[]> {
   const sent: string[] = [];
   for (const a of dueForReminder(list, now)) {
     const m = reminderEmail(a, siteUrl);

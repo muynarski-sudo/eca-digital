@@ -9,7 +9,10 @@ export const dynamic = 'force-dynamic';
 
 const body = z.object({
   scenario: z.string(),
-  messages: z.array(z.object({ role: z.enum(['user', 'assistant']), content: z.string().min(1).max(400) })).min(1).max(12),
+  messages: z
+    .array(z.object({ role: z.enum(['user', 'assistant']), content: z.string().min(1).max(400) }))
+    .min(1)
+    .max(12),
 });
 
 /** Nada da conversa é gravado no banco. Só o texto da cena vai ao provedor de IA (transferência internacional: ver DECISIONS.md). */
@@ -21,7 +24,8 @@ export async function POST(req: Request) {
   if (!auth.user) return NextResponse.json({ error: 'não autorizado' }, { status: 401 });
   const parsed = body.safeParse(await req.json().catch(() => null));
   const scenario = parsed.success ? scenarioById(parsed.data.scenario) : undefined;
-  if (!parsed.success || !scenario) return NextResponse.json({ error: 'pedido inválido' }, { status: 400 });
+  if (!parsed.success || !scenario)
+    return NextResponse.json({ error: 'pedido inválido' }, { status: 400 });
   try {
     return NextResponse.json(await provider.reply(scenario, parsed.data.messages));
   } catch {

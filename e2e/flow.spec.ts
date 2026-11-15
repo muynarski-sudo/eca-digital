@@ -22,7 +22,10 @@ test('aluna: treino de hoje e flashcards', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Bienvenu\(e\), Ana/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /Progresso do nível A1/ })).toBeVisible();
 
-  await page.getByRole('link', { name: /On y va!|Começar pela unidade 1/ }).first().click();
+  await page
+    .getByRole('link', { name: /On y va!|Começar pela unidade 1/ })
+    .first()
+    .click();
   await expect(page).toHaveURL(/\/praticar/);
   for (let i = 0; i < 3; i++) {
     const text = page.getByLabel('Sua resposta');
@@ -38,7 +41,9 @@ test('aluna: treino de hoje e flashcards', async ({ page }) => {
         break; // tipos sem entrada simples (ordenar, ligar, fala)
       }
     }
-    await expect(page.getByRole('status').filter({ hasText: /Voilà|Quase|Ainda não/ })).toBeVisible();
+    await expect(
+      page.getByRole('status').filter({ hasText: /Voilà|Quase|Ainda não/ }),
+    ).toBeVisible();
     await page.getByRole('button', { name: /Continuar|Ver resumo/ }).click();
   }
 

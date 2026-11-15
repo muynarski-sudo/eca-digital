@@ -8,8 +8,22 @@ export default async function StaffLayout({ children }: { children: React.ReactN
     { href: '/professora/tarefas', label: 'Tarefas' },
     { href: '/professora/resumo', label: 'Resumo semanal' },
     { href: '/professora/convidar', label: 'Convidar aluno' },
-    ...(me.role === 'admin' ? [{ href: '/admin', label: 'Métricas' }, { href: '/admin/conteudo', label: 'Conteúdo' }, { href: '/admin/documentos', label: 'Documentos legais' }] : []),
+    ...(me.role === 'admin'
+      ? [
+          { href: '/admin', label: 'Métricas' },
+          { href: '/admin/conteudo', label: 'Conteúdo' },
+          { href: '/admin/documentos', label: 'Documentos legais' },
+        ]
+      : []),
     { href: '/inicio', label: 'Ver como aluno' },
   ];
-  return <Shell nav={nav} name={me.fullName ?? me.email} badge={me.role === 'admin' ? 'admin' : 'professora'}>{children}</Shell>;
+  return (
+    <Shell
+      nav={nav}
+      name={me.fullName ?? me.email}
+      badge={me.role === 'admin' ? 'admin' : 'professora'}
+    >
+      {children}
+    </Shell>
+  );
 }

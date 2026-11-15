@@ -38,16 +38,23 @@ async function main() {
 
   const missing = texts.filter((t) => {
     const k = audioKey(t);
-    return db ? !existing.has(k) : !existsSync(`.audio-cache/${audioPath(k, 'mp3')}`) && !existsSync(`.audio-cache/${audioPath(k, 'wav')}`);
+    return db
+      ? !existing.has(k)
+      : !existsSync(`.audio-cache/${audioPath(k, 'mp3')}`) &&
+          !existsSync(`.audio-cache/${audioPath(k, 'wav')}`);
   });
-  console.warn(`Provider: ${tts.name}. ${texts.length} textos, ${texts.length - missing.length} já existem, ${missing.length} a gerar.${dry ? ' (simulação)' : ''}`);
+  console.warn(
+    `Provider: ${tts.name}. ${texts.length} textos, ${texts.length - missing.length} já existem, ${missing.length} a gerar.${dry ? ' (simulação)' : ''}`,
+  );
   if (dry) return;
   let done = 0;
   for (const t of missing) {
     const out = await tts.synthesize(t, { lang: 'fr-FR' });
     const path = audioPath(audioKey(t), out.ext);
     if (db) {
-      const { error } = await db.storage.from('audio').upload(path, out.data, { contentType: out.mime, upsert: false });
+      const { error } = await db.storage
+        .from('audio')
+        .upload(path, out.data, { contentType: out.mime, upsert: false });
       if (error) throw new Error(`upload ${path}: ${error.message}`);
     } else {
       writeFileSync(`.audio-cache/${path}`, out.data);

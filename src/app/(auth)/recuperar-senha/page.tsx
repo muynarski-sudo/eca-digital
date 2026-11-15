@@ -11,7 +11,9 @@ export default function RecoverPage() {
       <ActionForm action={requestReset} submitLabel="Enviar link">
         <Field label="E-mail" name="email" type="email" autoComplete="email" />
       </ActionForm>
-      <p className="text-sm"><Link href="/login">Voltar ao login</Link></p>
+      <p className="text-sm">
+        <Link href="/login">Voltar ao login</Link>
+      </p>
     </AuthFrame>
   );
 }

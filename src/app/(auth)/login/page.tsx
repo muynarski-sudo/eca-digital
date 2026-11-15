@@ -5,7 +5,11 @@ import { login } from '@/lib/actions/auth';
 
 export const metadata = { title: 'Entrar' };
 
-export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
   const { next } = await searchParams;
   return (
     <AuthFrame title="Bienvenu(e)!" subtitle="Entre para continuar seus estudos.">

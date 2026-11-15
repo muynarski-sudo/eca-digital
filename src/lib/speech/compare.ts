@@ -14,9 +14,11 @@ export interface SpeechComparison {
 }
 
 /** Sem apóstrofos ("s'il" vira "sil"). */
-const tokens = (s: string) => stripAccents(normalize(s)).replace(/'/g, '').split(/\s+/).filter(Boolean);
+const tokens = (s: string) =>
+  stripAccents(normalize(s)).replace(/'/g, '').split(/\s+/).filter(Boolean);
 /** O reconhecedor às vezes separa a elisão ("j ai"): junta letras soltas de elisão ao termo seguinte. */
-const heardTokens = (s: string) => tokens(stripAccents(normalize(s)).replace(/(^|\s)(j|l|d|s|n|m|t|c|qu)\s+(?=\S)/g, "$1$2"));
+const heardTokens = (s: string) =>
+  tokens(stripAccents(normalize(s)).replace(/(^|\s)(j|l|d|s|n|m|t|c|qu)\s+(?=\S)/g, '$1$2'));
 
 /** Compara a transcrição com a frase esperada, tolerando acentos e pontuação. É "foi compreendido", não nota de sotaque. */
 export function compareSpoken(expected: string, transcript: string): SpeechComparison {
@@ -31,7 +33,10 @@ export function compareSpoken(expected: string, transcript: string): SpeechCompa
   const dp: number[][] = Array.from({ length: n + 1 }, () => new Array<number>(m + 1).fill(0));
   for (let i = n - 1; i >= 0; i--) {
     for (let j = m - 1; j >= 0; j--) {
-      dp[i]![j] = exp[i]!.tok === heard[j] ? dp[i + 1]![j + 1]! + 1 : Math.max(dp[i + 1]![j]!, dp[i]![j + 1]!);
+      dp[i]![j] =
+        exp[i]!.tok === heard[j]
+          ? dp[i + 1]![j + 1]! + 1
+          : Math.max(dp[i + 1]![j]!, dp[i]![j + 1]!);
     }
   }
   const matched = new Set<number>();
@@ -55,5 +60,11 @@ export function compareSpoken(expected: string, transcript: string): SpeechCompa
   const ratio = display.length === 0 ? 0 : understood / display.length;
   const extra = heard.filter((_, idx) => !used.has(idx));
   const verdict = ratio === 1 ? 'correct' : ratio >= 0.7 ? 'almost' : 'wrong';
-  return { words, extra, ratio, verdict, score: verdict === 'correct' ? 1 : verdict === 'almost' ? 0.5 : 0 };
+  return {
+    words,
+    extra,
+    ratio,
+    verdict,
+    score: verdict === 'correct' ? 1 : verdict === 'almost' ? 0.5 : 0,
+  };
 }

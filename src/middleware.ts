@@ -1,7 +1,17 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-const PUBLIC = ['/login', '/cadastro', '/recuperar-senha', '/redefinir-senha', '/auth', '/politica-de-privacidade', '/termos', '/api/webhooks', '/api/health'];
+const PUBLIC = [
+  '/login',
+  '/cadastro',
+  '/recuperar-senha',
+  '/redefinir-senha',
+  '/auth',
+  '/politica-de-privacidade',
+  '/termos',
+  '/api/webhooks',
+  '/api/health',
+];
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next({ request: req });
@@ -29,4 +39,6 @@ export async function middleware(req: NextRequest) {
   return res;
 }
 
-export const config = { matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|ico|webp)$).*)'] };
+export const config = {
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|ico|webp)$).*)'],
+};

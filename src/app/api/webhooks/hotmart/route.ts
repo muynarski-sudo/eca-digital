@@ -28,7 +28,9 @@ export async function POST(req: Request) {
   try {
     const periodDays = Number(process.env.HOTMART_PERIOD_DAYS ?? '32');
     const result = await processHotmartEvent(supabaseBillingStore(), event, body, { periodDays });
-    console.warn(`[hotmart] ${event.eventType} ${result.outcome}${result.detail ? ` (${result.detail})` : ''}`);
+    console.warn(
+      `[hotmart] ${event.eventType} ${result.outcome}${result.detail ? ` (${result.detail})` : ''}`,
+    );
     return NextResponse.json({ ok: true, outcome: result.outcome });
   } catch (e) {
     console.error('[hotmart] falha ao processar', e instanceof Error ? e.message : e);

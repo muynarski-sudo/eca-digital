@@ -21,8 +21,13 @@ describe('conteúdo do e-book', () => {
     expect(report.totais.questoes).toBe(c.questions.length);
   });
   it('só o alfabeto e o exercício do chirurgien estão pendentes', () => {
-    const flagged = [...c.vocab.filter((v) => v.needs_review).map((v) => v.category), ...c.questions.filter((q) => q.needs_review).map((q) => q.prompt)];
-    expect(new Set(flagged)).toEqual(new Set(['alfabeto', 'Coloque no feminino: "Il est un bon chirurgien."']));
+    const flagged = [
+      ...c.vocab.filter((v) => v.needs_review).map((v) => v.category),
+      ...c.questions.filter((q) => q.needs_review).map((q) => q.prompt),
+    ];
+    expect(new Set(flagged)).toEqual(
+      new Set(['alfabeto', 'Coloque no feminino: "Il est un bon chirurgien."']),
+    );
   });
   it('nenhum item pendente vira exercício de áudio, cartão ou questão gerada', () => {
     const letters = new Set(c.vocab.filter((v) => v.needs_review).map((v) => v.fr));
@@ -36,7 +41,8 @@ describe('conteúdo do e-book', () => {
         expect(gradeQuestion(q, { pairs: q.pairs! }).verdict, q.id).toBe('correct');
       } else {
         expect(gradeQuestion(q, q.answers[0]!).verdict, q.id).toBe('correct');
-        for (const v of q.answers) expect(gradeQuestion(q, v).verdict, `${q.id} variante ${v}`).not.toBe('wrong');
+        for (const v of q.answers)
+          expect(gradeQuestion(q, v).verdict, `${q.id} variante ${v}`).not.toBe('wrong');
       }
     }
   });
@@ -67,8 +73,36 @@ describe('estrutura multi-nível', () => {
   it('um novo nível entra só com arquivos novos em content/data', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'content-'));
     cpSync('content/data', dir, { recursive: true });
-    writeFileSync(path.join(dir, 'units.a2.json'), JSON.stringify([{ id: 'a2-u01', level: 'A2', order: 1, title: 'Passé composé', objective: 'o', summary: 's' }]));
-    writeFileSync(path.join(dir, 'questions.a2.json'), JSON.stringify([{ id: 'q-a2-001', unit: 'a2-u01', type: 'fill_blank', skill: 'gramatica', prompt: 'x', answers: ['y'], explanation: 'e', difficulty: 1, source: 'generated', needs_review: true }]));
+    writeFileSync(
+      path.join(dir, 'units.a2.json'),
+      JSON.stringify([
+        {
+          id: 'a2-u01',
+          level: 'A2',
+          order: 1,
+          title: 'Passé composé',
+          objective: 'o',
+          summary: 's',
+        },
+      ]),
+    );
+    writeFileSync(
+      path.join(dir, 'questions.a2.json'),
+      JSON.stringify([
+        {
+          id: 'q-a2-001',
+          unit: 'a2-u01',
+          type: 'fill_blank',
+          skill: 'gramatica',
+          prompt: 'x',
+          answers: ['y'],
+          explanation: 'e',
+          difficulty: 1,
+          source: 'generated',
+          needs_review: true,
+        },
+      ]),
+    );
     const c = loadContent(dir);
     expect(c.units.filter((u) => u.level === 'A2')).toHaveLength(1);
     expect(c.units.filter((u) => u.level === 'A1')).toHaveLength(10);

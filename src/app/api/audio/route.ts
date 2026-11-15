@@ -7,7 +7,8 @@ export const dynamic = 'force-dynamic';
 /** Redireciona para uma URL assinada do áudio de referência. 404 se o arquivo ainda não foi gerado (o cliente usa a voz do navegador como alternativa, exceto no ditado). */
 export async function GET(req: Request) {
   const key = new URL(req.url).searchParams.get('k') ?? '';
-  if (!/^[0-9a-f]{20}$/.test(key)) return NextResponse.json({ error: 'chave inválida' }, { status: 400 });
+  if (!/^[0-9a-f]{20}$/.test(key))
+    return NextResponse.json({ error: 'chave inválida' }, { status: 400 });
   const db = await serverClient();
   const { data: auth } = await db.auth.getUser();
   if (!auth.user) return NextResponse.json({ error: 'não autorizado' }, { status: 401 });

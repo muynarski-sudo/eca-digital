@@ -1,6 +1,15 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { contentSchemas, type Conjugation, type CultureTip, type Dialogue, type Phrase, type Question, type Unit, type VocabItem } from './schema';
+import {
+  contentSchemas,
+  type Conjugation,
+  type CultureTip,
+  type Dialogue,
+  type Phrase,
+  type Question,
+  type Unit,
+  type VocabItem,
+} from './schema';
 
 export interface ContentBundle {
   units: Unit[];

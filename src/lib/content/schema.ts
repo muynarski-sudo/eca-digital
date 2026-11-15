@@ -13,7 +13,13 @@ export const QUESTION_TYPES = [
   'dictation',
   'speak',
 ] as const;
-export const TENSES = ['present', 'futur_proche', 'passe_compose', 'imparfait', 'futur_simple'] as const;
+export const TENSES = [
+  'present',
+  'futur_proche',
+  'passe_compose',
+  'imparfait',
+  'futur_simple',
+] as const;
 export const PERSONS = ['je', 'tu', 'il', 'nous', 'vous', 'ils'] as const;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9_.-]*$/i);
@@ -64,23 +70,38 @@ export const questionSchema = z
   })
   .superRefine((q, ctx) => {
     const needsAnswers = q.type !== 'match_pairs';
-    if (needsAnswers && q.answers.length === 0) ctx.addIssue({ code: 'custom', message: 'answers vazio' });
+    if (needsAnswers && q.answers.length === 0)
+      ctx.addIssue({ code: 'custom', message: 'answers vazio' });
     if (q.type === 'multiple_choice') {
-      if (!q.choices || q.choices.length < 2) ctx.addIssue({ code: 'custom', message: 'choices < 2' });
-      else if (!q.choices.includes(q.answers[0] ?? '')) ctx.addIssue({ code: 'custom', message: 'resposta fora das choices' });
+      if (!q.choices || q.choices.length < 2)
+        ctx.addIssue({ code: 'custom', message: 'choices < 2' });
+      else if (!q.choices.includes(q.answers[0] ?? ''))
+        ctx.addIssue({ code: 'custom', message: 'resposta fora das choices' });
     }
-    if (q.type === 'match_pairs' && (!q.pairs || q.pairs.length < 2)) ctx.addIssue({ code: 'custom', message: 'pairs < 2' });
-    if (q.type === 'order_words' && (!q.words || q.words.length < 2)) ctx.addIssue({ code: 'custom', message: 'words < 2' });
+    if (q.type === 'match_pairs' && (!q.pairs || q.pairs.length < 2))
+      ctx.addIssue({ code: 'custom', message: 'pairs < 2' });
+    if (q.type === 'order_words' && (!q.words || q.words.length < 2))
+      ctx.addIssue({ code: 'custom', message: 'words < 2' });
     if ((q.type === 'dictation' || q.type === 'speak') && !q.audio_text)
       ctx.addIssue({ code: 'custom', message: 'audio_text obrigatório' });
   });
 
-const personForms = z.object(Object.fromEntries(PERSONS.map((p) => [p, z.string().min(1)])) as Record<(typeof PERSONS)[number], z.ZodString>);
+const personForms = z.object(
+  Object.fromEntries(PERSONS.map((p) => [p, z.string().min(1)])) as Record<
+    (typeof PERSONS)[number],
+    z.ZodString
+  >,
+);
 export const conjugationSchema = z.object({
   id,
   verb: z.string().min(1),
   pt: z.string().min(1),
-  tenses: z.object(Object.fromEntries(TENSES.map((t) => [t, personForms])) as Record<(typeof TENSES)[number], typeof personForms>),
+  tenses: z.object(
+    Object.fromEntries(TENSES.map((t) => [t, personForms])) as Record<
+      (typeof TENSES)[number],
+      typeof personForms
+    >,
+  ),
   ...meta,
 });
 
@@ -89,7 +110,16 @@ export const dialogueSchema = z.object({
   unit: id,
   title: z.string(),
   scene: z.string().optional(),
-  lines: z.array(z.object({ speaker: z.string(), fr: z.string(), pt: z.string(), pron: z.string().optional() })).min(2),
+  lines: z
+    .array(
+      z.object({
+        speaker: z.string(),
+        fr: z.string(),
+        pt: z.string(),
+        pron: z.string().optional(),
+      }),
+    )
+    .min(2),
   ...meta,
 });
 
@@ -103,7 +133,13 @@ export const phraseSchema = z.object({
   ...meta,
 });
 
-export const cultureSchema = z.object({ id, unit: id, title: z.string(), text: z.string(), ...meta });
+export const cultureSchema = z.object({
+  id,
+  unit: id,
+  title: z.string(),
+  text: z.string(),
+  ...meta,
+});
 
 export type Unit = z.infer<typeof unitSchema>;
 export type VocabItem = z.infer<typeof vocabSchema>;

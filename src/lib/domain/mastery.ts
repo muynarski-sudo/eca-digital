@@ -20,7 +20,12 @@ export function decayed(mastery: number, lastPracticed: Date | null, now: Date):
 }
 
 /** Média móvel exponencial: novo = antigo + alfa * (resultado - antigo). */
-export function updateMastery(current: number, lastPracticed: Date | null, score: number, now: Date): number {
+export function updateMastery(
+  current: number,
+  lastPracticed: Date | null,
+  score: number,
+  now: Date,
+): number {
   const base = decayed(current, lastPracticed, now);
   const next = base + MASTERY.alpha * (score - base);
   return Math.max(0, Math.min(1, next));
@@ -53,8 +58,15 @@ export function unitStates(units: UnitSnapshot[]): Record<string, UnitState> {
   const out: Record<string, UnitState> = {};
   sorted.forEach((u, i) => {
     const prev = sorted[i - 1];
-    const open = i === 0 || u.manuallyUnlocked === true || (prev !== undefined && prev.mastery >= MASTERY.unlockThreshold);
-    out[u.id] = !open ? 'locked' : u.mastery >= MASTERY.masteredThreshold ? 'mastered' : 'in_progress';
+    const open =
+      i === 0 ||
+      u.manuallyUnlocked === true ||
+      (prev !== undefined && prev.mastery >= MASTERY.unlockThreshold);
+    out[u.id] = !open
+      ? 'locked'
+      : u.mastery >= MASTERY.masteredThreshold
+        ? 'mastered'
+        : 'in_progress';
   });
   return out;
 }
@@ -87,5 +99,10 @@ export function studyStreak(days: string[], today: string): number {
 
 /** Data local (yyyy-mm-dd) no fuso de São Paulo. */
 export function localDay(d: Date, timeZone = 'America/Sao_Paulo'): string {
-  return new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(d);
 }

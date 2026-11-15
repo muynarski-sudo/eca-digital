@@ -10,11 +10,17 @@ export default async function Convidar() {
   await requireStaff();
   return (
     <>
-      <PageHeader title="Convidar aluno" subtitle="O aluno recebe um e-mail para criar a senha e já entra vinculado a você." />
+      <PageHeader
+        title="Convidar aluno"
+        subtitle="O aluno recebe um e-mail para criar a senha e já entra vinculado a você."
+      />
       <Card className="max-w-md">
         <ActionForm action={inviteStudent} submitLabel="Enviar convite">
           <Field label="E-mail do aluno" name="email" type="email" autoComplete="off" />
-          <p className="text-sm text-ink-muted">O acesso depende de assinatura ativa. Depois do convite, conceda acesso manual na página do aluno ou aguarde a compra pela Hotmart.</p>
+          <p className="text-sm text-ink-muted">
+            O acesso depende de assinatura ativa. Depois do convite, conceda acesso manual na página
+            do aluno ou aguarde a compra pela Hotmart.
+          </p>
         </ActionForm>
       </Card>
     </>

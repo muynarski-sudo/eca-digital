@@ -7,7 +7,11 @@ function det(seed: string) {
   for (const c of seed) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
   return h >>> 0;
 }
-const stable = <T,>(arr: T[], seed: string) => [...arr].map((v, i) => ({ v, k: det(`${seed}:${i}`) })).sort((a, b) => a.k - b.k).map((x) => x.v);
+const stable = <T>(arr: T[], seed: string) =>
+  [...arr]
+    .map((v, i) => ({ v, k: det(`${seed}:${i}`) }))
+    .sort((a, b) => a.k - b.k)
+    .map((x) => x.v);
 
 export function toPublic(q: Question): PublicQuestion {
   return {
@@ -19,7 +23,15 @@ export function toPublic(q: Question): PublicQuestion {
     hint: q.hint,
     choices: q.choices,
     words: q.words,
-    pairs: q.pairs ? { lefts: q.pairs.map((p) => p.left), rights: stable(q.pairs.map((p) => p.right), q.id) } : undefined,
+    pairs: q.pairs
+      ? {
+          lefts: q.pairs.map((p) => p.left),
+          rights: stable(
+            q.pairs.map((p) => p.right),
+            q.id,
+          ),
+        }
+      : undefined,
     speakText: q.type === 'speak' ? q.audio_text : undefined,
     audioKey: q.audio_text ? audioKey(q.audio_text) : undefined,
   };

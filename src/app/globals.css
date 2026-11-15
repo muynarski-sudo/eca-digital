@@ -4,12 +4,33 @@
 @tailwind utilities;
 
 @layer base {
-  html { font-family: var(--font-sans); font-size: 16px; }
-  body { @apply bg-white text-ink antialiased; }
-  h1, h2, h3, h4 { @apply font-bold text-brand-blue-dark; }
-  a { @apply text-brand-blue underline-offset-2 hover:underline; }
-  :focus-visible { outline: 3px solid var(--color-brand-blue); outline-offset: 2px; border-radius: 4px; }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  html {
+    font-family: var(--font-sans);
+    font-size: 16px;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold text-brand-blue-dark;
+  }
+  a {
+    @apply text-brand-blue underline-offset-2 hover:underline;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
 }
 
 @layer components {
@@ -21,9 +42,17 @@
       linear-gradient(225deg, rgb(0 85 164 / 0.07) 25%, transparent 25%),
       linear-gradient(45deg, rgb(0 85 164 / 0.05) 25%, transparent 25%),
       linear-gradient(315deg, rgb(0 85 164 / 0.05) 25%, var(--color-blue-tint) 25%);
-    background-position: 20px 0, 20px 0, 0 0, 0 0;
+    background-position:
+      20px 0,
+      20px 0,
+      0 0,
+      0 0;
     background-size: 40px 40px;
   }
-  .field { @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-ink-muted; }
-  .field:focus { border-color: var(--color-brand-blue); }
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink placeholder:text-ink-muted;
+  }
+  .field:focus {
+    border-color: var(--color-brand-blue);
+  }
 }

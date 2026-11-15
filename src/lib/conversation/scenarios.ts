@@ -8,9 +8,30 @@ export interface Scenario {
 }
 
 export const SCENARIOS: Scenario[] = [
-  { id: 'restaurante', title: 'No restaurante', goal: 'Pedir um prato, uma bebida e a conta.', unit: 'u10', opening: { fr: 'Bonjour, vous avez choisi ?', pt: 'Bom dia, já escolheu?' } },
-  { id: 'aeroporto', title: 'No aeroporto e na estação', goal: 'Comprar um bilhete e perguntar pelo portão.', unit: 'u10', opening: { fr: 'Bonjour, je peux vous aider ?', pt: 'Bom dia, posso ajudar?' } },
-  { id: 'direcoes', title: 'Pedindo direções', goal: 'Perguntar onde fica um lugar e entender a resposta.', unit: 'u09', opening: { fr: 'Excusez-moi, vous cherchez quelque chose ?', pt: 'Com licença, você procura algo?' } },
+  {
+    id: 'restaurante',
+    title: 'No restaurante',
+    goal: 'Pedir um prato, uma bebida e a conta.',
+    unit: 'u10',
+    opening: { fr: 'Bonjour, vous avez choisi ?', pt: 'Bom dia, já escolheu?' },
+  },
+  {
+    id: 'aeroporto',
+    title: 'No aeroporto e na estação',
+    goal: 'Comprar um bilhete e perguntar pelo portão.',
+    unit: 'u10',
+    opening: { fr: 'Bonjour, je peux vous aider ?', pt: 'Bom dia, posso ajudar?' },
+  },
+  {
+    id: 'direcoes',
+    title: 'Pedindo direções',
+    goal: 'Perguntar onde fica um lugar e entender a resposta.',
+    unit: 'u09',
+    opening: {
+      fr: 'Excusez-moi, vous cherchez quelque chose ?',
+      pt: 'Com licença, você procura algo?',
+    },
+  },
 ];
 
 export const scenarioById = (id: string) => SCENARIOS.find((s) => s.id === id);

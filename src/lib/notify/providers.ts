@@ -9,7 +9,10 @@ export interface WhatsAppProvider {
 }
 
 export class SmtpEmail implements EmailProvider {
-  constructor(private readonly url: string, private readonly from: string) {}
+  constructor(
+    private readonly url: string,
+    private readonly from: string,
+  ) {}
   async send(to: string, subject: string, text: string) {
     await nodemailer.createTransport(this.url).sendMail({ from: this.from, to, subject, text });
   }

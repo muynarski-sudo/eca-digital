@@ -67,3 +67,40 @@ Sem Docker, os testes de RLS (`tests/rls.test.ts`) aplicam as migrations reais e
 
 ### D8. Calibragem do domínio (risco)
 Com alfa 0,3 partindo de 0, são necessários cerca de 4 acertos por item para chegar a 70% naquele item, e a unidade tem de 17 a 41 questões. Isso é fiel à especificação, mas pode ser lento para liberar a unidade seguinte. Todas as constantes estão em `src/lib/domain/mastery.ts` (alfa, carência de 7 dias, meia-vida de 30 dias, 70% para abrir, 90% para "dominada"), e a professora pode liberar manualmente. Recomendo calibrar depois de algumas semanas de uso real.
+
+### D9. Transferência internacional de dados (LGPD)
+Cada provedor abaixo só recebe dados se for ativado. Todos estão desligados ou simulados por padrão. A professora/escola precisa firmar o contrato ou aceitar os termos de cada um, e o advogado responsável deve validar a base legal e atualizar a Política de Privacidade.
+
+| Provedor | O que recebe | Quando | Observação |
+|---|---|---|---|
+| Supabase (banco, Auth, Storage) | todos os dados da plataforma | sempre | Escolher a região São Paulo (sa-east-1) mantém os dados no Brasil |
+| Hotmart | e-mail do comprador (já é dado da Hotmart) | webhook de entrada | só recebemos; não enviamos dados à Hotmart |
+| TTS (`TTS_PROVIDER=openai`) | apenas textos em francês do e-book | ao rodar `audio:generate` | sem dado pessoal; EUA no caso da OpenAI |
+| STT (`STT_PROVIDER=openai`) | áudio da voz do aluno | a cada tentativa de fala | dado pessoal (voz). Não guardamos o áudio, salvo opção do aluno (30 dias). EUA no caso da OpenAI |
+| IA de conversa (`AI_CONVERSATION_ENABLED=true`) | texto digitado pelo aluno na cena | a cada mensagem | desligada por padrão; nada é gravado no nosso banco; EUA no caso da Anthropic |
+| SMTP (lembretes) | e-mail e nome do aluno, título da tarefa | job diário | depende do provedor escolhido |
+
+Sem chave configurada, TTS e STT usam providers simulados e nada sai do servidor.
+
+### D10. Privacidade e minimização
+- Sem rastreadores de terceiros, pixels ou fontes externas (Arial do sistema). Cabeçalhos de segurança no `next.config.mjs` (microfone só no próprio site).
+- Consentimentos versionados em `consents` (privacy, terms, age_notice), registrados com a versão dos textos em `legal_documents`. Não guardamos IP nem agente de usuário.
+- Textos de política e termo são modelos editáveis no painel do admin (cada publicação cria uma versão). O aviso de maioridade (18 anos ou autorização do responsável) está no cadastro, **a validar pelo advogado responsável**.
+- Gravação de voz é opt-in (caixa "guardar por 30 dias"). Purga diária (`jobs:purge-recordings`) e exclusão pelo aluno em "Meus dados".
+- Exportação em JSON (`/api/me/export`) e exclusão de conta (apaga o usuário em `auth.users`, e o banco apaga o resto em cascata; as gravações no Storage são removidas antes).
+- Tentativas guardam a resposta digitada (até 500 caracteres) para a professora revisar. Aviso na política.
+
+### D11. Conteúdo
+- `conjugate` usa só o présent de cada verbo no banco (102 questões, unidade `null` para os verbos fora do capítulo 5) e o laboratório gera os demais tempos na hora (ids `conj:verbo:tempo:pessoa`), sempre a partir das tabelas do e-book.
+- Questões de múltipla escolha, ligar pares, ordenar palavras, ditado e fala são geradas de forma determinística a partir do vocabulário e das frases do e-book (`source: "ebook"`, pois o conteúdo vem do e-book). Só 7 questões têm `source: "generated"` (números e horas pelas regras do e-book) e 1 tradução de diálogo.
+- Hífen e espaço são equivalentes na correção ("vingt-deux" = "vingt deux"). Pontuação é ignorada. Só acento divergente vira "quase certo" (50% de crédito).
+- O texto do e-book tem erros e esquisitices próprias, listados em `content/REVIEW.md`.
+- Áudio de referência: arquivos pré-gerados no Storage (`audio/fr/<hash>.mp3|wav`). Falta de arquivo: o botão usa a voz do navegador (exceto no ditado, para não vazar a resposta; no ditado há a alternativa "mostrar o texto", que não conta nota).
+- Fala: "foi compreendido" palavra a palavra (LCS entre a transcrição e a frase, tolerante a acento e pontuação). Não há nota de sotaque.
+
+### D12. O que não foi verificado neste ambiente
+- Sem Docker: o Supabase local, o Storage real, o Auth real (GoTrue) e o Dockerfile/compose (só a sintaxe do compose foi validada) não rodaram aqui.
+- O fluxo Playwright completo (`e2e/flow.spec.ts`) está escrito, mas não foi executado. O smoke (`e2e/smoke.spec.ts`: login, redirecionamento, cadastro, páginas legais, sem rolagem horizontal) foi executado e passou.
+- As telas autenticadas compilam e passam em typecheck/lint/build, mas não foram abertas contra dados reais.
+- Provider real de TTS/STT/IA e SMTP não foram exercitados (só os simulados e testes unitários).
+- Métricas do admin leem até 20 mil tentativas (`max_rows` do `supabase/config.toml`). Em escala maior, mover para uma view ou RPC.

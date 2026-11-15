@@ -35,6 +35,8 @@ test('política de privacidade e termo são públicos', async ({ page }) => {
 
 test('sem rolagem horizontal no celular', async ({ page }) => {
   await page.goto('/login');
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+  );
   expect(overflow).toBe(false);
 });

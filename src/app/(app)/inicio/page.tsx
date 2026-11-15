@@ -21,21 +21,37 @@ export default async function Inicio() {
   const [progress, questions, assignments] = await Promise.all([
     loadProgress(db, me.id, me.level, now),
     getQuestions(db),
-    db.from('assignments').select('id,title,due_at,status,teacher_feedback,teacher_grade').eq('student_id', me.id).order('due_at').limit(10),
+    db
+      .from('assignments')
+      .select('id,title,due_at,status,teacher_feedback,teacher_grade')
+      .eq('student_id', me.id)
+      .order('due_at')
+      .limit(10),
   ]);
   const open = progress.units.filter((u) => u.state !== 'locked');
   const plan = buildDailyPlan({
-    questions, itemMastery: progress.itemMastery, dueQuestionIds: progress.dueQuestionIds, now,
-    unitMastery: Object.fromEntries(progress.units.map((u) => [u.unit.id, u.mastery])), openUnits: open.map((u) => u.unit.id),
+    questions,
+    itemMastery: progress.itemMastery,
+    dueQuestionIds: progress.dueQuestionIds,
+    now,
+    unitMastery: Object.fromEntries(progress.units.map((u) => [u.unit.id, u.mastery])),
+    openUnits: open.map((u) => u.unit.id),
   });
   const weakest = progress.units.find((u) => u.unit.id === plan.weakestUnit);
-  const todo = (assignments.data ?? []).filter((a) => a.status === 'assigned' || a.status === 'in_progress');
-  const reviewed = (assignments.data ?? []).filter((a) => a.status === 'reviewed' && a.teacher_feedback).slice(-1)[0];
+  const todo = (assignments.data ?? []).filter(
+    (a) => a.status === 'assigned' || a.status === 'in_progress',
+  );
+  const reviewed = (assignments.data ?? [])
+    .filter((a) => a.status === 'reviewed' && a.teacher_feedback)
+    .slice(-1)[0];
   const first = (me.fullName ?? '').split(' ')[0];
 
   return (
     <>
-      <PageHeader title={`Bienvenu(e)${first ? `, ${first}` : ''}!`} subtitle="Um pouquinho por dia leva longe." />
+      <PageHeader
+        title={`Bienvenu(e)${first ? `, ${first}` : ''}!`}
+        subtitle="Um pouquinho por dia leva longe."
+      />
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="flex flex-col items-center gap-3 text-center">
           <ProgressRing value={progress.level} label="Progresso do nível A1" />
@@ -44,29 +60,51 @@ export default async function Inicio() {
         </Card>
         <div className="space-y-4 md:col-span-2">
           <Card tone="tint" aria-labelledby="treino" as="section" className="space-y-3">
-            <h2 id="treino" className="text-xl">Treino de hoje · 10 minutos</h2>
+            <h2 id="treino" className="text-xl">
+              Treino de hoje · 10 minutos
+            </h2>
             <p className="text-ink-soft">
-              {progress.dueQuestionIds.length > 0 ? `${Math.min(progress.dueQuestionIds.length, 6)} revisões na fila` : 'Sem revisões vencidas'}
+              {progress.dueQuestionIds.length > 0
+                ? `${Math.min(progress.dueQuestionIds.length, 6)} revisões na fila`
+                : 'Sem revisões vencidas'}
               {weakest ? ` e a unidade mais fraca: ${weakest.unit.title}.` : '.'}
             </p>
-            <LinkButton href="/praticar?modo=treino">{plan.ids.length ? 'On y va!' : 'Começar pela unidade 1'}</LinkButton>
+            <LinkButton href="/praticar?modo=treino">
+              {plan.ids.length ? 'On y va!' : 'Começar pela unidade 1'}
+            </LinkButton>
           </Card>
           <Card as="section" aria-labelledby="tarefa" className="space-y-3">
-            <h2 id="tarefa" className="text-xl">Tarefa da professora</h2>
-            {todo.length === 0 && <p className="text-ink-soft">Nada pendente por aqui. Que tal revisar algo?</p>}
+            <h2 id="tarefa" className="text-xl">
+              Tarefa da professora
+            </h2>
+            {todo.length === 0 && (
+              <p className="text-ink-soft">Nada pendente por aqui. Que tal revisar algo?</p>
+            )}
             {todo.map((a) => (
-              <div key={a.id} className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line p-3">
+              <div
+                key={a.id}
+                className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-line p-3"
+              >
                 <div>
                   <p className="font-bold">{a.title}</p>
-                  <p className="text-sm text-ink-soft">Prazo: {new Date(a.due_at).toLocaleDateString('pt-BR')}</p>
+                  <p className="text-sm text-ink-soft">
+                    Prazo: {new Date(a.due_at).toLocaleDateString('pt-BR')}
+                  </p>
                   {new Date(a.due_at) < now && <Badge kind="warn">Atrasada</Badge>}
                 </div>
-                <LinkButton href={`/praticar?tarefa=${a.id}`} variant="secondary">Fazer tarefa</LinkButton>
+                <LinkButton href={`/praticar?tarefa=${a.id}`} variant="secondary">
+                  Fazer tarefa
+                </LinkButton>
               </div>
             ))}
             {reviewed && (
               <div className="rounded-xl bg-brand-tint p-3">
-                <p className="font-bold text-brand-blue-dark">Recado da professora{reviewed.teacher_grade != null ? ` · nota ${Number(reviewed.teacher_grade).toLocaleString('pt-BR')}` : ''}</p>
+                <p className="font-bold text-brand-blue-dark">
+                  Recado da professora
+                  {reviewed.teacher_grade != null
+                    ? ` · nota ${Number(reviewed.teacher_grade).toLocaleString('pt-BR')}`
+                    : ''}
+                </p>
                 <p>{reviewed.teacher_feedback}</p>
               </div>
             )}
@@ -75,7 +113,11 @@ export default async function Inicio() {
       </div>
       <Card className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-bold">Quer escolher o que estudar?</p>
-        <span className="flex gap-3"><Link href="/trilha">Ver a trilha</Link><Link href="/flashcards">Flashcards</Link><Link href="/conjugacao">Conjugação</Link></span>
+        <span className="flex gap-3">
+          <Link href="/trilha">Ver a trilha</Link>
+          <Link href="/flashcards">Flashcards</Link>
+          <Link href="/conjugacao">Conjugação</Link>
+        </span>
       </Card>
     </>
   );

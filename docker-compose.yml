@@ -1,0 +1,54 @@
+# Produção na VPS: app Next.js + Caddy (HTTPS automático) + jobs agendados + backup diário.
+# O banco, a autenticação e o Storage ficam no Supabase (nuvem, região São Paulo). Veja o README para self-host.
+#   docker compose --env-file .env up -d --build
+services:
+  app:
+    build:
+      context: .
+      target: app
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    env_file: .env
+    restart: unless-stopped
+    expose: ['3000']
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on: [app]
+    ports: ['80:80', '443:443']
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  jobs:
+    build:
+      context: .
+      target: jobs
+      args:
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    env_file: .env
+    restart: unless-stopped
+
+  backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      BACKUP_KEEP_DAYS: ${BACKUP_KEEP_DAYS:-14}
+    volumes:
+      - ./deploy/backup.sh:/usr/local/bin/backup.sh:ro
+      - ./backups:/backups
+    entrypoint: ['/bin/sh', '-c', 'echo "0 3 * * * /usr/local/bin/backup.sh >> /backups/backup.log 2>&1" | crontab - && /usr/local/bin/backup.sh; exec crond -f -l 8']
+
+volumes:
+  caddy_data:
+  caddy_config:

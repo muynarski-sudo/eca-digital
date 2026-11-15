@@ -13,7 +13,15 @@ interface SpeechResponse {
   error?: string;
 }
 
-export function SpeakRecorder({ questionId, assignmentId, onDone }: { questionId: string; assignmentId?: string | null; onDone: (r: SpeechResponse) => void }) {
+export function SpeakRecorder({
+  questionId,
+  assignmentId,
+  onDone,
+}: {
+  questionId: string;
+  assignmentId?: string | null;
+  onDone: (r: SpeechResponse) => void;
+}) {
   const [phase, setPhase] = useState<'idle' | 'recording' | 'sending'>('idle');
   const [error, setError] = useState<string | null>(null);
   const [keep, setKeep] = useState(false);
@@ -58,7 +66,9 @@ export function SpeakRecorder({ questionId, assignmentId, onDone }: { questionId
       rec.start();
       setPhase('recording');
     } catch {
-      setError('Não consegui acessar o microfone. Libere a permissão no navegador e tente de novo.');
+      setError(
+        'Não consegui acessar o microfone. Libere a permissão no navegador e tente de novo.',
+      );
     }
   };
 
@@ -70,15 +80,30 @@ export function SpeakRecorder({ questionId, assignmentId, onDone }: { questionId
         </Button>
       ) : (
         <Button onClick={start} disabled={phase === 'sending'}>
-          <span aria-hidden="true">●</span> {phase === 'sending' ? 'Analisando…' : 'Gravar minha voz'}
+          <span aria-hidden="true">●</span>{' '}
+          {phase === 'sending' ? 'Analisando…' : 'Gravar minha voz'}
         </Button>
       )}
       <label className="flex items-start gap-2 text-sm text-ink-soft">
-        <input type="checkbox" checked={keep} onChange={(e) => setKeep(e.target.checked)} className="mt-1 h-4 w-4" />
+        <input
+          type="checkbox"
+          checked={keep}
+          onChange={(e) => setKeep(e.target.checked)}
+          className="mt-1 h-4 w-4"
+        />
         Guardar minha gravação por 30 dias para eu ouvir depois (você pode apagar quando quiser).
       </label>
-      {phase === 'recording' && <p role="status" className="font-bold text-brand-red-text">Gravando… fale a frase com calma.</p>}
-      {error && <p role="alert" className="font-bold text-brand-red-text"><span aria-hidden="true">✗ </span>{error}</p>}
+      {phase === 'recording' && (
+        <p role="status" className="font-bold text-brand-red-text">
+          Gravando… fale a frase com calma.
+        </p>
+      )}
+      {error && (
+        <p role="alert" className="font-bold text-brand-red-text">
+          <span aria-hidden="true">✗ </span>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

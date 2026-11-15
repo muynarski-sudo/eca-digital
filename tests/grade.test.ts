@@ -4,7 +4,9 @@ import { gradeQuestion, gradeText, normalize } from '@/lib/domain/grade';
 describe('normalize', () => {
   it('ignora caixa, espaços extras e pontuação', () => {
     expect(normalize('  Je   SUIS  étudiant. ')).toBe('je suis étudiant');
-    expect(normalize('Où est la gare, s\'il vous plaît ?')).toBe(normalize("où est la gare s'il vous plaît"));
+    expect(normalize("Où est la gare, s'il vous plaît ?")).toBe(
+      normalize("où est la gare s'il vous plaît"),
+    );
   });
   it('unifica apóstrofos', () => {
     expect(normalize('J’ai')).toBe(normalize("J'ai"));
@@ -19,7 +21,10 @@ describe('gradeText', () => {
   const acc = ['Vous avez un chat ?', 'Tu as un chat ?'];
   it('aceita a resposta oficial e variantes', () => {
     expect(gradeText('vous avez un chat', acc)).toMatchObject({ verdict: 'correct', score: 1 });
-    expect(gradeText('TU AS UN CHAT?', acc)).toMatchObject({ verdict: 'correct', expected: 'Tu as un chat ?' });
+    expect(gradeText('TU AS UN CHAT?', acc)).toMatchObject({
+      verdict: 'correct',
+      expected: 'Tu as un chat ?',
+    });
   });
   it('só acentos divergindo é "quase certo" com crédito parcial e mostra a forma correta', () => {
     const r = gradeText('etes', ['êtes']);
@@ -49,13 +54,38 @@ describe('gradeQuestion', () => {
     expect(gradeQuestion(q, 'bom dia').verdict).toBe('wrong');
   });
   it('ligar pares dá crédito proporcional', () => {
-    const q = { type: 'match_pairs' as const, answers: [], pairs: [{ left: 'a', right: '1' }, { left: 'b', right: '2' }] };
-    expect(gradeQuestion(q, { pairs: [{ left: 'a', right: '1' }, { left: 'b', right: '2' }] })).toMatchObject({ verdict: 'correct', score: 1 });
-    expect(gradeQuestion(q, { pairs: [{ left: 'a', right: '1' }, { left: 'b', right: '1' }] })).toMatchObject({ verdict: 'almost', score: 0.5 });
+    const q = {
+      type: 'match_pairs' as const,
+      answers: [],
+      pairs: [
+        { left: 'a', right: '1' },
+        { left: 'b', right: '2' },
+      ],
+    };
+    expect(
+      gradeQuestion(q, {
+        pairs: [
+          { left: 'a', right: '1' },
+          { left: 'b', right: '2' },
+        ],
+      }),
+    ).toMatchObject({ verdict: 'correct', score: 1 });
+    expect(
+      gradeQuestion(q, {
+        pairs: [
+          { left: 'a', right: '1' },
+          { left: 'b', right: '1' },
+        ],
+      }),
+    ).toMatchObject({ verdict: 'almost', score: 0.5 });
     expect(gradeQuestion(q, { pairs: [] }).verdict).toBe('wrong');
   });
   it('ordenar palavras compara a frase montada', () => {
-    const q = { type: 'order_words' as const, answers: ['Où est la gare?', 'Où est la gare ?'], pairs: undefined };
+    const q = {
+      type: 'order_words' as const,
+      answers: ['Où est la gare?', 'Où est la gare ?'],
+      pairs: undefined,
+    };
     expect(gradeQuestion(q, 'où est la gare').verdict).toBe('correct');
   });
 });

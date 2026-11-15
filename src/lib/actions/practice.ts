@@ -11,7 +11,10 @@ import type { AnswerResult } from '@/lib/practice/types';
 
 const answerSchema = z.object({
   questionId: z.string().min(1).max(80),
-  response: z.union([z.string().max(500), z.object({ pairs: z.array(z.object({ left: z.string(), right: z.string() })).max(12) })]),
+  response: z.union([
+    z.string().max(500),
+    z.object({ pairs: z.array(z.object({ left: z.string(), right: z.string() })).max(12) }),
+  ]),
   elapsedMs: z.number().min(0).max(3_600_000),
   assignmentId: z.string().uuid().nullish(),
 });
@@ -32,10 +35,22 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
   if (conj) {
     const grade = gradeText(typeof response === 'string' ? response : '', [conj.answer]);
     await persistResult(db, {
-      studentId: uid, itemId: conj.id, itemKind: 'conjugation', unit: null, skill: 'gramatica', tags: [`conjugacao_${conj.verb}`], grade,
-      response: typeof response === 'string' ? response : '', elapsedMs,
+      studentId: uid,
+      itemId: conj.id,
+      itemKind: 'conjugation',
+      unit: null,
+      skill: 'gramatica',
+      tags: [`conjugacao_${conj.verb}`],
+      grade,
+      response: typeof response === 'string' ? response : '',
+      elapsedMs,
     });
-    return { verdict: grade.verdict, score: grade.score, expected: `${conj.subject}${grade.expected}`, explanation: `${conj.verb} (${conj.pt}): ${conj.full}` };
+    return {
+      verdict: grade.verdict,
+      score: grade.score,
+      expected: `${conj.subject}${grade.expected}`,
+      explanation: `${conj.verb} (${conj.pt}): ${conj.full}`,
+    };
   }
 
   const [q] = await getQuestions(db, { ids: [questionId] });
@@ -43,14 +58,38 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
   if (q.type === 'speak') throw new Error('Exercícios de fala são enviados pelo gravador.');
   const grade = gradeQuestion(q, response);
   const unitMastery = await persistResult(db, {
-    studentId: uid, itemId: q.id, itemKind: 'question', unit: q.unit, skill: q.skill, tags: q.error_tags, grade,
-    response: typeof response === 'string' ? response : JSON.stringify(response), elapsedMs, assignmentId,
+    studentId: uid,
+    itemId: q.id,
+    itemKind: 'question',
+    unit: q.unit,
+    skill: q.skill,
+    tags: q.error_tags,
+    grade,
+    response: typeof response === 'string' ? response : JSON.stringify(response),
+    elapsedMs,
+    assignmentId,
   });
-  if (assignmentId) await db.from('assignments').update({ status: 'in_progress' }).eq('id', assignmentId).eq('student_id', uid).eq('status', 'assigned');
-  return { verdict: grade.verdict, score: grade.score, expected: grade.expected, explanation: q.explanation, unitMastery };
+  if (assignmentId)
+    await db
+      .from('assignments')
+      .update({ status: 'in_progress' })
+      .eq('id', assignmentId)
+      .eq('student_id', uid)
+      .eq('status', 'assigned');
+  return {
+    verdict: grade.verdict,
+    score: grade.score,
+    expected: grade.expected,
+    explanation: q.explanation,
+    unitMastery,
+  };
 }
 
-const flashSchema = z.object({ vocabId: z.string().min(1).max(80), quality: z.number().int().min(0).max(5), elapsedMs: z.number().min(0).max(600_000).default(0) });
+const flashSchema = z.object({
+  vocabId: z.string().min(1).max(80),
+  quality: z.number().int().min(0).max(5),
+  elapsedMs: z.number().min(0).max(600_000).default(0),
+});
 
 /** Flashcard: a qualidade vem da autoavaliação do aluno (errei, difícil, bom, fácil). */
 export async function reviewFlashcard(input: z.infer<typeof flashSchema>) {
@@ -61,8 +100,17 @@ export async function reviewFlashcard(input: z.infer<typeof flashSchema>) {
   const verdict = quality >= 4 ? 'correct' : quality === 3 ? 'almost' : 'wrong';
   const score = verdict === 'correct' ? 1 : verdict === 'almost' ? 0.5 : 0;
   await persistResult(db, {
-    studentId: uid, itemId: v.id, itemKind: 'vocab', unit: v.unit_id, skill: 'vocabulario', tags: ['vocabulario_cartao'], grade: { verdict, score, expected: '' },
-    response: `qualidade ${quality}`, elapsedMs, quality, recordAttempt: false,
+    studentId: uid,
+    itemId: v.id,
+    itemKind: 'vocab',
+    unit: v.unit_id,
+    skill: 'vocabulario',
+    tags: ['vocabulario_cartao'],
+    grade: { verdict, score, expected: '' },
+    response: `qualidade ${quality}`,
+    elapsedMs,
+    quality,
+    recordAttempt: false,
   });
   return { ok: true };
 }
@@ -70,7 +118,11 @@ export async function reviewFlashcard(input: z.infer<typeof flashSchema>) {
 export async function submitAssignment(assignmentId: string) {
   const id = z.string().uuid().parse(assignmentId);
   const { db, uid } = await currentStudent();
-  const { error } = await db.from('assignments').update({ status: 'submitted', submitted_at: new Date().toISOString() }).eq('id', id).eq('student_id', uid);
+  const { error } = await db
+    .from('assignments')
+    .update({ status: 'submitted', submitted_at: new Date().toISOString() })
+    .eq('id', id)
+    .eq('student_id', uid);
   if (error) throw new Error(error.message);
   revalidatePath('/inicio');
   return { ok: true };

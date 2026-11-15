@@ -11,7 +11,14 @@ describe('compareSpoken (foi compreendido)', () => {
   });
   it('mostra palavra a palavra o que não foi compreendido', () => {
     const r = compareSpoken('Je voudrais un billet pour Paris', 'je voudrais un billet Paris');
-    expect(r.words.map((w) => [w.word, w.understood])).toEqual([['Je', true], ['voudrais', true], ['un', true], ['billet', true], ['pour', false], ['Paris', true]]);
+    expect(r.words.map((w) => [w.word, w.understood])).toEqual([
+      ['Je', true],
+      ['voudrais', true],
+      ['un', true],
+      ['billet', true],
+      ['pour', false],
+      ['Paris', true],
+    ]);
     expect(r.ratio).toBeCloseTo(5 / 6, 5);
     expect(r.verdict).toBe('almost');
   });

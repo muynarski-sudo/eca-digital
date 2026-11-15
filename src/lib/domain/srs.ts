@@ -32,8 +32,14 @@ export function review(card: SrsCard, quality: number, now: Date): SrsCard {
     return { ease, intervalDays: 1, repetitions: 0, dueAt: new Date(now.getTime() + DAY) };
   }
   const repetitions = card.repetitions + 1;
-  const intervalDays = repetitions === 1 ? 1 : repetitions === 2 ? 3 : Math.max(1, Math.round(card.intervalDays * ease));
+  const intervalDays =
+    repetitions === 1
+      ? 1
+      : repetitions === 2
+        ? 3
+        : Math.max(1, Math.round(card.intervalDays * ease));
   return { ease, intervalDays, repetitions, dueAt: new Date(now.getTime() + intervalDays * DAY) };
 }
 
-export const isDue = (card: Pick<SrsCard, 'dueAt'>, now: Date) => card.dueAt.getTime() <= now.getTime();
+export const isDue = (card: Pick<SrsCard, 'dueAt'>, now: Date) =>
+  card.dueAt.getTime() <= now.getTime();

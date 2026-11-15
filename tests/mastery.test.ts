@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { MASTERY, decayed, levelProgress, localDay, skillLabel, studyStreak, unitMastery, unitStates, updateMastery } from '@/lib/domain/mastery';
+import {
+  MASTERY,
+  decayed,
+  levelProgress,
+  localDay,
+  skillLabel,
+  studyStreak,
+  unitMastery,
+  unitStates,
+  updateMastery,
+} from '@/lib/domain/mastery';
 import { buildDailyPlan } from '@/lib/domain/plan';
 import type { Question } from '@/lib/content/schema';
 
@@ -21,7 +31,10 @@ describe('domínio do item (EMA alfa 0,3)', () => {
   });
   it('decai sem prática, depois da carência', () => {
     expect(decayed(0.8, daysAgo(MASTERY.graceDays), now)).toBe(0.8);
-    expect(decayed(0.8, daysAgo(MASTERY.graceDays + MASTERY.halfLifeDays), now)).toBeCloseTo(0.4, 6);
+    expect(decayed(0.8, daysAgo(MASTERY.graceDays + MASTERY.halfLifeDays), now)).toBeCloseTo(
+      0.4,
+      6,
+    );
     expect(decayed(0.8, null, now)).toBe(0.8);
   });
   it('o decaimento entra antes da atualização', () => {
@@ -32,7 +45,12 @@ describe('domínio do item (EMA alfa 0,3)', () => {
 
 describe('unidade e nível', () => {
   it('média ponderada com itens não praticados valendo 0', () => {
-    expect(unitMastery([{ mastery: 1, weight: 1 }, { mastery: 0, weight: 3 }])).toBeCloseTo(0.25, 6);
+    expect(
+      unitMastery([
+        { mastery: 1, weight: 1 },
+        { mastery: 0, weight: 3 },
+      ]),
+    ).toBeCloseTo(0.25, 6);
     expect(unitMastery([])).toBe(0);
   });
   it('a unidade seguinte abre com 70% na anterior, ou liberação manual', () => {
@@ -43,7 +61,12 @@ describe('unidade e nível', () => {
       { id: 'd', order: 4, mastery: 0, manuallyUnlocked: true },
     ]);
     expect(s).toEqual({ a: 'in_progress', b: 'in_progress', c: 'locked', d: 'in_progress' });
-    expect(unitStates([{ id: 'a', order: 1, mastery: 0.69 }, { id: 'b', order: 2, mastery: 0 }]).b).toBe('locked');
+    expect(
+      unitStates([
+        { id: 'a', order: 1, mastery: 0.69 },
+        { id: 'b', order: 2, mastery: 0 },
+      ]).b,
+    ).toBe('locked');
     expect(unitStates([{ id: 'a', order: 1, mastery: 0.95 }]).a).toBe('mastered');
   });
   it('progresso A1 é a média das unidades', () => {
@@ -51,7 +74,11 @@ describe('unidade e nível', () => {
     expect(levelProgress([])).toBe(0);
   });
   it('rótulo por habilidade', () => {
-    expect([skillLabel(0.1), skillLabel(0.5), skillLabel(0.9)]).toEqual(['iniciando', 'em evolução', 'sólido']);
+    expect([skillLabel(0.1), skillLabel(0.5), skillLabel(0.9)]).toEqual([
+      'iniciando',
+      'em evolução',
+      'sólido',
+    ]);
   });
 });
 
@@ -70,18 +97,50 @@ describe('sequência de dias', () => {
 
 describe('treino de hoje', () => {
   const q = (id: string, unit: string, extra: Partial<Question> = {}): Question => ({
-    id, unit, type: 'fill_blank', skill: 'gramatica', prompt: 'x', answers: ['x'], explanation: 'x', error_tags: [], difficulty: 1, source: 'ebook', needs_review: false, ...extra,
+    id,
+    unit,
+    type: 'fill_blank',
+    skill: 'gramatica',
+    prompt: 'x',
+    answers: ['x'],
+    explanation: 'x',
+    error_tags: [],
+    difficulty: 1,
+    source: 'ebook',
+    needs_review: false,
+    ...extra,
   });
-  const questions = [q('a1', 'u01'), q('a2', 'u01'), q('b1', 'u02'), q('b2', 'u02'), q('b3', 'u02', { needs_review: true }), q('b4', 'u02', { type: 'speak', audio_text: 'x' })];
+  const questions = [
+    q('a1', 'u01'),
+    q('a2', 'u01'),
+    q('b1', 'u02'),
+    q('b2', 'u02'),
+    q('b3', 'u02', { needs_review: true }),
+    q('b4', 'u02', { type: 'speak', audio_text: 'x' }),
+  ];
   it('prioriza revisões vencidas e completa com a unidade mais fraca, sem itens pendentes nem de áudio', () => {
     const plan = buildDailyPlan({
-      questions, now, size: 4, dueQuestionIds: ['a2'], openUnits: ['u01', 'u02'], unitMastery: { u01: 0.8, u02: 0.2 },
+      questions,
+      now,
+      size: 4,
+      dueQuestionIds: ['a2'],
+      openUnits: ['u01', 'u02'],
+      unitMastery: { u01: 0.8, u02: 0.2 },
       itemMastery: { b1: { mastery: 0.9, lastPracticed: now } },
     });
     expect(plan.weakestUnit).toBe('u02');
     expect(plan.ids).toEqual(['a2', 'b2', 'b1']);
   });
   it('sem unidades abertas devolve só as revisões', () => {
-    expect(buildDailyPlan({ questions, now, dueQuestionIds: ['a1'], openUnits: [], unitMastery: {}, itemMastery: {} }).ids).toEqual(['a1']);
+    expect(
+      buildDailyPlan({
+        questions,
+        now,
+        dueQuestionIds: ['a1'],
+        openUnits: [],
+        unitMastery: {},
+        itemMastery: {},
+      }).ids,
+    ).toEqual(['a1']);
   });
 });

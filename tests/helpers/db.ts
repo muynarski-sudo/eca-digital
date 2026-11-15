@@ -14,15 +14,23 @@ export async function createTestDb(): Promise<PGlite> {
     grant execute on function auth.uid() to anon, authenticated;
   `);
   const dir = path.join(process.cwd(), 'supabase', 'migrations');
-  for (const f of readdirSync(dir).filter((f) => f.endsWith('.sql')).sort()) {
+  for (const f of readdirSync(dir)
+    .filter((f) => f.endsWith('.sql'))
+    .sort()) {
     await db.exec(readFileSync(path.join(dir, f), 'utf8'));
   }
   return db;
 }
 
-export async function addUser(db: PGlite, id: string, email: string, role: 'student' | 'teacher' | 'admin' = 'student') {
+export async function addUser(
+  db: PGlite,
+  id: string,
+  email: string,
+  role: 'student' | 'teacher' | 'admin' = 'student',
+) {
   await db.query('insert into auth.users (id, email) values ($1, $2)', [id, email]);
-  if (role !== 'student') await db.query('update public.profiles set role = $2 where id = $1', [id, role]);
+  if (role !== 'student')
+    await db.query('update public.profiles set role = $2 where id = $1', [id, role]);
 }
 
 /** Executa como um usuário autenticado (RLS ativa). */

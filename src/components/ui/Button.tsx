@@ -8,15 +8,33 @@ const styles: Record<Variant, string> = {
   ghost: 'text-brand-blue hover:bg-brand-tint',
   danger: 'border border-brand-red-text bg-white text-brand-red-text hover:bg-danger-bg',
 };
-const base = 'inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-bold no-underline transition disabled:cursor-not-allowed disabled:opacity-50';
+const base =
+  'inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-bold no-underline transition disabled:cursor-not-allowed disabled:opacity-50';
 
-export function Button({ variant = 'primary', className = '', ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
+export function Button({
+  variant = 'primary',
+  className = '',
+  ...rest
+}: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant }) {
   return <button className={`${base} ${styles[variant]} ${className}`} {...rest} />;
 }
 
-export function LinkButton({ href, variant = 'primary', className = '', children }: { href: string; variant?: Variant; className?: string; children: ReactNode }) {
+export function LinkButton({
+  href,
+  variant = 'primary',
+  className = '',
+  children,
+}: {
+  href: string;
+  variant?: Variant;
+  className?: string;
+  children: ReactNode;
+}) {
   return (
-    <Link href={href} className={`${base} ${styles[variant]} hover:no-underline ${variant === 'primary' ? 'text-white' : ''} ${className}`}>
+    <Link
+      href={href}
+      className={`${base} ${styles[variant]} hover:no-underline ${variant === 'primary' ? 'text-white' : ''} ${className}`}
+    >
       {children}
     </Link>
   );

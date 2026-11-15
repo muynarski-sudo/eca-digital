@@ -17,10 +17,22 @@ export async function requireMe(): Promise<Me> {
   const db = await serverClient();
   const { data: auth } = await db.auth.getUser();
   if (!auth.user) redirect('/login');
-  const { data: p } = await db.from('profiles').select('id,email,full_name,role,access,level').eq('id', auth.user.id).single();
+  const { data: p } = await db
+    .from('profiles')
+    .select('id,email,full_name,role,access,level')
+    .eq('id', auth.user.id)
+    .single();
   if (!p) redirect('/login');
   const { data: has } = await db.rpc('has_active_access', { uid: p.id });
-  return { id: p.id, email: p.email, fullName: p.full_name, role: p.role, access: p.access, level: p.level, hasAccess: has === true };
+  return {
+    id: p.id,
+    email: p.email,
+    fullName: p.full_name,
+    role: p.role,
+    access: p.access,
+    level: p.level,
+    hasAccess: has === true,
+  };
 }
 
 /** Rotas do aluno: exige papel de aluno com acesso. Equipe (professora/admin) pode navegar também. */

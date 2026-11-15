@@ -2,16 +2,31 @@ import conjugationsJson from '../../../content/data/conjugations.json';
 import phrasesJson from '../../../content/data/phrases.json';
 import dialoguesJson from '../../../content/data/dialogues.json';
 import cultureJson from '../../../content/data/culture.json';
-import { contentSchemas, PERSONS, TENSES, type Conjugation, type Person, type Tense } from './schema';
+import {
+  contentSchemas,
+  PERSONS,
+  TENSES,
+  type Conjugation,
+  type Person,
+  type Tense,
+} from './schema';
 import { splitSubject } from './conjugation';
 
 /** Conteúdo estático empacotado no build (conjugações, frases, diálogos, dicas). Questões e vocabulário vêm do banco. */
-export const conjugations: Conjugation[] = contentSchemas['conjugations.json'].parse(conjugationsJson);
-export const phrases = contentSchemas['phrases.json'].parse(phrasesJson).filter((p) => !p.needs_review);
-export const dialogues = contentSchemas['dialogues.json'].parse(dialoguesJson).filter((d) => !d.needs_review);
-export const cultureTips = contentSchemas['culture.json'].parse(cultureJson).filter((c) => !c.needs_review);
+export const conjugations: Conjugation[] =
+  contentSchemas['conjugations.json'].parse(conjugationsJson);
+export const phrases = contentSchemas['phrases.json']
+  .parse(phrasesJson)
+  .filter((p) => !p.needs_review);
+export const dialogues = contentSchemas['dialogues.json']
+  .parse(dialoguesJson)
+  .filter((d) => !d.needs_review);
+export const cultureTips = contentSchemas['culture.json']
+  .parse(cultureJson)
+  .filter((c) => !c.needs_review);
 
-export const conjugationId = (verbId: string, tense: Tense, person: Person) => `conj:${verbId}:${tense}:${person}`;
+export const conjugationId = (verbId: string, tense: Tense, person: Person) =>
+  `conj:${verbId}:${tense}:${person}`;
 
 export interface ConjugationItem {
   id: string;

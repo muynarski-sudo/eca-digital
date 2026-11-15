@@ -13,5 +13,16 @@ const NAV = [
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const me = await requireStudent();
-  return <Shell nav={me.role === 'student' ? NAV : [...NAV, { href: '/professora', label: 'Painel da professora' }]} name={me.fullName ?? me.email}>{children}</Shell>;
+  return (
+    <Shell
+      nav={
+        me.role === 'student'
+          ? NAV
+          : [...NAV, { href: '/professora', label: 'Painel da professora' }]
+      }
+      name={me.fullName ?? me.email}
+    >
+      {children}
+    </Shell>
+  );
 }

@@ -62,7 +62,8 @@ const toDate = (v: number | string | undefined): Date | null => {
 
 export function parseHotmart(raw: string, body: unknown): HotmartEvent {
   const p = payloadSchema.parse(body);
-  const email = (p.data?.buyer?.email ?? p.data?.subscriber?.email ?? null)?.trim().toLowerCase() ?? null;
+  const email =
+    (p.data?.buyer?.email ?? p.data?.subscriber?.email ?? null)?.trim().toLowerCase() ?? null;
   const transaction = p.data?.purchase?.transaction ?? null;
   const occurredAt = toDate(p.creation_date) ?? new Date();
   const eventKey = p.id ?? createHash('sha256').update(raw).digest('hex');
