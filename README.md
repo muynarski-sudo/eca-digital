@@ -120,3 +120,11 @@ No celular: abra esse endereço, espere carregar uma vez (precisa de internet s�
 - iPhone (Safari): Compartilhar, "Adicionar à Tela de Início".
 
 Atenção: o Pages de um repositório público é público, e o app leva dentro todo o banco de exercícios derivado do e-book. Se o e-book é um produto pago, hospede em um lugar privado (por exemplo, um site protegido por senha) ou use o link privado do artefato.
+
+## Áudios da Iasmyn (área Brincar)
+
+A voz do navegador (Web Speech) costuma ficar muda no iPhone, então a Iasmyn toca **arquivos de áudio gravados** (`public/audio/play/*.mp3`, 303 arquivos, 1,4 MB). Eles tocam em qualquer celular, inclusive com o modo silencioso, e entram no app instalável para uso offline. Se um texto não tiver arquivo, ela cai na voz do aparelho.
+
+Gerar de novo (depois de mudar frases, vocabulário ou letras): é preciso Python, `pip install piper-tts`, ffmpeg e a voz francesa em `voices/` (baixe `fr_FR-siwis-medium.onnx` e `.onnx.json` de https://huggingface.co/rhasspy/piper-voices/tree/main/fr/fr_FR/siwis/medium). Depois: `npm run audio:play`. Só gera o que falta. Em seguida `./artifact/build-pwa.sh` para atualizar o app instalável.
+
+Licença: a voz vem da base SIWIS (Universidade de Edimburgo), **CC BY 4.0**, que exige atribuição. A atribuição aparece no menu do Brincar. Mantenha-a.

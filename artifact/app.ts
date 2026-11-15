@@ -621,6 +621,7 @@ function render() {
         .filter((p) => !p.needs_review)
         .map((p) => ({ fr: p.fr, pt: p.pt, pron: p.pron })),
       storageKey: 'ffp-play:' + student().id + ':v1',
+      clips: window.__PLAY_CLIPS__,
     });
   window.scrollTo(0, 0);
 }

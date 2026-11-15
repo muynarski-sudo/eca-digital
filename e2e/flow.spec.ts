@@ -170,8 +170,42 @@ test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', 
   await expect(page.getByText('Jogadas: 1')).toBeVisible();
 });
 
+test('brincar: toca o áudio gravado (arquivo .mp3), sem depender da voz do navegador', async ({
+  page,
+}) => {
+  const mp3: Array<[number, string]> = [];
+  page.on('response', (r) => {
+    if (r.url().includes('/audio/play/') && r.url().endsWith('.mp3'))
+      mp3.push([r.status(), r.headers()['content-type'] ?? '']);
+  });
+  await page.addInitScript(`window.__ended = [];
+    const play = HTMLMediaElement.prototype.play;
+    HTMLMediaElement.prototype.play = function () { this.addEventListener('ended', () => window.__ended.push(this.src), { once: true }); return play.apply(this, arguments); };`);
+  await login(page, ALUNO.email, ALUNO.senha);
+  await page.goto('/brincar');
+  await page
+    .getByRole('button', { name: /Alfabeto/ })
+    .first()
+    .click();
+  await page.getByRole('button', { name: 'Letra B, bé' }).click();
+  await page.waitForFunction(
+    () =>
+      (window as unknown as { __ended: string[] }).__ended.some((s) => s.includes('/audio/play/')),
+    null,
+    { timeout: 8000 },
+  );
+  expect(
+    mp3.some(([status, type]) => (status === 200 || status === 206) && type.includes('audio/mpeg')),
+  ).toBe(true);
+  await expect(page.locator('.pl-warn')).toBeHidden();
+  await page.getByRole('button', { name: '← Voltar' }).click();
+  await expect(page.locator('.pl-credit')).toContainText('Piper');
+});
+
 test('brincar: se o aparelho não toca a voz, o app avisa na tela', async ({ page }) => {
   await page.addInitScript(`(() => {
+    // o aparelho recusa tocar o áudio e a voz do navegador também não começa
+    HTMLMediaElement.prototype.play = () => Promise.reject(new Error('NotAllowedError'));
     class U { constructor(t) { this.text = t; this.volume = 1; } }
     window.SpeechSynthesisUtterance = U;
     Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {

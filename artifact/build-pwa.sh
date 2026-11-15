@@ -4,15 +4,20 @@
 set -eu
 cd "$(dirname "$0")/.."
 ./artifact/build.sh >/dev/null
-rm -rf docs && mkdir -p docs/icons
+rm -rf docs && mkdir -p docs/icons docs/audio/play
+cp public/audio/play/*.mp3 public/audio/play/manifest.json docs/audio/play/ 2>/dev/null || true
 python3 - <<'PY'
-import hashlib, json
+import glob, hashlib, json, os
 from PIL import Image
+
+clip_files = sorted(os.path.basename(f) for f in glob.glob('docs/audio/play/*.mp3'))
+manifest_clips = json.load(open('docs/audio/play/manifest.json', encoding='utf8')) if clip_files else None
+clips_script = ('window.__PLAY_CLIPS__=' + json.dumps({'base': 'audio/play/', 'keys': manifest_clips['keys'], 'credit': manifest_clips.get('credit', '')}, ensure_ascii=False) + ';') if manifest_clips else ''
 
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
 css = open('artifact/style.css', encoding='utf8').read() + open('src/lib/play/play.css', encoding='utf8').read()
 install = open('artifact/pwa-install.js', encoding='utf8').read()
-version = hashlib.sha1((js + css + install).encode('utf8')).hexdigest()[:10]
+version = hashlib.sha1((js + css + install + clips_script + ''.join(clip_files)).encode('utf8')).hexdigest()[:10]
 
 extra_css = '''
 html{-webkit-text-size-adjust:100%}
@@ -43,6 +48,9 @@ html = f'''<!doctype html>
 <body>
 <div id="app"></div>
 <script>
+{clips_script}
+</script>
+<script>
 {js}
 </script>
 <script>
@@ -68,8 +76,9 @@ open('docs/manifest.webmanifest', 'w', encoding='utf8').write(json.dumps(manifes
 sw = f'''// Service worker do Falando Francês Prática. Guarda o app no aparelho para abrir sem internet.
 const CACHE = 'ffp-{version}';
 const ASSETS = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
+const CLIPS = {json.dumps(['audio/play/' + f for f in clip_files])};
 self.addEventListener('install', (e) => {{
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS).then(() => Promise.allSettled(CLIPS.map((u) => c.add(u))))).then(() => self.skipWaiting()));
 }});
 self.addEventListener('activate', (e) => {{
   e.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((k) => k.startsWith('ffp-') && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));

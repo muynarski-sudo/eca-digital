@@ -125,3 +125,26 @@ describe('jogos', () => {
     expect(shuffle([1, 2, 3, 4, 5], rng(7)).sort()).toEqual([1, 2, 3, 4, 5]);
   });
 });
+
+import { clipKey } from '@/lib/play/clipkey';
+import { FIXED_PHRASES, spokenTexts } from '@/lib/play/texts';
+import phrasesJson from '../content/data/phrases.json';
+
+describe('arquivos de áudio', () => {
+  it('a chave é estável, ignora espaços extras e muda com o texto', () => {
+    expect(clipKey('Bonjour  monsieur ')).toBe(clipKey('Bonjour monsieur'));
+    expect(clipKey('bé')).not.toBe(clipKey('cé'));
+    expect(clipKey('bé')).toMatch(/^[0-9a-f]{14}$/);
+  });
+  it('não há colisão entre os textos falados', () => {
+    const texts = spokenTexts(
+      vocab,
+      phrasesJson.filter((p) => !p.needs_review),
+    );
+    const keys = new Set(texts.map(clipKey));
+    expect(keys.size).toBe(texts.length);
+    expect(texts.length).toBeGreaterThan(250);
+    for (const f of FIXED_PHRASES) expect(texts).toContain(f);
+    expect(texts).toContain('double vé');
+  });
+});

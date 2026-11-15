@@ -90,3 +90,4 @@ O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exer
 - **Peço conferência com nativo.** Se algo estiver errado, corrija em `ALPHABET` (um arquivo só).
 - Palavra de exemplo de cada letra: só do vocabulário do e-book. K, W, X, Y e Z não têm palavra no e-book e aparecem sem exemplo.
 - A avatar "Iasmyn" fala com a voz do próprio aparelho (francês, se houver). Se o aparelho não tiver voz francesa, a fala sai na voz padrão e as legendas continuam na tela.
+- **Áudio gravado:** as vozes (303 arquivos em `public/audio/play`) foram geradas por síntese (Piper, voz SIWIS) e nunca foram ouvidas por um nativo. Ouça pelo menos as 26 letras e as frases antes de usar com alunos. Se alguma estiver errada, apague o `.mp3` correspondente e gere de novo (ou grave a sua com o mesmo nome de arquivo).

@@ -1,5 +1,6 @@
 import { ALPHABET, exampleWords, letterByChar } from './alphabet';
 import { avatarSvg, createSpeaker } from './avatar';
+import { clipKey } from './clipkey';
 import {
   listenRound,
   memoryDeck,
@@ -12,6 +13,8 @@ import {
 export interface PlayOptions {
   vocab: Array<{ fr: string; pt: string }>;
   phrases: Array<{ fr: string; pt: string; pron?: string }>;
+  /** Áudios pré-gravados: pasta dos .mp3 e lista das chaves que existem. Sem isso, usa a voz do aparelho. */
+  clips?: { base: string; keys: string[]; credit?: string; inline?: Record<string, string> };
   /** Chave do armazenamento local (estrelas e o que já saiu em cada jogo). */
   storageKey: string;
   rng?: () => number;
@@ -82,6 +85,17 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     (problem) => {
       if (warnEl) warnEl.hidden = !problem;
     },
+    opts.clips
+      ? (() => {
+          const have = new Set(opts.clips.keys);
+          const base = opts.clips.base.endsWith('/') ? opts.clips.base : `${opts.clips.base}/`;
+          const inline = opts.clips.inline;
+          return {
+            has: (t: string) => have.has(clipKey(t)),
+            url: (t: string) => inline?.[clipKey(t)] ?? `${base}${clipKey(t)}.mp3`,
+          };
+        })()
+      : undefined,
   );
 
   root.innerHTML = `<div class="play">
@@ -136,7 +150,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
             `<li><button class="pl-card" data-act="go" data-v="${id}"><span class="pl-card-t">${t}</span><span class="pl-card-d">${d}</span></button></li>`,
         )
         .join('')}
-    </ul>`;
+    </ul>${opts.clips?.credit ? `<p class="pl-tip pl-credit">${esc(opts.clips.credit)}</p>` : ''}`;
 
   // alfabeto
   let letterSel: string | null = null;

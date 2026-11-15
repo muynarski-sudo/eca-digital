@@ -24,7 +24,8 @@
     "check": "npm run typecheck && npm run lint && npm run content:validate && npm test",
     "dev:local": "APP_BACKEND=local next dev",
     "start:local": "APP_BACKEND=local next build && APP_BACKEND=local next start",
-    "local:reset": "rm -rf .local-data"
+    "local:reset": "rm -rf .local-data",
+    "audio:play": "tsx scripts/play-texts.ts && python3 scripts/play_audio.py --voice ${PIPER_VOICE:-voices/fr_FR-siwis-medium.onnx}"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

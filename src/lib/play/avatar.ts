@@ -25,6 +25,12 @@ export function avatarSvg(): string {
 </svg>`;
 }
 
+/** Arquivos de áudio pré-gravados (um .mp3 por texto). Tocam em qualquer celular, inclusive no modo silencioso do iPhone. */
+export interface Clips {
+  has(text: string): boolean;
+  url(text: string): string;
+}
+
 export interface Speaker {
   readonly supported: boolean;
   say(text: string, o?: { rate?: number }): Promise<void>;
@@ -37,6 +43,28 @@ export interface Speaker {
   unlock(): void;
 }
 
+// WAV mudo de 0,05 s (8 kHz, 8 bits), só para destravar o elemento de áudio
+const SILENCE = (() => {
+  const n = 400;
+  const h = (s: string) => s.split('').map((c) => c.charCodeAt(0));
+  const le = (v: number, b: number) => Array.from({ length: b }, (_, i) => (v >> (8 * i)) & 255);
+  const bytes = [
+    ...h('RIFF'),
+    ...le(36 + n, 4),
+    ...h('WAVEfmt '),
+    ...le(16, 4),
+    ...le(1, 2),
+    ...le(1, 2),
+    ...le(8000, 4),
+    ...le(8000, 4),
+    ...le(1, 2),
+    ...le(8, 2),
+    ...h('data'),
+    ...le(n, 4),
+    ...new Array(n).fill(128),
+  ];
+  return 'data:audio/wav;base64,' + btoa(String.fromCharCode(...bytes));
+})();
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 /**
@@ -46,12 +74,17 @@ const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 export function createSpeaker(
   onSpeaking: (v: boolean) => void,
   onProblem: (v: boolean) => void = () => undefined,
+  clips?: Clips,
 ): Speaker {
   const synth: SpeechSynthesis | null =
     typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null;
   let token = 0;
   let seqRun = 0;
   let unlocked = false;
+  // um único elemento de áudio, liberado no primeiro toque, serve a todas as falas (exigência do iPhone)
+  const audio: HTMLAudioElement | null = clips && typeof Audio !== 'undefined' ? new Audio() : null;
+  if (audio) audio.preload = 'auto';
+  let stopCurrent: (() => void) | null = null;
 
   const pickVoice = (): SpeechSynthesisVoice | undefined => {
     const voices = synth?.getVoices() ?? [];
@@ -66,8 +99,7 @@ export function createSpeaker(
     synth.addEventListener?.('voiceschanged', () => synth.getVoices());
   }
 
-  const speak = (text: string, o: { rate?: number } = {}): Promise<void> => {
-    const my = ++token;
+  const speakVoice = (text: string, o: { rate?: number }, my: number): Promise<void> => {
     return new Promise<void>((resolve) => {
       let done = false;
       let started = false;
@@ -116,6 +148,52 @@ export function createSpeaker(
     });
   };
 
+  /** Toca o arquivo de áudio do texto. Se não existir ou falhar, cai na voz do aparelho. */
+  const speakClip = (text: string, o: { rate?: number }, my: number): Promise<void> => {
+    return new Promise<void>((resolve) => {
+      let done = false;
+      let started = false;
+      const finish = () => {
+        if (done) return;
+        done = true;
+        if (stopCurrent === finish) stopCurrent = null;
+        if (token === my) onSpeaking(false);
+        resolve();
+      };
+      const fallback = () => {
+        if (done) return;
+        done = true;
+        if (stopCurrent === finish) stopCurrent = null;
+        void speakVoice(text, o, my).then(resolve);
+      };
+      stopCurrent = finish;
+      onSpeaking(true);
+      const a = audio!;
+      a.onplaying = () => {
+        started = true;
+        onProblem(false);
+      };
+      a.onended = finish;
+      a.onerror = fallback;
+      a.src = clips!.url(text);
+      a.playbackRate = (o.rate ?? 0.9) < 0.7 ? 0.75 : 1;
+      const p = a.play();
+      if (p && typeof p.catch === 'function') p.catch(fallback);
+      setTimeout(() => {
+        if (!started && !done && token === my) onProblem(true);
+      }, 2500);
+      setTimeout(finish, 20000);
+    });
+  };
+
+  const speak = (text: string, o: { rate?: number } = {}): Promise<void> => {
+    const my = ++token;
+    stopCurrent?.();
+    if (audio && clips?.has(text)) return speakClip(text, o, my);
+    audio?.pause();
+    return speakVoice(text, o, my);
+  };
+
   return {
     supported: !!synth,
     say(text, o) {
@@ -135,12 +213,24 @@ export function createSpeaker(
     cancel() {
       seqRun++;
       token++;
+      audio?.pause();
+      stopCurrent?.();
       synth?.cancel();
       onSpeaking(false);
     },
     unlock() {
-      if (!synth || unlocked) return;
+      if (unlocked) return;
       unlocked = true;
+      if (audio) {
+        try {
+          // toca um áudio vazio no primeiro toque: depois disso o iPhone deixa tocar os demais
+          audio.src = SILENCE;
+          void audio.play().catch(() => undefined);
+        } catch {
+          /* ignora */
+        }
+      }
+      if (!synth) return;
       try {
         // fala vazia e sem volume, só para o aparelho liberar a voz depois de um toque do usuário
         const u = new SpeechSynthesisUtterance(' ');
