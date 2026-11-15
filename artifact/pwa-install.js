@@ -4,6 +4,14 @@
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('sw.js').catch(function () {});
     });
+    // quando uma versão nova assume o controle, recarrega uma vez para mostrar a versão nova
+    var had = !!navigator.serviceWorker.controller;
+    var reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!had || reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
   }
   var standalone =
     window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
