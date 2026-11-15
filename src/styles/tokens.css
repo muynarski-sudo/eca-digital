@@ -1,0 +1,19 @@
+/* Fonte única das cores da marca (bandeira da França). Espelhado em tailwind.config.ts. */
+:root {
+  --color-brand-blue: #0055a4;
+  --color-brand-blue-dark: #00346b;
+  --color-brand-red: #ef4135;
+  --color-brand-red-text: #c4281d; /* vermelho para texto sobre branco (AA) */
+  --color-white: #ffffff;
+  --color-blue-tint: #eaf1fa;
+  --color-gray-900: #1f2937;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #5f6b7a; /* texto secundário, AA sobre branco e azul claro */
+  --color-gray-200: #d9dee5;
+  --color-gray-100: #f3f5f8;
+  --color-success: #2e9e5b;
+  --color-success-text: #1e7a42; /* verde para texto (AA) */
+  --color-success-bg: #e8f6ee;
+  --color-error-bg: #fdeceb;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
