@@ -41,3 +41,29 @@ Os tokens pedidos foram mantidos para fundos, botões e anel. Dois pares não pa
 | cinza de texto secundário | #5F6B7A: 5,5 (branco), 4,77 (azul claro) | passa | cinza escolhido para passar nos dois fundos |
 
 Os pares são verificados por teste (`tests/contrast.test.ts`).
+
+### D5. Hotmart: eventos e payload NÃO confirmados na documentação oficial
+A tarefa pedia confirmar os nomes dos eventos e o formato do payload na documentação atual da Hotmart. Isso **não foi possível**: o host `developers.hotmart.com` está fora da rede permitida deste ambiente, e a liberação do host foi recusada. A busca na web só trouxe fontes de terceiros (Zapier, n8n, Voxuy, Stract), sem a documentação oficial.
+
+O que foi implementado vem de (a) integrações de terceiros e (b) conhecimento prévio do formato da versão 2.0.0, e **precisa de conferência** com um webhook de teste enviado pelo painel da Hotmart antes de ir para produção:
+
+- Token: cabeçalho `X-HOTMART-HOTTOK` (citado por integrações de terceiros); como reserva, campo `hottok` no corpo. Comparação em tempo constante (SHA-256 dos dois lados e `timingSafeEqual`). Token inválido gera 401 e não toca no banco.
+- Eventos tratados (`src/lib/billing/hotmart.ts`, tabela `EVENT_ACTIONS`): `PURCHASE_APPROVED` e `PURCHASE_COMPLETE` (ativa), `PURCHASE_CANCELED` e `SUBSCRIPTION_CANCELLATION` (cancela), `PURCHASE_REFUNDED` (reembolso), `PURCHASE_CHARGEBACK` (chargeback), `PURCHASE_DELAYED` e `PURCHASE_EXPIRED` (atraso). Qualquer outro evento é registrado e ignorado.
+- Campos lidos: `id`, `event`, `creation_date`, `data.buyer.email` (ou `data.subscriber.email`), `data.purchase.transaction`, `data.purchase.approved_date`. Se algum nome estiver diferente, só o schema em `hotmart.ts` muda.
+- Idempotência: tabela `webhook_events` com chave única (provider, id do evento; sem id, hash do corpo). Evento que falhou volta a ser processável no reenvio. Eventos mais antigos que o último aplicado à mesma transação não desfazem o estado.
+- Regra de acesso: ativa dentro da validade; cancelada mantém o período já pago; reembolso, chargeback e atraso bloqueiam na hora. Cada aprovação concede 32 dias (`HOTMART_PERIOD_DAYS`).
+- Comprador sem conta: o acesso fica em `pending_grants` e vira assinatura no cadastro (por e-mail). Convite automático por e-mail é opcional (`HOTMART_AUTO_INVITE=true`).
+- Pendência: confirmar também a política de reenvio (tentativas e código HTTP esperado). A rota responde 200 para processado, duplicado e ignorado, e 500 quando falha (para provocar novo envio).
+
+### D6. Testes de RLS com PGlite
+Sem Docker, os testes de RLS (`tests/rls.test.ts`) aplicam as migrations reais em PGlite (Postgres em WebAssembly), com um shim mínimo de `auth.users`, `auth.uid()` e dos papéis `anon`/`authenticated`. Cobertura: aluno não lê nem escreve dados de outro, professora vê só alunos vinculados, admin vê tudo, anônimo não lê nada, gatilhos de proteção de colunas, acesso por assinatura. Limitação: não cobre o Storage nem o GoTrue reais; rode o mesmo cenário contra `supabase start` quando tiver Docker.
+
+### D7. Modelo de acesso e escrita
+- O aluno escreve os próprios dados derivados (`srs_cards`, `item_mastery`, `unit_progress`, `skill_scores`), como pedido. Ele poderia, em tese, adulterar o próprio progresso por chamada direta à API. Mitigação: `attempts` é imutável para o aluno e é a fonte que a professora vê. Se isso virar problema, mover as escritas para uma função SECURITY DEFINER ou para o servidor.
+- Liberação manual de unidade fica em `unit_unlocks` (só a professora grava), para o aluno não conseguir se liberar.
+- Papéis `teacher` e `admin` nunca nascem no cadastro; são atribuídos pelo admin com service role (ou por SQL no seed).
+- Conteúdo com `needs_review` fica invisível ao aluno também no banco (RLS), além de ser filtrado no app.
+- A professora não ouve gravações de voz (minimização). Ela vê a transcrição e o resultado nas tentativas.
+
+### D8. Calibragem do domínio (risco)
+Com alfa 0,3 partindo de 0, são necessários cerca de 4 acertos por item para chegar a 70% naquele item, e a unidade tem de 17 a 41 questões. Isso é fiel à especificação, mas pode ser lento para liberar a unidade seguinte. Todas as constantes estão em `src/lib/domain/mastery.ts` (alfa, carência de 7 dias, meia-vida de 30 dias, 70% para abrir, 90% para "dominada"), e a professora pode liberar manualmente. Recomendo calibrar depois de algumas semanas de uso real.

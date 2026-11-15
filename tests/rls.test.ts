@@ -129,13 +129,20 @@ describe('RLS: acesso depende de assinatura ativa', () => {
     expect(await asUser(db, ID.s3, () => rows('select id from units'))).toEqual([]);
     await denied(() => asUser(db, ID.s3, () => db.query(`insert into attempts (student_id, question_id, correct, verdict, score) values ('${ID.s3}', 'q1', true, 'correct', 1)`)));
   });
-  it('assinatura expirada ou cancelada bloqueia', async () => {
+  it('assinatura expirada bloqueia; cancelada mantém o período pago; reembolso e chargeback bloqueiam na hora', async () => {
+    const ids = async () => (await asUser(db, ID.s3, () => rows('select id from questions'))).map((r) => r.id);
     await db.exec(`insert into subscriptions (student_id, status, origin, external_id, valid_until) values ('${ID.s3}', 'active', 'hotmart', 'h1', now() - interval '1 day')`);
-    expect(await asUser(db, ID.s3, () => rows('select id from questions'))).toEqual([]);
+    expect(await ids()).toEqual([]);
     await db.exec(`update subscriptions set valid_until = now() + interval '30 days', status = 'canceled' where external_id = 'h1'`);
-    expect(await asUser(db, ID.s3, () => rows('select id from questions'))).toEqual([]);
+    expect(await ids()).toEqual(['q1']);
+    await db.exec(`update subscriptions set status = 'refunded' where external_id = 'h1'`);
+    expect(await ids()).toEqual([]);
+    await db.exec(`update subscriptions set status = 'chargeback' where external_id = 'h1'`);
+    expect(await ids()).toEqual([]);
+    await db.exec(`update subscriptions set status = 'past_due' where external_id = 'h1'`);
+    expect(await ids()).toEqual([]);
     await db.exec(`update subscriptions set status = 'active' where external_id = 'h1'`);
-    expect((await asUser(db, ID.s3, () => rows('select id from questions'))).map((r) => r.id)).toEqual(['q1']);
+    expect(await ids()).toEqual(['q1']);
   });
   it('acesso pausado pela professora bloqueia mesmo com assinatura', async () => {
     await asUser(db, ID.t1, () => db.query(`update profiles set access = 'paused' where id = '${ID.s1}'`));
@@ -209,6 +216,17 @@ describe('RLS: admin e anônimo', () => {
   it('anônimo não lê dados, mas lê documentos legais publicados', async () => {
     await denied(() => asUser(db, null, () => db.query('select * from profiles')));
     expect((await asUser(db, null, () => rows('select title from legal_documents'))).length).toBe(1);
+  });
+});
+
+describe('compra antes do cadastro', () => {
+  it('pending_grants não é legível por aluno e vira assinatura no cadastro', async () => {
+    await db.exec(`insert into pending_grants (email, origin, external_id, status, valid_until) values ('Comprador@x.com', 'hotmart', 'HP1', 'active', now() + interval '30 days')`);
+    await denied(() => asUser(db, ID.s1, () => db.query('select * from pending_grants')));
+    await addUser(db, '00000000-0000-0000-0000-0000000000e1', 'comprador@x.com');
+    const sub = await rows(`select status, origin from subscriptions where student_id = '00000000-0000-0000-0000-0000000000e1'`);
+    expect(sub).toEqual([{ status: 'active', origin: 'hotmart' }]);
+    expect(await rows('select * from pending_grants')).toEqual([]);
   });
 });
 
