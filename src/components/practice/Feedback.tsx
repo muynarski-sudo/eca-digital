@@ -10,7 +10,7 @@ export function Feedback({ result }: { result: AnswerResult }) {
     },
     almost: {
       icon: '≈',
-      title: 'Quase! Falta só o acento ou um detalhe.',
+      title: 'Quase! Falta um detalhe, como um acento.',
       cls: 'border-brand-blue bg-brand-tint text-brand-blue-dark',
     },
     wrong: {
