@@ -243,3 +243,21 @@ describe('convite por e-mail', () => {
     expect((await rows(`select role from profiles where id = '00000000-0000-0000-0000-0000000000d1'`))[0]?.role).toBe('student');
   });
 });
+
+describe('exclusão de conta', () => {
+  it('apagar o usuário em auth.users remove perfil e dados de estudo em cascata', async () => {
+    const id = '00000000-0000-0000-0000-0000000000f1';
+    await addUser(db, id, 'sai@x.com');
+    await db.exec(`
+      insert into attempts (student_id, question_id, correct, verdict, score) values ('${id}', 'q1', true, 'correct', 1);
+      insert into srs_cards (student_id, item_id) values ('${id}', 'q1');
+      insert into consents (user_id, kind, version) values ('${id}', 'privacy', 1);
+      insert into voice_recordings (student_id, question_id, storage_path) values ('${id}', 'q1', '${id}/a.webm');
+    `);
+    await db.exec(`delete from auth.users where id = '${id}'`);
+    for (const t of ['profiles', 'attempts', 'srs_cards', 'consents', 'voice_recordings']) {
+      const col = t === 'profiles' ? 'id' : t === 'consents' ? 'user_id' : 'student_id';
+      expect(await rows(`select 1 from ${t} where ${col} = '${id}'`), t).toEqual([]);
+    }
+  });
+});

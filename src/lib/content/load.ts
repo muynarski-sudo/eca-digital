@@ -15,22 +15,20 @@ export interface ContentBundle {
 /** Lê e valida todos os arquivos de content/data. Aceita sufixos (ex.: units.a2.json) para novos níveis. */
 export function loadContent(dir = path.join(process.cwd(), 'content', 'data')): ContentBundle {
   const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
-  const read = <K extends keyof typeof contentSchemas>(base: K) => {
+  const rows = (base: keyof typeof contentSchemas): unknown[] => {
     const prefix = base.replace('.json', '');
-    const rows: unknown[] = [];
-    for (const f of files.filter((f) => f === base || f.startsWith(prefix + '.'))) {
-      rows.push(...(JSON.parse(readFileSync(path.join(dir, f), 'utf8')) as unknown[]));
-    }
-    return contentSchemas[base].parse(rows);
+    return files
+      .filter((f) => f === base || f.startsWith(prefix + '.'))
+      .flatMap((f) => JSON.parse(readFileSync(path.join(dir, f), 'utf8')) as unknown[]);
   };
   return {
-    units: read('units.json'),
-    vocab: read('vocab.json'),
-    questions: read('questions.json'),
-    conjugations: read('conjugations.json'),
-    dialogues: read('dialogues.json'),
-    phrases: read('phrases.json'),
-    culture: read('culture.json'),
+    units: contentSchemas['units.json'].parse(rows('units.json')),
+    vocab: contentSchemas['vocab.json'].parse(rows('vocab.json')),
+    questions: contentSchemas['questions.json'].parse(rows('questions.json')),
+    conjugations: contentSchemas['conjugations.json'].parse(rows('conjugations.json')),
+    dialogues: contentSchemas['dialogues.json'].parse(rows('dialogues.json')),
+    phrases: contentSchemas['phrases.json'].parse(rows('phrases.json')),
+    culture: contentSchemas['culture.json'].parse(rows('culture.json')),
   };
 }
 

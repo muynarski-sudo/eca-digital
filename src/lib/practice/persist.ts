@@ -32,7 +32,7 @@ export async function persistResult(db: SupabaseClient, p: PersistInput): Promis
   if (p.recordAttempt !== false) {
     const { error } = await db.from('attempts').insert({
       student_id: p.studentId, question_id: p.itemId, correct: p.grade.verdict === 'correct', verdict: p.grade.verdict, score: p.grade.score,
-      response: p.response.slice(0, 500), elapsed_ms: Math.round(p.elapsedMs), error_tags: p.grade.verdict === 'correct' ? [] : p.tags, assignment_id: p.assignmentId ?? null,
+      response: p.response.slice(0, 500), elapsed_ms: Math.round(p.elapsedMs), error_tags: p.tags, assignment_id: p.assignmentId ?? null, created_at: iso,
     });
     if (error) throw new Error(`attempts: ${error.message}`);
   }

@@ -14,10 +14,14 @@
     "test:e2e": "playwright test",
     "content:build": "tsx scripts/content-build.ts",
     "content:validate": "tsx scripts/content-validate.ts",
-    "content:seed": "tsx scripts/content-seed.ts",
-    "audio:generate": "tsx scripts/audio-generate.ts",
-    "db:seed-dev": "tsx scripts/seed-dev.ts",
-    "jobs:purge-recordings": "tsx scripts/purge-recordings.ts"
+    "content:seed": "tsx --conditions=react-server scripts/content-seed.ts",
+    "audio:generate": "tsx --conditions=react-server scripts/audio-generate.ts",
+    "db:seed-dev": "tsx --conditions=react-server scripts/seed-dev.ts",
+    "jobs:purge-recordings": "tsx --conditions=react-server scripts/jobs.ts purge-recordings",
+    "jobs:reminders": "tsx --conditions=react-server scripts/jobs.ts reminders",
+    "db:start": "supabase start",
+    "db:reset": "supabase db reset",
+    "check": "npm run typecheck && npm run lint && npm run content:validate && npm test"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

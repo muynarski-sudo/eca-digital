@@ -75,3 +75,12 @@ export async function submitAssignment(assignmentId: string) {
   revalidatePath('/inicio');
   return { ok: true };
 }
+
+/** Alternativa em texto para o ditado (acessibilidade): mostra a frase, sem contar nota. */
+export async function revealDictationText(questionId: string) {
+  const id = z.string().min(1).max(80).parse(questionId);
+  const { db } = await currentStudent();
+  const [q] = await getQuestions(db, { ids: [id] });
+  if (!q || q.type !== 'dictation') throw new Error('Exercício não encontrado.');
+  return { text: q.audio_text ?? '' };
+}
