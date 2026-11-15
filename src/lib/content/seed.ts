@@ -58,6 +58,7 @@ export async function seedContent(
       pairs: q.pairs ?? null,
       words: q.words ?? null,
       audio_text: q.audio_text ?? null,
+      concept: q.concept ?? q.id,
       hint: q.hint ?? null,
       explanation: q.explanation,
       error_tags: q.error_tags,

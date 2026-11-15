@@ -50,18 +50,16 @@ export async function registerStudent(_: FormState, form: FormData): Promise<For
   const sid = data.user.id;
   await admin.from('profiles').update({ full_name: parsed.data.name }).eq('id', sid);
   await admin.from('teacher_students').upsert({ teacher_id: uid, student_id: sid });
-  await admin
-    .from('subscriptions')
-    .upsert(
-      {
-        student_id: sid,
-        status: 'active',
-        origin: 'manual',
-        external_id: `manual-${sid}`,
-        valid_until: days ? new Date(Date.now() + days * 86_400_000).toISOString() : null,
-      },
-      { onConflict: 'origin,external_id' },
-    );
+  await admin.from('subscriptions').upsert(
+    {
+      student_id: sid,
+      status: 'active',
+      origin: 'manual',
+      external_id: `manual-${sid}`,
+      valid_until: days ? new Date(Date.now() + days * 86_400_000).toISOString() : null,
+    },
+    { onConflict: 'origin,external_id' },
+  );
   revalidatePath('/professora');
   return {
     ok: `Aluno cadastrado. Passe estes dados a ele: e-mail ${parsed.data.email} e senha ${parsed.data.password}. A senha não aparece de novo.`,

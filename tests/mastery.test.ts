@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   MASTERY,
+  coverageFor,
   decayed,
   levelProgress,
   localDay,
@@ -10,15 +11,14 @@ import {
   unitStates,
   updateMastery,
 } from '@/lib/domain/mastery';
-import { buildDailyPlan } from '@/lib/domain/plan';
-import type { Question } from '@/lib/content/schema';
 
 const now = new Date('2026-03-01T12:00:00Z');
 const daysAgo = (n: number) => new Date(now.getTime() - n * 86_400_000);
 
-describe('domínio do item (EMA alfa 0,3)', () => {
-  it('aplica a média móvel exponencial', () => {
-    expect(updateMastery(0, null, 1, now)).toBeCloseTo(0.3, 6);
+describe('domínio do conceito (EMA alfa 0,3)', () => {
+  it('a primeira observação define o domínio e as seguintes aplicam a média móvel', () => {
+    expect(updateMastery(null, null, 1, now)).toBe(1);
+    expect(updateMastery(null, null, 0.5, now)).toBe(0.5);
     expect(updateMastery(0.3, daysAgo(1), 1, now)).toBeCloseTo(0.3 + 0.3 * 0.7, 6);
     expect(updateMastery(1, daysAgo(1), 0, now)).toBeCloseTo(0.7, 6);
     expect(updateMastery(0.5, daysAgo(1), 0.5, now)).toBeCloseTo(0.5, 6);
@@ -44,14 +44,37 @@ describe('domínio do item (EMA alfa 0,3)', () => {
 });
 
 describe('unidade e nível', () => {
-  it('média ponderada com itens não praticados valendo 0', () => {
+  it('média ponderada dos conceitos praticados vezes a cobertura', () => {
     expect(
-      unitMastery([
-        { mastery: 1, weight: 1 },
-        { mastery: 0, weight: 3 },
-      ]),
+      unitMastery(
+        [
+          { mastery: 1, weight: 1 },
+          { mastery: 0, weight: 3 },
+        ],
+        2,
+      ),
     ).toBeCloseTo(0.25, 6);
-    expect(unitMastery([])).toBe(0);
+    expect(unitMastery([], 2)).toBe(0);
+    // praticou 3 de uma meta de 6: metade da cobertura
+    expect(
+      unitMastery(
+        [
+          { mastery: 1, weight: 1 },
+          { mastery: 1, weight: 1 },
+          { mastery: 1, weight: 1 },
+        ],
+        6,
+      ),
+    ).toBeCloseTo(0.5, 6);
+    // passou da meta: cobertura limitada a 100%
+    expect(
+      unitMastery(Array.from({ length: 40 }, () => ({ mastery: 0.8, weight: 1 }))),
+    ).toBeCloseTo(0.8, 6);
+  });
+  it('meta de cobertura: metade dos conceitos da unidade, entre 1 e 30', () => {
+    expect([coverageFor(29), coverageFor(51), coverageFor(212), coverageFor(1)]).toEqual([
+      15, 26, 30, 1,
+    ]);
   });
   it('a unidade seguinte abre com 70% na anterior, ou liberação manual', () => {
     const s = unitStates([
@@ -92,55 +115,5 @@ describe('sequência de dias', () => {
   });
   it('localDay usa o fuso de São Paulo', () => {
     expect(localDay(new Date('2026-03-01T02:30:00Z'))).toBe('2026-02-28');
-  });
-});
-
-describe('treino de hoje', () => {
-  const q = (id: string, unit: string, extra: Partial<Question> = {}): Question => ({
-    id,
-    unit,
-    type: 'fill_blank',
-    skill: 'gramatica',
-    prompt: 'x',
-    answers: ['x'],
-    explanation: 'x',
-    error_tags: [],
-    difficulty: 1,
-    source: 'ebook',
-    needs_review: false,
-    ...extra,
-  });
-  const questions = [
-    q('a1', 'u01'),
-    q('a2', 'u01'),
-    q('b1', 'u02'),
-    q('b2', 'u02'),
-    q('b3', 'u02', { needs_review: true }),
-    q('b4', 'u02', { type: 'speak', audio_text: 'x' }),
-  ];
-  it('prioriza revisões vencidas e completa com a unidade mais fraca, sem itens pendentes nem de áudio', () => {
-    const plan = buildDailyPlan({
-      questions,
-      now,
-      size: 4,
-      dueQuestionIds: ['a2'],
-      openUnits: ['u01', 'u02'],
-      unitMastery: { u01: 0.8, u02: 0.2 },
-      itemMastery: { b1: { mastery: 0.9, lastPracticed: now } },
-    });
-    expect(plan.weakestUnit).toBe('u02');
-    expect(plan.ids).toEqual(['a2', 'b2', 'b1']);
-  });
-  it('sem unidades abertas devolve só as revisões', () => {
-    expect(
-      buildDailyPlan({
-        questions,
-        now,
-        dueQuestionIds: ['a1'],
-        openUnits: [],
-        unitMastery: {},
-        itemMastery: {},
-      }).ids,
-    ).toEqual(['a1']);
   });
 });

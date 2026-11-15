@@ -61,6 +61,8 @@ npm run test:e2e          # Playwright: login, exercícios, flashcards, professo
 
 ## Conteúdo
 
+- **Banco de exercícios**: 2.023 questões (rode `npm run content:validate` para o relatório). A cada sessão o app sorteia perguntas novas, sem repetir; o que o aluno erra volta com uma pergunta **diferente** sobre o mesmo ponto. Quando as novas acabam, recicla das mais antigas. Explicação em `DECISIONS.md` (D14).
+
 - Fonte: `content/source/ebook-falando-frances-fonte.txt`
 - Autoria: `scripts/content/*.ts`. O comando `npm run content:build` gera `content/data/*.json` (conjugações são lidas direto do texto-fonte).
 - Pendências de revisão: `content/REVIEW.md`. Itens com `needs_review: true` não aparecem para o aluno, nem em exercícios, flashcards ou áudio.

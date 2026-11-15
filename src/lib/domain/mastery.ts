@@ -7,6 +7,8 @@ export const MASTERY = {
   halfLifeDays: 30,
   unlockThreshold: 0.7,
   masteredThreshold: 0.9,
+  /** Quantos pontos de conteúdo (conceitos) diferentes o aluno precisa praticar numa unidade para o domínio dela poder chegar a 100%. */
+  coverageTarget: 30,
 } as const;
 
 const DAY = 86_400_000;
@@ -19,13 +21,18 @@ export function decayed(mastery: number, lastPracticed: Date | null, now: Date):
   return mastery * Math.pow(0.5, (days - MASTERY.graceDays) / MASTERY.halfLifeDays);
 }
 
-/** Média móvel exponencial: novo = antigo + alfa * (resultado - antigo). */
+/**
+ * Média móvel exponencial: novo = antigo + alfa * (resultado - antigo).
+ * Na primeira observação (`current` nulo) o domínio começa no próprio resultado, porque as perguntas não se repetem
+ * e cada ponto de conteúdo é visto poucas vezes.
+ */
 export function updateMastery(
-  current: number,
+  current: number | null,
   lastPracticed: Date | null,
   score: number,
   now: Date,
 ): number {
+  if (current === null) return Math.max(0, Math.min(1, score));
   const base = decayed(current, lastPracticed, now);
   const next = base + MASTERY.alpha * (score - base);
   return Math.max(0, Math.min(1, next));
@@ -36,11 +43,23 @@ export interface WeightedItem {
   weight: number;
 }
 
-/** Média ponderada. Itens ainda não praticados entram com domínio 0. */
-export function unitMastery(items: WeightedItem[]): number {
-  const total = items.reduce((s, i) => s + i.weight, 0);
+/** Quantos conceitos praticados bastam para cobrir uma unidade: metade dos conceitos dela, no máximo `coverageTarget`. */
+export function coverageFor(conceptsInUnit: number): number {
+  return Math.max(1, Math.min(MASTERY.coverageTarget, Math.ceil(conceptsInUnit / 2)));
+}
+
+/**
+ * Domínio da unidade: média ponderada do domínio dos conceitos já praticados, vezes a cobertura
+ * (conceitos praticados / meta, no máximo 1). Quem acerta pouco ou praticou pouco não passa de unidade.
+ */
+export function unitMastery(
+  practiced: WeightedItem[],
+  coverageTarget: number = MASTERY.coverageTarget,
+): number {
+  const total = practiced.reduce((s, i) => s + i.weight, 0);
   if (total === 0) return 0;
-  return items.reduce((s, i) => s + i.mastery * i.weight, 0) / total;
+  const avg = practiced.reduce((s, i) => s + i.mastery * i.weight, 0) / total;
+  return avg * Math.min(1, practiced.length / Math.max(1, coverageTarget));
 }
 
 export type UnitState = 'locked' | 'in_progress' | 'mastered';

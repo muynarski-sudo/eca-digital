@@ -65,6 +65,26 @@ export function validate() {
         errors.push(`${q.id}: usa alfabeto pendente`);
     }
   }
+  // duplicidade: o aluno nunca deve ver duas questões iguais
+  const keys = new Map<string, string>();
+  for (const q of c.questions) {
+    const k = `${q.type}|${q.prompt}|${q.answers[0] ?? ''}`;
+    if (keys.has(k)) errors.push(`questão duplicada: ${q.id} e ${keys.get(k)}`);
+    keys.set(k, q.id);
+    if (!q.concept) errors.push(`${q.id}: sem concept`);
+    if (
+      q.type === 'multiple_choice' &&
+      q.choices &&
+      new Set(q.choices.map((x) => x.toLowerCase())).size !== q.choices.length
+    )
+      errors.push(`${q.id}: opções repetidas`);
+    if (
+      q.type === 'fill_blank' &&
+      q.id.startsWith('q-clz-') &&
+      !q.explanation.toLowerCase().includes((q.answers[0] ?? '').toLowerCase())
+    )
+      errors.push(`${q.id}: resposta não está na frase`);
+  }
   for (const cj of c.conjugations) {
     for (const t of Object.values(cj.tenses))
       for (const f of Object.values(t)) if (!f.trim()) errors.push(`conjugação vazia em ${cj.id}`);
@@ -87,8 +107,12 @@ export function validate() {
     questoes_por_unidade: count(c.questions, (q) => q.unit ?? 'sem unidade (laboratório)'),
     vocabulario_por_unidade: count(c.vocab, (v) => v.unit),
     questoes_por_origem: count(c.questions, (q) => q.source),
+    questoes_por_familia: count(c.questions, (q) =>
+      q.id.startsWith('q-u') ? 'e-book (gabarito)' : q.id.replace(/^q-([a-z]+)-.*/, '$1'),
+    ),
+    conceitos_distintos: new Set(c.questions.map((q) => q.concept)).size,
     itens_needs_review: flagged.map((f) => `${f.kind} ${f.id}: ${f.label}`),
-    questoes_generated: c.questions.filter((q) => q.source === 'generated').map((q) => q.id),
+    questoes_generated: `${c.questions.filter((q) => q.source === 'generated').length} (números 1 a 99 e horas, geradas pelas regras do e-book; ver content/REVIEW.md)`,
   };
   return { errors, report };
 }

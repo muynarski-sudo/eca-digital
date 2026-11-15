@@ -71,6 +71,41 @@ test('aluno: início, treino de hoje, flashcards e evolução', async ({ page })
   await expect(page.getByRole('heading', { name: 'Por habilidade' })).toBeVisible();
 });
 
+test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes', async ({
+  page,
+}) => {
+  test.setTimeout(240_000);
+  await login(page, ALUNO.email, ALUNO.senha);
+  await page.goto('/praticar?modo=treino');
+  const vistos: string[] = [];
+  for (let sessao = 0; sessao < 4; sessao++) {
+    for (let i = 0; i < 10; i++) {
+      const prompt = page.locator('section[aria-label="Exercício"] .text-lg.font-bold').first();
+      await expect(prompt).toBeVisible();
+      vistos.push((await prompt.innerText()).trim());
+      const text = page.getByLabel('Sua resposta');
+      const radio = page.getByRole('radio').first();
+      const selects = page.locator('main select');
+      const palavras = page.getByLabel('Palavras disponíveis').getByRole('button');
+      if (await text.count()) await text.fill('resposta qualquer');
+      else if (await radio.count()) await radio.check();
+      else if (await selects.count())
+        for (let k = 0; k < (await selects.count()); k++)
+          await selects.nth(k).selectOption({ index: 1 });
+      else if (await palavras.count()) await palavras.first().click();
+      await page.getByRole('button', { name: 'Conferir' }).click();
+      await expect(
+        page.getByRole('status').filter({ hasText: /Voilà|Quase|Ainda não/ }),
+      ).toBeVisible();
+      await page.getByRole('button', { name: /Continuar|Ver resumo/ }).click();
+    }
+    await page.getByRole('link', { name: 'Mais 10 exercícios novos' }).click();
+    await expect(page).toHaveURL(/\/praticar/);
+  }
+  expect(vistos).toHaveLength(40);
+  expect(new Set(vistos).size).toBe(40);
+});
+
 test('aluno não acessa o painel da professora', async ({ page }) => {
   await login(page, ALUNO.email, ALUNO.senha);
   await page.goto('/professora');

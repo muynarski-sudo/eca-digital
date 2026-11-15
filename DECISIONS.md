@@ -56,7 +56,7 @@ Sem Docker, os testes de RLS (`tests/rls.test.ts`) aplicam as migrations reais e
 - Conteúdo com `needs_review` fica invisível ao aluno também no banco (RLS), além de ser filtrado no app.
 - A professora não ouve gravações de voz (minimização). Ela vê a transcrição e o resultado nas tentativas.
 
-### D8. Calibragem do domínio (risco)
+### D8. Calibragem do domínio (risco) [substituída pelo D14]
 Com alfa 0,3 partindo de 0, são necessários cerca de 4 acertos por item para chegar a 70% naquele item, e a unidade tem de 17 a 41 questões. Isso é fiel à especificação, mas pode ser lento para liberar a unidade seguinte. Todas as constantes estão em `src/lib/domain/mastery.ts` (alfa, carência de 7 dias, meia-vida de 30 dias, 70% para abrir, 90% para "dominada"), e a professora pode liberar manualmente. Recomendo calibrar depois de algumas semanas de uso real.
 
 ### D9. Transferência internacional de dados (LGPD)
@@ -105,3 +105,16 @@ Decisão do responsável: por enquanto o app roda localmente, sem Supabase, só 
 - Recuperação de senha: no modo local o aluno pede à professora. No Supabase o fluxo por e-mail continua disponível.
 - Limites: um processo por vez no banco (PGlite), então seeds e scripts não rodam com o servidor ligado; sem e-mail; o áudio de referência usa a voz do navegador (e o ditado também, só nesse modo).
 - Verificado: o fluxo Playwright (11 testes) roda de verdade contra o app em modo local, incluindo cadastrar aluno, primeiro acesso, descadastrar, pausar acesso e isolamento do painel da professora.
+
+### D14. Banco grande de exercícios, sorteio sem repetição e domínio por conceito
+Pedido do responsável: criar muito mais exercícios a partir do e-book, em ordem aleatória, sem repetir, de modo que o aluno possa entrar a qualquer hora e sempre ter lições novas.
+
+- **Banco**: de 339 para 2.023 questões, geradas de forma determinística por `scripts/content/generators.ts` (rodar de novo dá os mesmos ids). Nada de francês novo: reorganiza vocabulário, frases e tabelas do e-book. Números (1 a 99) e horas usam as regras do e-book e ficam `source: "generated"` (ver `content/REVIEW.md`, seção 4). O validador falha se houver questão duplicada, sem `concept`, com opções repetidas ou cuja resposta oficial não seja corrigida como certa.
+- **Conceito**: cada questão tem um `concept` (ponto de conteúdo; por exemplo `v:<vocab>`, `ph:<frase>`, `num:73`, `hr:14:40`, `conj:etre:present:je`). Questões do mesmo conceito são variações uma da outra. Migration `20260101000008`.
+- **Sorteio** (`src/lib/domain/select.ts`, testado): nunca devolve uma pergunta já respondida enquanto houver pergunta nova; entre as novas, vêm primeiro as de conceitos em que o aluno errou por último (reforço com **outra** pergunta, não a mesma), depois conceitos ainda não vistos e por último os já acertados; no máximo uma pergunta por conceito por sessão; sem mais de dois tipos iguais seguidos; só quando as novas acabam recicla, das mais antigas e das erradas. Sorteio ponderado (a unidade mais fraca tem mais chance no treino de hoje). "Mais 10 exercícios novos" ao fim de cada sessão.
+- **Treino de hoje** exclui ditado e fala (dependem de áudio e microfone); a prática de unidade inclui todos os tipos.
+- **Domínio por conceito** (substitui o D8): sem repetição, cada pergunta é vista uma vez, então o domínio de "item" por pergunta não se sustentaria. Agora o domínio é guardado por conceito (variações compartilham), a primeira observação define o valor e as seguintes usam a média móvel (alfa 0,3, decaimento por tempo sem prática). O domínio da unidade é a média ponderada dos conceitos praticados vezes a cobertura (conceitos praticados divididos pela meta, que é metade dos conceitos da unidade, no máximo 30). Resultado: com cerca de 15 a 30 conceitos praticados e bom aproveitamento a unidade passa de 70% e a próxima abre; a professora continua podendo liberar. Constantes em `src/lib/domain/mastery.ts`.
+- **Repetição espaçada (SRS)** continua sendo registrada por pergunta, mas deixou de dirigir a fila: o reforço agora é por conceito. A tela inicial mostra quantos pontos estão para reforçar.
+- Quando o banco inteiro for percorrido, o sorteio recicla do mais antigo para o mais novo (e as erradas primeiro). Com cerca de 2.000 perguntas, são 200 sessões de 10 até isso acontecer.
+- **Modo local**: as migrations novas são aplicadas ao abrir (registradas em `_local_migrations`) e o conteúdo é recarregado sozinho quando `content/data` muda.
+- **API do Supabase em produção**: as consultas de metadados paginam de 1.000 em 1.000, mas `max_rows` do projeto precisa ser pelo menos 1.000 (padrão). O arquivo `supabase/config.toml` do desenvolvimento local usa 20.000.

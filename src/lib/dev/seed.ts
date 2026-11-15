@@ -58,18 +58,16 @@ export async function seedDev(
       await db
         .from('teacher_students')
         .upsert({ teacher_id: ids[teacher.email]!, student_id: sid });
-    await db
-      .from('subscriptions')
-      .upsert(
-        {
-          student_id: sid,
-          status: 'active',
-          origin: 'manual',
-          external_id: `manual-${sid}`,
-          valid_until: null,
-        },
-        { onConflict: 'origin,external_id' },
-      );
+    await db.from('subscriptions').upsert(
+      {
+        student_id: sid,
+        status: 'active',
+        origin: 'manual',
+        external_id: `manual-${sid}`,
+        valid_until: null,
+      },
+      { onConflict: 'origin,external_id' },
+    );
     if (u.consented) {
       const { count } = await db
         .from('consents')
@@ -110,6 +108,7 @@ export async function seedDev(
         await persistResult(db, {
           studentId: sid,
           itemId: q.id,
+          concept: q.concept ?? q.id,
           itemKind: 'question',
           unit: q.unit,
           skill: q.skill,

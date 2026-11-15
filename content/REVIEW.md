@@ -64,3 +64,19 @@ Pontos do e-book que podem estar incorretos ou foram normalizados na conversão.
 | Questões `generated` | Números 45, 58, 64, 85, 99 e horas 15h30 e 20h15 seguem as regras do e-book, mas não estão listados nele. | Marcadas `source: "generated"` para sua revisão. |
 | Cap. 3 e cap. 8 | Atividades "Sua vez" e "Quel est le mois de ton anniversaire?" são abertas e sem gabarito. | Não viraram questões. |
 | Tabelas de conjugação | "il/elle va manger" (falta "on") e "futur simples" no título. | Normalizados no parse (rótulo "futur simple"). |
+
+## 4. Exercícios novos gerados (banco de 2.023 questões)
+
+Os exercícios novos são derivados do que o e-book traz. Quase tudo reaproveita texto do e-book (`source: "ebook"`). Duas famílias seguem **regras** do e-book e por isso ficam `source: "generated"`, para você dar uma olhada:
+
+| Família | Quantas | Como são feitas |
+|---|---|---|
+| Números de 1 a 99 (`q-numw-*`, `q-numd-*`) | 196 | `src/lib/content/french.ts`, `numberToFrench`. Bate com todos os exemplos do e-book (1 a 23, dezenas, 70 a 73, 81, 82, 90 a 92) e aplica as regras descritas (et un, hífen, 70 = 60+10, 90 = 80+10). Fica de fora o 80, porque o e-book escreve "quatre-vingt" e o padrão é "quatre-vingts". |
+| Horas (`q-hr-*`) | 140 | `timeToFrench`, no relógio de 12 horas como o e-book ("16h = quatre heures"). Cobre hora cheia, minutos de 5 em 5 até 25, "et quart", "et demie" e "moins ...". Bate com os 7 exemplos do gabarito. Não gera casos que o e-book não cobre (meio-dia e meia-noite com minutos, "moins" que cai em meio-dia ou meia-noite). |
+
+Famílias derivadas do e-book (marcadas `ebook`): vocabulário em múltipla escolha nos dois sentidos, escrita de vocabulário, artigo (le, la, l', un, une), feminino e masculino de pares do capítulo 6, ligar pares, e frases (tradução, ordenar, lacuna, ditado e fala). Conjugação: os 17 verbos nos 5 tempos e 6 pessoas, direto das tabelas.
+
+Pontos de atenção:
+- Questões de lacuna e de tradução de frases têm uma resposta oficial só (mais variações de pontuação, caixa e acento). Se você aceitar outra forma como correta, edite no painel do admin (Conteúdo) e acrescente a variante.
+- O tom "tu" ou "vous" nas traduções de frases segue a frase do e-book.
+- As tabelas de conjugação do e-book trazem "il/elle va manger" (sem "on") e "futur simples" no título; o parse normaliza.

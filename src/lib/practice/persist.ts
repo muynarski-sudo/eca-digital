@@ -3,13 +3,15 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Question } from '@/lib/content/schema';
 import type { GradeResult } from '@/lib/domain/grade';
 import { newCard, qualityFrom, review, type SrsCard } from '@/lib/domain/srs';
-import { unitMastery, updateMastery, decayed } from '@/lib/domain/mastery';
+import { coverageFor, unitMastery, updateMastery, decayed } from '@/lib/domain/mastery';
 
 type Skill = Question['skill'];
 
 export interface PersistInput {
   studentId: string;
   itemId: string;
+  /** Ponto de conteúdo da questão. O domínio é guardado por conceito. */
+  concept?: string;
   itemKind: 'question' | 'vocab' | 'conjugation';
   unit: string | null;
   skill: Skill;
@@ -36,6 +38,7 @@ export async function persistResult(
     const { error } = await db.from('attempts').insert({
       student_id: p.studentId,
       question_id: p.itemId,
+      concept: p.concept ?? p.itemId,
       correct: p.grade.verdict === 'correct',
       verdict: p.grade.verdict,
       score: p.grade.score,
@@ -75,22 +78,23 @@ export async function persistResult(
     last_reviewed_at: iso,
   });
 
-  // domínio do item
+  // domínio do conceito (variações da mesma pergunta compartilham o domínio)
+  const key = p.concept ?? p.itemId;
   const { data: im } = await db
     .from('item_mastery')
     .select('mastery,last_practiced_at')
     .eq('student_id', p.studentId)
-    .eq('item_id', p.itemId)
+    .eq('item_id', key)
     .maybeSingle();
   const newMastery = updateMastery(
-    im ? Number(im.mastery) : 0,
+    im ? Number(im.mastery) : null,
     im?.last_practiced_at ? new Date(im.last_practiced_at) : null,
     p.grade.score,
     now,
   );
   await db.from('item_mastery').upsert({
     student_id: p.studentId,
-    item_id: p.itemId,
+    item_id: key,
     mastery: newMastery,
     last_practiced_at: iso,
   });
@@ -105,7 +109,7 @@ export async function persistResult(
   await db.from('skill_scores').upsert({
     student_id: p.studentId,
     skill: p.skill,
-    score: updateMastery(sk ? Number(sk.score) : 0, null, p.grade.score, now),
+    score: updateMastery(sk ? Number(sk.score) : null, null, p.grade.score, now),
     updated_at: iso,
   });
 
@@ -118,6 +122,7 @@ export async function persistResult(
   return value;
 }
 
+/** Domínio da unidade: conceitos praticados (com decaimento) vezes a cobertura. */
 export async function computeUnitMastery(
   db: SupabaseClient,
   studentId: string,
@@ -126,34 +131,29 @@ export async function computeUnitMastery(
 ): Promise<number> {
   const { data: qs } = await db
     .from('questions')
-    .select('id,difficulty')
+    .select('concept,difficulty')
     .eq('unit_id', unit)
     .eq('active', true)
     .eq('needs_review', false);
-  const items = qs ?? [];
-  if (items.length === 0) return 0;
+  const weight = new Map<string, number>();
+  for (const q of (qs ?? []) as Array<{ concept: string | null; difficulty: number }>) {
+    if (q.concept && !weight.has(q.concept)) weight.set(q.concept, q.difficulty);
+  }
+  if (weight.size === 0) return 0;
   const { data: ms } = await db
     .from('item_mastery')
     .select('item_id,mastery,last_practiced_at')
     .eq('student_id', studentId)
-    .in(
-      'item_id',
-      items.map((i) => i.id),
-    );
-  const byId = new Map((ms ?? []).map((m) => [m.item_id as string, m]));
-  return unitMastery(
-    items.map((i) => {
-      const m = byId.get(i.id);
-      return {
-        weight: i.difficulty as number,
-        mastery: m
-          ? decayed(
-              Number(m.mastery),
-              m.last_practiced_at ? new Date(m.last_practiced_at) : null,
-              now,
-            )
-          : 0,
-      };
-    }),
-  );
+    .in('item_id', [...weight.keys()]);
+  const practiced = (
+    (ms ?? []) as Array<{ item_id: string; mastery: number; last_practiced_at: string | null }>
+  ).map((m) => ({
+    weight: weight.get(m.item_id) ?? 1,
+    mastery: decayed(
+      Number(m.mastery),
+      m.last_practiced_at ? new Date(m.last_practiced_at) : null,
+      now,
+    ),
+  }));
+  return unitMastery(practiced, coverageFor(weight.size));
 }

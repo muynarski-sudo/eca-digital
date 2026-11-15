@@ -62,6 +62,7 @@ export async function POST(req: Request) {
   await persistResult(db, {
     studentId: uid,
     itemId: q.id,
+    concept: q.concept ?? q.id,
     itemKind: 'question',
     unit: q.unit,
     skill: 'fala',

@@ -5,9 +5,9 @@ import { LinkButton } from '@/components/ui/Button';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ProgressRing } from '@/components/ui/ProgressRing';
 import { StreakChip } from '@/components/ui/StreakChip';
-import { buildDailyPlan } from '@/lib/domain/plan';
+import { getQuestionMeta } from '@/lib/data/content';
 import { loadProgress } from '@/lib/data/progress';
-import { getQuestions } from '@/lib/data/content';
+import { loadSeen } from '@/lib/data/seen';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
 
@@ -18,9 +18,10 @@ export default async function Inicio() {
   const me = await requireStudent();
   const db = await serverClient();
   const now = new Date();
-  const [progress, questions, assignments] = await Promise.all([
+  const [progress, meta, seen, assignments] = await Promise.all([
     loadProgress(db, me.id, me.level, now),
-    getQuestions(db),
+    getQuestionMeta(db),
+    loadSeen(db, me.id),
     db
       .from('assignments')
       .select('id,title,due_at,status,teacher_feedback,teacher_grade')
@@ -29,15 +30,7 @@ export default async function Inicio() {
       .limit(10),
   ]);
   const open = progress.units.filter((u) => u.state !== 'locked');
-  const plan = buildDailyPlan({
-    questions,
-    itemMastery: progress.itemMastery,
-    dueQuestionIds: progress.dueQuestionIds,
-    now,
-    unitMastery: Object.fromEntries(progress.units.map((u) => [u.unit.id, u.mastery])),
-    openUnits: open.map((u) => u.unit.id),
-  });
-  const weakest = progress.units.find((u) => u.unit.id === plan.weakestUnit);
+  const weakest = [...open].sort((a, b) => a.mastery - b.mastery)[0];
   const todo = (assignments.data ?? []).filter(
     (a) => a.status === 'assigned' || a.status === 'in_progress',
   );
@@ -45,6 +38,8 @@ export default async function Inicio() {
     .filter((a) => a.status === 'reviewed' && a.teacher_feedback)
     .slice(-1)[0];
   const first = (me.fullName ?? '').split(' ')[0];
+  const done = seen.seen.size;
+  const total = meta.length;
 
   return (
     <>
@@ -64,21 +59,23 @@ export default async function Inicio() {
               Treino de hoje · 10 minutos
             </h2>
             <p className="text-ink-soft">
-              {progress.dueQuestionIds.length > 0
-                ? `${Math.min(progress.dueQuestionIds.length, 6)} revisões na fila`
-                : 'Sem revisões vencidas'}
-              {weakest ? ` e a unidade mais fraca: ${weakest.unit.title}.` : '.'}
+              Perguntas novas a cada vez, sem repetir.
+              {progress.weakConcepts > 0
+                ? ` ${progress.weakConcepts} ponto${progress.weakConcepts > 1 ? 's' : ''} para reforçar com perguntas diferentes.`
+                : ''}
+              {weakest ? ` Unidade com mais chance: ${weakest.unit.title}.` : ''}
             </p>
-            <LinkButton href="/praticar?modo=treino">
-              {plan.ids.length ? 'On y va!' : 'Começar pela unidade 1'}
-            </LinkButton>
+            <LinkButton href="/praticar?modo=treino">On y va!</LinkButton>
+            <p className="text-sm text-ink-muted">
+              Você já fez {done} de {total} exercícios do banco.
+            </p>
           </Card>
           <Card as="section" aria-labelledby="tarefa" className="space-y-3">
             <h2 id="tarefa" className="text-xl">
               Tarefa da professora
             </h2>
             {todo.length === 0 && (
-              <p className="text-ink-soft">Nada pendente por aqui. Que tal revisar algo?</p>
+              <p className="text-ink-soft">Nada pendente por aqui. Que tal um treino?</p>
             )}
             {todo.map((a) => (
               <div

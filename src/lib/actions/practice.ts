@@ -37,6 +37,7 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
     await persistResult(db, {
       studentId: uid,
       itemId: conj.id,
+      concept: conj.id,
       itemKind: 'conjugation',
       unit: null,
       skill: 'gramatica',
@@ -60,6 +61,7 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
   const unitMastery = await persistResult(db, {
     studentId: uid,
     itemId: q.id,
+    concept: q.concept ?? q.id,
     itemKind: 'question',
     unit: q.unit,
     skill: q.skill,
@@ -102,6 +104,7 @@ export async function reviewFlashcard(input: z.infer<typeof flashSchema>) {
   await persistResult(db, {
     studentId: uid,
     itemId: v.id,
+    concept: `v:${v.id}`,
     itemKind: 'vocab',
     unit: v.unit_id,
     skill: 'vocabulario',

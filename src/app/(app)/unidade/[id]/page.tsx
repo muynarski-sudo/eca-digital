@@ -6,6 +6,7 @@ import { MasteryBadge } from '@/components/ui/MasteryBadge';
 import { FrenchLine } from '@/components/ui/Pron';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { audioKey } from '@/lib/audio/key';
+import { categoryLabel } from '@/lib/content/labels';
 import { cultureTips, dialogues, phrases } from '@/lib/content/static';
 import { getVocab } from '@/lib/data/content';
 import { loadProgress } from '@/lib/data/progress';
@@ -60,7 +61,7 @@ export default async function Unidade({ params }: { params: Promise<{ id: string
         {categories.map((c) => (
           <Card key={c} className="space-y-3">
             <h3 className="text-sm font-bold uppercase tracking-wide text-ink-muted">
-              {c.replace(/_/g, ' ')}
+              {categoryLabel(c)}
             </h3>
             <ul className="grid gap-3 md:grid-cols-2">
               {vocab

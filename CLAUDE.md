@@ -26,10 +26,10 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 ## Estrutura
 
 - `content/source`: texto do e-book. `content/data`: JSON validado por zod. `content/REVIEW.md`: pendências.
-- `scripts/content`: autoria do conteúdo. `scripts/*.ts`: build, validação, seed, áudio, jobs.
+- `scripts/content`: autoria do conteúdo (`generators.ts` gera o banco grande de exercícios a partir do e-book; `src/lib/content/french.ts` tem as regras de números e horas). `scripts/*.ts`: build, validação, seed, áudio, jobs.
 - `src/lib/local`: modo local. `client.ts` imita o supabase-js sobre o PGlite (com a RLS real, cada consulta numa transação com `set local role`); `db.ts` abre o banco e faz o bootstrap; `session.ts` assina o cookie de sessão. Metadados (tipos de coluna) devem ser lidos ANTES de abrir a transação, senão o PGlite trava.
 - `supabase/migrations`: esquema, RLS, cobrança, privilégios.
-- `src/lib/domain`: grade, srs, mastery, plan, metrics. `src/lib/content`: schemas e carga. `src/lib/practice`: persistência das respostas.
+- `src/lib/domain`: grade, srs, mastery, select (sorteio sem repetição), plan (treino diário e de unidade), metrics. `src/lib/content`: schemas e carga. `src/lib/practice`: persistência das respostas.
 `src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
 - `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login (não há autocadastro; a professora cadastra os alunos). `src/app/api`: áudio, fala, exportação, conversa.
 - `src/components/ui`: Card, Button, ProgressRing, MasteryBadge, AudioButton, StreakChip, EmptyState, TricolorBar. `src/components/practice`: ExerciseShell, executor, flashcards, gravador.

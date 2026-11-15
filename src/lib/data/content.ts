@@ -1,6 +1,7 @@
 import 'server-only';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Question, Unit, VocabItem } from '@/lib/content/schema';
+import type { QuestionMeta } from '@/lib/domain/select';
 
 type Row = Record<string, unknown>;
 
@@ -25,6 +26,7 @@ export const mapQuestion = (r: Row): Question => ({
   pairs: (r.pairs as Question['pairs'] | null) ?? undefined,
   words: (r.words as string[] | null) ?? undefined,
   audio_text: (r.audio_text as string | null) ?? undefined,
+  concept: (r.concept as string | null) ?? undefined,
   hint: (r.hint as string | null) ?? undefined,
   explanation: r.explanation as string,
   error_tags: (r.error_tags as string[]) ?? [],
@@ -77,4 +79,42 @@ export async function getVocab(
   const { data, error } = await q;
   if (error) throw new Error(error.message);
   return (data ?? []).map(mapVocab).filter((x) => !x.needs_review);
+}
+
+/** Dados leves de todas as questões liberadas (com paginação, para não esbarrar no limite de linhas da API). */
+export async function getQuestionMeta(
+  db: SupabaseClient,
+  opts: { unit?: string } = {},
+): Promise<QuestionMeta[]> {
+  const out: QuestionMeta[] = [];
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    let q = db
+      .from('questions')
+      .select('id,unit_id,type,concept,difficulty')
+      .eq('active', true)
+      .eq('needs_review', false)
+      .order('id')
+      .range(from, from + PAGE - 1);
+    if (opts.unit) q = q.eq('unit_id', opts.unit);
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as Array<{
+      id: string;
+      unit_id: string | null;
+      type: string;
+      concept: string | null;
+      difficulty: number;
+    }>;
+    for (const r of rows)
+      out.push({
+        id: r.id,
+        unit: r.unit_id,
+        type: r.type,
+        concept: r.concept ?? r.id,
+        difficulty: r.difficulty,
+      });
+    if (rows.length < PAGE) break;
+  }
+  return out;
 }

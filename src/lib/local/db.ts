@@ -25,7 +25,7 @@ type G = { __ffRaw?: Promise<PGlite>; __ffReady?: Promise<PGlite>; __ffBooting?:
 const g = globalThis as G;
 
 /** Uma única instância por processo (PGlite não aceita dois processos no mesmo diretório). */
-function rawDb(): Promise<PGlite> {
+export function rawDb(): Promise<PGlite> {
   return (g.__ffRaw ??= open());
 }
 
@@ -52,16 +52,34 @@ async function open(): Promise<PGlite> {
     parsers: { 1700: (v: string) => parseFloat(v), 1184: (v: string) => new Date(v).toISOString() },
   });
   await pg.waitReady;
+  const dir = path.join(process.cwd(), 'supabase', 'migrations');
+  const files = readdirSync(dir)
+    .filter((x) => x.endsWith('.sql'))
+    .sort();
   const has = await pg.query<{ r: string | null }>(
     `select to_regclass('public.profiles')::text as r`,
   );
-  if (!has.rows[0]?.r) {
-    await pg.exec(SHIM);
-    const dir = path.join(process.cwd(), 'supabase', 'migrations');
-    for (const f of readdirSync(dir)
-      .filter((x) => x.endsWith('.sql'))
-      .sort())
-      await pg.exec(readFileSync(path.join(dir, f), 'utf8'));
+  const fresh = !has.rows[0]?.r;
+  if (fresh) await pg.exec(SHIM);
+  await pg.exec(`create table if not exists public._local_migrations (name text primary key)`);
+  const applied = new Set(
+    (await pg.query<{ name: string }>(`select name from public._local_migrations`)).rows.map(
+      (r) => r.name,
+    ),
+  );
+  if (!fresh && applied.size === 0) {
+    // banco criado por uma versão anterior (que ainda não registrava as migrations): as sete primeiras já estão aplicadas
+    for (const f of files.filter((x) => x <= '20260101000007_zzz')) {
+      await pg.query(`insert into public._local_migrations (name) values ($1)`, [f]);
+      applied.add(f);
+    }
+  }
+  for (const f of files.filter((x) => !applied.has(x))) {
+    await pg.exec(readFileSync(path.join(dir, f), 'utf8'));
+    await pg.query(
+      `insert into public._local_migrations (name) values ($1) on conflict do nothing`,
+      [f],
+    );
   }
   return pg;
 }

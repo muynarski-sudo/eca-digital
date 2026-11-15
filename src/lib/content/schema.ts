@@ -62,6 +62,8 @@ export const questionSchema = z
     pairs: z.array(z.object({ left: z.string(), right: z.string() })).optional(),
     words: z.array(z.string()).optional(),
     audio_text: z.string().optional(),
+    /** Ponto de conteúdo que a questão treina. Questões com o mesmo concept são variações uma da outra. */
+    concept: z.string().min(1).optional(),
     hint: z.string().optional(),
     explanation: z.string().min(1),
     error_tags: z.array(z.string()).default([]),

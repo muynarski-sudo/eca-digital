@@ -16,7 +16,7 @@ describe('conteúdo do e-book', () => {
   it('tem 10 unidades, 17 verbos em 5 tempos e cerca de 100 exercícios do e-book', () => {
     expect(c.units).toHaveLength(10);
     expect(c.conjugations).toHaveLength(17);
-    const fromEbook = c.questions.filter((q) => !/^q-(mc|mp|ow|di|sp|conj)-/.test(q.id));
+    const fromEbook = c.questions.filter((q) => q.id.startsWith('q-u'));
     expect(fromEbook.length).toBeGreaterThanOrEqual(95);
     expect(report.totais.questoes).toBe(c.questions.length);
   });

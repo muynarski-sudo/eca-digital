@@ -94,6 +94,7 @@ class Query implements PromiseLike<Result> {
   private filters: Filter[] = [];
   private orders: string[] = [];
   private limitN: number | null = null;
+  private offsetN = 0;
   private mode: 'many' | 'maybe' | 'one' = 'many';
   private head = false;
   private wantCount = false;
@@ -193,6 +194,11 @@ class Query implements PromiseLike<Result> {
     this.limitN = n;
     return this;
   }
+  range(from: number, to: number) {
+    this.offsetN = from;
+    this.limitN = to - from + 1;
+    return this;
+  }
   maybeSingle() {
     this.mode = 'maybe';
     return this;
@@ -269,7 +275,8 @@ class Query implements PromiseLike<Result> {
           }
           const order = this.orders.length ? ` order by ${this.orders.join(', ')}` : '';
           const limit =
-            this.limitN !== null ? ` limit ${Math.max(0, Math.floor(this.limitN))}` : '';
+            (this.limitN !== null ? ` limit ${Math.max(0, Math.floor(this.limitN))}` : '') +
+            (this.offsetN ? ` offset ${Math.max(0, Math.floor(this.offsetN))}` : '');
           rows = (await q(`select ${this.columns()} from ${t}${w.sql}${order}${limit}`, w.params))
             .rows;
           if (this.wantCount) count = rows.length;

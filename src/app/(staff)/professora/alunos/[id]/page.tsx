@@ -49,16 +49,22 @@ export default async function AlunoDetalhe({ params }: { params: Promise<{ id: s
     .filter(([k]) => !k.startsWith('conj:'))
     .sort((a, b) => a[1].mastery - b[1].mastery)
     .slice(0, 8);
-  const ids = [
-    ...new Set([
-      ...(hist.data ?? []).map((h) => h.question_id as string),
-      ...weakItems.map(([k]) => k),
-    ]),
-  ].filter((k) => !k.startsWith('conj:'));
+  const ids = [...new Set((hist.data ?? []).map((h) => h.question_id as string))].filter(
+    (k) => !k.startsWith('conj:'),
+  );
   const { data: qs } = ids.length
     ? await db.from('questions').select('id,prompt').in('id', ids)
     : { data: [] as Array<{ id: string; prompt: string }> };
   const prompt = new Map((qs ?? []).map((q) => [q.id, q.prompt]));
+  // itens fracos: o domínio é guardado por conceito, então mostra uma pergunta de exemplo de cada um
+  const weakKeys = weakItems.map(([k]) => k);
+  const { data: wq } = weakKeys.length
+    ? await db.from('questions').select('concept,prompt').in('concept', weakKeys)
+    : { data: [] as Array<{ concept: string; prompt: string }> };
+  const conceptPrompt = new Map<string, string>();
+  for (const q of (wq ?? []) as Array<{ concept: string; prompt: string }>) {
+    if (!conceptPrompt.has(q.concept)) conceptPrompt.set(q.concept, q.prompt);
+  }
   const today = new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10);
 
   return (
@@ -221,7 +227,7 @@ export default async function AlunoDetalhe({ params }: { params: Promise<{ id: s
           <ul className="space-y-1 text-sm">
             {weakItems.map(([k, v]) => (
               <li key={k} className="flex justify-between gap-2">
-                <span className="truncate">{prompt.get(k) ?? k}</span>
+                <span className="truncate">{conceptPrompt.get(k) ?? k}</span>
                 <span>{Math.round(v.mastery * 100)}%</span>
               </li>
             ))}
