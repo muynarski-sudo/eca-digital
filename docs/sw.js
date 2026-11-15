@@ -1,5 +1,5 @@
 // Service worker do Falando Francês Prática. Guarda o app no aparelho para abrir sem internet.
-const CACHE = 'ffp-1081bffc4a';
+const CACHE = 'ffp-ad9dd67e21';
 const ASSETS = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));

@@ -457,3 +457,30 @@
   border-radius: 16px;
   padding: 18px;
 }
+
+.pl-voice {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.pl-warn {
+  background: var(--pl-bad-bg);
+  border: 2px solid var(--pl-red);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.pl-warn[hidden] {
+  display: none;
+}
+.pl-warn p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--pl-fg);
+}
+.pl-warn strong {
+  color: var(--pl-red);
+}

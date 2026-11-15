@@ -170,6 +170,25 @@ test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', 
   await expect(page.getByText('Jogadas: 1')).toBeVisible();
 });
 
+test('brincar: se o aparelho não toca a voz, o app avisa na tela', async ({ page }) => {
+  await page.addInitScript(`(() => {
+    class U { constructor(t) { this.text = t; this.volume = 1; } }
+    window.SpeechSynthesisUtterance = U;
+    Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {
+      speaking: false, pending: false, getVoices: () => [], addEventListener() {}, resume() {}, cancel() {}, speak() {} } });
+  })();`);
+  await login(page, ALUNO.email, ALUNO.senha);
+  await page.goto('/brincar');
+  await page
+    .getByRole('button', { name: /Alfabeto/ })
+    .first()
+    .click();
+  await page.getByRole('button', { name: 'Letra B, bé' }).click();
+  await expect(page.locator('.pl-warn')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('.pl-warn')).toContainText('Não consegui tocar a voz');
+  await expect(page.locator('.pl-balloon')).toContainText('B: bé');
+});
+
 test('aluno não acessa o painel da professora', async ({ page }) => {
   await login(page, ALUNO.email, ALUNO.senha);
   await page.goto('/professora');

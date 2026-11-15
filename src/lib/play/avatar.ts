@@ -33,31 +33,44 @@ export interface Speaker {
     o?: { rate?: number; gapMs?: number; onEach?: (i: number) => void },
   ): Promise<void>;
   cancel(): void;
+  /** Destrava a voz em celulares que exigem um toque antes (chame dentro de um clique). */
+  unlock(): void;
 }
 
 const wait = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
-/** Fala em francês com a voz do aparelho. Se não houver voz, finge a duração para a animação e as legendas continuarem. */
-export function createSpeaker(onSpeaking: (v: boolean) => void): Speaker {
+/**
+ * Fala em francês com a voz do aparelho. Se não houver voz, finge a duração para a animação e as legendas continuarem.
+ * `onProblem(true)` avisa quando a fala foi pedida mas o aparelho não começou a tocar (volume, modo silencioso, sem voz).
+ */
+export function createSpeaker(
+  onSpeaking: (v: boolean) => void,
+  onProblem: (v: boolean) => void = () => undefined,
+): Speaker {
   const synth: SpeechSynthesis | null =
     typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null;
   let token = 0;
+  let seqRun = 0;
+  let unlocked = false;
 
   const pickVoice = (): SpeechSynthesisVoice | undefined => {
     const voices = synth?.getVoices() ?? [];
     return (
-      voices.find((v) => v.lang.toLowerCase() === 'fr-fr') ??
+      voices.find((v) => v.lang.toLowerCase().replace('_', '-') === 'fr-fr') ??
       voices.find((v) => v.lang.toLowerCase().startsWith('fr'))
     );
   };
-
-  let seqRun = 0;
+  // algumas versões do iPhone e do Chrome só carregam a lista de vozes depois do primeiro uso
+  if (synth) {
+    synth.getVoices();
+    synth.addEventListener?.('voiceschanged', () => synth.getVoices());
+  }
 
   const speak = (text: string, o: { rate?: number } = {}): Promise<void> => {
     const my = ++token;
-    synth?.cancel();
     return new Promise<void>((resolve) => {
       let done = false;
+      let started = false;
       const finish = () => {
         if (done) return;
         done = true;
@@ -66,19 +79,38 @@ export function createSpeaker(onSpeaking: (v: boolean) => void): Speaker {
       };
       onSpeaking(true);
       const fake = Math.max(700, text.length * 75) / (o.rate ?? 1);
-      if (!synth) return void setTimeout(finish, fake);
+      if (!synth) {
+        onProblem(true);
+        return void setTimeout(finish, fake);
+      }
       try {
+        // cancelar logo antes de falar faz o iPhone e o Chrome engolirem a fala: só cancela se houver algo tocando
+        if (synth.speaking || synth.pending) synth.cancel();
+        synth.resume();
         const u = new SpeechSynthesisUtterance(text);
         u.lang = 'fr-FR';
         u.rate = o.rate ?? 0.9;
+        u.volume = 1;
         const v = pickVoice();
         if (v) u.voice = v;
+        u.onstart = () => {
+          started = true;
+          onProblem(false);
+        };
         u.onend = finish;
-        u.onerror = finish;
+        u.onerror = () => {
+          if (!started) onProblem(true);
+          finish();
+        };
         synth.speak(u);
+        // se em 1,5 s o aparelho não começou a falar, avisa (volume, modo silencioso ou sem voz)
+        setTimeout(() => {
+          if (!started && !done && token === my) onProblem(true);
+        }, 1500);
         // alguns navegadores não disparam onend: rede de segurança
         setTimeout(finish, fake + 6000);
       } catch {
+        onProblem(true);
         setTimeout(finish, fake);
       }
     });
@@ -105,6 +137,19 @@ export function createSpeaker(onSpeaking: (v: boolean) => void): Speaker {
       token++;
       synth?.cancel();
       onSpeaking(false);
+    },
+    unlock() {
+      if (!synth || unlocked) return;
+      unlocked = true;
+      try {
+        // fala vazia e sem volume, só para o aparelho liberar a voz depois de um toque do usuário
+        const u = new SpeechSynthesisUtterance(' ');
+        u.volume = 0;
+        u.lang = 'fr-FR';
+        synth.speak(u);
+      } catch {
+        /* ignora */
+      }
     },
   };
 }

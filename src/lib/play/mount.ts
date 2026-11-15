@@ -64,19 +64,25 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
 
   let view: View = 'home';
   let mouthTimer: ReturnType<typeof setInterval> | null = null;
-  const speaker = createSpeaker((speaking) => {
-    const svg = root.querySelector<SVGElement>('.pl-avatar');
-    if (!svg) return;
-    svg.classList.toggle('speaking', speaking);
-    if (mouthTimer) clearInterval(mouthTimer);
-    mouthTimer = null;
-    if (!speaking) return void svg.setAttribute('data-mouth', '0');
-    if (reduced()) return void svg.setAttribute('data-mouth', '1');
-    mouthTimer = setInterval(
-      () => svg.setAttribute('data-mouth', String(Math.floor(Math.random() * 3))),
-      130,
-    );
-  });
+  let warnEl: HTMLElement | null = null;
+  const speaker = createSpeaker(
+    (speaking) => {
+      const svg = root.querySelector<SVGElement>('.pl-avatar');
+      if (!svg) return;
+      svg.classList.toggle('speaking', speaking);
+      if (mouthTimer) clearInterval(mouthTimer);
+      mouthTimer = null;
+      if (!speaking) return void svg.setAttribute('data-mouth', '0');
+      if (reduced()) return void svg.setAttribute('data-mouth', '1');
+      mouthTimer = setInterval(
+        () => svg.setAttribute('data-mouth', String(Math.floor(Math.random() * 3))),
+        130,
+      );
+    },
+    (problem) => {
+      if (warnEl) warnEl.hidden = !problem;
+    },
+  );
 
   root.innerHTML = `<div class="play">
     <div class="pl-stage">
@@ -84,7 +90,8 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
       <div class="pl-say">
         <p class="pl-name">Iasmyn</p>
         <div class="pl-balloon" role="status" aria-live="polite"><p class="pl-b1"></p><p class="pl-b2"></p></div>
-        <div class="pl-stats"><span class="pl-stars" aria-label="Estrelas ganhas"></span><button class="pl-btn ghost" data-act="stop" aria-label="Parar a voz">Parar voz</button></div>
+        <div class="pl-stats"><span class="pl-stars" aria-label="Estrelas ganhas"></span><span class="pl-voice"><button class="pl-btn ghost" data-act="testvoice">Testar a voz</button><button class="pl-btn ghost" data-act="stop" aria-label="Parar a voz">Parar voz</button></span></div>
+        <div class="pl-warn" role="alert" hidden><p><strong>Não consegui tocar a voz neste aparelho.</strong> Confira: 1) o volume de mídia está alto; 2) no iPhone, o modo silencioso (botão lateral) está desligado; 3) o aparelho tem voz em francês instalada (iPhone: Ajustes, Acessibilidade, Conteúdo Falado, Vozes, Francês; Android: Configurações, Idioma, Saída de texto para voz). Enquanto isso, leia o que a Iasmyn diz no balão.</p><button class="pl-btn sec" data-act="testvoice">Tentar de novo</button></div>
       </div>
     </div>
     <div class="pl-body"></div>
@@ -93,6 +100,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
   const b1 = root.querySelector<HTMLElement>('.pl-b1')!;
   const b2 = root.querySelector<HTMLElement>('.pl-b2')!;
   const starsEl = root.querySelector<HTMLElement>('.pl-stars')!;
+  warnEl = root.querySelector<HTMLElement>('.pl-warn');
 
   const showStars = () =>
     (starsEl.textContent = `★ ${saved.stars} ${saved.stars === 1 ? 'estrela' : 'estrelas'}`);
@@ -343,6 +351,12 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     const act = el.dataset.act;
     const d = el.dataset;
     if (act === 'stop') return void speaker.cancel();
+    if (act === 'testvoice')
+      return void say(
+        "Bonjour! Je m'appelle Iasmyn.",
+        ["Bonjour! Je m'appelle Iasmyn.", 'Olá! Eu me chamo Iasmyn.'],
+        0.9,
+      );
     if (act === 'home') return go('home');
     if (act === 'go') return go(d.v as View);
     if (act === 'restart') return go(view);
@@ -510,6 +524,9 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
       }
     }
   };
+  // o primeiro toque destrava a voz em celulares que exigem isso
+  const onFirstTouch = () => speaker.unlock();
+  root.addEventListener('pointerdown', onFirstTouch, { once: true });
   root.addEventListener('click', onClick);
 
   showStars();
@@ -518,6 +535,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
 
   return () => {
     root.removeEventListener('click', onClick);
+    root.removeEventListener('pointerdown', onFirstTouch);
     speaker.cancel();
     if (mouthTimer) clearInterval(mouthTimer);
     timers.forEach(clearTimeout);
