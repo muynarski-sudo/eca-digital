@@ -95,3 +95,7 @@ Possível com o compose oficial do Supabase. Troque `NEXT_PUBLIC_SUPABASE_URL` e
 ## Estrutura
 
 Veja `CLAUDE.md` para comandos, convenções e mapa de pastas. Decisões e riscos: `DECISIONS.md`.
+
+## Demo no navegador (artefato)
+
+`artifact/` gera uma página única que roda tudo no navegador, sem servidor (estado no `localStorage`). Reaproveita a lógica real de `src/lib/domain` e o conteúdo do e-book. Serve só para demonstração: sem login de verdade, e professora e aluno dividem o mesmo aparelho. Gere com `./artifact/build.sh` (saída em `artifact/dist/`).

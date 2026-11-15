@@ -11,3 +11,4 @@ coverage
 .audio-cache
 supabase/.temp
 .local-data
+artifact/dist

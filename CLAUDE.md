@@ -33,4 +33,5 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 `src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
 - `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login (não há autocadastro; a professora cadastra os alunos). `src/app/api`: áudio, fala, exportação, conversa.
 - `src/components/ui`: Card, Button, ProgressRing, MasteryBadge, AudioButton, StreakChip, EmptyState, TricolorBar. `src/components/practice`: ExerciseShell, executor, flashcards, gravador.
+- `artifact`: demo de página única (esbuild) com a lógica de `src/lib/domain` rodando no navegador; `./artifact/build.sh` gera `artifact/dist/*.html`.
 - `deploy`: Caddyfile, backup e jobs. `Dockerfile` e `docker-compose.yml` na raiz.

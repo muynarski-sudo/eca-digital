@@ -1,5 +1,23 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"],
-  "rules": { "@typescript-eslint/no-explicit-any": "error", "no-console": ["warn", { "allow": ["warn", "error"] }] },
-  "ignorePatterns": ["scripts/**", "e2e/**"]
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "artifact/**",
+    "e2e/**",
+    "scripts/**"
+  ]
 }
