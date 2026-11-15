@@ -88,14 +88,12 @@ export async function persistResult(
     p.grade.score,
     now,
   );
-  await db
-    .from('item_mastery')
-    .upsert({
-      student_id: p.studentId,
-      item_id: p.itemId,
-      mastery: newMastery,
-      last_practiced_at: iso,
-    });
+  await db.from('item_mastery').upsert({
+    student_id: p.studentId,
+    item_id: p.itemId,
+    mastery: newMastery,
+    last_practiced_at: iso,
+  });
 
   // habilidade (média móvel do crédito das tentativas)
   const { data: sk } = await db
@@ -104,14 +102,12 @@ export async function persistResult(
     .eq('student_id', p.studentId)
     .eq('skill', p.skill)
     .maybeSingle();
-  await db
-    .from('skill_scores')
-    .upsert({
-      student_id: p.studentId,
-      skill: p.skill,
-      score: updateMastery(sk ? Number(sk.score) : 0, null, p.grade.score, now),
-      updated_at: iso,
-    });
+  await db.from('skill_scores').upsert({
+    student_id: p.studentId,
+    skill: p.skill,
+    score: updateMastery(sk ? Number(sk.score) : 0, null, p.grade.score, now),
+    updated_at: iso,
+  });
 
   // domínio da unidade
   if (!p.unit || p.itemKind !== 'question') return undefined;

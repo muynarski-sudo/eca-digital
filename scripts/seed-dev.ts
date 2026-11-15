@@ -47,18 +47,16 @@ async function main() {
   for (const email of ['ana@dev.local', 'bruno@dev.local']) {
     const sid = ids[email]!;
     await db.from('teacher_students').upsert({ teacher_id: teacher, student_id: sid });
-    await db
-      .from('subscriptions')
-      .upsert(
-        {
-          student_id: sid,
-          status: 'active',
-          origin: 'manual',
-          external_id: `manual-${sid}`,
-          valid_until: new Date(Date.now() + 90 * 86_400_000).toISOString(),
-        },
-        { onConflict: 'origin,external_id' },
-      );
+    await db.from('subscriptions').upsert(
+      {
+        student_id: sid,
+        status: 'active',
+        origin: 'manual',
+        external_id: `manual-${sid}`,
+        valid_until: new Date(Date.now() + 90 * 86_400_000).toISOString(),
+      },
+      { onConflict: 'origin,external_id' },
+    );
     for (const kind of ['privacy', 'terms'] as const)
       await db.from('consents').insert({ user_id: sid, kind, version: 0 });
     await db.from('consents').insert({ user_id: sid, kind: 'age_notice', version: 1 });

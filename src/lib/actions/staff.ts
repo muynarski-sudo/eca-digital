@@ -86,15 +86,13 @@ export async function grantManualAccess(_: FormState, form: FormData): Promise<F
         .from('subscriptions')
         .update({ status: 'active', valid_until: until, updated_at: new Date().toISOString() })
         .eq('id', cur.id)
-    : await db
-        .from('subscriptions')
-        .insert({
-          student_id: parsed.data.studentId,
-          status: 'active',
-          origin: 'manual',
-          external_id: `manual-${parsed.data.studentId}`,
-          valid_until: until,
-        });
+    : await db.from('subscriptions').insert({
+        student_id: parsed.data.studentId,
+        status: 'active',
+        origin: 'manual',
+        external_id: `manual-${parsed.data.studentId}`,
+        valid_until: until,
+      });
   if (error) return { error: 'Não foi possível conceder o acesso.' };
   revalidatePath(`/professora/alunos/${parsed.data.studentId}`);
   return { ok: `Acesso manual até ${new Date(until).toLocaleDateString('pt-BR')}.` };
@@ -133,15 +131,13 @@ export async function createAssignment(_: FormState, form: FormData): Promise<Fo
   const due = new Date(`${parsed.data.due}T23:59:00-03:00`);
   if (Number.isNaN(due.getTime())) return { error: 'Prazo inválido.' };
   const { db, uid } = await staff();
-  const { error } = await db
-    .from('assignments')
-    .insert({
-      teacher_id: uid,
-      student_id: parsed.data.studentId,
-      title: parsed.data.title,
-      unit_id: parsed.data.unitId,
-      due_at: due.toISOString(),
-    });
+  const { error } = await db.from('assignments').insert({
+    teacher_id: uid,
+    student_id: parsed.data.studentId,
+    title: parsed.data.title,
+    unit_id: parsed.data.unitId,
+    due_at: due.toISOString(),
+  });
   if (error) return { error: 'Não foi possível atribuir. O aluno está vinculado a você?' };
   revalidatePath('/professora/tarefas');
   return { ok: 'Tarefa atribuída. O aluno vê no início.' };
@@ -250,14 +246,12 @@ export async function publishLegal(_: FormState, form: FormData): Promise<FormSt
     .order('version', { ascending: false })
     .limit(1)
     .maybeSingle();
-  const { error } = await db
-    .from('legal_documents')
-    .insert({
-      kind: parsed.data.kind,
-      version: ((last?.version as number | undefined) ?? 0) + 1,
-      title: parsed.data.title,
-      body_md: parsed.data.body,
-    });
+  const { error } = await db.from('legal_documents').insert({
+    kind: parsed.data.kind,
+    version: ((last?.version as number | undefined) ?? 0) + 1,
+    title: parsed.data.title,
+    body_md: parsed.data.body,
+  });
   if (error) return { error: 'Não foi possível publicar.' };
   revalidatePath('/admin/documentos');
   return { ok: 'Nova versão publicada. Novos cadastros aceitam essa versão.' };

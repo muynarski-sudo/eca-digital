@@ -6,14 +6,12 @@ export function supabaseBillingStore(): BillingStore {
   const db = adminClient();
   return {
     async recordEvent(key, type, payload) {
-      const { error } = await db
-        .from('webhook_events')
-        .insert({
-          provider: 'hotmart',
-          event_key: key,
-          event_type: type,
-          payload: payload as object,
-        });
+      const { error } = await db.from('webhook_events').insert({
+        provider: 'hotmart',
+        event_key: key,
+        event_type: type,
+        payload: payload as object,
+      });
       if (!error) return true;
       if (error.code !== '23505') throw new Error(error.message);
       // reenvio: só reprocessa se a tentativa anterior falhou
@@ -56,20 +54,18 @@ export function supabaseBillingStore(): BillingStore {
       };
     },
     async upsertSubscription(s) {
-      const { error } = await db
-        .from('subscriptions')
-        .upsert(
-          {
-            student_id: s.studentId,
-            origin: 'hotmart',
-            external_id: s.externalId,
-            status: s.status as SubStatus,
-            valid_until: s.validUntil?.toISOString() ?? null,
-            last_event_at: s.lastEventAt.toISOString(),
-            updated_at: new Date().toISOString(),
-          },
-          { onConflict: 'origin,external_id' },
-        );
+      const { error } = await db.from('subscriptions').upsert(
+        {
+          student_id: s.studentId,
+          origin: 'hotmart',
+          external_id: s.externalId,
+          status: s.status as SubStatus,
+          valid_until: s.validUntil?.toISOString() ?? null,
+          last_event_at: s.lastEventAt.toISOString(),
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: 'origin,external_id' },
+      );
       if (error) throw new Error(error.message);
     },
     async setSubscriptionStatus(externalId, status, lastEventAt, validUntil) {
@@ -87,19 +83,17 @@ export function supabaseBillingStore(): BillingStore {
       if (error) throw new Error(error.message);
     },
     async upsertPendingGrant(g) {
-      const { error } = await db
-        .from('pending_grants')
-        .upsert(
-          {
-            email: g.email,
-            origin: 'hotmart',
-            external_id: g.externalId,
-            status: g.status,
-            valid_until: g.validUntil?.toISOString() ?? null,
-            last_event_at: g.lastEventAt.toISOString(),
-          },
-          { onConflict: 'origin,external_id' },
-        );
+      const { error } = await db.from('pending_grants').upsert(
+        {
+          email: g.email,
+          origin: 'hotmart',
+          external_id: g.externalId,
+          status: g.status,
+          valid_until: g.validUntil?.toISOString() ?? null,
+          last_event_at: g.lastEventAt.toISOString(),
+        },
+        { onConflict: 'origin,external_id' },
+      );
       if (error) throw new Error(error.message);
     },
     async inviteByEmail(email) {
