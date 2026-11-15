@@ -7,8 +7,9 @@ STUB="$(mktemp -d)/empty.js"; echo "export {}" > "$STUB"
 npx esbuild artifact/app.ts --bundle --minify --format=iife --target=es2020 --loader:.json=json --loader:.png=dataurl --alias:@=./src --alias:server-only="$STUB" --outfile=artifact/dist/app.js --log-level=warning
 python3 - <<'PY'
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
-css = open('artifact/style.css', encoding='utf8').read()
-html = f'''<title>Falando Francês Prática</title>
+css = open('artifact/style.css', encoding='utf8').read() + open('src/lib/play/play.css', encoding='utf8').read()
+html = f'''<meta charset="utf-8">
+<title>Falando Francês Prática</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 {css}

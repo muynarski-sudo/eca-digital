@@ -6,6 +6,8 @@ import unitsJson from '../content/data/units.json';
 import vocabJson from '../content/data/vocab.json';
 import questionsJson from '../content/data/questions.json';
 import conjugationsJson from '../content/data/conjugations.json';
+import phrasesJson from '../content/data/phrases.json';
+import { mountPlay } from '../src/lib/play/mount';
 import cultureJson from '../content/data/culture.json';
 import { gradeQuestion } from '../src/lib/domain/grade';
 import { newCard, qualityFrom, review, isDue } from '../src/lib/domain/srs';
@@ -558,6 +560,7 @@ const NAV_A = [
   ['trilha', 'Trilha'],
   ['flashcards', 'Flashcards'],
   ['conjugacao', 'Conjugação'],
+  ['brincar', 'Brincar'],
   ['evolucao', 'Evolução'],
 ];
 const NAV_P = [
@@ -584,6 +587,7 @@ function view(r) {
         praticar: vPraticar,
         flashcards: vFlash,
         conjugacao: vConj,
+        brincar: vBrincar,
         evolucao: vEvolucao,
       }[r]?.() ?? vInicio()
     );
@@ -591,7 +595,15 @@ function view(r) {
   if (r.startsWith('aluno-')) return vAluno(r.slice(6));
   return { alunos: vAlunos, tarefas: vTarefas, resumo: vResumo }[r]?.() ?? vAlunos();
 }
+let unmountPlay = null;
+function vBrincar() {
+  return `<section class="hero"><h1>Brincar com a Camille</h1><p>Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa.</p></section><div id="play-root"></div>`;
+}
 function render() {
+  if (unmountPlay) {
+    unmountPlay();
+    unmountPlay = null;
+  }
   const r = route();
   const nav = S.role === 'aluno' ? NAV_A : NAV_P;
   const active = r.startsWith('aluno-') ? 'alunos' : r.startsWith('unidade-') ? 'trilha' : r;
@@ -601,6 +613,15 @@ function render() {
       : '';
   $('#app').innerHTML =
     `<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="inner"><a class="brand" href="#${S.role === 'aluno' ? 'inicio' : 'alunos'}" aria-label="Falando Francês Prática, início"><img src="${logoUrl}" alt="Falando Francês" height="40" width="125"><span>Prática</span></a><div class="who"><div class="seg" role="group" aria-label="Quem está usando"><button data-a="role" data-r="aluno" aria-pressed="${S.role === 'aluno'}">Aluno</button><button data-a="role" data-r="professora" aria-pressed="${S.role === 'professora'}">Professora</button></div>${studs}</div></div><nav aria-label="Principal" class="inner nav">${nav.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></header><main class="inner" id="conteudo">${view(r)}</main><footer><div class="inner row"><span>Demonstração: os dados ficam só neste aparelho.</span><button class="link" data-a="reset">Recomeçar demo</button></div></footer>`;
+  const playRoot = $('#play-root');
+  if (playRoot)
+    unmountPlay = mountPlay(playRoot, {
+      vocab: VOCAB.map((v) => ({ fr: v.fr, pt: v.pt })),
+      phrases: phrasesJson
+        .filter((p) => !p.needs_review)
+        .map((p) => ({ fr: p.fr, pt: p.pt, pron: p.pron })),
+      storageKey: 'ffp-play:' + student().id + ':v1',
+    });
   window.scrollTo(0, 0);
 }
 function msg(id, text, ok = true) {

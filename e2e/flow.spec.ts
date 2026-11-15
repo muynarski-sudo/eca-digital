@@ -106,6 +106,70 @@ test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes'
   expect(new Set(vistos).size).toBe(40);
 });
 
+test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', async ({ page }) => {
+  await login(page, ALUNO.email, ALUNO.senha);
+  await page.getByRole('link', { name: 'Brincar' }).click();
+  await expect(page.getByRole('heading', { name: 'Brincar com a Camille' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /Camille/ })).toBeVisible();
+
+  // alfabeto: as 26 letras
+  await page
+    .getByRole('button', { name: /Alfabeto/ })
+    .first()
+    .click();
+  await expect(page.locator('.pl-letter')).toHaveCount(26);
+  await page.getByRole('button', { name: 'Letra W, double vé' }).click();
+  await expect(page.locator('.pl-balloon')).toContainText('W: double vé');
+  await expect(page.locator('.pl-detail')).toContainText(
+    'Ainda não há palavra do e-book com essa letra',
+  );
+  await page.getByRole('button', { name: 'Letra B, bé' }).click();
+  await expect(page.locator('.pl-detail')).toContainText('Palavra do e-book:');
+  await page.getByRole('button', { name: '▶ Ouvir o alfabeto todo' }).click();
+  await expect(page.getByRole('button', { name: '■ Parar' })).toBeVisible();
+  await page.getByRole('button', { name: '■ Parar' }).click();
+
+  // que letra é essa: 10 rodadas
+  await page.getByRole('button', { name: '← Voltar' }).click();
+  await page.getByRole('button', { name: /Que letra é essa/ }).click();
+  for (let i = 0; i < 10; i++) {
+    await page.locator('.pl-opt').first().click();
+    await expect(page.locator('.pl-opt.right')).toHaveCount(1);
+    await page.getByRole('button', { name: /Próxima|Ver resultado/ }).click();
+  }
+  await expect(page.getByText(/letras certas/)).toBeVisible();
+
+  // soletrar com a dica
+  await page.getByRole('button', { name: '← Voltar' }).click();
+  await page
+    .getByRole('button', { name: /Soletrar/ })
+    .first()
+    .click();
+  await expect(page.locator('.pl-slot').first()).toBeVisible();
+  const n = await page.locator('.pl-slot').count();
+  for (let k = 0; k < n; k++) {
+    await page.getByRole('button', { name: 'Dica: mostrar a próxima letra' }).click();
+    const msg = await page.locator('.pl-msg').innerText();
+    const letter = /é ([A-Z]) \(/.exec(msg)![1]!;
+    await page
+      .locator('.pl-key:not([disabled])', { hasText: new RegExp(`^${letter}$`) })
+      .first()
+      .click();
+  }
+  await expect(page.locator('.pl-msg')).toContainText('Palavra completa');
+
+  // memória: virar duas cartas conta uma jogada
+  await page.getByRole('button', { name: '← Voltar' }).click();
+  await page
+    .getByRole('button', { name: /Memória/ })
+    .first()
+    .click();
+  await expect(page.locator('.pl-mem')).toHaveCount(12);
+  await page.locator('.pl-mem').nth(0).click();
+  await page.locator('.pl-mem').nth(1).click();
+  await expect(page.getByText('Jogadas: 1')).toBeVisible();
+});
+
 test('aluno não acessa o painel da professora', async ({ page }) => {
   await login(page, ALUNO.email, ALUNO.senha);
   await page.goto('/professora');

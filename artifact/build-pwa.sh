@@ -10,7 +10,7 @@ import hashlib, json
 from PIL import Image
 
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
-css = open('artifact/style.css', encoding='utf8').read()
+css = open('artifact/style.css', encoding='utf8').read() + open('src/lib/play/play.css', encoding='utf8').read()
 install = open('artifact/pwa-install.js', encoding='utf8').read()
 version = hashlib.sha1((js + css + install).encode('utf8')).hexdigest()[:10]
 

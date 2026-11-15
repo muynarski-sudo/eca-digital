@@ -26,7 +26,10 @@ export function normalize(input: string): string {
 }
 
 export function stripAccents(input: string): string {
-  return input.normalize('NFD').replace(/[̀-ͯ]/g, '').normalize('NFC');
+  return input
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .normalize('NFC');
 }
 
 export function gradeText(answer: string, accepted: string[]): GradeResult {

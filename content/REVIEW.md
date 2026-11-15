@@ -65,14 +65,14 @@ Pontos do e-book que podem estar incorretos ou foram normalizados na conversão.
 | Cap. 3 e cap. 8 | Atividades "Sua vez" e "Quel est le mois de ton anniversaire?" são abertas e sem gabarito. | Não viraram questões. |
 | Tabelas de conjugação | "il/elle va manger" (falta "on") e "futur simples" no título. | Normalizados no parse (rótulo "futur simple"). |
 
-## 4. Exercícios novos gerados (banco de 2.023 questões)
+## 4. Exercícios novos gerados (banco de 1.912 questões)
 
 Os exercícios novos são derivados do que o e-book traz. Quase tudo reaproveita texto do e-book (`source: "ebook"`). Duas famílias seguem **regras** do e-book e por isso ficam `source: "generated"`, para você dar uma olhada:
 
 | Família | Quantas | Como são feitas |
 |---|---|---|
 | Números de 1 a 99 (`q-numw-*`, `q-numd-*`) | 196 | `src/lib/content/french.ts`, `numberToFrench`. Bate com todos os exemplos do e-book (1 a 23, dezenas, 70 a 73, 81, 82, 90 a 92) e aplica as regras descritas (et un, hífen, 70 = 60+10, 90 = 80+10). Fica de fora o 80, porque o e-book escreve "quatre-vingt" e o padrão é "quatre-vingts". |
-| Horas (`q-hr-*`) | 140 | `timeToFrench`, no relógio de 12 horas como o e-book ("16h = quatre heures"). Cobre hora cheia, minutos de 5 em 5 até 25, "et quart", "et demie" e "moins ...". Bate com os 7 exemplos do gabarito. Não gera casos que o e-book não cobre (meio-dia e meia-noite com minutos, "moins" que cai em meio-dia ou meia-noite). |
+| Horas (`q-hr-*`) | 137 | `timeToFrench`, no relógio de 12 horas como o e-book ("16h = quatre heures"). Cobre hora cheia, minutos de 5 em 5 até 25, "et quart", "et demie" e "moins ...". Bate com os 7 exemplos do gabarito. Não gera casos que o e-book não cobre (meio-dia e meia-noite com minutos, "moins" que cai em meio-dia ou meia-noite). |
 
 Famílias derivadas do e-book (marcadas `ebook`): vocabulário em múltipla escolha nos dois sentidos, escrita de vocabulário, artigo (le, la, l', un, une), feminino e masculino de pares do capítulo 6, ligar pares, e frases (tradução, ordenar, lacuna, ditado e fala). Conjugação: os 17 verbos nos 5 tempos e 6 pessoas, direto das tabelas.
 
@@ -80,3 +80,13 @@ Pontos de atenção:
 - Questões de lacuna e de tradução de frases têm uma resposta oficial só (mais variações de pontuação, caixa e acento). Se você aceitar outra forma como correta, edite no painel do admin (Conteúdo) e acrescente a variante.
 - O tom "tu" ou "vous" nas traduções de frases segue a frase do e-book.
 - As tabelas de conjugação do e-book trazem "il/elle va manger" (sem "on") e "futur simples" no título; o parse normaliza.
+
+## 5. Alfabeto da área "Brincar" (nomes das letras gerados)
+
+O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exercícios e flashcards. Como você pediu o alfabeto completo na área lúdica, ela usa uma lista própria em `src/lib/play/alphabet.ts`, com `source: "generated"`:
+
+- Nome de cada letra em francês (a, bé, cé, dé, eu, effe, gé, ache, i, ji, ka, elle, emme, enne, o, pé, ku, erre, esse, té, u, vé, double vé, iks, i grec, zède). A voz do aparelho lê esse nome.
+- Pronúncia aportuguesada: mantive a do e-book onde ele traz (H, J, L, Q, U, W, X, Y, Z) e escrevi as demais. O "E" ficou "êu (som fechado, boca em bico)", pois o e-book traz "õ", que não parece certo.
+- **Peço conferência com nativo.** Se algo estiver errado, corrija em `ALPHABET` (um arquivo só).
+- Palavra de exemplo de cada letra: só do vocabulário do e-book. K, W, X, Y e Z não têm palavra no e-book e aparecem sem exemplo.
+- A avatar "Camille" fala com a voz do próprio aparelho (francês, se houver). Se o aparelho não tiver voz francesa, a fala sai na voz padrão e as legendas continuam na tela.

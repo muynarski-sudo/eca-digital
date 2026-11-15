@@ -5646,55 +5646,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vfp-v-u03-001",
-  "unit": "u03",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"Merci\"?",
-  "answers": [
-   "Obrigado(a)"
-  ],
-  "choices": [
-   "Por favor (formal)",
-   "De nada",
-   "Obrigado(a)",
-   "Com licença, desculpa"
-  ],
-  "concept": "v:v-u03-001",
-  "hint": "Pronúncia: (mer-cí)",
-  "explanation": "Merci significa \"Obrigado(a)\".",
-  "error_tags": [
-   "vocabulario_cortesia"
-  ],
-  "difficulty": 1,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-vpf-v-u03-001",
-  "unit": "u03",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "Como se diz \"Obrigado(a)\" em francês?",
-  "answers": [
-   "Merci"
-  ],
-  "choices": [
-   "Excusez-moi",
-   "Merci",
-   "De rien",
-   "S'il vous plaît"
-  ],
-  "concept": "v:v-u03-001",
-  "explanation": "\"Obrigado(a)\" é Merci.",
-  "error_tags": [
-   "vocabulario_cortesia"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vfp-v-u03-002",
   "unit": "u03",
   "type": "multiple_choice",
@@ -7556,30 +7507,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vpf-v-u06-003",
-  "unit": "u06",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "Como se diz \"estudante\" em francês?",
-  "answers": [
-   "étudiant / étudiante"
-  ],
-  "choices": [
-   "étranger / étrangère",
-   "professeur",
-   "étudiant / étudiante",
-   "infirmier / infirmière"
-  ],
-  "concept": "v:v-u06-003",
-  "explanation": "\"estudante\" é étudiant / étudiante.",
-  "error_tags": [
-   "vocabulario_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vfp-v-u06-004",
   "unit": "u06",
   "type": "multiple_choice",
@@ -7672,30 +7599,6 @@
    "vocabulario_feminino"
   ],
   "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-vfp-v-u06-006",
-  "unit": "u06",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"professeur\"?",
-  "answers": [
-   "professor(a) (não muda)"
-  ],
-  "choices": [
-   "professor(a) (não muda)",
-   "italiano / italiana",
-   "jovem (não muda)",
-   "fofo / fofa"
-  ],
-  "concept": "v:v-u06-006",
-  "explanation": "professeur significa \"professor(a) (não muda)\".",
-  "error_tags": [
-   "vocabulario_feminino"
-  ],
-  "difficulty": 1,
   "source": "ebook",
   "needs_review": false
  },
@@ -8636,30 +8539,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vfp-v-u07-004",
-  "unit": "u07",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"un\"?",
-  "answers": [
-   "um (artigo indefinido)"
-  ],
-  "choices": [
-   "à + la (na, à)",
-   "à + les (nos, aos)",
-   "de + les (dos, das)",
-   "um (artigo indefinido)"
-  ],
-  "concept": "v:v-u07-004",
-  "explanation": "un significa \"um (artigo indefinido)\".",
-  "error_tags": [
-   "vocabulario_artigos"
-  ],
-  "difficulty": 1,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vpf-v-u07-004",
   "unit": "u07",
   "type": "multiple_choice",
@@ -9016,30 +8895,6 @@
    "vocabulario_artigos"
   ],
   "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-vfp-v-u07-012",
-  "unit": "u07",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"des\"?",
-  "answers": [
-   "de + les (dos, das)"
-  ],
-  "choices": [
-   "à + les (nos, aos)",
-   "à + le (no, ao)",
-   "de + les (dos, das)",
-   "à + la (na, à)"
-  ],
-  "concept": "v:v-u07-012",
-  "explanation": "des significa \"de + les (dos, das)\". Exemplo: Les amis des amis. (Os amigos dos amigos.)",
-  "error_tags": [
-   "vocabulario_artigos"
-  ],
-  "difficulty": 1,
   "source": "ebook",
   "needs_review": false
  },
@@ -12020,30 +11875,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vfp-v-u09-013",
-  "unit": "u09",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"Où est… ?\"?",
-  "answers": [
-   "Onde está… ?"
-  ],
-  "choices": [
-   "Onde estão… ?",
-   "Onde está… ?",
-   "ou (opção)",
-   "onde"
-  ],
-  "concept": "v:v-u09-013",
-  "explanation": "Où est… ? significa \"Onde está… ?\". Exemplo: Où est le livre ? (Onde está o livro?)",
-  "error_tags": [
-   "vocabulario_expressoes"
-  ],
-  "difficulty": 1,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vpf-v-u09-013",
   "unit": "u09",
   "type": "multiple_choice",
@@ -12108,55 +11939,6 @@
   ],
   "concept": "v:v-u09-014",
   "explanation": "\"Onde estão… ?\" é Où sont… ?. Exemplo: Où sont les enfants ? (Onde estão as crianças?)",
-  "error_tags": [
-   "vocabulario_expressoes"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-vfp-v-u09-015",
-  "unit": "u09",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "O que significa \"où\"?",
-  "answers": [
-   "onde"
-  ],
-  "choices": [
-   "há, tem (existência)",
-   "Onde estão… ?",
-   "Onde está… ?",
-   "onde"
-  ],
-  "concept": "v:v-u09-015",
-  "hint": "Pronúncia: (u)",
-  "explanation": "où significa \"onde\".",
-  "error_tags": [
-   "vocabulario_expressoes"
-  ],
-  "difficulty": 1,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-vpf-v-u09-015",
-  "unit": "u09",
-  "type": "multiple_choice",
-  "skill": "vocabulario",
-  "prompt": "Como se diz \"onde\" em francês?",
-  "answers": [
-   "où"
-  ],
-  "choices": [
-   "où",
-   "Où est… ?",
-   "Où sont… ?",
-   "il y a"
-  ],
-  "concept": "v:v-u09-015",
-  "explanation": "\"onde\" é où.",
   "error_tags": [
    "vocabulario_expressoes"
   ],
@@ -14502,25 +14284,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vty-v-u03-001",
-  "unit": "u03",
-  "type": "translate_pt_fr",
-  "skill": "vocabulario",
-  "prompt": "Escreva em francês: Obrigado(a)",
-  "answers": [
-   "Merci"
-  ],
-  "concept": "v:v-u03-001",
-  "hint": "Pronúncia: (mer-cí)",
-  "explanation": "Obrigado(a) em francês é \"Merci\".",
-  "error_tags": [
-   "vocabulario_cortesia"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vty-v-u03-002",
   "unit": "u03",
   "type": "translate_pt_fr",
@@ -16392,25 +16155,6 @@
   "needs_review": false
  },
  {
-  "id": "q-vty-v-u09-015",
-  "unit": "u09",
-  "type": "translate_pt_fr",
-  "skill": "vocabulario",
-  "prompt": "Escreva em francês: onde",
-  "answers": [
-   "où"
-  ],
-  "concept": "v:v-u09-015",
-  "hint": "Pronúncia: (u)",
-  "explanation": "onde em francês é \"où\".",
-  "error_tags": [
-   "vocabulario_expressoes"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-vty-v-u09-016",
   "unit": "u09",
   "type": "translate_pt_fr",
@@ -17512,24 +17256,6 @@
   "needs_review": false
  },
  {
-  "id": "q-fem-infirmier",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: infirmier",
-  "answers": [
-   "infirmière"
-  ],
-  "concept": "fem:infirmier",
-  "explanation": "infirmier no feminino é infirmière (enfermeiro / enfermeira).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-mas-infirmier",
   "unit": "u06",
   "type": "fill_blank",
@@ -17576,24 +17302,6 @@
   ],
   "concept": "fem:etranger",
   "explanation": "étrangère no masculino é étranger (estrangeiro / estrangeira).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-fem-serveur",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: serveur",
-  "answers": [
-   "serveuse"
-  ],
-  "concept": "fem:serveur",
-  "explanation": "serveur no feminino é serveuse (garçom / garçonete).",
   "error_tags": [
    "concordancia_feminino"
   ],
@@ -17656,24 +17364,6 @@
   "needs_review": false
  },
  {
-  "id": "q-fem-acteur",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: acteur",
-  "answers": [
-   "actrice"
-  ],
-  "concept": "fem:acteur",
-  "explanation": "acteur no feminino é actrice (ator / atriz).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-mas-acteur",
   "unit": "u06",
   "type": "fill_blank",
@@ -17720,24 +17410,6 @@
   ],
   "concept": "fem:editeur",
   "explanation": "éditrice no masculino é éditeur (editor / editora).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-fem-chanteur",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: chanteur",
-  "answers": [
-   "chanteuse"
-  ],
-  "concept": "fem:chanteur",
-  "explanation": "chanteur no feminino é chanteuse (cantor / cantora).",
   "error_tags": [
    "concordancia_feminino"
   ],
@@ -17872,24 +17544,6 @@
   "needs_review": false
  },
  {
-  "id": "q-fem-boulanger",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: boulanger",
-  "answers": [
-   "boulangère"
-  ],
-  "concept": "fem:boulanger",
-  "explanation": "boulanger no feminino é boulangère (padeiro / padeira).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-mas-boulanger",
   "unit": "u06",
   "type": "fill_blank",
@@ -17908,24 +17562,6 @@
   "needs_review": false
  },
  {
-  "id": "q-fem-musicien",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: musicien",
-  "answers": [
-   "musicienne"
-  ],
-  "concept": "fem:musicien",
-  "explanation": "musicien no feminino é musicienne (músico / música).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-mas-musicien",
   "unit": "u06",
   "type": "fill_blank",
@@ -17936,24 +17572,6 @@
   ],
   "concept": "fem:musicien",
   "explanation": "musicienne no masculino é musicien (músico / música).",
-  "error_tags": [
-   "concordancia_feminino"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-fem-danseur",
-  "unit": "u06",
-  "type": "fill_blank",
-  "skill": "gramatica",
-  "prompt": "Passe para o feminino: danseur",
-  "answers": [
-   "danseuse"
-  ],
-  "concept": "fem:danseur",
-  "explanation": "danseur no feminino é danseuse (dançarino / dançarina).",
   "error_tags": [
    "concordancia_feminino"
   ],
@@ -17984,7 +17602,7 @@
   "unit": "u01",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (saudações).",
+  "prompt": "Ligue cada palavra à tradução (saudações, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18014,11 +17632,79 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u01-saudacoes-2",
+  "unit": "u01",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (saudações, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "Au revoir",
+    "right": "Tchau"
+   },
+   {
+    "left": "À plus tard",
+    "right": "Até mais tarde"
+   },
+   {
+    "left": "Bonne journée",
+    "right": "Tenha um bom dia"
+   },
+   {
+    "left": "Bonne soirée",
+    "right": "Tenha uma boa noite"
+   }
+  ],
+  "concept": "mp:u01:saudacoes:1",
+  "explanation": "Au revoir = Tchau; À plus tard = Até mais tarde; Bonne journée = Tenha um bom dia; Bonne soirée = Tenha uma boa noite.",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u01-saudacoes-3",
+  "unit": "u01",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (saudações, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "À demain",
+    "right": "Até amanhã"
+   },
+   {
+    "left": "À bientôt",
+    "right": "Até logo"
+   },
+   {
+    "left": "Enchanté(e)",
+    "right": "Prazer"
+   },
+   {
+    "left": "Je m'appelle",
+    "right": "Eu me chamo"
+   }
+  ],
+  "concept": "mp:u01:saudacoes:2",
+  "explanation": "À demain = Até amanhã; À bientôt = Até logo; Enchanté(e) = Prazer; Je m'appelle = Eu me chamo.",
+  "error_tags": [
+   "vocabulario_saudacoes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u01-pronomes-1",
   "unit": "u01",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (pronomes).",
+  "prompt": "Ligue cada palavra à tradução (pronomes, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18040,6 +17726,40 @@
   ],
   "concept": "mp:u01:pronomes:0",
   "explanation": "je = eu; tu = tu (informal); il = ele; elle = ela.",
+  "error_tags": [
+   "vocabulario_pronomes"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u01-pronomes-2",
+  "unit": "u01",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (pronomes, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "on",
+    "right": "a gente"
+   },
+   {
+    "left": "nous",
+    "right": "nós"
+   },
+   {
+    "left": "vous",
+    "right": "vocês, ou você (formal)"
+   },
+   {
+    "left": "ils",
+    "right": "eles"
+   }
+  ],
+  "concept": "mp:u01:pronomes:1",
+  "explanation": "on = a gente; nous = nós; vous = vocês, ou você (formal); ils = eles.",
   "error_tags": [
    "vocabulario_pronomes"
   ],
@@ -18086,7 +17806,7 @@
   "unit": "u02",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (vogais nasais).",
+  "prompt": "Ligue cada palavra à tradução (vogais nasais, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18116,11 +17836,45 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u02-vogais-nasais-2",
+  "unit": "u02",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (vogais nasais, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "ressembler",
+    "right": "parecer"
+   },
+   {
+    "left": "un",
+    "right": "um"
+   },
+   {
+    "left": "quelqu'un",
+    "right": "alguém"
+   },
+   {
+    "left": "enfant",
+    "right": "criança"
+   }
+  ],
+  "concept": "mp:u02:vogais_nasais:1",
+  "explanation": "ressembler = parecer; un = um; quelqu'un = alguém; enfant = criança.",
+  "error_tags": [
+   "vocabulario_vogais_nasais"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u02-vogais-juntas-1",
   "unit": "u02",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (vogais juntas).",
+  "prompt": "Ligue cada palavra à tradução (vogais juntas, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18150,11 +17904,79 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u02-vogais-juntas-2",
+  "unit": "u02",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (vogais juntas, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "noir",
+    "right": "preto"
+   },
+   {
+    "left": "chinois",
+    "right": "chinês"
+   },
+   {
+    "left": "danseur",
+    "right": "dançarino"
+   },
+   {
+    "left": "acteur",
+    "right": "ator"
+   }
+  ],
+  "concept": "mp:u02:vogais_juntas:1",
+  "explanation": "noir = preto; chinois = chinês; danseur = dançarino; acteur = ator.",
+  "error_tags": [
+   "vocabulario_vogais_juntas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u02-vogais-juntas-3",
+  "unit": "u02",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (vogais juntas, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "lieu",
+    "right": "lugar"
+   },
+   {
+    "left": "aussi",
+    "right": "também"
+   },
+   {
+    "left": "gâteau",
+    "right": "bolo"
+   },
+   {
+    "left": "restaurant",
+    "right": "restaurante"
+   }
+  ],
+  "concept": "mp:u02:vogais_juntas:2",
+  "explanation": "lieu = lugar; aussi = também; gâteau = bolo; restaurant = restaurante.",
+  "error_tags": [
+   "vocabulario_vogais_juntas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u02-ille-tion-1",
   "unit": "u02",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (ille e tion).",
+  "prompt": "Ligue cada palavra à tradução (ille e tion, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18176,6 +17998,74 @@
   ],
   "concept": "mp:u02:ille_tion:0",
   "explanation": "gentille = gentil (fem.); famille = família; fille = filha, menina; bouteille = garrafa.",
+  "error_tags": [
+   "vocabulario_ille_tion"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u02-ille-tion-2",
+  "unit": "u02",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (ille e tion, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "billet",
+    "right": "bilhete"
+   },
+   {
+    "left": "cédille",
+    "right": "cedilha"
+   },
+   {
+    "left": "présentation",
+    "right": "apresentação"
+   },
+   {
+    "left": "négation",
+    "right": "negação"
+   }
+  ],
+  "concept": "mp:u02:ille_tion:1",
+  "explanation": "billet = bilhete; cédille = cedilha; présentation = apresentação; négation = negação.",
+  "error_tags": [
+   "vocabulario_ille_tion"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u02-ille-tion-3",
+  "unit": "u02",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (ille e tion, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "imitation",
+    "right": "imitação"
+   },
+   {
+    "left": "situation",
+    "right": "situação"
+   },
+   {
+    "left": "solution",
+    "right": "solução"
+   },
+   {
+    "left": "éducation",
+    "right": "educação"
+   }
+  ],
+  "concept": "mp:u02:ille_tion:2",
+  "explanation": "imitation = imitação; situation = situação; solution = solução; éducation = educação.",
   "error_tags": [
    "vocabulario_ille_tion"
   ],
@@ -18222,7 +18112,7 @@
   "unit": "u03",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (viagem).",
+  "prompt": "Ligue cada palavra à tradução (viagem, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18252,11 +18142,45 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u03-viagem-2",
+  "unit": "u03",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (viagem, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "un billet",
+    "right": "um bilhete"
+   },
+   {
+    "left": "le bus",
+    "right": "o ônibus"
+   },
+   {
+    "left": "le métro",
+    "right": "o metrô"
+   },
+   {
+    "left": "aller",
+    "right": "ir"
+   }
+  ],
+  "concept": "mp:u03:viagem:1",
+  "explanation": "un billet = um bilhete; le bus = o ônibus; le métro = o metrô; aller = ir.",
+  "error_tags": [
+   "vocabulario_viagem"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u04-interrogativas-1",
   "unit": "u04",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (palavras de pergunta).",
+  "prompt": "Ligue cada palavra à tradução (palavras de pergunta, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18278,6 +18202,40 @@
   ],
   "concept": "mp:u04:interrogativas:0",
   "explanation": "Où = Onde; Quand = Quando; Comment = Como; Combien = Quanto, quantos.",
+  "error_tags": [
+   "vocabulario_interrogativas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u04-interrogativas-2",
+  "unit": "u04",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (palavras de pergunta, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "Qui",
+    "right": "Quem"
+   },
+   {
+    "left": "Pourquoi",
+    "right": "Por que (pergunta)"
+   },
+   {
+    "left": "Parce que",
+    "right": "Porque (resposta)"
+   },
+   {
+    "left": "Est-ce que",
+    "right": "marca de pergunta (\"será que\")"
+   }
+  ],
+  "concept": "mp:u04:interrogativas:1",
+  "explanation": "Qui = Quem; Pourquoi = Por que (pergunta); Parce que = Porque (resposta); Est-ce que = marca de pergunta (\"será que\").",
   "error_tags": [
    "vocabulario_interrogativas"
   ],
@@ -18392,7 +18350,7 @@
   "unit": "u06",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (feminino).",
+  "prompt": "Ligue cada palavra à tradução (feminino, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18422,11 +18380,147 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u06-feminino-2",
+  "unit": "u06",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (feminino, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "jeune",
+    "right": "jovem (não muda)"
+   },
+   {
+    "left": "professeur",
+    "right": "professor(a) (não muda)"
+   },
+   {
+    "left": "italien / italienne",
+    "right": "italiano / italiana"
+   },
+   {
+    "left": "bon / bonne",
+    "right": "bom / boa"
+   }
+  ],
+  "concept": "mp:u06:feminino:1",
+  "explanation": "jeune = jovem (não muda); professeur = professor(a) (não muda); italien / italienne = italiano / italiana; bon / bonne = bom / boa.",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u06-feminino-3",
+  "unit": "u06",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (feminino, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "mignon / mignonne",
+    "right": "fofo / fofa"
+   },
+   {
+    "left": "infirmier / infirmière",
+    "right": "enfermeiro / enfermeira"
+   },
+   {
+    "left": "étranger / étrangère",
+    "right": "estrangeiro / estrangeira"
+   },
+   {
+    "left": "serveur / serveuse",
+    "right": "garçom / garçonete"
+   }
+  ],
+  "concept": "mp:u06:feminino:2",
+  "explanation": "mignon / mignonne = fofo / fofa; infirmier / infirmière = enfermeiro / enfermeira; étranger / étrangère = estrangeiro / estrangeira; serveur / serveuse = garçom / garçonete.",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u06-feminino-4",
+  "unit": "u06",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (feminino, parte 4).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "heureux / heureuse",
+    "right": "feliz"
+   },
+   {
+    "left": "acteur / actrice",
+    "right": "ator / atriz"
+   },
+   {
+    "left": "éditeur / éditrice",
+    "right": "editor / editora"
+   },
+   {
+    "left": "chanteur / chanteuse",
+    "right": "cantor / cantora"
+   }
+  ],
+  "concept": "mp:u06:feminino:3",
+  "explanation": "heureux / heureuse = feliz; acteur / actrice = ator / atriz; éditeur / éditrice = editor / editora; chanteur / chanteuse = cantor / cantora.",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u06-feminino-5",
+  "unit": "u06",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (feminino, parte 5).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "beau / belle",
+    "right": "belo / bela"
+   },
+   {
+    "left": "vieux / vieille",
+    "right": "velho / velha"
+   },
+   {
+    "left": "blanc / blanche",
+    "right": "branco / branca"
+   },
+   {
+    "left": "boulanger / boulangère",
+    "right": "padeiro / padeira"
+   }
+  ],
+  "concept": "mp:u06:feminino:4",
+  "explanation": "beau / belle = belo / bela; vieux / vieille = velho / velha; blanc / blanche = branco / branca; boulanger / boulangère = padeiro / padeira.",
+  "error_tags": [
+   "vocabulario_feminino"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u07-artigos-1",
   "unit": "u07",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (artigos).",
+  "prompt": "Ligue cada palavra à tradução (artigos, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18448,6 +18542,74 @@
   ],
   "concept": "mp:u07:artigos:0",
   "explanation": "le = o (artigo definido); la = a (artigo definido); les = os, as (artigo definido); un = um (artigo indefinido).",
+  "error_tags": [
+   "vocabulario_artigos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u07-artigos-2",
+  "unit": "u07",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (artigos, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "une",
+    "right": "uma (artigo indefinido)"
+   },
+   {
+    "left": "des",
+    "right": "uns, umas (artigo indefinido)"
+   },
+   {
+    "left": "au",
+    "right": "à + le (no, ao)"
+   },
+   {
+    "left": "aux",
+    "right": "à + les (nos, aos)"
+   }
+  ],
+  "concept": "mp:u07:artigos:1",
+  "explanation": "une = uma (artigo indefinido); des = uns, umas (artigo indefinido); au = à + le (no, ao); aux = à + les (nos, aos).",
+  "error_tags": [
+   "vocabulario_artigos"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u07-artigos-3",
+  "unit": "u07",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (artigos, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "à la",
+    "right": "à + la (na, à)"
+   },
+   {
+    "left": "du",
+    "right": "de + le (do)"
+   },
+   {
+    "left": "de la",
+    "right": "de + la (da)"
+   },
+   {
+    "left": "des",
+    "right": "de + les (dos, das)"
+   }
+  ],
+  "concept": "mp:u07:artigos:2",
+  "explanation": "à la = à + la (na, à); du = de + le (do); de la = de + la (da); des = de + les (dos, das).",
   "error_tags": [
    "vocabulario_artigos"
   ],
@@ -18528,7 +18690,7 @@
   "unit": "u08",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (meses).",
+  "prompt": "Ligue cada palavra à tradução (meses, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18558,11 +18720,79 @@
   "needs_review": false
  },
  {
+  "id": "q-mpr-u08-meses-2",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (meses, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "mai",
+    "right": "maio"
+   },
+   {
+    "left": "juin",
+    "right": "junho"
+   },
+   {
+    "left": "juillet",
+    "right": "julho"
+   },
+   {
+    "left": "août",
+    "right": "agosto"
+   }
+  ],
+  "concept": "mp:u08:meses:1",
+  "explanation": "mai = maio; juin = junho; juillet = julho; août = agosto.",
+  "error_tags": [
+   "vocabulario_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u08-meses-3",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (meses, parte 3).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "septembre",
+    "right": "setembro"
+   },
+   {
+    "left": "octobre",
+    "right": "outubro"
+   },
+   {
+    "left": "novembre",
+    "right": "novembro"
+   },
+   {
+    "left": "décembre",
+    "right": "dezembro"
+   }
+  ],
+  "concept": "mp:u08:meses:2",
+  "explanation": "septembre = setembro; octobre = outubro; novembre = novembro; décembre = dezembro.",
+  "error_tags": [
+   "vocabulario_meses"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
   "id": "q-mpr-u08-horas-1",
   "unit": "u08",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (horas).",
+  "prompt": "Ligue cada palavra à tradução (horas, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18584,6 +18814,40 @@
   ],
   "concept": "mp:u08:horas:0",
   "explanation": "midi = meio-dia; minuit = meia-noite; et quart = e quinze; et demie = e meia.",
+  "error_tags": [
+   "vocabulario_horas"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u08-horas-2",
+  "unit": "u08",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (horas, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "moins le quart",
+    "right": "quinze para"
+   },
+   {
+    "left": "du matin",
+    "right": "da manhã"
+   },
+   {
+    "left": "de l'après-midi",
+    "right": "da tarde"
+   },
+   {
+    "left": "du soir",
+    "right": "da noite"
+   }
+  ],
+  "concept": "mp:u08:horas:1",
+  "explanation": "moins le quart = quinze para; du matin = da manhã; de l'après-midi = da tarde; du soir = da noite.",
   "error_tags": [
    "vocabulario_horas"
   ],
@@ -18664,7 +18928,7 @@
   "unit": "u09",
   "type": "match_pairs",
   "skill": "vocabulario",
-  "prompt": "Ligue cada palavra à tradução (preposições de lugar).",
+  "prompt": "Ligue cada palavra à tradução (preposições de lugar, parte 1).",
   "answers": [],
   "pairs": [
    {
@@ -18686,6 +18950,40 @@
   ],
   "concept": "mp:u09:preposicoes_lugar:0",
   "explanation": "dans = dentro de, no; sous = debaixo de; sur = em cima de; devant = na frente de.",
+  "error_tags": [
+   "vocabulario_preposicoes_lugar"
+  ],
+  "difficulty": 1,
+  "source": "ebook",
+  "needs_review": false
+ },
+ {
+  "id": "q-mpr-u09-preposicoes-lugar-2",
+  "unit": "u09",
+  "type": "match_pairs",
+  "skill": "vocabulario",
+  "prompt": "Ligue cada palavra à tradução (preposições de lugar, parte 2).",
+  "answers": [],
+  "pairs": [
+   {
+    "left": "derrière",
+    "right": "atrás de"
+   },
+   {
+    "left": "près de",
+    "right": "perto de"
+   },
+   {
+    "left": "loin de",
+    "right": "longe de"
+   },
+   {
+    "left": "à côté de",
+    "right": "ao lado de"
+   }
+  ],
+  "concept": "mp:u09:preposicoes_lugar:1",
+  "explanation": "derrière = atrás de; près de = perto de; loin de = longe de; à côté de = ao lado de.",
   "error_tags": [
    "vocabulario_preposicoes_lugar"
   ],
@@ -19027,46 +19325,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u01-002",
-  "unit": "u01",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Ça va bien, merci. Et vous ?"
-  ],
-  "audio_text": "Ça va bien, merci. Et vous ?",
-  "concept": "ph:ph-u01-002",
-  "hint": "Situação: Cumprimentar",
-  "explanation": "Ça va bien, merci. Et vous ? (Estou bem, obrigado(a). E você?)",
-  "error_tags": [
-   "escuta_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u01-002",
-  "unit": "u01",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Ça va bien, merci. Et vous ?"
-  ],
-  "audio_text": "Ça va bien, merci. Et vous ?",
-  "concept": "ph:ph-u01-002",
-  "hint": "Pronúncia: (Ça vá bian, merci, ê vu?)",
-  "explanation": "Ça va bien, merci. Et vous ? (Estou bem, obrigado(a). E você?)",
-  "error_tags": [
-   "fala_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u01-002-1",
   "unit": "u01",
   "type": "fill_blank",
@@ -19145,46 +19403,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u01-003",
-  "unit": "u01",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je m'appelle Claire."
-  ],
-  "audio_text": "Je m'appelle Claire.",
-  "concept": "ph:ph-u01-003",
-  "hint": "Situação: Apresentar-se",
-  "explanation": "Je m'appelle Claire. (Eu me chamo Claire.)",
-  "error_tags": [
-   "escuta_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u01-003",
-  "unit": "u01",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je m'appelle Claire."
-  ],
-  "audio_text": "Je m'appelle Claire.",
-  "concept": "ph:ph-u01-003",
-  "hint": "Pronúncia: (Jô má-péle)",
-  "explanation": "Je m'appelle Claire. (Eu me chamo Claire.)",
-  "error_tags": [
-   "fala_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u01-003-1",
   "unit": "u01",
   "type": "fill_blank",
@@ -19239,46 +19457,6 @@
   "explanation": "Je suis étudiant. (Eu sou estudante.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u01-004",
-  "unit": "u01",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je suis étudiant."
-  ],
-  "audio_text": "Je suis étudiant.",
-  "concept": "ph:ph-u01-004",
-  "hint": "Situação: Apresentar-se",
-  "explanation": "Je suis étudiant. (Eu sou estudante.)",
-  "error_tags": [
-   "escuta_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u01-004",
-  "unit": "u01",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je suis étudiant."
-  ],
-  "audio_text": "Je suis étudiant.",
-  "concept": "ph:ph-u01-004",
-  "hint": "Pronúncia: (Jô suízêtudian)",
-  "explanation": "Je suis étudiant. (Eu sou estudante.)",
-  "error_tags": [
-   "fala_u01"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -19381,46 +19559,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u01-006",
-  "unit": "u01",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Nous sommes ici."
-  ],
-  "audio_text": "Nous sommes ici.",
-  "concept": "ph:ph-u01-006",
-  "hint": "Situação: Apresentar-se",
-  "explanation": "Nous sommes ici. (Nós estamos aqui.)",
-  "error_tags": [
-   "escuta_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u01-006",
-  "unit": "u01",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Nous sommes ici."
-  ],
-  "audio_text": "Nous sommes ici.",
-  "concept": "ph:ph-u01-006",
-  "hint": "Pronúncia: (nu somezicí)",
-  "explanation": "Nous sommes ici. (Nós estamos aqui.)",
-  "error_tags": [
-   "fala_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u01-006-1",
   "unit": "u01",
   "type": "fill_blank",
@@ -19502,46 +19640,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u01-007",
-  "unit": "u01",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Vous pouvez m'aider, s'il vous plaît ?"
-  ],
-  "audio_text": "Vous pouvez m'aider, s'il vous plaît ?",
-  "concept": "ph:ph-u01-007",
-  "hint": "Situação: Pedir ajuda",
-  "explanation": "Vous pouvez m'aider, s'il vous plaît ? (Você pode me ajudar, por favor?)",
-  "error_tags": [
-   "escuta_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u01-007",
-  "unit": "u01",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Vous pouvez m'aider, s'il vous plaît ?"
-  ],
-  "audio_text": "Vous pouvez m'aider, s'il vous plaît ?",
-  "concept": "ph:ph-u01-007",
-  "hint": "Pronúncia: (Vú puvê mêdê, si vu plé?)",
-  "explanation": "Vous pouvez m'aider, s'il vous plaît ? (Você pode me ajudar, por favor?)",
-  "error_tags": [
-   "fala_u01"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u01-007-1",
   "unit": "u01",
   "type": "fill_blank",
@@ -19590,45 +19688,6 @@
   "explanation": "Merci beaucoup. (Muito obrigado(a).)",
   "error_tags": [
    "frases_u02"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u02-009",
-  "unit": "u02",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Merci beaucoup."
-  ],
-  "audio_text": "Merci beaucoup.",
-  "concept": "ph:ph-u02-009",
-  "hint": "Situação: Praticar pronúncia",
-  "explanation": "Merci beaucoup. (Muito obrigado(a).)",
-  "error_tags": [
-   "escuta_u02"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u02-009",
-  "unit": "u02",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Merci beaucoup."
-  ],
-  "audio_text": "Merci beaucoup.",
-  "concept": "ph:ph-u02-009",
-  "explanation": "Merci beaucoup. (Muito obrigado(a).)",
-  "error_tags": [
-   "fala_u02"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -19714,45 +19773,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u02-010",
-  "unit": "u02",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est la gare ?"
-  ],
-  "audio_text": "Où est la gare ?",
-  "concept": "ph:ph-u02-010",
-  "hint": "Situação: Praticar pronúncia",
-  "explanation": "Où est la gare ? (Onde fica a estação?)",
-  "error_tags": [
-   "escuta_u02"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u02-010",
-  "unit": "u02",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est la gare ?"
-  ],
-  "audio_text": "Où est la gare ?",
-  "concept": "ph:ph-u02-010",
-  "explanation": "Où est la gare ? (Onde fica a estação?)",
-  "error_tags": [
-   "fala_u02"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u02-010-1",
   "unit": "u02",
   "type": "fill_blank",
@@ -19811,45 +19831,6 @@
   "explanation": "Bonjour, j'aimerais un café, s'il vous plaît. (Bom dia, eu gostaria de um café, por favor.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-011",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Bonjour, j'aimerais un café, s'il vous plaît."
-  ],
-  "audio_text": "Bonjour, j'aimerais un café, s'il vous plaît.",
-  "concept": "ph:ph-u03-011",
-  "hint": "Situação: No café",
-  "explanation": "Bonjour, j'aimerais un café, s'il vous plaît. (Bom dia, eu gostaria de um café, por favor.)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-011",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Bonjour, j'aimerais un café, s'il vous plaît."
-  ],
-  "audio_text": "Bonjour, j'aimerais un café, s'il vous plaît.",
-  "concept": "ph:ph-u03-011",
-  "explanation": "Bonjour, j'aimerais un café, s'il vous plaît. (Bom dia, eu gostaria de um café, por favor.)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -19933,45 +19914,6 @@
   "explanation": "Excusez-moi, où sont les toilettes, s'il vous plaît ? (Com licença, onde fica o banheiro, por favor?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-012",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Excusez-moi, où sont les toilettes, s'il vous plaît ?"
-  ],
-  "audio_text": "Excusez-moi, où sont les toilettes, s'il vous plaît ?",
-  "concept": "ph:ph-u03-012",
-  "hint": "Situação: Pedindo informações",
-  "explanation": "Excusez-moi, où sont les toilettes, s'il vous plaît ? (Com licença, onde fica o banheiro, por favor?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-012",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Excusez-moi, où sont les toilettes, s'il vous plaît ?"
-  ],
-  "audio_text": "Excusez-moi, où sont les toilettes, s'il vous plaît ?",
-  "concept": "ph:ph-u03-012",
-  "explanation": "Excusez-moi, où sont les toilettes, s'il vous plaît ? (Com licença, onde fica o banheiro, por favor?)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -20062,45 +20004,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-013",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Bonjour, est-ce que vous savez où est cette adresse ?"
-  ],
-  "audio_text": "Bonjour, est-ce que vous savez où est cette adresse ?",
-  "concept": "ph:ph-u03-013",
-  "hint": "Situação: Pedindo informações",
-  "explanation": "Bonjour, est-ce que vous savez où est cette adresse ? (Bom dia, você sabe onde fica esse endereço?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-013",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Bonjour, est-ce que vous savez où est cette adresse ?"
-  ],
-  "audio_text": "Bonjour, est-ce que vous savez où est cette adresse ?",
-  "concept": "ph:ph-u03-013",
-  "explanation": "Bonjour, est-ce que vous savez où est cette adresse ? (Bom dia, você sabe onde fica esse endereço?)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-013-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -20174,45 +20077,6 @@
   "explanation": "L'addition, s'il vous plaît. (A conta, por favor.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-014",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "L'addition, s'il vous plaît."
-  ],
-  "audio_text": "L'addition, s'il vous plaît.",
-  "concept": "ph:ph-u03-014",
-  "hint": "Situação: No restaurante",
-  "explanation": "L'addition, s'il vous plaît. (A conta, por favor.)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-014",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "L'addition, s'il vous plaît."
-  ],
-  "audio_text": "L'addition, s'il vous plaît.",
-  "concept": "ph:ph-u03-014",
-  "explanation": "L'addition, s'il vous plaît. (A conta, por favor.)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -20300,45 +20164,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-015",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Bonjour, c'est combien, s'il vous plaît ?"
-  ],
-  "audio_text": "Bonjour, c'est combien, s'il vous plaît ?",
-  "concept": "ph:ph-u03-015",
-  "hint": "Situação: No restaurante",
-  "explanation": "Bonjour, c'est combien, s'il vous plaît ? (Bom dia, quanto custa, por favor?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-015",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Bonjour, c'est combien, s'il vous plaît ?"
-  ],
-  "audio_text": "Bonjour, c'est combien, s'il vous plaît ?",
-  "concept": "ph:ph-u03-015",
-  "explanation": "Bonjour, c'est combien, s'il vous plaît ? (Bom dia, quanto custa, por favor?)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-015-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -20415,45 +20240,6 @@
   "explanation": "Je voudrais six pommes, s'il vous plaît. (Eu queria seis maçãs, por favor.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-016",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je voudrais six pommes, s'il vous plaît."
-  ],
-  "audio_text": "Je voudrais six pommes, s'il vous plaît.",
-  "concept": "ph:ph-u03-016",
-  "hint": "Situação: Compras",
-  "explanation": "Je voudrais six pommes, s'il vous plaît. (Eu queria seis maçãs, por favor.)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-016",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je voudrais six pommes, s'il vous plaît."
-  ],
-  "audio_text": "Je voudrais six pommes, s'il vous plaît.",
-  "concept": "ph:ph-u03-016",
-  "explanation": "Je voudrais six pommes, s'il vous plaît. (Eu queria seis maçãs, por favor.)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -20543,45 +20329,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-017",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'aimerais un kilo de carottes, s'il vous plaît."
-  ],
-  "audio_text": "J'aimerais un kilo de carottes, s'il vous plaît.",
-  "concept": "ph:ph-u03-017",
-  "hint": "Situação: Compras",
-  "explanation": "J'aimerais un kilo de carottes, s'il vous plaît. (Eu gostaria de um quilo de cenouras, por favor.)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-017",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'aimerais un kilo de carottes, s'il vous plaît."
-  ],
-  "audio_text": "J'aimerais un kilo de carottes, s'il vous plaît.",
-  "concept": "ph:ph-u03-017",
-  "explanation": "J'aimerais un kilo de carottes, s'il vous plaît. (Eu gostaria de um quilo de cenouras, por favor.)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-017-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -20658,45 +20405,6 @@
   "explanation": "J'ai une réservation au nom de Dupont. (Eu tenho uma reserva em nome de Dupont.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-018",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'ai une réservation au nom de Dupont."
-  ],
-  "audio_text": "J'ai une réservation au nom de Dupont.",
-  "concept": "ph:ph-u03-018",
-  "hint": "Situação: No hotel",
-  "explanation": "J'ai une réservation au nom de Dupont. (Eu tenho uma reserva em nome de Dupont.)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-018",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'ai une réservation au nom de Dupont."
-  ],
-  "audio_text": "J'ai une réservation au nom de Dupont.",
-  "concept": "ph:ph-u03-018",
-  "explanation": "J'ai une réservation au nom de Dupont. (Eu tenho uma reserva em nome de Dupont.)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -20786,45 +20494,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-019",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est le quai du train pour Lyon ?"
-  ],
-  "audio_text": "Où est le quai du train pour Lyon ?",
-  "concept": "ph:ph-u03-019",
-  "hint": "Situação: Na estação",
-  "explanation": "Où est le quai du train pour Lyon ? (Onde fica a plataforma do trem para Lyon?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-019",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est le quai du train pour Lyon ?"
-  ],
-  "audio_text": "Où est le quai du train pour Lyon ?",
-  "concept": "ph:ph-u03-019",
-  "explanation": "Où est le quai du train pour Lyon ? (Onde fica a plataforma do trem para Lyon?)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-019-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -20904,45 +20573,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-020",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Pouvez-vous m'emmener à l'aéroport ?"
-  ],
-  "audio_text": "Pouvez-vous m'emmener à l'aéroport ?",
-  "concept": "ph:ph-u03-020",
-  "hint": "Situação: No táxi",
-  "explanation": "Pouvez-vous m'emmener à l'aéroport ? (Você pode me levar ao aeroporto?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-020",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Pouvez-vous m'emmener à l'aéroport ?"
-  ],
-  "audio_text": "Pouvez-vous m'emmener à l'aéroport ?",
-  "concept": "ph:ph-u03-020",
-  "explanation": "Pouvez-vous m'emmener à l'aéroport ? (Você pode me levar ao aeroporto?)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-020-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -21001,45 +20631,6 @@
   "explanation": "Excusez-moi, où est l'arrêt du bus 43 ? (Com licença, onde fica o ponto do ônibus 43?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-021",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Excusez-moi, où est l'arrêt du bus 43 ?"
-  ],
-  "audio_text": "Excusez-moi, où est l'arrêt du bus 43 ?",
-  "concept": "ph:ph-u03-021",
-  "hint": "Situação: Transporte",
-  "explanation": "Excusez-moi, où est l'arrêt du bus 43 ? (Com licença, onde fica o ponto do ônibus 43?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-021",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Excusez-moi, où est l'arrêt du bus 43 ?"
-  ],
-  "audio_text": "Excusez-moi, où est l'arrêt du bus 43 ?",
-  "concept": "ph:ph-u03-021",
-  "explanation": "Excusez-moi, où est l'arrêt du bus 43 ? (Com licença, onde fica o ponto do ônibus 43?)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -21105,45 +20696,6 @@
   "explanation": "Quelle ligne pour aller à la Tour Eiffel ? (Qual linha para ir à Torre Eiffel?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-022",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Quelle ligne pour aller à la Tour Eiffel ?"
-  ],
-  "audio_text": "Quelle ligne pour aller à la Tour Eiffel ?",
-  "concept": "ph:ph-u03-022",
-  "hint": "Situação: Transporte",
-  "explanation": "Quelle ligne pour aller à la Tour Eiffel ? (Qual linha para ir à Torre Eiffel?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-022",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Quelle ligne pour aller à la Tour Eiffel ?"
-  ],
-  "audio_text": "Quelle ligne pour aller à la Tour Eiffel ?",
-  "concept": "ph:ph-u03-022",
-  "explanation": "Quelle ligne pour aller à la Tour Eiffel ? (Qual linha para ir à Torre Eiffel?)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -21232,45 +20784,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u03-023",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "À quelle heure part le prochain bateau ?"
-  ],
-  "audio_text": "À quelle heure part le prochain bateau ?",
-  "concept": "ph:ph-u03-023",
-  "hint": "Situação: Transporte",
-  "explanation": "À quelle heure part le prochain bateau ? (A que horas sai o próximo barco?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-023",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "À quelle heure part le prochain bateau ?"
-  ],
-  "audio_text": "À quelle heure part le prochain bateau ?",
-  "concept": "ph:ph-u03-023",
-  "explanation": "À quelle heure part le prochain bateau ? (A que horas sai o próximo barco?)",
-  "error_tags": [
-   "fala_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u03-023-1",
   "unit": "u03",
   "type": "fill_blank",
@@ -21344,45 +20857,6 @@
   "explanation": "Combien coûte un billet ? (Quanto custa um bilhete?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u03-024",
-  "unit": "u03",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Combien coûte un billet ?"
-  ],
-  "audio_text": "Combien coûte un billet ?",
-  "concept": "ph:ph-u03-024",
-  "hint": "Situação: Transporte",
-  "explanation": "Combien coûte un billet ? (Quanto custa um bilhete?)",
-  "error_tags": [
-   "escuta_u03"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u03-024",
-  "unit": "u03",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Combien coûte un billet ?"
-  ],
-  "audio_text": "Combien coûte un billet ?",
-  "concept": "ph:ph-u03-024",
-  "explanation": "Combien coûte un billet ? (Quanto custa um bilhete?)",
-  "error_tags": [
-   "fala_u03"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -21466,45 +20940,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u04-025",
-  "unit": "u04",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Parlez-vous français ?"
-  ],
-  "audio_text": "Parlez-vous français ?",
-  "concept": "ph:ph-u04-025",
-  "hint": "Situação: Perguntar",
-  "explanation": "Parlez-vous français ? (Você fala francês?)",
-  "error_tags": [
-   "escuta_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u04-025",
-  "unit": "u04",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Parlez-vous français ?"
-  ],
-  "audio_text": "Parlez-vous français ?",
-  "concept": "ph:ph-u04-025",
-  "explanation": "Parlez-vous français ? (Você fala francês?)",
-  "error_tags": [
-   "fala_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u04-025-1",
   "unit": "u04",
   "type": "fill_blank",
@@ -21535,89 +20970,6 @@
   "explanation": "Parlez-vous français ? (Você fala francês?)",
   "error_tags": [
    "frases_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-trp-ph-u04-026",
-  "unit": "u04",
-  "type": "translate_pt_fr",
-  "skill": "vocabulario",
-  "prompt": "Traduza para o francês: Você fala francês?",
-  "answers": [
-   "Est-ce que tu parles français ?"
-  ],
-  "concept": "ph:ph-u04-026",
-  "explanation": "Est-ce que tu parles français ? (Você fala francês?)",
-  "error_tags": [
-   "frases_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-ord-ph-u04-026",
-  "unit": "u04",
-  "type": "order_words",
-  "skill": "gramatica",
-  "prompt": "Coloque as palavras na ordem: \"Você fala francês?\"",
-  "answers": [
-   "Est-ce que tu parles français?",
-   "Est-ce que tu parles français ?"
-  ],
-  "words": [
-   "français?",
-   "Est-ce",
-   "que",
-   "tu",
-   "parles"
-  ],
-  "concept": "ph:ph-u04-026",
-  "explanation": "Est-ce que tu parles français ? (Você fala francês?)",
-  "error_tags": [
-   "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u04-026",
-  "unit": "u04",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Est-ce que tu parles français ?"
-  ],
-  "audio_text": "Est-ce que tu parles français ?",
-  "concept": "ph:ph-u04-026",
-  "hint": "Situação: Perguntar",
-  "explanation": "Est-ce que tu parles français ? (Você fala francês?)",
-  "error_tags": [
-   "escuta_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u04-026",
-  "unit": "u04",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Est-ce que tu parles français ?"
-  ],
-  "audio_text": "Est-ce que tu parles français ?",
-  "concept": "ph:ph-u04-026",
-  "explanation": "Est-ce que tu parles français ? (Você fala francês?)",
-  "error_tags": [
-   "fala_u04"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -21695,45 +21047,6 @@
   "explanation": "Comment allez-vous ? (Como você está?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u04-027",
-  "unit": "u04",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Comment allez-vous ?"
-  ],
-  "audio_text": "Comment allez-vous ?",
-  "concept": "ph:ph-u04-027",
-  "hint": "Situação: Perguntar",
-  "explanation": "Comment allez-vous ? (Como você está?)",
-  "error_tags": [
-   "escuta_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u04-027",
-  "unit": "u04",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Comment allez-vous ?"
-  ],
-  "audio_text": "Comment allez-vous ?",
-  "concept": "ph:ph-u04-027",
-  "explanation": "Comment allez-vous ? (Como você está?)",
-  "error_tags": [
-   "fala_u04"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -21819,45 +21132,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u04-028",
-  "unit": "u04",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je ne sais pas."
-  ],
-  "audio_text": "Je ne sais pas.",
-  "concept": "ph:ph-u04-028",
-  "hint": "Situação: Negar",
-  "explanation": "Je ne sais pas. (Eu não sei.)",
-  "error_tags": [
-   "escuta_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u04-028",
-  "unit": "u04",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je ne sais pas."
-  ],
-  "audio_text": "Je ne sais pas.",
-  "concept": "ph:ph-u04-028",
-  "explanation": "Je ne sais pas. (Eu não sei.)",
-  "error_tags": [
-   "fala_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u04-028-1",
   "unit": "u04",
   "type": "fill_blank",
@@ -21917,45 +21191,6 @@
   "explanation": "Il est brésilien, mais il habite en France. (Ele é brasileiro, mas mora na França.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u04-029",
-  "unit": "u04",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Il est brésilien, mais il habite en France."
-  ],
-  "audio_text": "Il est brésilien, mais il habite en France.",
-  "concept": "ph:ph-u04-029",
-  "hint": "Situação: Negar",
-  "explanation": "Il est brésilien, mais il habite en France. (Ele é brasileiro, mas mora na França.)",
-  "error_tags": [
-   "escuta_u04"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u04-029",
-  "unit": "u04",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Il est brésilien, mais il habite en France."
-  ],
-  "audio_text": "Il est brésilien, mais il habite en France.",
-  "concept": "ph:ph-u04-029",
-  "explanation": "Il est brésilien, mais il habite en France. (Ele é brasileiro, mas mora na França.)",
-  "error_tags": [
-   "fala_u04"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -22043,45 +21278,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u05-030",
-  "unit": "u05",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'ai faim. Où est le restaurant ?"
-  ],
-  "audio_text": "J'ai faim. Où est le restaurant ?",
-  "concept": "ph:ph-u05-030",
-  "hint": "Situação: Dia a dia",
-  "explanation": "J'ai faim. Où est le restaurant ? (Eu tenho fome. Onde é o restaurante?)",
-  "error_tags": [
-   "escuta_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u05-030",
-  "unit": "u05",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'ai faim. Où est le restaurant ?"
-  ],
-  "audio_text": "J'ai faim. Où est le restaurant ?",
-  "concept": "ph:ph-u05-030",
-  "explanation": "J'ai faim. Où est le restaurant ? (Eu tenho fome. Onde é o restaurante?)",
-  "error_tags": [
-   "fala_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u05-030-1",
   "unit": "u05",
   "type": "fill_blank",
@@ -22155,45 +21351,6 @@
   "explanation": "Je vais au marché. (Eu vou ao mercado.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u05-031",
-  "unit": "u05",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je vais au marché."
-  ],
-  "audio_text": "Je vais au marché.",
-  "concept": "ph:ph-u05-031",
-  "hint": "Situação: Dia a dia",
-  "explanation": "Je vais au marché. (Eu vou ao mercado.)",
-  "error_tags": [
-   "escuta_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u05-031",
-  "unit": "u05",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je vais au marché."
-  ],
-  "audio_text": "Je vais au marché.",
-  "concept": "ph:ph-u05-031",
-  "explanation": "Je vais au marché. (Eu vou ao mercado.)",
-  "error_tags": [
-   "fala_u05"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -22281,45 +21438,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u05-032",
-  "unit": "u05",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Nous faisons les courses au marché."
-  ],
-  "audio_text": "Nous faisons les courses au marché.",
-  "concept": "ph:ph-u05-032",
-  "hint": "Situação: Dia a dia",
-  "explanation": "Nous faisons les courses au marché. (Nós fazemos compras no mercado.)",
-  "error_tags": [
-   "escuta_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u05-032",
-  "unit": "u05",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Nous faisons les courses au marché."
-  ],
-  "audio_text": "Nous faisons les courses au marché.",
-  "concept": "ph:ph-u05-032",
-  "explanation": "Nous faisons les courses au marché. (Nós fazemos compras no mercado.)",
-  "error_tags": [
-   "fala_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u05-032-1",
   "unit": "u05",
   "type": "fill_blank",
@@ -22393,45 +21511,6 @@
   "explanation": "Il fait beau aujourd'hui. (Está um dia bonito hoje.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u05-033",
-  "unit": "u05",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Il fait beau aujourd'hui."
-  ],
-  "audio_text": "Il fait beau aujourd'hui.",
-  "concept": "ph:ph-u05-033",
-  "hint": "Situação: Dia a dia",
-  "explanation": "Il fait beau aujourd'hui. (Está um dia bonito hoje.)",
-  "error_tags": [
-   "escuta_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u05-033",
-  "unit": "u05",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Il fait beau aujourd'hui."
-  ],
-  "audio_text": "Il fait beau aujourd'hui.",
-  "concept": "ph:ph-u05-033",
-  "explanation": "Il fait beau aujourd'hui. (Está um dia bonito hoje.)",
-  "error_tags": [
-   "fala_u05"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -22517,45 +21596,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u05-034",
-  "unit": "u05",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Elle va au cinéma."
-  ],
-  "audio_text": "Elle va au cinéma.",
-  "concept": "ph:ph-u05-034",
-  "hint": "Situação: Dia a dia",
-  "explanation": "Elle va au cinéma. (Ela vai ao cinema.)",
-  "error_tags": [
-   "escuta_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u05-034",
-  "unit": "u05",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Elle va au cinéma."
-  ],
-  "audio_text": "Elle va au cinéma.",
-  "concept": "ph:ph-u05-034",
-  "explanation": "Elle va au cinéma. (Ela vai ao cinema.)",
-  "error_tags": [
-   "fala_u05"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u05-034-1",
   "unit": "u05",
   "type": "fill_blank",
@@ -22629,45 +21669,6 @@
   "explanation": "Je voudrais du poulet. (Eu queria frango.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u07-035",
-  "unit": "u07",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je voudrais du poulet."
-  ],
-  "audio_text": "Je voudrais du poulet.",
-  "concept": "ph:ph-u07-035",
-  "hint": "Situação: Pedir comida",
-  "explanation": "Je voudrais du poulet. (Eu queria frango.)",
-  "error_tags": [
-   "escuta_u07"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u07-035",
-  "unit": "u07",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je voudrais du poulet."
-  ],
-  "audio_text": "Je voudrais du poulet.",
-  "concept": "ph:ph-u07-035",
-  "explanation": "Je voudrais du poulet. (Eu queria frango.)",
-  "error_tags": [
-   "fala_u07"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -22753,45 +21754,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u07-036",
-  "unit": "u07",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'aimerais de la soupe."
-  ],
-  "audio_text": "J'aimerais de la soupe.",
-  "concept": "ph:ph-u07-036",
-  "hint": "Situação: Pedir comida",
-  "explanation": "J'aimerais de la soupe. (Eu gostaria de sopa.)",
-  "error_tags": [
-   "escuta_u07"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u07-036",
-  "unit": "u07",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'aimerais de la soupe."
-  ],
-  "audio_text": "J'aimerais de la soupe.",
-  "concept": "ph:ph-u07-036",
-  "explanation": "J'aimerais de la soupe. (Eu gostaria de sopa.)",
-  "error_tags": [
-   "fala_u07"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u07-036-1",
   "unit": "u07",
   "type": "fill_blank",
@@ -22846,46 +21808,6 @@
   "explanation": "Quelle heure est-il ? (Que horas são?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u08-037",
-  "unit": "u08",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Quelle heure est-il ?"
-  ],
-  "audio_text": "Quelle heure est-il ?",
-  "concept": "ph:ph-u08-037",
-  "hint": "Situação: Horas",
-  "explanation": "Quelle heure est-il ? (Que horas são?)",
-  "error_tags": [
-   "escuta_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u08-037",
-  "unit": "u08",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Quelle heure est-il ?"
-  ],
-  "audio_text": "Quelle heure est-il ?",
-  "concept": "ph:ph-u08-037",
-  "hint": "Pronúncia: (quéle hórr é til)",
-  "explanation": "Quelle heure est-il ? (Que horas são?)",
-  "error_tags": [
-   "fala_u08"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -22970,45 +21892,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u08-038",
-  "unit": "u08",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Il est midi."
-  ],
-  "audio_text": "Il est midi.",
-  "concept": "ph:ph-u08-038",
-  "hint": "Situação: Horas",
-  "explanation": "Il est midi. (É meio-dia.)",
-  "error_tags": [
-   "escuta_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u08-038",
-  "unit": "u08",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Il est midi."
-  ],
-  "audio_text": "Il est midi.",
-  "concept": "ph:ph-u08-038",
-  "explanation": "Il est midi. (É meio-dia.)",
-  "error_tags": [
-   "fala_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u08-038-1",
   "unit": "u08",
   "type": "fill_blank",
@@ -23069,45 +21952,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u08-039",
-  "unit": "u08",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Quel temps fait-il ?"
-  ],
-  "audio_text": "Quel temps fait-il ?",
-  "concept": "ph:ph-u08-039",
-  "hint": "Situação: Clima",
-  "explanation": "Quel temps fait-il ? (Que tempo está fazendo?)",
-  "error_tags": [
-   "escuta_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u08-039",
-  "unit": "u08",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Quel temps fait-il ?"
-  ],
-  "audio_text": "Quel temps fait-il ?",
-  "concept": "ph:ph-u08-039",
-  "explanation": "Quel temps fait-il ? (Que tempo está fazendo?)",
-  "error_tags": [
-   "fala_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u08-039-1",
   "unit": "u08",
   "type": "fill_blank",
@@ -23156,45 +22000,6 @@
   "explanation": "Il pleut. (Está chovendo.)",
   "error_tags": [
    "frases_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u08-040",
-  "unit": "u08",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Il pleut."
-  ],
-  "audio_text": "Il pleut.",
-  "concept": "ph:ph-u08-040",
-  "hint": "Situação: Clima",
-  "explanation": "Il pleut. (Está chovendo.)",
-  "error_tags": [
-   "escuta_u08"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u08-040",
-  "unit": "u08",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Il pleut."
-  ],
-  "audio_text": "Il pleut.",
-  "concept": "ph:ph-u08-040",
-  "explanation": "Il pleut. (Está chovendo.)",
-  "error_tags": [
-   "fala_u08"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -23258,45 +22063,6 @@
   "explanation": "Le livre est dans le sac. (O livro está dentro da mochila.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u09-041",
-  "unit": "u09",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Le livre est dans le sac."
-  ],
-  "audio_text": "Le livre est dans le sac.",
-  "concept": "ph:ph-u09-041",
-  "hint": "Situação: Localização",
-  "explanation": "Le livre est dans le sac. (O livro está dentro da mochila.)",
-  "error_tags": [
-   "escuta_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u09-041",
-  "unit": "u09",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Le livre est dans le sac."
-  ],
-  "audio_text": "Le livre est dans le sac.",
-  "concept": "ph:ph-u09-041",
-  "explanation": "Le livre est dans le sac. (O livro está dentro da mochila.)",
-  "error_tags": [
-   "fala_u09"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -23378,45 +22144,6 @@
   "explanation": "Le chat est sous la table. (O gato está debaixo da mesa.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u09-042",
-  "unit": "u09",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Le chat est sous la table."
-  ],
-  "audio_text": "Le chat est sous la table.",
-  "concept": "ph:ph-u09-042",
-  "hint": "Situação: Localização",
-  "explanation": "Le chat est sous la table. (O gato está debaixo da mesa.)",
-  "error_tags": [
-   "escuta_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u09-042",
-  "unit": "u09",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Le chat est sous la table."
-  ],
-  "audio_text": "Le chat est sous la table.",
-  "concept": "ph:ph-u09-042",
-  "explanation": "Le chat est sous la table. (O gato está debaixo da mesa.)",
-  "error_tags": [
-   "fala_u09"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -23507,45 +22234,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u09-043",
-  "unit": "u09",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Il y a un café à côté de l'hôtel."
-  ],
-  "audio_text": "Il y a un café à côté de l'hôtel.",
-  "concept": "ph:ph-u09-043",
-  "hint": "Situação: Localização",
-  "explanation": "Il y a un café à côté de l'hôtel. (Tem um café ao lado do hotel.)",
-  "error_tags": [
-   "escuta_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u09-043",
-  "unit": "u09",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Il y a un café à côté de l'hôtel."
-  ],
-  "audio_text": "Il y a un café à côté de l'hôtel.",
-  "concept": "ph:ph-u09-043",
-  "explanation": "Il y a un café à côté de l'hôtel. (Tem um café ao lado do hotel.)",
-  "error_tags": [
-   "fala_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u09-043-1",
   "unit": "u09",
   "type": "fill_blank",
@@ -23625,46 +22313,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u09-044",
-  "unit": "u09",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est mon portable ?"
-  ],
-  "audio_text": "Où est mon portable ?",
-  "concept": "ph:ph-u09-044",
-  "hint": "Situação: Localização",
-  "explanation": "Où est mon portable ? (Onde está meu celular?)",
-  "error_tags": [
-   "escuta_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u09-044",
-  "unit": "u09",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est mon portable ?"
-  ],
-  "audio_text": "Où est mon portable ?",
-  "concept": "ph:ph-u09-044",
-  "hint": "Pronúncia: (U é mon portable?)",
-  "explanation": "Où est mon portable ? (Onde está meu celular?)",
-  "error_tags": [
-   "fala_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u09-044-1",
   "unit": "u09",
   "type": "fill_blank",
@@ -23721,45 +22369,6 @@
   "explanation": "Je suis chez ma mère. (Eu estou na casa da minha mãe.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u09-045",
-  "unit": "u09",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je suis chez ma mère."
-  ],
-  "audio_text": "Je suis chez ma mère.",
-  "concept": "ph:ph-u09-045",
-  "hint": "Situação: Localização",
-  "explanation": "Je suis chez ma mère. (Eu estou na casa da minha mãe.)",
-  "error_tags": [
-   "escuta_u09"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u09-045",
-  "unit": "u09",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je suis chez ma mère."
-  ],
-  "audio_text": "Je suis chez ma mère.",
-  "concept": "ph:ph-u09-045",
-  "explanation": "Je suis chez ma mère. (Eu estou na casa da minha mãe.)",
-  "error_tags": [
-   "fala_u09"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -23846,45 +22455,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-046",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est la porte d'embarquement ?"
-  ],
-  "audio_text": "Où est la porte d'embarquement ?",
-  "concept": "ph:ph-u10-046",
-  "hint": "Situação: Aeroporto",
-  "explanation": "Où est la porte d'embarquement ? (Onde é o portão de embarque?)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-046",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est la porte d'embarquement ?"
-  ],
-  "audio_text": "Où est la porte d'embarquement ?",
-  "concept": "ph:ph-u10-046",
-  "explanation": "Où est la porte d'embarquement ? (Onde é o portão de embarque?)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-046-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -23942,45 +22512,6 @@
   "explanation": "Je voudrais un billet pour Paris. (Eu gostaria de um bilhete para Paris.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-047",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je voudrais un billet pour Paris."
-  ],
-  "audio_text": "Je voudrais un billet pour Paris.",
-  "concept": "ph:ph-u10-047",
-  "hint": "Situação: Aeroporto",
-  "explanation": "Je voudrais un billet pour Paris. (Eu gostaria de um bilhete para Paris.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-047",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je voudrais un billet pour Paris."
-  ],
-  "audio_text": "Je voudrais un billet pour Paris.",
-  "concept": "ph:ph-u10-047",
-  "explanation": "Je voudrais un billet pour Paris. (Eu gostaria de um bilhete para Paris.)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -24070,45 +22601,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-048",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je voudrais voir le menu, s'il vous plaît."
-  ],
-  "audio_text": "Je voudrais voir le menu, s'il vous plaît.",
-  "concept": "ph:ph-u10-048",
-  "hint": "Situação: Restaurante",
-  "explanation": "Je voudrais voir le menu, s'il vous plaît. (Eu gostaria de ver o cardápio, por favor.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-048",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je voudrais voir le menu, s'il vous plaît."
-  ],
-  "audio_text": "Je voudrais voir le menu, s'il vous plaît.",
-  "concept": "ph:ph-u10-048",
-  "explanation": "Je voudrais voir le menu, s'il vous plaît. (Eu gostaria de ver o cardápio, por favor.)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-048-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -24185,45 +22677,6 @@
   "explanation": "Je prends un café et une salade. (Eu vou querer um café e uma salada.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-049",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Je prends un café et une salade."
-  ],
-  "audio_text": "Je prends un café et une salade.",
-  "concept": "ph:ph-u10-049",
-  "hint": "Situação: Restaurante",
-  "explanation": "Je prends un café et une salade. (Eu vou querer um café e uma salada.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-049",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Je prends un café et une salade."
-  ],
-  "audio_text": "Je prends un café et une salade.",
-  "concept": "ph:ph-u10-049",
-  "explanation": "Je prends un café et une salade. (Eu vou querer um café e uma salada.)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -24314,45 +22767,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-050",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Pour le dessert, une crème brûlée, s'il vous plaît."
-  ],
-  "audio_text": "Pour le dessert, une crème brûlée, s'il vous plaît.",
-  "concept": "ph:ph-u10-050",
-  "hint": "Situação: Restaurante",
-  "explanation": "Pour le dessert, une crème brûlée, s'il vous plaît. (De sobremesa, um crème brûlée, por favor.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-050",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Pour le dessert, une crème brûlée, s'il vous plaît."
-  ],
-  "audio_text": "Pour le dessert, une crème brûlée, s'il vous plaît.",
-  "concept": "ph:ph-u10-050",
-  "explanation": "Pour le dessert, une crème brûlée, s'il vous plaît. (De sobremesa, um crème brûlée, por favor.)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-050-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -24426,45 +22840,6 @@
   "explanation": "J'ai besoin d'un médecin. (Eu preciso de um médico.)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-051",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'ai besoin d'un médecin."
-  ],
-  "audio_text": "J'ai besoin d'un médecin.",
-  "concept": "ph:ph-u10-051",
-  "hint": "Situação: Emergência",
-  "explanation": "J'ai besoin d'un médecin. (Eu preciso de um médico.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-051",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'ai besoin d'un médecin."
-  ],
-  "audio_text": "J'ai besoin d'un médecin.",
-  "concept": "ph:ph-u10-051",
-  "explanation": "J'ai besoin d'un médecin. (Eu preciso de um médico.)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -24552,45 +22927,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-052",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Appelez une ambulance, s'il vous plaît !"
-  ],
-  "audio_text": "Appelez une ambulance, s'il vous plaît !",
-  "concept": "ph:ph-u10-052",
-  "hint": "Situação: Emergência",
-  "explanation": "Appelez une ambulance, s'il vous plaît ! (Chame uma ambulância, por favor!)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-052",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Appelez une ambulance, s'il vous plaît !"
-  ],
-  "audio_text": "Appelez une ambulance, s'il vous plaît !",
-  "concept": "ph:ph-u10-052",
-  "explanation": "Appelez une ambulance, s'il vous plaît ! (Chame uma ambulância, por favor!)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-052-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -24666,45 +23002,6 @@
   "explanation": "Où est l'hôpital le plus proche ? (Onde fica o hospital mais perto?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-053",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est l'hôpital le plus proche ?"
-  ],
-  "audio_text": "Où est l'hôpital le plus proche ?",
-  "concept": "ph:ph-u10-053",
-  "hint": "Situação: Emergência",
-  "explanation": "Où est l'hôpital le plus proche ? (Onde fica o hospital mais perto?)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-053",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est l'hôpital le plus proche ?"
-  ],
-  "audio_text": "Où est l'hôpital le plus proche ?",
-  "concept": "ph:ph-u10-053",
-  "explanation": "Où est l'hôpital le plus proche ? (Onde fica o hospital mais perto?)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -24793,45 +23090,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-054",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "J'ai besoin d'un médicament pour la fièvre."
-  ],
-  "audio_text": "J'ai besoin d'un médicament pour la fièvre.",
-  "concept": "ph:ph-u10-054",
-  "hint": "Situação: Emergência",
-  "explanation": "J'ai besoin d'un médicament pour la fièvre. (Eu preciso de um remédio para febre.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-054",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "J'ai besoin d'un médicament pour la fièvre."
-  ],
-  "audio_text": "J'ai besoin d'un médicament pour la fièvre.",
-  "concept": "ph:ph-u10-054",
-  "explanation": "J'ai besoin d'un médicament pour la fièvre. (Eu preciso de um remédio para febre.)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-054-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -24905,45 +23163,6 @@
   "explanation": "Est-ce que c'est loin ? (É longe?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-055",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Est-ce que c'est loin ?"
-  ],
-  "audio_text": "Est-ce que c'est loin ?",
-  "concept": "ph:ph-u10-055",
-  "hint": "Situação: Direções",
-  "explanation": "Est-ce que c'est loin ? (É longe?)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-055",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Est-ce que c'est loin ?"
-  ],
-  "audio_text": "Est-ce que c'est loin ?",
-  "concept": "ph:ph-u10-055",
-  "explanation": "Est-ce que c'est loin ? (É longe?)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -25028,45 +23247,6 @@
   "needs_review": false
  },
  {
-  "id": "q-dic-ph-u10-056",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Tournez à droite."
-  ],
-  "audio_text": "Tournez à droite.",
-  "concept": "ph:ph-u10-056",
-  "hint": "Situação: Direções",
-  "explanation": "Tournez à droite. (Vire à direita.)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-056",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Tournez à droite."
-  ],
-  "audio_text": "Tournez à droite.",
-  "concept": "ph:ph-u10-056",
-  "explanation": "Tournez à droite. (Vire à direita.)",
-  "error_tags": [
-   "fala_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
   "id": "q-clz-ph-u10-056-1",
   "unit": "u10",
   "type": "fill_blank",
@@ -25140,45 +23320,6 @@
   "explanation": "Où est la pharmacie ? (Onde fica a farmácia?)",
   "error_tags": [
    "ordem_palavras"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-dic-ph-u10-057",
-  "unit": "u10",
-  "type": "dictation",
-  "skill": "escuta",
-  "prompt": "Ouça e escreva o que você ouviu.",
-  "answers": [
-   "Où est la pharmacie ?"
-  ],
-  "audio_text": "Où est la pharmacie ?",
-  "concept": "ph:ph-u10-057",
-  "hint": "Situação: Direções",
-  "explanation": "Où est la pharmacie ? (Onde fica a farmácia?)",
-  "error_tags": [
-   "escuta_u10"
-  ],
-  "difficulty": 2,
-  "source": "ebook",
-  "needs_review": false
- },
- {
-  "id": "q-spk-ph-u10-057",
-  "unit": "u10",
-  "type": "speak",
-  "skill": "fala",
-  "prompt": "Ouça o modelo e repita a frase.",
-  "answers": [
-   "Où est la pharmacie ?"
-  ],
-  "audio_text": "Où est la pharmacie ?",
-  "concept": "ph:ph-u10-057",
-  "explanation": "Où est la pharmacie ? (Onde fica a farmácia?)",
-  "error_tags": [
-   "fala_u10"
   ],
   "difficulty": 2,
   "source": "ebook",
@@ -30061,25 +28202,6 @@
   "needs_review": false
  },
  {
-  "id": "q-hr-1200",
-  "unit": "u08",
-  "type": "write_out",
-  "skill": "vocabulario",
-  "prompt": "Escreva a hora por extenso: 12h",
-  "answers": [
-   "midi",
-   "Il est midi"
-  ],
-  "concept": "hr:12:0",
-  "explanation": "12h = midi. Até 30 minutos some os minutos; depois de 30, diminua da próxima hora (moins). No dia a dia fala-se no relógio de 12 horas.",
-  "error_tags": [
-   "horas"
-  ],
-  "difficulty": 1,
-  "source": "generated",
-  "needs_review": false
- },
- {
   "id": "q-hr-1300",
   "unit": "u08",
   "type": "write_out",
@@ -30783,25 +28905,6 @@
   "needs_review": false
  },
  {
-  "id": "q-hr-1845",
-  "unit": "u08",
-  "type": "write_out",
-  "skill": "vocabulario",
-  "prompt": "Escreva a hora por extenso: 18h45",
-  "answers": [
-   "sept heures moins le quart",
-   "Il est sept heures moins le quart"
-  ],
-  "concept": "hr:18:45",
-  "explanation": "18h45 = sept heures moins le quart. Até 30 minutos some os minutos; depois de 30, diminua da próxima hora (moins). No dia a dia fala-se no relógio de 12 horas.",
-  "error_tags": [
-   "horas"
-  ],
-  "difficulty": 2,
-  "source": "generated",
-  "needs_review": false
- },
- {
   "id": "q-hr-1850",
   "unit": "u08",
   "type": "write_out",
@@ -30950,25 +29053,6 @@
    "horas"
   ],
   "difficulty": 1,
-  "source": "generated",
-  "needs_review": false
- },
- {
-  "id": "q-hr-2015",
-  "unit": "u08",
-  "type": "write_out",
-  "skill": "vocabulario",
-  "prompt": "Escreva a hora por extenso: 20h15",
-  "answers": [
-   "huit heures et quart",
-   "Il est huit heures et quart"
-  ],
-  "concept": "hr:20:15",
-  "explanation": "20h15 = huit heures et quart. Até 30 minutos some os minutos; depois de 30, diminua da próxima hora (moins). No dia a dia fala-se no relógio de 12 horas.",
-  "error_tags": [
-   "horas"
-  ],
-  "difficulty": 2,
   "source": "generated",
   "needs_review": false
  },

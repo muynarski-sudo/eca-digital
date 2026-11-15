@@ -15,7 +15,7 @@ import { categoryLabel } from '../../src/lib/content/labels';
 export const ascii = (s: string) =>
   s
     .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
@@ -63,12 +63,12 @@ const basePt = (s: string) =>
     .toLowerCase();
 const cleanTypein = (v: VocabItem) => !/[()/…?]/.test(v.fr) && v.fr.length <= 40;
 
-/** Pool único por prompt: a primeira ocorrência vence. */
+/** Pool sem enunciados repetidos (ignora caixa): a primeira ocorrência vence, e o gabarito do e-book vem primeiro. */
 export class Dedup {
   private seen = new Set<string>();
   take(list: Question[]): Question[] {
     return list.filter((q) => {
-      const k = `${q.type}|${q.prompt}|${q.answers[0] ?? ''}`;
+      const k = q.prompt.trim().toLowerCase();
       if (this.seen.has(k)) return false;
       this.seen.add(k);
       return true;
@@ -256,6 +256,7 @@ export function matchSets(vocab: VocabItem[]): Question[] {
     const uniq = items.filter(
       (v, i) => items.findIndex((o) => basePt(o.pt) === basePt(v.pt)) === i,
     );
+    const total = Math.floor(uniq.length / 4);
     for (let k = 0; k + 4 <= uniq.length; k += 4) {
       const set = uniq.slice(k, k + 4);
       out.push(
@@ -265,7 +266,7 @@ export function matchSets(vocab: VocabItem[]): Question[] {
           type: 'match_pairs',
           skill: 'vocabulario',
           concept: `mp:${unit}:${cat}:${k / 4}`,
-          prompt: `Ligue cada palavra à tradução (${categoryLabel(cat)}).`,
+          prompt: `Ligue cada palavra à tradução (${categoryLabel(cat)}${total > 1 ? `, parte ${k / 4 + 1}` : ''}).`,
           answers: [],
           pairs: set.map((v) => ({ left: v.fr, right: v.pt })),
           explanation: set.map((v) => `${v.fr} = ${v.pt}`).join('; ') + '.',
