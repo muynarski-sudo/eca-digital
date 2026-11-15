@@ -597,7 +597,7 @@ function view(r) {
 }
 let unmountPlay = null;
 function vBrincar() {
-  return `<section class="hero"><h1>Brincar com a Camille</h1><p>Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa.</p></section><div id="play-root"></div>`;
+  return `<section class="hero"><h1>Brincar com a Iasmyn</h1><p>Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa.</p></section><div id="play-root"></div>`;
 }
 function render() {
   if (unmountPlay) {

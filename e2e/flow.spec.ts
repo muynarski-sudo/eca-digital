@@ -109,8 +109,8 @@ test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes'
 test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', async ({ page }) => {
   await login(page, ALUNO.email, ALUNO.senha);
   await page.getByRole('link', { name: 'Brincar' }).click();
-  await expect(page.getByRole('heading', { name: 'Brincar com a Camille' })).toBeVisible();
-  await expect(page.getByRole('img', { name: /Camille/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Brincar com a Iasmyn' })).toBeVisible();
+  await expect(page.getByRole('img', { name: /Iasmyn/ })).toBeVisible();
 
   // alfabeto: as 26 letras
   await page

@@ -89,4 +89,4 @@ O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exer
 - Pronúncia aportuguesada: mantive a do e-book onde ele traz (H, J, L, Q, U, W, X, Y, Z) e escrevi as demais. O "E" ficou "êu (som fechado, boca em bico)", pois o e-book traz "õ", que não parece certo.
 - **Peço conferência com nativo.** Se algo estiver errado, corrija em `ALPHABET` (um arquivo só).
 - Palavra de exemplo de cada letra: só do vocabulário do e-book. K, W, X, Y e Z não têm palavra no e-book e aparecem sem exemplo.
-- A avatar "Camille" fala com a voz do próprio aparelho (francês, se houver). Se o aparelho não tiver voz francesa, a fala sai na voz padrão e as legendas continuam na tela.
+- A avatar "Iasmyn" fala com a voz do próprio aparelho (francês, se houver). Se o aparelho não tiver voz francesa, a fala sai na voz padrão e as legendas continuam na tela.

@@ -1,7 +1,7 @@
-/** Avatar "Camille" (SVG animado) e a voz que a faz falar. Roda só no navegador; sem internet usa a voz do aparelho. */
+/** Avatar "Iasmyn" (SVG animado) e a voz que a faz falar. Roda só no navegador; sem internet usa a voz do aparelho. */
 
 export function avatarSvg(): string {
-  return `<svg class="pl-avatar" data-mouth="0" viewBox="0 0 200 232" role="img" aria-label="Camille, a avatar que fala francês" xmlns="http://www.w3.org/2000/svg">
+  return `<svg class="pl-avatar" data-mouth="0" viewBox="0 0 200 232" role="img" aria-label="Iasmyn, a avatar que fala francês" xmlns="http://www.w3.org/2000/svg">
   <defs><clipPath id="pl-body"><path d="M24 232 C24 178 62 160 100 160 C138 160 176 178 176 232 Z"/></clipPath></defs>
   <g class="pl-bodyg">
     <path d="M24 232 C24 178 62 160 100 160 C138 160 176 178 176 232 Z" fill="#ffffff" stroke="#00346b" stroke-width="3"/>

@@ -82,7 +82,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     <div class="pl-stage">
       <div class="pl-avatar-wrap">${avatarSvg()}</div>
       <div class="pl-say">
-        <p class="pl-name">Camille</p>
+        <p class="pl-name">Iasmyn</p>
         <div class="pl-balloon" role="status" aria-live="polite"><p class="pl-b1"></p><p class="pl-b2"></p></div>
         <div class="pl-stats"><span class="pl-stars" aria-label="Estrelas ganhas"></span><button class="pl-btn ghost" data-act="stop" aria-label="Parar a voz">Parar voz</button></div>
       </div>
@@ -101,7 +101,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     persist();
     showStars();
   };
-  /** Texto do balão (legenda do que a Camille diz). */
+  /** Texto do balão (legenda do que a Iasmyn diz). */
   const caption = (main: string, sub = '') => {
     b1.textContent = main;
     b2.textContent = sub;
@@ -117,7 +117,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
   const homeHtml = () => `<h2 class="pl-h">O que vamos fazer hoje?</h2>
     <ul class="pl-menu">
       ${[
-        ['alfabeto', 'Alfabeto', 'As 26 letras, com a voz da Camille'],
+        ['alfabeto', 'Alfabeto', 'As 26 letras, com a voz da Iasmyn'],
         ['ouvir', 'Que letra é essa?', 'Ouça e escolha a letra'],
         ['soletrar', 'Soletrar', 'Monte palavras do e-book, letra por letra'],
         ['memoria', 'Memória', 'Combine o francês com o português'],
@@ -287,7 +287,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     <h2 class="pl-h">Repita comigo</h2>
     <div class="pl-phrase"><p lang="fr" class="pl-pfr">${esc(p.fr)}</p>${p.pron ? `<p class="pl-ppron">(${esc(p.pron)})</p>` : ''}<p class="pl-ppt">${esc(p.pt)}</p></div>
     <div class="pl-row"><button class="pl-btn" data-act="say" data-slow="0">▶ Ouvir</button><button class="pl-btn sec" data-act="say" data-slow="1">▶ Ouvir devagar</button><button class="pl-btn" data-act="next">${fr.i + 1 < fr.list.length ? 'Próxima frase' : 'Terminar'}</button></div>
-    <p class="pl-tip">Diga a frase em voz alta, imitando a Camille.</p>`;
+    <p class="pl-tip">Diga a frase em voz alta, imitando a Iasmyn.</p>`;
   };
   const startPhrases = () => {
     const out = pickUnseen(
@@ -321,7 +321,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     speaker.cancel();
     singing = false;
     view = v;
-    if (v === 'home') caption('Bonjour! Eu sou a Camille.', 'Escolha uma brincadeira.');
+    if (v === 'home') caption('Bonjour! Eu sou a Iasmyn.', 'Escolha uma brincadeira.');
     if (v === 'alfabeto') {
       letterSel = null;
       caption('Vamos aprender o alfabeto!', 'Toque em uma letra para ouvir.');
@@ -513,7 +513,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
   root.addEventListener('click', onClick);
 
   showStars();
-  caption('Bonjour! Eu sou a Camille.', 'Escolha uma brincadeira.');
+  caption('Bonjour! Eu sou a Iasmyn.', 'Escolha uma brincadeira.');
   render();
 
   return () => {

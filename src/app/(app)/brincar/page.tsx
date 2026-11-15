@@ -17,7 +17,7 @@ export default async function Brincar() {
   return (
     <>
       <PageHeader
-        title="Brincar com a Camille"
+        title="Brincar com a Iasmyn"
         subtitle="Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa."
       />
       <PlayClient

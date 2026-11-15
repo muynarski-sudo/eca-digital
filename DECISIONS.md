@@ -122,7 +122,7 @@ Pedido do responsável: criar muito mais exercícios a partir do e-book, em orde
 ### D15. Área lúdica "Brincar" e avatar
 - Conteúdo: alfabeto completo (A a Z) com a voz da avatar, e cinco brincadeiras: alfabeto (inclui "ouvir o alfabeto todo"), "Que letra é essa?" (ouvir e escolher), soletrar palavras do e-book (3 a 8 letras, sem acento), memória (francês e português) e "Repita comigo" (frases do e-book, normal ou devagar). Estrelas ficam guardadas no próprio aparelho.
 - Sem repetição: soletrar, memória e frases guardam o que já saiu e só recomeçam o ciclo quando acaba (`pickUnseen`, testado).
-- Avatar "Camille": SVG animado (boca que abre e fecha enquanto fala, piscar, leve balanço da cabeça), sem imagens nem serviços externos. Respeita "reduzir movimento". A fala usa a voz do navegador (Web Speech API); sem voz, a animação e a legenda seguem pelo tempo estimado. Tudo é legendado no balão, para quem não ouve.
+- Avatar "Iasmyn": SVG animado (boca que abre e fecha enquanto fala, piscar, leve balanço da cabeça), sem imagens nem serviços externos. Respeita "reduzir movimento". A fala usa a voz do navegador (Web Speech API); sem voz, a animação e a legenda seguem pelo tempo estimado. Tudo é legendado no balão, para quem não ouve.
 - Um avatar de vídeo com IA (lábios sincronizados de verdade) exigiria um serviço externo. Não foi feito. Se um dia for, é um provider atrás de interface, como os de voz, com a transferência internacional registrada no D9.
 - O alfabeto lúdico é texto gerado por esta plataforma e está listado para revisão em `content/REVIEW.md` (seção 5). O alfabeto do e-book segue pendente e fora dos exercícios.
 - O módulo (`src/lib/play`) não depende de framework: o app (Next) e a demo/app instalável usam o mesmo código.
