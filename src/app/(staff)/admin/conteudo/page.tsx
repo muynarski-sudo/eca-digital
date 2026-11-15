@@ -3,6 +3,8 @@ import { QuestionForm, VocabForm } from '@/components/ContentForms';
 import { Card } from '@/components/ui/Card';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Badge } from '@/components/ui/MasteryBadge';
+import { reloadContent } from '@/lib/actions/staff';
+import { Button } from '@/components/ui/Button';
 import { requireStaff } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
 
@@ -12,7 +14,7 @@ export const dynamic = 'force-dynamic';
 export default async function Conteudo({
   searchParams,
 }: {
-  searchParams: Promise<{ unidade?: string; tipo?: string; revisao?: string }>;
+  searchParams: Promise<{ unidade?: string; tipo?: string; revisao?: string; carregado?: string }>;
 }) {
   await requireStaff(true);
   const sp = await searchParams;
@@ -27,6 +29,7 @@ export default async function Conteudo({
     .order('id')
     .limit(80);
   if (sp.revisao) q = q.eq('needs_review', true);
+  const { count: total } = await db.from('questions').select('id', { count: 'exact', head: true });
   const [{ data: questions }, { data: vocab }] = await Promise.all([
     kind === 'questoes' ? q : Promise.resolve({ data: [] as never[] }),
     kind === 'vocab'
@@ -45,6 +48,24 @@ export default async function Conteudo({
         title="Editar conteúdo"
         subtitle="Alterações valem na hora. Itens marcados como pendentes ficam escondidos dos alunos."
       />
+      <Card tone="tint" className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="font-bold text-brand-blue-dark">Conteúdo do e-book no banco</p>
+          <p className="text-sm text-ink-soft">
+            {total ?? 0} questões carregadas.{' '}
+            {sp.carregado ? (
+              <strong className="text-success-text">✓ Conteúdo atualizado.</strong>
+            ) : (
+              'Use o botão depois de atualizar o app com conteúdo novo. Edições feitas aqui nos itens serão substituídas pelas do e-book.'
+            )}
+          </p>
+        </div>
+        <form action={reloadContent}>
+          <Button type="submit" variant="secondary">
+            Carregar ou atualizar o conteúdo
+          </Button>
+        </form>
+      </Card>
       <Card as="nav" aria-label="Filtros" className="flex flex-wrap gap-3">
         {(units ?? []).map((u) => (
           <Link

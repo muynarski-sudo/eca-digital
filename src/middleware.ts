@@ -5,12 +5,14 @@ import { verifySession } from '@/lib/local/session';
 
 const PUBLIC = [
   '/login',
+  '/setup',
   '/recuperar-senha',
   '/redefinir-senha',
   '/auth',
   '/politica-de-privacidade',
   '/termos',
   '/api/health',
+  '/manifest.webmanifest',
 ];
 
 export async function middleware(req: NextRequest) {

@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: { default: 'Falando Francês Prática', template: '%s · Falando Francês Prática' },
   description:
     'Pratique o francês das suas aulas: exercícios, flashcards, conjugação e tarefa de casa.',
+  appleWebApp: { capable: true, title: 'Francês Prática', statusBarStyle: 'default' },
+  icons: { apple: '/apple-touch-icon.png' },
 };
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#0055a4' };
 

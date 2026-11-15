@@ -1,0 +1,22 @@
+# Blueprint do Render (https://render.com): publica o app a partir do Dockerfile.
+# As chaves ficam como "sync: false": você digita no painel, nunca no repositório.
+services:
+  - type: web
+    name: falando-frances-pratica
+    runtime: docker
+    plan: starter
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: NEXT_OUTPUT
+        value: standalone
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SETUP_TOKEN
+        sync: false

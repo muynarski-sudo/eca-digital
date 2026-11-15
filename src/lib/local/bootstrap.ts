@@ -32,5 +32,7 @@ export async function bootstrapLocal() {
       [digest],
     );
   }
-  await seedDev(db, LOCAL_TESTERS, (m) => console.warn(`[local] ${m}`));
+  // LOCAL_SKIP_TESTERS=1 não cria os usuários de teste (para ensaiar a instalação inicial)
+  if (process.env.LOCAL_SKIP_TESTERS !== '1')
+    await seedDev(db, LOCAL_TESTERS, (m) => console.warn(`[local] ${m}`));
 }

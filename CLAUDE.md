@@ -30,10 +30,11 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 - `src/lib/local`: modo local. `client.ts` imita o supabase-js sobre o PGlite (com a RLS real, cada consulta numa transação com `set local role`); `db.ts` abre o banco e faz o bootstrap; `session.ts` assina o cookie de sessão. Metadados (tipos de coluna) devem ser lidos ANTES de abrir a transação, senão o PGlite trava.
 - `supabase/migrations`: esquema, RLS, cobrança, privilégios.
 - `src/lib/domain`: grade, srs, mastery, select (sorteio sem repetição), plan (treino diário e de unidade), metrics. `src/lib/content`: schemas e carga. `src/lib/practice`: persistência das respostas.
-`src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
+  `src/lib/speech`, `src/lib/audio`, `src/lib/notify`, `src/lib/conversation`: providers atrás de interfaces.
 - `src/app/(app)`: aluno. `src/app/(staff)`: professora e admin. `src/app/(auth)`: login (não há autocadastro; a professora cadastra os alunos). `src/app/api`: áudio, fala, exportação, conversa.
 - `src/components/ui`: Card, Button, ProgressRing, MasteryBadge, AudioButton, StreakChip, EmptyState, TricolorBar. `src/components/practice`: ExerciseShell, executor, flashcards, gravador.
 - `src/lib/play`: área "Brincar" (alfabeto, avatar, jogos) em TypeScript sem framework; `mount.ts` monta a interface e é usado pelo app (`/brincar`) e pela demo. Letras só em `alphabet.ts`. Áudios gravados em `public/audio/play` (gerados por `npm run audio:play`; nome = `clipKey(texto)`); `texts.ts` lista tudo o que ela fala.
 - `artifact`: demo de página única (esbuild) com a lógica de `src/lib/domain` rodando no navegador; `./artifact/build.sh` gera `artifact/dist/*.html`.
 - `docs`: app instalável (PWA offline) gerado por `./artifact/build-pwa.sh`; servido pelo GitHub Pages (pasta /docs). Não edite à mão.
+- `DEPLOY.md` e `render.yaml`: publicação online. `supabase/setup.sql` é gerado (`scripts/build-setup-sql.sh`); mudou migration? Regenere. `/setup` cria a primeira administradora (`SETUP_TOKEN`); `/api/staff/export` gera o CSV de atividades.
 - `deploy`: Caddyfile, backup e jobs. `Dockerfile` e `docker-compose.yml` na raiz.

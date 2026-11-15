@@ -36,6 +36,9 @@ export default async function Alunos({
   return (
     <>
       <PageHeader title="Seus alunos" subtitle="Última atividade e progresso no nível.">
+        <LinkButton href="/api/staff/export" variant="secondary">
+          Baixar registro de atividades (CSV)
+        </LinkButton>
         <LinkButton href="/professora/cadastrar">Cadastrar aluno</LinkButton>
       </PageHeader>
       {sp.descadastrado && (

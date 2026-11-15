@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { serverClient } from '@/lib/supabase/server';
 import { adminClient } from '@/lib/supabase/admin';
+import { seedContent } from '@/lib/content/seed';
 import type { FormState } from './auth';
 
 async function staff() {
@@ -291,6 +292,15 @@ export async function saveVocab(_: FormState, form: FormData): Promise<FormState
   if (error) return { error: 'Não foi possível salvar.' };
   revalidatePath('/admin/conteudo');
   return { ok: 'Item salvo.' };
+}
+
+/** Carrega (ou atualiza) as unidades, o vocabulário e as questões do e-book no banco. Só admin. */
+export async function reloadContent() {
+  const { role } = await staff();
+  if (role !== 'admin') throw new Error('Só o admin carrega conteúdo.');
+  await seedContent(adminClient());
+  revalidatePath('/admin/conteudo');
+  redirect('/admin/conteudo?carregado=1');
 }
 
 export async function publishLegal(_: FormState, form: FormData): Promise<FormState> {

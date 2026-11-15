@@ -13,10 +13,10 @@ npm run dev:local        # http://localhost:3000
 
 Na primeira vez o app prepara sozinho um banco embutido (PGlite, com as migrations e a RLS reais), carrega o conteúdo do e-book e cria dois usuários de teste. Os dados ficam em `.local-data/` (ignorado pelo git).
 
-| Papel | E-mail | Senha |
-|---|---|---|
+| Papel                       | E-mail                   | Senha           |
+| --------------------------- | ------------------------ | --------------- |
 | Professora (admin, vê tudo) | `professora@teste.local` | `professora123` |
-| Aluno | `aluno@teste.local` | `aluno123` |
+| Aluno                       | `aluno@teste.local`      | `aluno123`      |
 
 O aluno de teste já vem com histórico simulado de 14 dias. Para recomeçar do zero: pare o servidor e rode `npm run local:reset`.
 
@@ -67,6 +67,10 @@ npm run test:e2e          # Playwright: login, exercícios, flashcards, professo
 - Autoria: `scripts/content/*.ts`. O comando `npm run content:build` gera `content/data/*.json` (conjugações são lidas direto do texto-fonte).
 - Pendências de revisão: `content/REVIEW.md`. Itens com `needs_review: true` não aparecem para o aluno, nem em exercícios, flashcards ou áudio.
 - Novo nível (A2): adicione arquivos como `content/data/units.a2.json` e `questions.a2.json` com `"level": "A2"`. Nenhum código muda. Rode `content:validate` e `content:seed`.
+
+## Colocar online com login e banco
+
+Veja `DEPLOY.md` (passo a passo para celular: Supabase, `supabase/setup.sql`, hospedagem, `/setup` para criar a administradora, CSV de atividades).
 
 ## Publicar na VPS
 
