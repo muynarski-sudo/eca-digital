@@ -33,10 +33,11 @@ for key, text in texts.items():
     wav = os.path.join(tmp, f'{key}.wav')
     with wave.open(wav, 'wb') as w:
         voice.synthesize_wav(text, w)
-    # tira o silêncio do começo e do fim, normaliza o volume e comprime (mono, 22 kHz, 40 kbps)
+    # tira o silêncio só do começo e do fim (não pode cortar nas pausas do meio: com stop_periods o áudio era cortado na primeira vírgula),
+    # normaliza o volume e comprime (mono, 22 kHz, 40 kbps)
     subprocess.run([
         'ffmpeg', '-y', '-loglevel', 'error', '-i', wav,
-        '-af', 'silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=1:stop_threshold=-45dB:stop_duration=0.15,loudnorm=I=-18:TP=-2:LRA=7',
+        '-af', 'silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,loudnorm=I=-18:TP=-2:LRA=7',
         '-ac', '1', '-ar', '22050', '-codec:a', 'libmp3lame', '-b:a', '40k', mp3,
     ], check=True)
     os.remove(wav)

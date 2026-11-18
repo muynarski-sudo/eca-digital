@@ -98,3 +98,10 @@ O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exer
 - Os assuntos de cada questão foram atribuídos pela estrutura do e-book (capítulo, categoria do vocabulário, situação das frases) em `scripts/content/topics.ts`. Confira se concorda, por exemplo: "Quanto custa?" em Compras, "Tenho fome, onde é o restaurante?" em Restaurante, profissões em Trabalho.
 - Os níveis 1, 2 e 3 são critério desta plataforma (reconhecer, escrever, frases e formas menos comuns), não do e-book.
 - Passé composé, imparfait, futur proche e futur simple ficaram só como tabela de consulta, sem exercícios.
+
+## 7. Leitura, gramática e vocabulário por nível (A2 a C2 e frases): conferir com falante nativo
+
+- **Textos de leitura** (`content/data/readings.json`, 18 textos, ids `rd-...`): escritos para esta plataforma. Os 6 de A1 usam só o presente e vocabulário do e-book. Os de A2 a C2 são conteúdo extra. Confira naturalidade, gramática e se as perguntas e opções (em português) estão sem ambiguidade.
+- **Palavras por nível** (`content/data/lexicon.json`, 153 palavras, ids `lx-...`): A2 a C2. Confira as traduções, em especial as de C1 e C2 (por exemplo "gageure", "apanage", "écueil", "sous-tendre").
+- **Frases da gramática** (272 questões, ids `q-gr-...`): as frases são autorais e simples; as respostas vêm da tabela de conjugações do e-book. Algumas combinações podem soar estranhas (por exemplo "Demain, je vais vouloir un café"). Se alguma incomodar, ajuste em `scripts/content/library.ts` (lista COMPLEMENTS e MARKERS).
+- **Áudio:** voz sintética (Piper), nunca ouvida por nativo. Ouça pelo menos 3 textos (um A1, um B1 e um C2) antes de liberar para os alunos.

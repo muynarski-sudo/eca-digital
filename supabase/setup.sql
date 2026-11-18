@@ -597,3 +597,11 @@ create index if not exists attempts_student_concept_idx on public.attempts (stud
 -- Assunto de cada questão (viagem, restaurante, compras, trabalho, horário do dia...), para o aluno filtrar a prática.
 alter table public.questions add column if not exists topic text not null default 'dia_a_dia';
 create index if not exists questions_topic_idx on public.questions (topic) where active;
+
+-- ===== 20260101000010_tracks.sql =====
+-- Áreas de leitura, gramática e vocabulário por nível (CEFR), ao lado da trilha do e-book.
+-- track: 'trilha' (padrão, treino diário e unidades), 'leitura', 'gramatica' ou 'vocabulario'.
+alter table public.questions add column if not exists track text not null default 'trilha';
+alter table public.questions add column if not exists cefr text;
+alter table public.questions add column if not exists reading_id text;
+create index if not exists questions_track_idx on public.questions (track, cefr) where active;

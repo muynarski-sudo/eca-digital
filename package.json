@@ -25,7 +25,8 @@
     "dev:local": "APP_BACKEND=local next dev",
     "start:local": "APP_BACKEND=local next build && APP_BACKEND=local next start",
     "local:reset": "rm -rf .local-data",
-    "audio:play": "tsx scripts/play-texts.ts && python3 scripts/play_audio.py --voice ${PIPER_VOICE:-voices/fr_FR-siwis-medium.onnx}"
+    "audio:play": "tsx scripts/play-texts.ts && python3 scripts/play_audio.py --voice ${PIPER_VOICE:-voices/fr_FR-siwis-medium.onnx}",
+    "audio:reading": "tsx scripts/reading-texts.ts && python3 scripts/play_audio.py --voice ${PIPER_VOICE:-voices/fr_FR-siwis-medium.onnx} --texts .audio-cache/reading-texts.json --out public/audio/reading"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

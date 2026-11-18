@@ -7,6 +7,7 @@ import { AudioButton } from '@/components/ui/AudioButton';
 import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { LEVEL_LABELS, topicLabel } from '@/lib/content/labels';
+import { ClipButton } from '@/components/library/ClipButton';
 import { ExerciseShell } from './ExerciseShell';
 import { Feedback } from './Feedback';
 import { SpeakRecorder } from './SpeakRecorder';
@@ -181,6 +182,7 @@ export function ExerciseRunner({
         </p>
       )}
       <p className="text-lg font-bold text-brand-blue-dark">{q.prompt}</p>
+      {q.clip && <ClipButton src={q.clip.src} text={q.clip.text} label="Ouvir a palavra" />}
       {q.hint && !answered && <p className="text-ink-muted">Dica: {q.hint}</p>}
 
       {q.type === 'dictation' && (

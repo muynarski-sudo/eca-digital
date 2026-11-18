@@ -63,3 +63,13 @@ export const LEVEL_LABELS: Record<number, string> = {
   2: 'Intermediário',
   3: 'Avançado',
 };
+
+/** Níveis do Quadro Europeu (CEFR), com uma descrição para o aluno escolher. */
+export const CEFR_INFO: Record<string, { name: string; hint: string }> = {
+  A1: { name: 'Iniciante', hint: 'Frases simples do dia a dia, no presente.' },
+  A2: { name: 'Básico', hint: 'Passado e planos simples, situações cotidianas.' },
+  B1: { name: 'Intermediário', hint: 'Histórias, experiências e opiniões em vários tempos.' },
+  B2: { name: 'Intermediário superior', hint: 'Textos mais longos e argumentos.' },
+  C1: { name: 'Avançado', hint: 'Textos densos, vocabulário preciso.' },
+  C2: { name: 'Proficiente', hint: 'Textos elaborados e nuances de estilo.' },
+};

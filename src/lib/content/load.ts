@@ -5,7 +5,9 @@ import {
   type Conjugation,
   type CultureTip,
   type Dialogue,
+  type LexiconItem,
   type Phrase,
+  type Reading,
   type Question,
   type Unit,
   type VocabItem,
@@ -19,6 +21,8 @@ export interface ContentBundle {
   dialogues: Dialogue[];
   phrases: Phrase[];
   culture: CultureTip[];
+  readings: Reading[];
+  lexicon: LexiconItem[];
 }
 
 /** Lê e valida todos os arquivos de content/data. Aceita sufixos (ex.: units.a2.json) para novos níveis. */
@@ -38,6 +42,8 @@ export function loadContent(dir = path.join(process.cwd(), 'content', 'data')): 
     dialogues: contentSchemas['dialogues.json'].parse(rows('dialogues.json')),
     phrases: contentSchemas['phrases.json'].parse(rows('phrases.json')),
     culture: contentSchemas['culture.json'].parse(rows('culture.json')),
+    readings: contentSchemas['readings.json'].parse(rows('readings.json')),
+    lexicon: contentSchemas['lexicon.json'].parse(rows('lexicon.json')),
   };
 }
 

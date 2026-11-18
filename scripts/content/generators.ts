@@ -20,7 +20,7 @@ export const ascii = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 
-function hash(s: string): number {
+export function hash(s: string): number {
   let h = 2166136261;
   for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
   return h >>> 0;
@@ -51,7 +51,8 @@ type Base = Pick<
   | 'concept'
 > &
   Partial<Question>;
-const mk = (q: Base): Question => ({ source: 'ebook', needs_review: false, ...q }) as Question;
+export const mk = (q: Base): Question =>
+  ({ source: 'ebook', needs_review: false, ...q }) as Question;
 
 const usableVocab = (v: VocabItem) =>
   !v.needs_review && v.category !== 'alfabeto' && v.category !== 'numeros';

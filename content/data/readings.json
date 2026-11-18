@@ -1,0 +1,221 @@
+[
+ {
+  "id": "rd-a1-presentation",
+  "level": "A1",
+  "title": "Je m'appelle Camille",
+  "title_pt": "Eu me chamo Camille",
+  "paragraphs": [
+   "Bonjour ! Je m'appelle Camille. J'ai vingt-cinq ans. Je suis française et j'habite à Lyon. Je suis professeur.",
+   "J'aime le café et j'aime lire. Mon amie s'appelle Sophie. Elle est brésilienne."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a1-famille",
+  "level": "A1",
+  "title": "Ma famille",
+  "title_pt": "Minha família",
+  "paragraphs": [
+   "Je m'appelle Lucas. J'ai une grande famille. Mon père s'appelle Marc et ma mère s'appelle Anne.",
+   "J'ai un frère et une sœur. Mon frère a douze ans. Ma sœur a huit ans. Nous avons aussi un chat. Il s'appelle Max. Le week-end, nous mangeons ensemble."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a1-journee",
+  "level": "A1",
+  "title": "Ma journée",
+  "title_pt": "Meu dia",
+  "paragraphs": [
+   "Je m'appelle Julie. Le matin, je mange du pain et je bois un café. Je commence à travailler à huit heures.",
+   "À midi, je mange avec mes amis. Je finis à cinq heures. Le soir, je dîne à sept heures et je regarde la télévision. Je vais au lit à dix heures."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a1-restaurant",
+  "level": "A1",
+  "title": "Au restaurant",
+  "title_pt": "No restaurante",
+  "paragraphs": [
+   "Aujourd'hui, nous allons au restaurant. Nous sommes quatre. Le serveur est très gentil.",
+   "Je voudrais un plat principal et une boisson. Mon mari veut une soupe. Les enfants veulent une pizza. À la fin, nous demandons l'addition. Elle est de quarante euros."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a1-aeroport",
+  "level": "A1",
+  "title": "À l'aéroport",
+  "title_pt": "No aeroporto",
+  "paragraphs": [
+   "Je suis à l'aéroport de Paris. Mon vol est à dix heures. Je vais à Rio de Janeiro. J'ai un billet et une valise.",
+   "La porte d'embarquement est la porte douze. Il fait beau aujourd'hui. Je suis content !"
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a1-saisons",
+  "level": "A1",
+  "title": "Les quatre saisons",
+  "title_pt": "As quatro estações",
+  "paragraphs": [
+   "En France, il y a quatre saisons. En été, il fait chaud et on va à la plage. En automne, il pleut souvent.",
+   "En hiver, il fait froid et il neige. Au printemps, les fleurs commencent à pousser. Ma saison préférée, c'est le printemps."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a2-weekend-paris",
+  "level": "A2",
+  "title": "Un week-end à Paris",
+  "title_pt": "Um fim de semana em Paris",
+  "paragraphs": [
+   "Le week-end dernier, je suis allée à Paris avec ma sœur. Nous avons pris le train samedi matin. À Paris, nous avons visité la tour Eiffel et nous avons mangé dans un petit restaurant.",
+   "Le soir, nous avons regardé un film à l'hôtel. Dimanche, il a plu, alors nous sommes restées à l'intérieur. Le week-end prochain, je vais rester chez moi pour me reposer."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a2-vacances",
+  "level": "A2",
+  "title": "Mes projets de vacances",
+  "title_pt": "Meus planos de férias",
+  "paragraphs": [
+   "Cet été, ma famille et moi, nous allons passer deux semaines au Portugal. Nous allons prendre l'avion le premier juillet. Mon père a déjà réservé un petit hôtel près de la mer.",
+   "Ma mère va acheter un nouveau maillot de bain, et mon frère va apprendre à faire de la planche à voile. Moi, je vais lire beaucoup de livres sur la plage. Je suis très impatiente !"
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-a2-marche",
+  "level": "A2",
+  "title": "Au marché",
+  "title_pt": "No mercado",
+  "paragraphs": [
+   "Samedi matin, je vais au marché de mon quartier. Il y a beaucoup de monde. Je cherche des fruits et des légumes. Hier, j'ai acheté des pommes, mais aujourd'hui je voudrais des fraises.",
+   "La vendeuse est très sympathique. Elle me dit : « Les fraises coûtent six euros le kilo. » Je prends un kilo de fraises et aussi du fromage. Je paie vingt euros et je rentre à la maison."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-b1-enfance",
+  "level": "B1",
+  "title": "La ville de mon enfance",
+  "title_pt": "A cidade da minha infância",
+  "paragraphs": [
+   "Quand j'étais petit, j'habitais dans un village près de Bordeaux. Tous les matins, je marchais jusqu'à l'école avec mes copains, et le soir nous jouions au football dans la rue. Il n'y avait pas beaucoup de voitures et tout le monde se connaissait.",
+   "Puis, à quinze ans, ma famille a déménagé à Paris à cause du travail de mon père. Au début, je n'aimais pas cette grande ville : elle était bruyante, et je me sentais seul. Mais peu à peu, j'ai rencontré de nouveaux amis et j'ai découvert des musées, des cinémas, des librairies. Aujourd'hui, je pense que j'ai eu de la chance de connaître les deux mondes."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-b1-entretien",
+  "level": "B1",
+  "title": "Un entretien d'embauche",
+  "title_pt": "Uma entrevista de emprego",
+  "paragraphs": [
+   "Hier, Sarah avait un entretien pour un poste de responsable commerciale dans une entreprise de Lyon. Elle s'est réveillée très tôt parce qu'elle était nerveuse. Elle a préparé ses documents, puis elle a pris le métro.",
+   "Quand elle est arrivée, la directrice l'a accueillie avec un grand sourire et lui a posé beaucoup de questions sur son expérience et sur ses projets. Sarah a répondu calmement. À la fin, la directrice a dit : « Nous vous appellerons la semaine prochaine. » Sarah est sortie contente, mais elle attend encore la réponse."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-b1-train",
+  "level": "B1",
+  "title": "Un voyage en train",
+  "title_pt": "Uma viagem de trem",
+  "paragraphs": [
+   "Le mois dernier, j'ai voyagé en train de Paris à Marseille pour rendre visite à une amie. Le départ était prévu à neuf heures, mais le train a eu une heure de retard à cause d'un problème technique. Pendant l'attente, j'ai acheté un café et j'ai lu mon livre.",
+   "Dans le train, j'étais assis à côté d'une dame très sympathique qui allait voir sa petite-fille. Nous avons parlé pendant tout le voyage. Quand je suis arrivé, mon amie m'attendait sur le quai avec un grand sourire. Je n'oublierai jamais ce voyage."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-b2-teletravail",
+  "level": "B2",
+  "title": "Le télétravail : liberté ou isolement ?",
+  "title_pt": "Teletrabalho: liberdade ou isolamento?",
+  "paragraphs": [
+   "Depuis la pandémie, le télétravail s'est installé durablement dans de nombreuses entreprises. Pour beaucoup de salariés, il représente une vraie liberté : on gagne du temps en évitant les transports, on organise sa journée comme on le souhaite et on peut même passer plus de moments en famille.",
+   "Cependant, cette organisation n'est pas sans inconvénients. Certains employés avouent qu'ils se sentent isolés et qu'ils ont du mal à séparer leur vie professionnelle de leur vie privée. Par ailleurs, les échanges spontanés avec les collègues, souvent à l'origine d'idées nouvelles, deviennent plus rares.",
+   "C'est pourquoi de nombreuses sociétés adoptent aujourd'hui un modèle hybride : deux ou trois jours à la maison, le reste au bureau. Reste à savoir si cet équilibre convient à tout le monde."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-b2-dechets",
+  "level": "B2",
+  "title": "Réduire nos déchets",
+  "title_pt": "Reduzir nosso lixo",
+  "paragraphs": [
+   "Chaque année, nous produisons une quantité impressionnante de déchets. Face à ce constat, de plus en plus de citoyens essaient de changer leurs habitudes. Certains achètent en vrac pour éviter les emballages, d'autres réparent leurs appareils au lieu de les jeter.",
+   "Les associations organisent aussi des ateliers de couture et des repas de quartier avec des produits invendus. Pourtant, les efforts individuels ne suffisent pas : selon plusieurs experts, ce sont surtout les industriels qui doivent repenser la fabrication des produits pour qu'ils durent plus longtemps. Il faudrait donc que les lois soient plus strictes, mais aussi que chacun prenne conscience de l'impact de ses achats."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-c1-langues-adultes",
+  "level": "C1",
+  "title": "Apprendre une langue à l'âge adulte",
+  "title_pt": "Aprender uma língua na idade adulta",
+  "paragraphs": [
+   "On entend souvent dire qu'il est trop tard pour apprendre une langue après l'adolescence. Les recherches en psychologie cognitive nuancent pourtant cette idée reçue : si les enfants imitent plus facilement les sons d'une langue, les adultes disposent d'atouts considérables, comme une meilleure capacité d'analyse, une expérience de vie qui leur permet de relier les mots nouveaux à des situations concrètes et, surtout, la possibilité de choisir leurs méthodes.",
+   "Encore faut-il avoir la patience d'accepter les erreurs, car c'est en se trompant qu'on progresse. Plusieurs enseignants conseillent d'ailleurs de se fixer des objectifs modestes mais réguliers, plutôt que de viser des progrès spectaculaires qui, faute de résultats immédiats, découragent rapidement. À long terme, la constance l'emporte presque toujours sur l'intensité."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-c1-patrimoine",
+  "level": "C1",
+  "title": "Le patrimoine et la mémoire des villes",
+  "title_pt": "O patrimônio e a memória das cidades",
+  "paragraphs": [
+   "Dans de nombreuses villes européennes, la question de la conservation du patrimoine divise les habitants. Pour les uns, préserver les façades anciennes et les quartiers historiques est une manière de garder vivante la mémoire collective ; pour les autres, cette volonté de figer le passé risque de transformer le centre-ville en musée, dont les habitants seraient peu à peu chassés par la hausse des loyers et le tourisme de masse.",
+   "Les urbanistes tentent donc de concilier ces exigences : ils encouragent la rénovation des bâtiments existants plutôt que leur démolition, tout en imposant des règles pour que les commerces de proximité ne disparaissent pas au profit de boutiques destinées aux seuls visiteurs. Le défi consiste à faire d'une ville un lieu où l'on vit, et non un décor."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-c2-lecture-ecrans",
+  "level": "C2",
+  "title": "Lire à l'ère des écrans",
+  "title_pt": "Ler na era das telas",
+  "paragraphs": [
+   "Longtemps, on a cru que l'écran signerait la fin du livre. Les prophètes de malheur annonçaient des bibliothèques désertes, des librairies transformées en boutiques de souvenirs, et une jeunesse définitivement acquise à l'image. Or, force est de constater que les choses se sont passées avec plus de nuances : la lecture n'a pas disparu, elle s'est déplacée.",
+   "On lit désormais sur des supports multiples, en fragments, souvent à la dérobée, entre deux stations de métro ou au creux d'une insomnie. Cette dispersion inquiète certains pédagogues, qui redoutent que l'attention, devenue denrée rare, ne se prête plus à l'effort que réclame un roman dense. D'autres, plus optimistes, rappellent que chaque révolution technique a suscité les mêmes craintes ; Socrate lui-même, dit-on, se méfiait de l'écriture, qu'il soupçonnait d'affaiblir la mémoire.",
+   "Ce qui importe, peut-être, n'est pas le support mais la manière dont nous habitons le texte : y entrer pleinement, accepter d'être déplacé par lui, voilà ce que ni la page ni l'écran ne garantissent d'eux-mêmes."
+  ],
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "rd-c2-lenteur",
+  "level": "C2",
+  "title": "Éloge de la lenteur",
+  "title_pt": "Elogio da lentidão",
+  "paragraphs": [
+   "Dans une société qui valorise la vitesse, la lenteur passe volontiers pour une faiblesse, voire pour une forme de paresse. On s'impatiente devant un site qui tarde à s'afficher, on réclame des réponses immédiates et l'on mesure la valeur d'une journée au nombre de tâches accomplies.",
+   "Pourtant, certains penseurs plaident pour une réhabilitation de la lenteur : non par nostalgie d'un âge d'or qui n'a sans doute jamais existé, mais parce que les expériences les plus profondes — apprendre, aimer, créer — exigent du temps. Cuisiner un plat mijoté, marcher sans but précis ou relire un poème, c'est consentir à une durée qui ne se laisse pas comprimer.",
+   "Ralentir ne signifie donc pas renoncer à l'efficacité ; c'est plutôt choisir ce qui mérite d'être fait sans hâte, et en faire un acte délibéré plutôt qu'une contrainte subie."
+  ],
+  "source": "generated",
+  "needs_review": false
+ }
+]

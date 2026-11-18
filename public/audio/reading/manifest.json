@@ -1,0 +1,24 @@
+{
+ "voice": "fr_FR-siwis-medium (Piper)",
+ "credit": "Vozes sintetizadas com Piper, a partir da base SIWIS (Universidade de Edimburgo), licença CC BY 4.0.",
+ "keys": [
+  "rd-a1-aeroport",
+  "rd-a1-famille",
+  "rd-a1-journee",
+  "rd-a1-presentation",
+  "rd-a1-restaurant",
+  "rd-a1-saisons",
+  "rd-a2-marche",
+  "rd-a2-vacances",
+  "rd-a2-weekend-paris",
+  "rd-b1-enfance",
+  "rd-b1-entretien",
+  "rd-b1-train",
+  "rd-b2-dechets",
+  "rd-b2-teletravail",
+  "rd-c1-langues-adultes",
+  "rd-c1-patrimoine",
+  "rd-c2-lecture-ecrans",
+  "rd-c2-lenteur"
+ ]
+}

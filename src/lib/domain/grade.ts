@@ -156,7 +156,11 @@ export function gradeQuestion(
     return { verdict: ok ? 'correct' : 'wrong', score: ok ? 1 : 0, expected: q.answers[0] ?? '' };
   }
   return gradeText(text, q.answers, {
-    subject: q.type === 'conjugate',
+    subject:
+      q.type === 'conjugate' ||
+      (q.type === 'fill_blank' &&
+        !!q.prompt &&
+        /(?:\b(?:je|tu|il|elle|on|nous|vous|ils|elles)|j')\s*_{2,}/i.test(q.prompt)),
     dayPart: q.type === 'write_out',
     fuzzy: q.type === 'translate_pt_fr' || q.type === 'fill_blank',
     extra: q.type === 'fill_blank' && q.prompt ? filledSentences(q.prompt, q.answers) : undefined,

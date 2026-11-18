@@ -628,3 +628,11 @@ td {
 th.muted {
   font-weight: 400;
 }
+.nolink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.nolink:hover .card {
+  border-color: var(--blue);
+}

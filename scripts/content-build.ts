@@ -13,6 +13,13 @@ import { units } from './content/units';
 import { vocab } from './content/vocab';
 import { ebookQuestions } from './content/questions-ebook';
 import { assignTopics } from './content/topics';
+import {
+  grammarLevelExercises,
+  lexiconFromSource,
+  lexiconQuestions,
+  readingQuestions,
+  readingsFromSource,
+} from './content/library';
 import { dialogues, phrases, culture } from './content/texts';
 import {
   Dedup,
@@ -87,6 +94,7 @@ function main() {
   const conjs = parseConjugations();
   if (conjs.length !== 17) throw new Error(`Esperava 17 verbos, achei ${conjs.length}`);
   const dedup = new Dedup();
+  const lexicon = lexiconFromSource();
   // exercícios do próprio e-book (com gabarito) vêm primeiro e têm prioridade sobre os gerados
   const fromEbook = ebookQuestions.map((q) => ({ ...q, concept: `ex:${q.id}` }));
   dedup.take(fromEbook);
@@ -100,8 +108,15 @@ function main() {
     ...numberExercises(),
     ...timeExercises(),
     ...conjugationExercises(conjs),
+    ...grammarLevelExercises(conjs),
+    ...lexiconQuestions(lexicon, vocab),
   ]);
-  const questions = assignTopics([...fromEbook, ...generated], vocab, phrases);
+  // perguntas de leitura podem repetir o enunciado de um texto para outro ("Qual é a conclusão do autor?"), então não passam pelo filtro de repetidas
+  const questions = assignTopics(
+    [...fromEbook, ...generated, ...readingQuestions()],
+    vocab,
+    phrases,
+  );
   const ids = new Set<string>();
   for (const q of questions) {
     if (ids.has(q.id)) throw new Error(`id repetido na geração: ${q.id}`);
@@ -115,6 +130,8 @@ function main() {
     'dialogues.json': dialogues,
     'phrases.json': phrases,
     'culture.json': culture,
+    'readings.json': readingsFromSource(),
+    'lexicon.json': lexicon,
   } as const;
   mkdirSync('content/data', { recursive: true });
   for (const [file, rows] of Object.entries(data)) {

@@ -6,6 +6,9 @@ import { serverClient } from '@/lib/supabase/server';
 
 const NAV = [
   { href: '/inicio', label: 'Início' },
+  { href: '/leitura', label: 'Leitura' },
+  { href: '/gramatica', label: 'Gramática' },
+  { href: '/vocabulario', label: 'Vocabulário' },
   { href: '/trilha', label: 'Trilha' },
   { href: '/assuntos', label: 'Assuntos' },
   { href: '/flashcards', label: 'Flashcards' },

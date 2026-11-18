@@ -32,6 +32,9 @@ export const mapQuestion = (r: Row): Question => ({
   error_tags: (r.error_tags as string[]) ?? [],
   difficulty: r.difficulty as number,
   topic: ((r.topic as string | null) ?? 'dia_a_dia') as Question['topic'],
+  track: ((r.track as string | null) ?? 'trilha') as Question['track'],
+  cefr: ((r.cefr as string | null) ?? undefined) as Question['cefr'],
+  reading: (r.reading_id as string | null) ?? undefined,
   source: r.source as Question['source'],
   needs_review: r.needs_review as boolean,
 });
@@ -95,6 +98,7 @@ export async function getQuestionMeta(
       .select('id,unit_id,type,concept,difficulty,topic')
       .eq('active', true)
       .eq('needs_review', false)
+      .eq('track', 'trilha')
       .order('id')
       .range(from, from + PAGE - 1);
     if (opts.unit) q = q.eq('unit_id', opts.unit);
@@ -120,4 +124,70 @@ export async function getQuestionMeta(
     if (rows.length < PAGE) break;
   }
   return out;
+}
+
+export interface LibraryMeta {
+  id: string;
+  type: string;
+  concept: string;
+  difficulty: number;
+  cefr: string;
+  reading: string | null;
+}
+
+/** Dados leves das questões de uma área (leitura, gramática ou vocabulário), opcionalmente de um nível. */
+export async function getLibraryMeta(
+  db: SupabaseClient,
+  track: 'leitura' | 'gramatica' | 'vocabulario',
+  cefr?: string,
+): Promise<LibraryMeta[]> {
+  const out: LibraryMeta[] = [];
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    let q = db
+      .from('questions')
+      .select('id,type,concept,difficulty,cefr,reading_id')
+      .eq('active', true)
+      .eq('needs_review', false)
+      .eq('track', track)
+      .order('id')
+      .range(from, from + PAGE - 1);
+    if (cefr) q = q.eq('cefr', cefr);
+    const { data, error } = await q;
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as Array<{
+      id: string;
+      type: string;
+      concept: string | null;
+      difficulty: number;
+      cefr: string | null;
+      reading_id: string | null;
+    }>;
+    for (const r of rows)
+      out.push({
+        id: r.id,
+        type: r.type,
+        concept: r.concept ?? r.id,
+        difficulty: r.difficulty,
+        cefr: r.cefr ?? '',
+        reading: r.reading_id,
+      });
+    if (rows.length < PAGE) break;
+  }
+  return out;
+}
+
+/** Perguntas de um texto de leitura, na ordem. */
+export async function getQuestionsOfReading(
+  db: SupabaseClient,
+  readingId: string,
+): Promise<Question[]> {
+  const { data, error } = await db
+    .from('questions')
+    .select('*')
+    .eq('active', true)
+    .eq('reading_id', readingId)
+    .order('id');
+  if (error) throw new Error(error.message);
+  return (data ?? []).map(mapQuestion).filter((x) => !x.needs_review);
 }

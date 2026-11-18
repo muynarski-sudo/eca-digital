@@ -43,6 +43,13 @@ export const TOPICS = [
 ] as const;
 export type Topic = (typeof TOPICS)[number];
 
+/** Níveis do Quadro Europeu (CEFR). O e-book cobre o A1; os demais são conteúdo extra gerado (revisar). */
+export const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as const;
+export type Cefr = (typeof CEFR)[number];
+/** Onde a questão aparece: trilha do e-book, ou as áreas de leitura, gramática e vocabulário por nível. */
+export const TRACKS = ['trilha', 'leitura', 'gramatica', 'vocabulario'] as const;
+export type Track = (typeof TRACKS)[number];
+
 export const PERSONS = ['je', 'tu', 'il', 'nous', 'vous', 'ils'] as const;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9_.-]*$/i);
@@ -93,6 +100,11 @@ export const questionSchema = z
     /** 1 = iniciante (reconhecer), 2 = intermediário (lembrar e escrever), 3 = avançado (frases e formas menos comuns). */
     difficulty: z.number().int().min(1).max(3),
     topic: z.enum(TOPICS).default('dia_a_dia'),
+    track: z.enum(TRACKS).default('trilha'),
+    /** Nível CEFR das áreas de leitura, gramática e vocabulário. */
+    cefr: z.enum(CEFR).optional(),
+    /** Leitura: id do texto a que a pergunta pertence. */
+    reading: id.optional(),
     ...meta,
   })
   .superRefine((q, ctx) => {
@@ -160,6 +172,26 @@ export const phraseSchema = z.object({
   ...meta,
 });
 
+/** Texto de leitura por nível (estilo lingua.com): texto, áudio e perguntas de compreensão (que ficam em questions.json). */
+export const readingSchema = z.object({
+  id,
+  level: z.enum(CEFR),
+  title: z.string().min(1),
+  title_pt: z.string().min(1),
+  /** Um parágrafo por item. O áudio lê todos em ordem. */
+  paragraphs: z.array(z.string().min(1)).min(1),
+  ...meta,
+});
+
+/** Palavra solta de um nível, para o exercício de vocabulário (as do A1 vêm do vocabulário do e-book). */
+export const lexiconSchema = z.object({
+  id,
+  level: z.enum(CEFR),
+  fr: z.string().min(1),
+  pt: z.string().min(1),
+  ...meta,
+});
+
 export const cultureSchema = z.object({
   id,
   unit: id,
@@ -174,6 +206,8 @@ export type Question = z.infer<typeof questionSchema>;
 export type Conjugation = z.infer<typeof conjugationSchema>;
 export type Dialogue = z.infer<typeof dialogueSchema>;
 export type Phrase = z.infer<typeof phraseSchema>;
+export type Reading = z.infer<typeof readingSchema>;
+export type LexiconItem = z.infer<typeof lexiconSchema>;
 export type CultureTip = z.infer<typeof cultureSchema>;
 export type Person = (typeof PERSONS)[number];
 export type Tense = (typeof TENSES)[number];
@@ -186,4 +220,6 @@ export const contentSchemas = {
   'dialogues.json': z.array(dialogueSchema),
   'phrases.json': z.array(phraseSchema),
   'culture.json': z.array(cultureSchema),
+  'readings.json': z.array(readingSchema),
+  'lexicon.json': z.array(lexiconSchema),
 } as const;

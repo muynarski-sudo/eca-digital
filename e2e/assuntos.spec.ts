@@ -14,11 +14,18 @@ test('assuntos: lista, pratica por assunto, nível aparece e a conjugação só 
   await entrar(page);
   await page.goto('/assuntos');
   await expect(page.getByRole('heading', { name: 'Assuntos', level: 1 })).toBeVisible();
-  for (const nome of ['Apresentação', 'Viagem', 'Restaurante e pedidos', 'Compras', 'Trabalho e profissões', 'Horário do dia'])
+  for (const nome of [
+    'Apresentação',
+    'Viagem',
+    'Restaurante e pedidos',
+    'Compras',
+    'Trabalho e profissões',
+    'Horário do dia',
+  ])
     await expect(page.getByRole('heading', { name: new RegExp(nome) })).toBeVisible();
 
   await page.goto('/praticar?assunto=apresentacao');
-  await expect(page.getByText(/Nível 1, Iniciante/)).toBeVisible();
+  await expect(page.getByText(/Nível \d, (Iniciante|Intermediário|Avançado)/)).toBeVisible();
   await expect(page.getByLabel('Nível e assunto')).toContainText('Apresentação');
   await expect(page.getByLabel('Nível e assunto')).toContainText('Nível 1');
 
@@ -27,7 +34,9 @@ test('assuntos: lista, pratica por assunto, nível aparece e a conjugação só 
 
   await page.goto('/conjugacao');
   const tempos = await page.locator('#tempo option').allTextContents();
-  expect(tempos.filter((t) => !t.includes('só consulta')).map((t) => t.trim())).toEqual(['Présent']);
+  expect(tempos.filter((t) => !t.includes('só consulta')).map((t) => t.trim())).toEqual([
+    'Présent',
+  ]);
   await page.goto('/conjugacao?tempo=passe_compose&modo=praticar');
   await expect(page.getByText(/ainda não é ensinado/)).toBeVisible();
 });

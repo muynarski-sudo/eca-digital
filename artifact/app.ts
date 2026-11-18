@@ -9,6 +9,9 @@ import conjugationsJson from '../content/data/conjugations.json';
 import phrasesJson from '../content/data/phrases.json';
 import { mountPlay } from '../src/lib/play/mount';
 import cultureJson from '../content/data/culture.json';
+import readingsJson from '../content/data/readings.json';
+import { clipKey } from '../src/lib/play/clipkey';
+import { selectQuestions } from '../src/lib/domain/select';
 import { gradeQuestion } from '../src/lib/domain/grade';
 import { newCard, qualityFrom, review, isDue } from '../src/lib/domain/srs';
 import {
@@ -23,7 +26,7 @@ import {
 } from '../src/lib/domain/mastery';
 import { planDaily, planTopic, planUnit } from '../src/lib/domain/plan';
 import { levelFor } from '../src/lib/domain/level';
-import { LEVEL_LABELS, TOPIC_INFO, topicLabel } from '../src/lib/content/labels';
+import { CEFR_INFO, LEVEL_LABELS, TOPIC_INFO, topicLabel } from '../src/lib/content/labels';
 import { coverageFor } from '../src/lib/domain/mastery';
 import { weeklySummary } from '../src/lib/domain/metrics';
 import { TAG_LABELS } from '../src/lib/data/weak';
@@ -31,8 +34,10 @@ import { PERSONS, PRACTICE_TENSES, TENSES, TOPICS } from '../src/lib/content/sch
 import { PERSON_LABELS, TENSE_LABELS, splitSubject } from '../src/lib/content/conjugation';
 
 const UNITS = unitsJson;
-const Q = questionsJson.filter((q) => !q.needs_review && q.type !== 'speak');
-const QBY = new Map(Q.map((q) => [q.id, q]));
+const QALL = questionsJson.filter((q) => !q.needs_review && q.type !== 'speak');
+// a trilha do e-book (treino diário, unidades, assuntos); leitura, gramática e vocabulário por nível têm telas próprias
+const Q = QALL.filter((q) => (q.track ?? 'trilha') === 'trilha');
+const QBY = new Map(QALL.map((q) => [q.id, q]));
 const VOCAB = vocabJson.filter(
   (v) => !v.needs_review && v.category !== 'alfabeto' && v.category !== 'numeros',
 );
@@ -276,6 +281,19 @@ const fr = (f, pt, pron) =>
 const speak = (text) =>
   `<button class="btn ghost" data-a="say" data-t="${esc(text)}" aria-label="Ouvir"><span aria-hidden="true">▶</span> Ouvir</button>`;
 const fmt = (t) => new Date(t).toLocaleDateString('pt-BR');
+const playClip = (text) => {
+  const C = window.__PLAY_CLIPS__;
+  const key = clipKey(text);
+  if (C && C.keys && C.keys.includes(key)) {
+    try {
+      const a = new Audio((C.inline && C.inline[key]) || C.base + key + '.mp3');
+      a.onerror = () => sayNow(text);
+      a.play().catch(() => sayNow(text));
+      return;
+    } catch {}
+  }
+  sayNow(text);
+};
 const sayNow = (text) => {
   try {
     const u = new SpeechSynthesisUtterance(text);
@@ -392,6 +410,113 @@ function vInicio() {
   <div class="card"><h2>Tarefa da professora</h2>${todo.length ? todo.map((a) => `<div class="row"><div><p class="strong">${esc(a.title)}</p><p class="small">Prazo: ${fmt(a.due)}${a.due < Date.now() ? ' <span class="badge b-warn">! Atrasada</span>' : ''}</p></div><button class="btn sec" data-a="tarefa" data-id="${a.id}">Fazer tarefa</button></div>`).join('') : '<p>Nada pendente por aqui. Que tal um treino?</p>'}
   ${rev ? `<div class="note"><b>Recado da professora${rev.grade != null ? ' · nota ' + rev.grade : ''}</b><p>${esc(rev.feedback)}</p></div>` : ''}</div></div></div>`;
 }
+// ---------- leitura, gramática e vocabulário por nível ----------
+const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+const AREA = {
+  gramatica: {
+    title: 'Gramática',
+    levels: ['A1', 'A2', 'B1', 'B2'],
+    sub: 'Escolha o seu nível e complete as frases com o verbo no tempo certo.',
+    unit: 'frases',
+  },
+  vocabulario: {
+    title: 'Vocabulário',
+    levels: LEVELS,
+    sub: 'Palavras soltas em francês: ouça e escolha o significado em português.',
+    unit: 'palavras',
+  },
+};
+const READINGS = readingsJson.filter((r) => !r.needs_review);
+const libQ = (track, level) => QALL.filter((q) => q.track === track && q.cefr === level);
+const levelCards = (items) =>
+  `<ul class="grid2 plain">${items.map(([href, lv, detail]) => `<li><a class="nolink" href="${href}"><div class="card stack"><p class="big strong">${lv}</p><p class="strong">${CEFR_INFO[lv].name}</p><p>${CEFR_INFO[lv].hint}</p><p class="small strong">${detail}</p></div></a></li>`).join('')}</ul>`;
+const extraNote = (lv) =>
+  lv === 'A1'
+    ? ''
+    : `<div class="card tint small">Conteúdo extra, além do e-book. Foi escrito para esta plataforma e aguarda revisão de uma pessoa nativa.</div>`;
+function vLeitura() {
+  const sn = seenOf(student()).seen;
+  return `<section class="hero"><h1>Leitura</h1><p>Escolha o seu nível, leia o texto, ouça o áudio e responda às perguntas.</p></section>${levelCards(
+    LEVELS.map((lv) => {
+      const list = READINGS.filter((r) => r.level === lv);
+      const read = list.filter((r) =>
+        QALL.filter((q) => q.reading === r.id).every((q) => sn.has(q.id)),
+      ).length;
+      return [`#leitura-${lv}`, lv, `${read} de ${list.length} textos lidos`];
+    }),
+  )}`;
+}
+function vLeituraNivel(lv) {
+  if (!LEVELS.includes(lv)) return vLeitura();
+  const sn = seenOf(student()).seen;
+  const list = READINGS.filter((r) => r.level === lv);
+  return `<section class="hero"><h1>Leitura ${lv}, ${CEFR_INFO[lv].name}</h1><p>Escolha um texto.</p></section><p><a href="#leitura">← Todos os níveis</a></p>${extraNote(lv)}<ul class="grid2 plain">${list
+    .map((r) => {
+      const qs = QALL.filter((q) => q.reading === r.id);
+      const done = qs.every((q) => sn.has(q.id));
+      return `<li><a class="nolink" href="#texto-${r.id}"><div class="card stack"><p class="big strong" lang="fr">${esc(r.title)}</p><p>${esc(r.title_pt)}</p><p class="small strong">${done ? '✓ Lido' : qs.length + ' perguntas'}</p></div></a></li>`;
+    })
+    .join('')}</ul>`;
+}
+let rq = null; // { id, res } resultado do quiz do texto aberto
+function vTexto(id) {
+  const r = READINGS.find((x) => x.id === id);
+  if (!r) return vLeitura();
+  if (!rq || rq.id !== id) rq = { id, res: null };
+  const qs = QALL.filter((q) => q.reading === id);
+  const R = window.__READING_AUDIO__;
+  const audio =
+    R && R.keys.includes(id)
+      ? `<audio controls preload="none" src="${R.base}${id}.mp3" style="width:100%"></audio><p class="small">Velocidade: <button class="btn ghost" data-a="rd-rate" data-r="0.75">Devagar</button> <button class="btn ghost" data-a="rd-rate" data-r="1">Normal</button></p>`
+      : `<button class="btn" data-a="say" data-t="${esc(r.paragraphs.join(' '))}">▶ Ouvir o texto</button><p class="small">Nesta versão o texto é lido pela voz do aparelho.</p>`;
+  const right = rq.res ? qs.filter((q) => rq.res[q.id].verdict === 'correct').length : 0;
+  const quiz = qs
+    .map((q, i) => {
+      const res = rq.res && rq.res[q.id];
+      return `<li class="card stack"><fieldset ${rq.res ? 'disabled' : ''}><legend class="strong">${i + 1}. ${esc(q.prompt)}</legend>${q.choices.map((c) => `<label class="opt"><input type="radio" class="rd" name="${q.id}" value="${esc(c)}" ${res && res.pick === c ? 'checked' : ''}> ${esc(c)}</label>`).join('')}</fieldset>${res ? `<div role="status" class="fb ${res.verdict === 'correct' ? 'fb-ok' : 'fb-bad'}"><p class="strong">${res.verdict === 'correct' ? '✓ Certo!' : '✗ Resposta certa: ' + esc(q.answers[0])}</p><p>${esc(q.explanation)}</p></div>` : ''}</li>`;
+    })
+    .join('');
+  return `<section class="hero"><h1>${esc(r.title)}</h1><p>Leitura ${r.level} · ${esc(r.title_pt)}</p></section><p><a href="#leitura-${r.level}">← Textos do nível ${r.level}</a></p><article class="card stack" aria-label="Texto">${r.paragraphs.map((t) => `<p class="big" lang="fr">${esc(t)}</p>`).join('')}</article><div class="card tint stack"><h2>Ouvir o texto</h2>${audio}</div><h2>Perguntas sobre o texto</h2><ol class="plain stack">${quiz}</ol>${rq.res ? `<p class="card tint strong" role="status">Você acertou ${right} de ${qs.length}.</p>` : `<button class="btn" data-a="rd-check">Verificar respostas</button><p id="rd-msg" role="alert" class="small"></p>`}`;
+}
+function startLib(area, lv) {
+  // abre a sessão de gramática ou vocabulário do nível e volta para a lista ao terminar
+  const st = student();
+  const A = AREA[area];
+  if (!A || !A.levels.includes(lv)) return vNiveis(area);
+  setTimeout(() => {
+    startRun(libPlan(st, area, lv), `${A.title} ${lv}`, '#' + area, null, {
+      kind: 'nivel',
+      area,
+      lv,
+    });
+  }, 0);
+  return '<div class="card">Carregando…</div>';
+}
+function vNiveis(area) {
+  const A = AREA[area];
+  const sn = seenOf(student()).seen;
+  return `<section class="hero"><h1>${A.title}</h1><p>${A.sub}</p></section>${levelCards(
+    A.levels.map((lv) => {
+      const all = libQ(area, lv);
+      return [
+        `#niveis-${area}-${lv}`,
+        lv,
+        `${all.filter((q) => sn.has(q.id)).length} de ${all.length} ${A.unit} feitas`,
+      ];
+    }),
+  )}`;
+}
+function libPlan(st, area, lv) {
+  const pool = libQ(area, lv).map((q) => ({
+    id: q.id,
+    unit: null,
+    type: q.type,
+    concept: q.concept,
+    difficulty: q.difficulty,
+  }));
+  return pick(selectQuestions({ pool, ...seenOf(st), size: 10, rng: Math.random }));
+}
+
 function vTrilha() {
   const p = progress(student());
   return `<section class="hero"><h1>Trilha A1</h1><p>Dominando 70% de uma unidade, a próxima se abre. A professora também pode liberar.</p></section><ol class="grid2">${p.units.map((u) => `<li><div class="card ${u.state === 'locked' ? 'locked' : ''}"><div class="row"><p class="small strong">Unidade ${u.unit.order}</p>${u.state === 'locked' ? '<span class="badge b-low">🔒 Bloqueada</span>' : u.state === 'mastered' ? '<span class="badge b-ok">✓ Dominada</span>' : '<span class="badge b-mid">Em andamento</span>'}</div><h2>${esc(u.unit.title)}</h2><p>${esc(u.unit.objective)}</p>${u.state !== 'locked' ? `${badge(u.mastery)}<p><a href="#unidade-${u.unit.id}" class="strong">Abrir unidade →</a></p>` : '<p class="small">Abre quando você dominar 70% da unidade anterior.</p>'}</div></li>`).join('')}</ol>`;
@@ -462,7 +587,7 @@ function vPraticar() {
         return `<div role="status" aria-live="polite" class="fb ${m[2]}"><p class="strong big"><span aria-hidden="true">${m[0]}</span> ${m[1]}</p>${v === 'correct' && r.res.note ? `<p lang="fr">${esc(r.res.note)}</p>` : ''}${v !== 'correct' ? `<p>Forma correta: <strong lang="fr">${esc(r.res.expected)}</strong></p>` : ''}<p>${esc(q.explanation)}</p></div>`;
       })()
     : '';
-  return `<section class="narrow"><div class="row small strong"><span>${esc(r.title)}</span><span>${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack">${q.difficulty ? `<p class="small chips-info"><span class="badge b-mid">Nível ${q.difficulty} · ${LEVEL_LABELS[q.difficulty]}</span> ${q.topic ? `<span class="badge">${esc(topicLabel(q.topic))}</span>` : ''}</p>` : ''}<p class="strong q">${esc(q.prompt)}</p>${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="actions">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}">Sair</a></div></div></section>`;
+  return `<section class="narrow"><div class="row small strong"><span>${esc(r.title)}</span><span>${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack">${q.track && q.track !== 'trilha' ? `<p class="small chips-info"><span class="badge b-mid">${q.cefr} · ${CEFR_INFO[q.cefr].name}</span></p>` : q.difficulty ? `<p class="small chips-info"><span class="badge b-mid">Nível ${q.difficulty} · ${LEVEL_LABELS[q.difficulty]}</span> ${q.topic ? `<span class="badge">${esc(topicLabel(q.topic))}</span>` : ''}</p>` : ''}<p class="strong q">${esc(q.prompt)}</p>${q.track === 'vocabulario' && q.audio_text ? `<p>${speak(q.audio_text)}</p>` : ''}${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="actions">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}">Sair</a></div></div></section>`;
 }
 let fc = null; // flashcards
 function vFlash() {
@@ -594,6 +719,9 @@ function vResumo() {
 // ---------- casca, rotas e eventos ----------
 const NAV_A = [
   ['inicio', 'Início'],
+  ['leitura', 'Leitura'],
+  ['gramatica', 'Gramática'],
+  ['vocabulario', 'Vocabulário'],
   ['trilha', 'Trilha'],
   ['assuntos', 'Assuntos'],
   ['flashcards', 'Flashcards'],
@@ -618,10 +746,19 @@ function view(r) {
     if (!st.consented)
       return `<div class="card narrow stack"><h1>Antes de começar</h1><p>Sua professora criou o seu acesso. Falta só confirmar três coisas.</p><fieldset class="stack tint pad"><legend class="sr">Aceites</legend><label class="chk"><input type="checkbox" class="acc"> Li e aceito a Política de Privacidade.</label><label class="chk"><input type="checkbox" class="acc"> Li e aceito o Termo de Uso.</label><label class="chk"><input type="checkbox" class="acc"> Tenho 18 anos ou mais, ou tenho autorização do meu responsável.</label></fieldset><button class="btn" data-a="aceitar">Aceitar e continuar</button><p id="acc-msg" role="alert"></p></div>`;
     if (r.startsWith('unidade-')) return vUnidade(r.slice(8));
+    if (r.startsWith('leitura-')) return vLeituraNivel(r.slice(8));
+    if (r.startsWith('niveis-')) {
+      const [, area, lv] = r.split('-');
+      return startLib(area, lv);
+    }
+    if (r.startsWith('texto-')) return vTexto(r.slice(6));
     return (
       {
         inicio: vInicio,
         trilha: vTrilha,
+        leitura: vLeitura,
+        gramatica: () => vNiveis('gramatica'),
+        vocabulario: () => vNiveis('vocabulario'),
         assuntos: vAssuntos,
         praticar: vPraticar,
         flashcards: vFlash,
@@ -638,6 +775,7 @@ let unmountPlay = null;
 function vBrincar() {
   return `<section class="hero"><h1>Brincar com a Iasmyn</h1><p>Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa.</p></section><div id="play-root"></div>`;
 }
+let keepScroll = false;
 function render() {
   if (unmountPlay) {
     unmountPlay();
@@ -645,7 +783,13 @@ function render() {
   }
   const r = route();
   const nav = S.role === 'aluno' ? NAV_A : NAV_P;
-  const active = r.startsWith('aluno-') ? 'alunos' : r.startsWith('unidade-') ? 'trilha' : r;
+  const active = r.startsWith('aluno-')
+    ? 'alunos'
+    : r.startsWith('unidade-')
+      ? 'trilha'
+      : r.startsWith('leitura-') || r.startsWith('texto-')
+        ? 'leitura'
+        : r;
   const studs =
     S.role === 'aluno' && S.students.length > 1
       ? `<label class="small">Aluno <select id="who" class="field mini">${S.students.map((s) => `<option value="${s.id}" ${s.id === S.cur ? 'selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`
@@ -662,7 +806,8 @@ function render() {
       storageKey: 'ffp-play:' + student().id + ':v1',
       clips: window.__PLAY_CLIPS__,
     });
-  window.scrollTo(0, 0);
+  if (keepScroll) keepScroll = false;
+  else window.scrollTo(0, 0);
 }
 function msg(id, text, ok = true) {
   const el = $(id);
@@ -696,7 +841,7 @@ document.addEventListener('click', (e) => {
   const a = b.dataset.a;
   const st = student();
   const d = b.dataset;
-  if (a === 'say') return sayNow(d.t);
+  if (a === 'say') return playClip(d.t);
   if (a === 'role') {
     S.role = d.r;
     run = null;
@@ -720,6 +865,29 @@ document.addEventListener('click', (e) => {
     const { list } = dailyPlanQuestions(st);
     return startRun(list, 'Treino de hoje', '#inicio', null, { kind: 'treino' });
   }
+  if (a === 'rd-rate') {
+    const au = document.querySelector('audio');
+    if (au) au.playbackRate = +d.r;
+    return;
+  }
+  if (a === 'rd-check') {
+    const qs = QALL.filter((q) => q.reading === rq.id);
+    const picks = {};
+    document.querySelectorAll('input.rd:checked').forEach((i) => (picks[i.name] = i.value));
+    if (qs.some((q) => !picks[q.id])) {
+      $('#rd-msg').textContent = 'Responda todas as perguntas para verificar.';
+      return;
+    }
+    rq.res = {};
+    qs.forEach((q) => {
+      const g = gradeQuestion(q, picks[q.id]);
+      rq.res[q.id] = { verdict: g.verdict, pick: picks[q.id] };
+      applyResult(st, q.id, 'question', null, q.skill, q.error_tags, g, picks[q.id], 0, new Date());
+    });
+    save();
+    keepScroll = true;
+    return render();
+  }
   if (a === 'praticar-assunto') {
     const lv = d.n ? +d.n : undefined;
     return startRun(topicPlan(st, d.id, lv), topicLabel(d.id), '#assuntos', null, {
@@ -741,6 +909,8 @@ document.addEventListener('click', (e) => {
     const g = run.again;
     if (g.kind === 'treino')
       return startRun(dailyPlanQuestions(st).list, run.title, run.back, null, g);
+    if (g.kind === 'nivel')
+      return startRun(libPlan(st, g.area, g.lv), run.title, run.back, null, g);
     if (g.kind === 'assunto')
       return startRun(topicPlan(st, g.topic, g.level), run.title, run.back, null, g);
     return startRun(unitPlan(st, g.unit), run.title, run.back, null, g);

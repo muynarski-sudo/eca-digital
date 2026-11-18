@@ -133,3 +133,25 @@ describe('prática por assunto', () => {
     }
   });
 });
+
+describe('sem repetir entre faixas', () => {
+  it('não recicla pergunta já feita enquanto houver nova em outra faixa', () => {
+    const pool = mkPool();
+    // todas as perguntas do nível 1 já foram respondidas, mas há muitas novas nos níveis 2 e 3
+    const seen = seenOf(
+      pool.filter((q) => q.difficulty === 1).map((q) => q.id),
+      'correct',
+    );
+    for (const level of [1, 2, 3] as const) {
+      const r = selectLeveled({
+        pool,
+        seen,
+        concepts: new Map(),
+        size: 10,
+        rng: rngFrom(7),
+        level,
+      });
+      for (const id of r.ids) expect(seen.has(id), `${level}:${id}`).toBe(false);
+    }
+  });
+});

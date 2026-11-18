@@ -68,7 +68,7 @@ export function validate() {
   // duplicidade: o aluno nunca deve ver duas questões iguais
   const keys = new Map<string, string>();
   for (const q of c.questions) {
-    const k = q.prompt.trim().toLowerCase();
+    const k = `${q.track}|${q.reading ?? ''}|${q.prompt.trim().toLowerCase()}`;
     if (keys.has(k)) errors.push(`questão duplicada: ${q.id} e ${keys.get(k)}`);
     keys.set(k, q.id);
     if (!q.concept) errors.push(`${q.id}: sem concept`);

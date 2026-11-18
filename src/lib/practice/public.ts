@@ -1,5 +1,6 @@
 import type { Question } from '@/lib/content/schema';
 import { audioKey } from '@/lib/audio/key';
+import { clipKey } from '@/lib/play/clipkey';
 import { isLocalMode } from '@/lib/local/mode';
 import type { PublicQuestion } from './types';
 
@@ -23,6 +24,10 @@ export function toPublic(q: Question): PublicQuestion {
     prompt: q.prompt,
     level: q.difficulty,
     topic: q.topic,
+    clip:
+      q.track === 'vocabulario' && q.audio_text
+        ? { src: `/audio/play/${clipKey(q.audio_text)}.mp3`, text: q.audio_text }
+        : undefined,
     hint: q.hint,
     choices: q.choices,
     words: q.words,

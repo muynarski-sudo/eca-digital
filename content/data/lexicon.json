@@ -1,0 +1,1226 @@
+[
+ {
+  "id": "lx-a2-001",
+  "level": "A2",
+  "fr": "le voyage",
+  "pt": "a viagem",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-002",
+  "level": "A2",
+  "fr": "la valise",
+  "pt": "a mala",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-003",
+  "level": "A2",
+  "fr": "le quartier",
+  "pt": "o bairro",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-004",
+  "level": "A2",
+  "fr": "le voisin",
+  "pt": "o vizinho",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-005",
+  "level": "A2",
+  "fr": "la cuisine",
+  "pt": "a cozinha",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-006",
+  "level": "A2",
+  "fr": "la chambre",
+  "pt": "o quarto",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-007",
+  "level": "A2",
+  "fr": "le fromage",
+  "pt": "o queijo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-008",
+  "level": "A2",
+  "fr": "la fraise",
+  "pt": "o morango",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-009",
+  "level": "A2",
+  "fr": "le légume",
+  "pt": "o legume",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-010",
+  "level": "A2",
+  "fr": "la boulangerie",
+  "pt": "a padaria",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-011",
+  "level": "A2",
+  "fr": "le médecin",
+  "pt": "o médico",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-012",
+  "level": "A2",
+  "fr": "la pharmacie",
+  "pt": "a farmácia",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-013",
+  "level": "A2",
+  "fr": "le magasin",
+  "pt": "a loja",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-014",
+  "level": "A2",
+  "fr": "le prix",
+  "pt": "o preço",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-015",
+  "level": "A2",
+  "fr": "la rue",
+  "pt": "a rua",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-016",
+  "level": "A2",
+  "fr": "la fête",
+  "pt": "a festa",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-017",
+  "level": "A2",
+  "fr": "le cadeau",
+  "pt": "o presente",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-018",
+  "level": "A2",
+  "fr": "le journal",
+  "pt": "o jornal",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-019",
+  "level": "A2",
+  "fr": "la lettre",
+  "pt": "a carta",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-020",
+  "level": "A2",
+  "fr": "le musée",
+  "pt": "o museu",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-021",
+  "level": "A2",
+  "fr": "la plage",
+  "pt": "a praia",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-022",
+  "level": "A2",
+  "fr": "la montagne",
+  "pt": "a montanha",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-023",
+  "level": "A2",
+  "fr": "fatigué",
+  "pt": "cansado",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-024",
+  "level": "A2",
+  "fr": "difficile",
+  "pt": "difícil",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-025",
+  "level": "A2",
+  "fr": "facile",
+  "pt": "fácil",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-026",
+  "level": "A2",
+  "fr": "cher",
+  "pt": "caro",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-027",
+  "level": "A2",
+  "fr": "rapide",
+  "pt": "rápido",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-028",
+  "level": "A2",
+  "fr": "souvent",
+  "pt": "frequentemente",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-029",
+  "level": "A2",
+  "fr": "toujours",
+  "pt": "sempre",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-030",
+  "level": "A2",
+  "fr": "jamais",
+  "pt": "nunca",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-031",
+  "level": "A2",
+  "fr": "parfois",
+  "pt": "às vezes",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-032",
+  "level": "A2",
+  "fr": "hier",
+  "pt": "ontem",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-033",
+  "level": "A2",
+  "fr": "demain",
+  "pt": "amanhã",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-034",
+  "level": "A2",
+  "fr": "apprendre",
+  "pt": "aprender",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-035",
+  "level": "A2",
+  "fr": "comprendre",
+  "pt": "entender",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-036",
+  "level": "A2",
+  "fr": "chercher",
+  "pt": "procurar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-037",
+  "level": "A2",
+  "fr": "trouver",
+  "pt": "encontrar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-038",
+  "level": "A2",
+  "fr": "attendre",
+  "pt": "esperar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-039",
+  "level": "A2",
+  "fr": "arriver",
+  "pt": "chegar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-a2-040",
+  "level": "A2",
+  "fr": "payer",
+  "pt": "pagar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-001",
+  "level": "B1",
+  "fr": "le souvenir",
+  "pt": "a lembrança",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-002",
+  "level": "B1",
+  "fr": "l’avenir",
+  "pt": "o futuro",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-003",
+  "level": "B1",
+  "fr": "le projet",
+  "pt": "o projeto",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-004",
+  "level": "B1",
+  "fr": "l’expérience",
+  "pt": "a experiência",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-005",
+  "level": "B1",
+  "fr": "la réunion",
+  "pt": "a reunião",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-006",
+  "level": "B1",
+  "fr": "l’entreprise",
+  "pt": "a empresa",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-007",
+  "level": "B1",
+  "fr": "le salaire",
+  "pt": "o salário",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-008",
+  "level": "B1",
+  "fr": "l’emploi",
+  "pt": "o emprego",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-009",
+  "level": "B1",
+  "fr": "le chômage",
+  "pt": "o desemprego",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-010",
+  "level": "B1",
+  "fr": "la santé",
+  "pt": "a saúde",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-011",
+  "level": "B1",
+  "fr": "l’environnement",
+  "pt": "o meio ambiente",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-012",
+  "level": "B1",
+  "fr": "le quotidien",
+  "pt": "o cotidiano",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-013",
+  "level": "B1",
+  "fr": "la confiance",
+  "pt": "a confiança",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-014",
+  "level": "B1",
+  "fr": "la décision",
+  "pt": "a decisão",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-015",
+  "level": "B1",
+  "fr": "le choix",
+  "pt": "a escolha",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-016",
+  "level": "B1",
+  "fr": "le conseil",
+  "pt": "o conselho",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-017",
+  "level": "B1",
+  "fr": "la réponse",
+  "pt": "a resposta",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-018",
+  "level": "B1",
+  "fr": "le résultat",
+  "pt": "o resultado",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-019",
+  "level": "B1",
+  "fr": "inquiet",
+  "pt": "preocupado",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-020",
+  "level": "B1",
+  "fr": "pourtant",
+  "pt": "no entanto",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-021",
+  "level": "B1",
+  "fr": "cependant",
+  "pt": "contudo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-022",
+  "level": "B1",
+  "fr": "d’ailleurs",
+  "pt": "aliás",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-023",
+  "level": "B1",
+  "fr": "peut-être",
+  "pt": "talvez",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-024",
+  "level": "B1",
+  "fr": "sans doute",
+  "pt": "sem dúvida",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-025",
+  "level": "B1",
+  "fr": "se souvenir",
+  "pt": "lembrar-se",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-026",
+  "level": "B1",
+  "fr": "se sentir",
+  "pt": "sentir-se",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-027",
+  "level": "B1",
+  "fr": "se rendre compte",
+  "pt": "dar-se conta",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-028",
+  "level": "B1",
+  "fr": "réussir",
+  "pt": "ter sucesso",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-029",
+  "level": "B1",
+  "fr": "échouer",
+  "pt": "fracassar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-030",
+  "level": "B1",
+  "fr": "décider",
+  "pt": "decidir",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-031",
+  "level": "B1",
+  "fr": "oublier",
+  "pt": "esquecer",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-032",
+  "level": "B1",
+  "fr": "déménager",
+  "pt": "mudar de casa",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-033",
+  "level": "B1",
+  "fr": "rencontrer",
+  "pt": "conhecer, encontrar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b1-034",
+  "level": "B1",
+  "fr": "découvrir",
+  "pt": "descobrir",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-001",
+  "level": "B2",
+  "fr": "le bénéfice",
+  "pt": "o benefício",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-002",
+  "level": "B2",
+  "fr": "la croissance",
+  "pt": "o crescimento",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-003",
+  "level": "B2",
+  "fr": "le débat",
+  "pt": "o debate",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-004",
+  "level": "B2",
+  "fr": "le comportement",
+  "pt": "o comportamento",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-005",
+  "level": "B2",
+  "fr": "le témoignage",
+  "pt": "o depoimento",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-006",
+  "level": "B2",
+  "fr": "l’inconvénient",
+  "pt": "a desvantagem",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-007",
+  "level": "B2",
+  "fr": "l’atout",
+  "pt": "a vantagem, o trunfo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-008",
+  "level": "B2",
+  "fr": "la hausse",
+  "pt": "o aumento",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-009",
+  "level": "B2",
+  "fr": "la baisse",
+  "pt": "a queda",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-010",
+  "level": "B2",
+  "fr": "durable",
+  "pt": "duradouro, sustentável",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-011",
+  "level": "B2",
+  "fr": "fiable",
+  "pt": "confiável",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-012",
+  "level": "B2",
+  "fr": "nuancer",
+  "pt": "matizar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-013",
+  "level": "B2",
+  "fr": "souligner",
+  "pt": "sublinhar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-014",
+  "level": "B2",
+  "fr": "évoquer",
+  "pt": "mencionar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-015",
+  "level": "B2",
+  "fr": "susciter",
+  "pt": "suscitar, provocar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-016",
+  "level": "B2",
+  "fr": "entraîner",
+  "pt": "acarretar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-017",
+  "level": "B2",
+  "fr": "renoncer à",
+  "pt": "renunciar a",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-018",
+  "level": "B2",
+  "fr": "néanmoins",
+  "pt": "não obstante",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-019",
+  "level": "B2",
+  "fr": "en revanche",
+  "pt": "em compensação",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-020",
+  "level": "B2",
+  "fr": "faute de",
+  "pt": "por falta de",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-021",
+  "level": "B2",
+  "fr": "au détriment de",
+  "pt": "em detrimento de",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-022",
+  "level": "B2",
+  "fr": "davantage",
+  "pt": "mais",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-023",
+  "level": "B2",
+  "fr": "le défi",
+  "pt": "o desafio",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-024",
+  "level": "B2",
+  "fr": "les moyens",
+  "pt": "os recursos",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-025",
+  "level": "B2",
+  "fr": "la mesure",
+  "pt": "a medida",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-026",
+  "level": "B2",
+  "fr": "l’emballage",
+  "pt": "a embalagem",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-027",
+  "level": "B2",
+  "fr": "le déchet",
+  "pt": "o resíduo, o lixo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-028",
+  "level": "B2",
+  "fr": "en vrac",
+  "pt": "a granel",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-029",
+  "level": "B2",
+  "fr": "avouer",
+  "pt": "confessar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-b2-030",
+  "level": "B2",
+  "fr": "réparer",
+  "pt": "consertar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-001",
+  "level": "C1",
+  "fr": "l’essor",
+  "pt": "a expansão, o impulso",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-002",
+  "level": "C1",
+  "fr": "le tournant",
+  "pt": "a virada",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-003",
+  "level": "C1",
+  "fr": "le clivage",
+  "pt": "a divisão, o racha",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-004",
+  "level": "C1",
+  "fr": "la bienveillance",
+  "pt": "a benevolência",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-005",
+  "level": "C1",
+  "fr": "la pénurie",
+  "pt": "a escassez",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-006",
+  "level": "C1",
+  "fr": "le seuil",
+  "pt": "o limiar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-007",
+  "level": "C1",
+  "fr": "la portée",
+  "pt": "o alcance",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-008",
+  "level": "C1",
+  "fr": "éphémère",
+  "pt": "efêmero",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-009",
+  "level": "C1",
+  "fr": "indéniable",
+  "pt": "inegável",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-010",
+  "level": "C1",
+  "fr": "foisonnant",
+  "pt": "abundante, profuso",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-011",
+  "level": "C1",
+  "fr": "démuni",
+  "pt": "desprovido",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-012",
+  "level": "C1",
+  "fr": "entériner",
+  "pt": "ratificar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-013",
+  "level": "C1",
+  "fr": "étayer",
+  "pt": "fundamentar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-014",
+  "level": "C1",
+  "fr": "pallier",
+  "pt": "suprir, remediar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-015",
+  "level": "C1",
+  "fr": "occulter",
+  "pt": "ocultar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-016",
+  "level": "C1",
+  "fr": "corroborer",
+  "pt": "corroborar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-017",
+  "level": "C1",
+  "fr": "à l’instar de",
+  "pt": "à semelhança de",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-018",
+  "level": "C1",
+  "fr": "en dépit de",
+  "pt": "apesar de",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-019",
+  "level": "C1",
+  "fr": "d’emblée",
+  "pt": "de saída, desde o início",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-020",
+  "level": "C1",
+  "fr": "figer",
+  "pt": "congelar, fixar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-021",
+  "level": "C1",
+  "fr": "concilier",
+  "pt": "conciliar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-022",
+  "level": "C1",
+  "fr": "la démolition",
+  "pt": "a demolição",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-023",
+  "level": "C1",
+  "fr": "les loyers",
+  "pt": "os aluguéis",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c1-024",
+  "level": "C1",
+  "fr": "l’urbaniste",
+  "pt": "o urbanista",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-001",
+  "level": "C2",
+  "fr": "l’acuité",
+  "pt": "a acuidade",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-002",
+  "level": "C2",
+  "fr": "la gageure",
+  "pt": "o desafio quase impossível",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-003",
+  "level": "C2",
+  "fr": "le truisme",
+  "pt": "o truísmo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-004",
+  "level": "C2",
+  "fr": "la vicissitude",
+  "pt": "a vicissitude",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-005",
+  "level": "C2",
+  "fr": "l’apanage",
+  "pt": "o apanágio, o privilégio",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-006",
+  "level": "C2",
+  "fr": "l’écueil",
+  "pt": "o obstáculo, o perigo",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-007",
+  "level": "C2",
+  "fr": "la propension",
+  "pt": "a propensão",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-008",
+  "level": "C2",
+  "fr": "le dessein",
+  "pt": "o desígnio",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-009",
+  "level": "C2",
+  "fr": "l’opprobre",
+  "pt": "o opróbrio",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-010",
+  "level": "C2",
+  "fr": "tarir",
+  "pt": "secar, esgotar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-011",
+  "level": "C2",
+  "fr": "fourvoyer",
+  "pt": "desencaminhar",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-012",
+  "level": "C2",
+  "fr": "délétère",
+  "pt": "deletério",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-013",
+  "level": "C2",
+  "fr": "pernicieux",
+  "pt": "pernicioso",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-014",
+  "level": "C2",
+  "fr": "opiniâtre",
+  "pt": "obstinado",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-015",
+  "level": "C2",
+  "fr": "ténu",
+  "pt": "tênue",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-016",
+  "level": "C2",
+  "fr": "vétuste",
+  "pt": "velho, desgastado",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-017",
+  "level": "C2",
+  "fr": "nonobstant",
+  "pt": "não obstante",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-018",
+  "level": "C2",
+  "fr": "sciemment",
+  "pt": "de propósito, sabidamente",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-019",
+  "level": "C2",
+  "fr": "à tout bout de champ",
+  "pt": "a todo momento",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-020",
+  "level": "C2",
+  "fr": "de longue haleine",
+  "pt": "de longo fôlego",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-021",
+  "level": "C2",
+  "fr": "sous-tendre",
+  "pt": "sustentar, subjazer a",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-022",
+  "level": "C2",
+  "fr": "à la dérobée",
+  "pt": "às escondidas",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-023",
+  "level": "C2",
+  "fr": "le support",
+  "pt": "o suporte",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-024",
+  "level": "C2",
+  "fr": "la denrée",
+  "pt": "o gênero (mercadoria)",
+  "source": "generated",
+  "needs_review": false
+ },
+ {
+  "id": "lx-c2-025",
+  "level": "C2",
+  "fr": "mijoté",
+  "pt": "cozido em fogo lento",
+  "source": "generated",
+  "needs_review": false
+ }
+]

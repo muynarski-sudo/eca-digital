@@ -103,6 +103,8 @@ test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes'
     await expect(page).toHaveURL(/\/praticar/);
   }
   expect(vistos).toHaveLength(40);
+  const dup = vistos.filter((v, i) => vistos.indexOf(v) !== i);
+  expect(dup).toEqual([]);
   expect(new Set(vistos).size).toBe(40);
 });
 

@@ -4,8 +4,9 @@
 set -eu
 cd "$(dirname "$0")/.."
 ./artifact/build.sh >/dev/null
-rm -rf docs && mkdir -p docs/icons docs/audio/play
+rm -rf docs && mkdir -p docs/icons docs/audio/play docs/audio/reading
 cp public/audio/play/*.mp3 public/audio/play/manifest.json docs/audio/play/ 2>/dev/null || true
+cp public/audio/reading/*.mp3 public/audio/reading/manifest.json docs/audio/reading/ 2>/dev/null || true
 python3 - <<'PY'
 import glob, hashlib, json, os
 from PIL import Image
@@ -14,10 +15,14 @@ clip_files = sorted(os.path.basename(f) for f in glob.glob('docs/audio/play/*.mp
 manifest_clips = json.load(open('docs/audio/play/manifest.json', encoding='utf8')) if clip_files else None
 clips_script = ('window.__PLAY_CLIPS__=' + json.dumps({'base': 'audio/play/', 'keys': manifest_clips['keys'], 'credit': manifest_clips.get('credit', '')}, ensure_ascii=False) + ';') if manifest_clips else ''
 
+read_files = sorted(os.path.basename(f) for f in glob.glob('docs/audio/reading/*.mp3'))
+read_keys = [f[:-4] for f in read_files]
+clips_script += ('window.__READING_AUDIO__=' + json.dumps({'base': 'audio/reading/', 'keys': read_keys}) + ';') if read_keys else ''
+
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
 css = open('artifact/style.css', encoding='utf8').read() + open('src/lib/play/play.css', encoding='utf8').read()
 install = open('artifact/pwa-install.js', encoding='utf8').read()
-version = hashlib.sha1((js + css + install + clips_script + ''.join(clip_files)).encode('utf8')).hexdigest()[:10]
+version = hashlib.sha1((js + css + install + clips_script + ''.join(clip_files) + ''.join(read_files)).encode('utf8')).hexdigest()[:10]
 
 extra_css = '''
 html{-webkit-text-size-adjust:100%}
@@ -76,7 +81,7 @@ open('docs/manifest.webmanifest', 'w', encoding='utf8').write(json.dumps(manifes
 sw = f'''// Service worker do Falando Francês Prática. Guarda o app no aparelho para abrir sem internet.
 const CACHE = 'ffp-{version}';
 const ASSETS = ['./', 'index.html', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/apple-touch-icon.png'];
-const CLIPS = {json.dumps(['audio/play/' + f for f in clip_files])};
+const CLIPS = {json.dumps(['audio/play/' + f for f in clip_files] + ['audio/reading/' + f for f in read_files])};
 self.addEventListener('install', (e) => {{
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS).then(() => Promise.allSettled(CLIPS.map((u) => c.add(u))))).then(() => self.skipWaiting()));
 }});

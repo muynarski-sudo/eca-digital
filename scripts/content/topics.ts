@@ -146,6 +146,7 @@ export function assignTopics(
   const vById = new Map(vocab.map((v) => [v.id, v]));
   const pById = new Map(phrases.map((p) => [p.id, p]));
   return questions.map((q) => {
+    if ((q.track ?? 'trilha') !== 'trilha') return q; // leitura, gramática e vocabulário por nível não usam os assuntos da trilha
     const key = `${q.id} ${q.concept ?? ''}`;
     let topic: Topic | null = ebookTopic(q.id);
     if (!topic) {

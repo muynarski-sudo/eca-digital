@@ -72,10 +72,15 @@ export function selectLeveled(input: LeveledInput): { ids: string[]; level: Leve
   ]);
   const used = new Set<string>();
   const usedConcepts = new Set<string>();
-  const take = (band: Level, n: number) => {
+  /** Sorteia n perguntas da faixa. `fresh` = só perguntas que o aluno nunca respondeu (nada de reciclar enquanto houver nova em outra faixa). */
+  const take = (band: Level, n: number, fresh: boolean) => {
     if (n <= 0) return 0;
     const pool = input.pool.filter(
-      (q) => q.difficulty === band && !used.has(q.id) && !usedConcepts.has(q.concept),
+      (q) =>
+        q.difficulty === band &&
+        !used.has(q.id) &&
+        !usedConcepts.has(q.concept) &&
+        (!fresh || !input.seen.has(q.id)),
     );
     const ids = selectQuestions({ ...input, pool, size: n });
     for (const id of ids) {
@@ -87,24 +92,22 @@ export function selectLeveled(input: LeveledInput): { ids: string[]; level: Leve
     return ids.length;
   };
   let missing = 0;
-  for (const band of [1, 2, 3] as const) {
-    const got = take(band, mix[band]);
-    missing += mix[band] - got;
-  }
-  // a falta vai para as faixas vizinhas: do nível atual para cima, depois para baixo
+  for (const band of [1, 2, 3] as const) missing += mix[band] - take(band, mix[band], true);
+  // a falta vai para as faixas vizinhas (do nível atual para cima, depois para baixo), ainda só com perguntas novas
   const order: Level[] = [level, 3, 2, 1].filter((l, i, a) => a.indexOf(l) === i) as Level[];
-  for (const band of order) {
-    if (missing <= 0) break;
-    missing -= take(band, missing);
-  }
-  // se ainda faltar, relaxa o "um por conceito" (conjuntos pequenos)
-  if (missing > 0) {
-    usedConcepts.clear();
+  const fill = (fresh: boolean) => {
     for (const band of order) {
       if (missing <= 0) break;
-      missing -= take(band, missing);
+      missing -= take(band, missing, fresh);
     }
+  };
+  fill(true);
+  // sem pergunta nova suficiente: relaxa "um por conceito" (só com perguntas novas) e, por último, recicla as mais antigas
+  if (missing > 0) {
+    usedConcepts.clear();
+    fill(true);
   }
+  if (missing > 0) fill(false);
   const byMeta = new Map(input.pool.map((q) => [q.id, q]));
   const ids = ([1, 2, 3] as const).flatMap((band) =>
     spreadTypes(picked.get(band)!.map((id) => byMeta.get(id)!)).map((q) => q.id),

@@ -47,6 +47,23 @@ export default async function Inicio() {
         title={`Bienvenu(e)${first ? `, ${first}` : ''}!`}
         subtitle="Um pouquinho por dia leva longe."
       />
+      <nav aria-label="Áreas de estudo" className="grid gap-4 sm:grid-cols-3">
+        {[
+          ['/leitura', '📖', 'Leitura', 'Textos por nível (A1 a C2), com áudio e perguntas.'],
+          ['/gramatica', '✏️', 'Gramática', 'Complete as frases com o verbo no tempo certo.'],
+          ['/vocabulario', '🔤', 'Vocabulário', 'Ouça a palavra e escolha o significado.'],
+        ].map(([href, icon, title, text]) => (
+          <Link key={href} href={href!} className="block no-underline">
+            <Card className="h-full space-y-1 hover:border-brand-blue hover:shadow-md">
+              <p className="text-xl font-bold text-brand-blue-dark">
+                <span aria-hidden="true">{icon} </span>
+                {title}
+              </p>
+              <p className="text-ink-soft">{text}</p>
+            </Card>
+          </Link>
+        ))}
+      </nav>
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="flex flex-col items-center gap-3 text-center">
           <ProgressRing value={progress.level} label="Progresso do nível A1" />

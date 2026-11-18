@@ -2,6 +2,7 @@ import conjugationsJson from '../../../content/data/conjugations.json';
 import phrasesJson from '../../../content/data/phrases.json';
 import dialoguesJson from '../../../content/data/dialogues.json';
 import cultureJson from '../../../content/data/culture.json';
+import readingsJson from '../../../content/data/readings.json';
 import {
   contentSchemas,
   PERSONS,
@@ -21,6 +22,9 @@ export const phrases = contentSchemas['phrases.json']
 export const dialogues = contentSchemas['dialogues.json']
   .parse(dialoguesJson)
   .filter((d) => !d.needs_review);
+export const readings = contentSchemas['readings.json']
+  .parse(readingsJson)
+  .filter((r) => !r.needs_review);
 export const cultureTips = contentSchemas['culture.json']
   .parse(cultureJson)
   .filter((c) => !c.needs_review);

@@ -30,6 +30,7 @@ function mk(
     error_tags: o.tags ?? [],
     difficulty: o.diff ?? 1,
     topic: 'dia_a_dia', // definido de verdade em scripts/content/topics.ts
+    track: 'trilha',
     source: o.src ?? 'ebook',
     needs_review: o.review ?? false,
   };
