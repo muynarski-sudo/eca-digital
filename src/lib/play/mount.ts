@@ -1,4 +1,4 @@
-import { ALPHABET, exampleWords, letterByChar } from './alphabet';
+import { ALPHABET, exampleWords, letterByChar, LETTER_NOTE } from './alphabet';
 import { avatarSvg, createSpeaker } from './avatar';
 import { clipKey } from './clipkey';
 import {
@@ -168,7 +168,9 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         ? `<div class="pl-detail"><p class="pl-dbig" aria-hidden="true">${l.letter}${l.letter.toLowerCase()}</p><div><p class="pl-dname">${esc(l.name)}</p><p class="pl-dpron">(${esc(l.pron)})</p>${
             ex
               ? `<p class="pl-dex">Palavra do e-book: <strong lang="fr">${esc(ex.fr)}</strong> · ${esc(ex.pt)}</p>`
-              : `<p class="pl-dex">Ainda não há palavra do e-book com essa letra.</p>`
+              : LETTER_NOTE[l.letter]
+                ? `<p class="pl-dex">${esc(LETTER_NOTE[l.letter]!)}</p>`
+                : `<p class="pl-dex">Ainda não há palavra do e-book com essa letra.</p>`
           }<div class="pl-row"><button class="pl-btn" data-act="letter" data-l="${l.letter}">▶ Ouvir de novo</button>${ex ? `<button class="pl-btn sec" data-act="sayword" data-t="${esc(ex.fr)}">▶ Ouvir a palavra</button>` : ''}</div></div></div>`
         : `<p class="pl-tip">Toque em uma letra para ouvir.</p>`
     }`;

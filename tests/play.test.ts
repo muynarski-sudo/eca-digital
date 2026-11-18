@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { ALPHABET, exampleWords, headLetter, letterByChar } from '@/lib/play/alphabet';
+import { ALPHABET, exampleWords, headLetter, LETTER_NOTE, letterByChar } from '@/lib/play/alphabet';
 import {
   listenRound,
   memoryDeck,
@@ -70,6 +70,18 @@ describe('alfabeto', () => {
     expect(headLetter('Écouter')).toBe('E');
     expect(headLetter('à gauche')).toBe('A');
     expect(headLetter('…')).toBeNull();
+  });
+  it('o exemplo de cada letra se ouve no começo da palavra: nada de H mudo, S final ("les") ou A que soa "ô" ("au")', () => {
+    const ex = exampleWords(vocab);
+    expect(ex['H']).toBeUndefined(); // o H é mudo: tem aviso, não exemplo
+    expect(LETTER_NOTE['H']).toContain('mudo');
+    expect(headLetter('les')).toBe('L');
+    expect(headLetter('une')).toBe('U');
+    const silentOrChanged = ['les', 'au', 'on', "l'hôtel", 'et', 'il y a'];
+    for (const w of Object.values(ex)) expect(silentOrChanged).not.toContain(w.fr);
+    expect(ex['S']?.fr).toBe('samedi');
+    expect(ex['A']?.fr).toBe('avoir');
+    expect(ex['U']?.fr).toBe('une');
   });
   it('só dá exemplo de palavra que está no e-book e deixa sem exemplo as letras sem palavra', () => {
     const ex = exampleWords(vocab);

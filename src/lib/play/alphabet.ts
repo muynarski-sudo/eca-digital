@@ -69,27 +69,55 @@ export const letterByChar = (c: string) => ALPHABET.find((l) => l.letter === c.t
 /** Letra inicial da palavra-chave de um item de vocabulário (ignora artigo, acento e apóstrofo). */
 export function headLetter(fr: string): string | null {
   const head = fr
-    .replace(/^(le|la|les|un|une|l')\s?/i, '')
+    .replace(/^(?:(?:le|la|les|un|une)\s+|l')/i, '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '');
   const c = head[0]?.toUpperCase() ?? '';
   return /^[A-Z]$/.test(c) ? c : null;
 }
 
-/** Uma palavra do e-book para cada letra que tiver (escolha estável). Letras sem palavra no e-book ficam sem exemplo. */
+/**
+ * Palavra de exemplo de cada letra: sempre do vocabulário do e-book, escolhida à mão para que a letra SE OUÇA no começo da
+ * palavra, com o som que o nome dela sugere. Antes o exemplo era a palavra mais curta que começava com a letra, e isso
+ * dava resultados como "les" para o S (o S final é mudo) e "au" para o A (soa "ô"). O H não tem exemplo: é mudo
+ * (ver LETTER_NOTE). K, W, X, Y e Z não têm palavra no e-book.
+ */
+export const EXAMPLE_FR: Record<string, string> = {
+  A: 'avoir',
+  B: 'billet',
+  C: 'Coucou',
+  D: 'dimanche',
+  E: 'étudiant',
+  F: 'famille',
+  G: 'gâteau',
+  I: 'il',
+  J: 'jeudi',
+  L: 'lieu',
+  M: 'maison',
+  N: 'nous',
+  O: 'octobre',
+  P: 'professeur',
+  Q: 'Quand',
+  R: 'roi',
+  S: 'samedi',
+  T: 'tu',
+  U: 'une',
+  V: 'vous',
+};
+
+/** Avisos sobre letras que não seguem a regra "a letra se ouve no começo da palavra". */
+export const LETTER_NOTE: Record<string, string> = {
+  H: "Atenção: o H é mudo em francês. Em «l'hôtel» (lotél), «l'hiver» (livér) e «l'hôpital» (lopitál) ele não tem som nenhum. O nome da letra é \"áche\", mas dentro das palavras ele some.",
+};
+
+/** Exemplo de cada letra, só se a palavra estiver no vocabulário do e-book. */
 export function exampleWords(
   vocab: Array<{ fr: string; pt: string }>,
 ): Record<string, { fr: string; pt: string }> {
   const out: Record<string, { fr: string; pt: string }> = {};
-  const clean = vocab.filter(
-    (v) => !/[()/…?]/.test(v.fr) && v.fr.length <= 22 && !/\s.*\s/.test(v.fr),
-  );
-  for (const v of clean) {
-    const h = headLetter(v.fr);
-    if (!h) continue;
-    // prefere palavra curta e simples; mantém a primeira entre as mais curtas
-    const cur = out[h];
-    if (!cur || v.fr.length < cur.fr.length) out[h] = { fr: v.fr, pt: v.pt };
+  for (const [letter, fr] of Object.entries(EXAMPLE_FR)) {
+    const v = vocab.find((x) => x.fr === fr);
+    if (v) out[letter] = { fr: v.fr, pt: v.pt };
   }
   return out;
 }
