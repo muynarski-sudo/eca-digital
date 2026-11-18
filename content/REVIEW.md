@@ -113,3 +113,7 @@ O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exer
 - E-book, "Un (an)": o "un" francês é [œ̃] (parecido com "ã" mas com lábios mais arredondados), não "an" [ɑ̃]. O áudio do app lê "un" corretamente; a grafia do e-book não bate com ele.
 - E-book, "Quelqu'un (quelcã)": mesma observação.
 - Áudio das palavras do capítulo 2 (R, nasais, vogais juntas, ille e tion): conferi os fonemas que a voz usa e batem com o francês padrão (por exemplo "famille" [famij], "présentation" [pʁezɑ̃tasjɔ̃], "noir" [nwaʁ]); falta a conferência de ouvido por um nativo.
+
+## 9. Letras com o som [e] (B, C, D, G, P, T, V)
+
+O responsável observou que o D soa mais perto de "dí" do que de "dê". É a percepção esperada: o [e] francês é mais fechado e esticado que o "ê" do português. O IPA dessas letras continua [e] (D = [de]; "dí" seria [di], que é outro som e não existe como nome de letra). Mudei só o texto de pronúncia na tela para "dê bem fechado, quase dí (lábios esticados)". Se uma pessoa nativa indicar outra descrição, ajuste em `src/lib/play/alphabet.ts`.
