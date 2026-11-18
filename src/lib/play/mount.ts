@@ -212,7 +212,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     ls.avoid = [ls.round.target.letter, ...ls.avoid].slice(0, 12);
     ls.answered = null;
     ls.picked = '';
-    void say(ls.round.target.name, ['Que letra é essa?', 'Ouça com atenção.']);
+    void say(ls.round.target.spoken, ['Que letra é essa?', 'Ouça com atenção.']);
   };
 
   // soletrar
@@ -385,7 +385,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         render();
         caption(`${l.letter}: ${l.name}`, `(${l.pron})${ex ? ` · ${ex.fr}` : ''}`);
         void speaker
-          .say(l.name, { rate: 0.8 })
+          .say(l.spoken, { rate: 0.8 })
           .then(() =>
             ex && letterSel === l.letter ? speaker.say(ex.fr, { rate: 0.8 }) : undefined,
           );
@@ -400,7 +400,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         render();
         void speaker
           .seq(
-            ALPHABET.map((l) => l.name),
+            ALPHABET.map((l) => l.spoken),
             {
               rate: 0.8,
               gapMs: 350,
@@ -422,7 +422,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
 
     if (view === 'ouvir') {
       if (act === 'replay')
-        void say(ls.round.target.name, ['Que letra é essa?', 'Ouça com atenção.']);
+        void say(ls.round.target.spoken, ['Que letra é essa?', 'Ouça com atenção.']);
       if (act === 'pick' && ls.answered === null) {
         ls.picked = d.l!;
         const right = d.l === ls.round.target.letter;
@@ -433,7 +433,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         }
         const t = ls.round.target;
         void say(
-          right ? 'Voilà, bravo!' : t.name,
+          right ? 'Voilà, bravo!' : t.spoken,
           right
             ? [`Voilà, bravo! É a letra ${t.letter}.`, `${t.name} (${t.pron})`]
             : [`Quase! Era a letra ${t.letter}.`, `${t.name} (${t.pron})`],
@@ -466,7 +466,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
             const names = w.fr
               .toUpperCase()
               .split('')
-              .map((c) => letterByChar(c)?.name ?? c);
+              .map((c) => letterByChar(c)?.spoken ?? c);
             caption(`${w.fr.toUpperCase().split('').join(' - ')}`, `${w.fr}: ${w.pt}`);
             void speaker.seq([...names, w.fr], { rate: 0.8, gapMs: 200 });
           }
@@ -479,7 +479,7 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         sp.hint = true;
         const expected = w.fr[sp.filled]!.toUpperCase();
         sp.msg = `Dica: a próxima letra é ${expected} (${letterByChar(expected)?.name ?? ''}).`;
-        void say(letterByChar(expected)?.name ?? expected);
+        void say(letterByChar(expected)?.spoken ?? expected);
         render();
       }
       if (act === 'next') {

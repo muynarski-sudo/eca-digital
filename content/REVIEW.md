@@ -86,12 +86,12 @@ Pontos de atenção:
 
 O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exercícios e flashcards. Como você pediu o alfabeto completo na área lúdica, ela usa uma lista própria em `src/lib/play/alphabet.ts`, com `source: "generated"`:
 
-- Nome de cada letra em francês (a, bé, cé, dé, eu, effe, gé, ache, i, ji, ka, elle, emme, enne, o, pé, ku, erre, esse, té, u, vé, double vé, iks, i grec, zède). A voz do aparelho lê esse nome.
-- Pronúncia aportuguesada: mantive a do e-book onde ele traz (H, J, L, Q, U, W, X, Y, Z) e escrevi as demais. O "E" ficou "êu (som fechado, boca em bico)", pois o e-book traz "õ", que não parece certo.
-- **Peço conferência com nativo.** Se algo estiver errado, corrija em `ALPHABET` (um arquivo só).
+- Nome de cada letra em francês (a, bé, cé, dé, e, effe, gé, hache, i, ji, ka, elle, emme, enne, o, pé, ku, erre, esse, té, u, vé, double vé, ix, i grec, zède).
+- **Áudio das letras (corrigido):** a voz lia o nome como se fosse uma palavra e errava: "eu" saía como [y] (o som do U, não do E), "emme" saía nasal ([ɑ̃m]), "iks" perdia o S e "esse" saía [es]. Agora cada letra tem o som exato em IPA (`ipa` em `src/lib/play/alphabet.ts`, conforme Wiktionary e Académie française) e o arquivo de áudio é gerado direto dos fonemas (`scripts/play_audio.py --ipa`). O texto de reserva para a voz do aparelho foi reescrito para ser lido certo (euh, èf, èl, èm, èn, èr, ès, ix, zèd). **Conferido só no nível dos fonemas, não de ouvido.**
+- Pronúncia aportuguesada na tela: mantive a do e-book onde ele traz (H, J, L, W, X, Y, Z) e escrevi as demais. Reescrevi E ("ê com os lábios em bico"), Q e U (o "ú" do e-book sugere o U do português, que é outro som: o U francês é um "i" com os lábios em bico, [y]).
 - Palavra de exemplo de cada letra: só do vocabulário do e-book. K, W, X, Y e Z não têm palavra no e-book e aparecem sem exemplo.
 - A avatar "Iasmyn" fala com a voz do próprio aparelho (francês, se houver). Se o aparelho não tiver voz francesa, a fala sai na voz padrão e as legendas continuam na tela.
-- **Áudio gravado:** as vozes (303 arquivos em `public/audio/play`) foram geradas por síntese (Piper, voz SIWIS) e nunca foram ouvidas por um nativo. Ouça pelo menos as 26 letras e as frases antes de usar com alunos. Se alguma estiver errada, apague o `.mp3` correspondente e gere de novo (ou grave a sua com o mesmo nome de arquivo).
+- **Áudio gravado:** as vozes (456 arquivos em `public/audio/play`) foram geradas por síntese (Piper, voz SIWIS) e nunca foram ouvidas por um nativo. Ouça pelo menos as 26 letras e as frases antes de usar com alunos. Se alguma estiver errada, apague o `.mp3` correspondente e gere de novo (ou grave a sua com o mesmo nome de arquivo).
 
 ## 6. Assuntos, níveis e tempos verbais (para conferir)
 
@@ -105,3 +105,11 @@ O alfabeto do capítulo 2 do e-book continua pendente (seção 1) e fora de exer
 - **Palavras por nível** (`content/data/lexicon.json`, 153 palavras, ids `lx-...`): A2 a C2. Confira as traduções, em especial as de C1 e C2 (por exemplo "gageure", "apanage", "écueil", "sous-tendre").
 - **Frases da gramática** (272 questões, ids `q-gr-...`): as frases são autorais e simples; as respostas vêm da tabela de conjugações do e-book. Algumas combinações podem soar estranhas (por exemplo "Demain, je vais vouloir un café"). Se alguma incomodar, ajuste em `scripts/content/library.ts` (lista COMPLEMENTS e MARKERS).
 - **Áudio:** voz sintética (Piper), nunca ouvida por nativo. Ouça pelo menos 3 textos (um A1, um B1 e um C2) antes de liberar para os alunos.
+
+## 8. Alfabeto e pronúncia do capítulo 2 do e-book: pontos para decidir
+
+- E-book, letra E: "õ". O som real é [ø], como em "peu". Não corrigi o texto do e-book (continua pendente na seção 1).
+- E-book, letras B, C, D, F, G, K, S, T, V: a pronúncia traz só a letra ("b", "c"...), que é o nome da letra em português, não em francês (bê, sê, dê, éf, jê, cá, és, tê, vê).
+- E-book, "Un (an)": o "un" francês é [œ̃] (parecido com "ã" mas com lábios mais arredondados), não "an" [ɑ̃]. O áudio do app lê "un" corretamente; a grafia do e-book não bate com ele.
+- E-book, "Quelqu'un (quelcã)": mesma observação.
+- Áudio das palavras do capítulo 2 (R, nasais, vogais juntas, ille e tion): conferi os fonemas que a voz usa e batem com o francês padrão (por exemplo "famille" [famij], "présentation" [pʁezɑ̃tasjɔ̃], "noir" [nwaʁ]); falta a conferência de ouvido por um nativo.

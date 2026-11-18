@@ -16,12 +16,17 @@ ap.add_argument('--voice', required=True)
 ap.add_argument('--texts', default='.audio-cache/play-texts.json')
 ap.add_argument('--out', default='public/audio/play')
 ap.add_argument('--force', action='store_true')
+ap.add_argument('--ipa', default='.audio-cache/play-ipa.json', help='JSON {chave: IPA}: gera o áudio direto dos fonemas (nomes de letras)')
 args = ap.parse_args()
 
 from piper import PiperVoice
 
 voice = PiperVoice.load(args.voice)
 texts = json.load(open(args.texts, encoding='utf8'))
+# alguns textos (nomes das letras) não podem passar pela leitura de texto: a voz erra ("eu" vira U, "emme" vira nasal).
+# Para eles o áudio sai direto dos fonemas em IPA.
+ipa = json.load(open(args.ipa, encoding='utf8')) if args.ipa and os.path.exists(args.ipa) else {}
+import numpy as np
 os.makedirs(args.out, exist_ok=True)
 done = skipped = 0
 tmp = tempfile.mkdtemp()
@@ -32,7 +37,15 @@ for key, text in texts.items():
         continue
     wav = os.path.join(tmp, f'{key}.wav')
     with wave.open(wav, 'wb') as w:
-        voice.synthesize_wav(text, w)
+        if key in ipa:
+            ids = voice.phonemes_to_ids(list(ipa[key]))
+            audio = voice.phoneme_ids_to_audio(ids)
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(voice.config.sample_rate)
+            w.writeframes((np.clip(audio, -1, 1) * 32767).astype('<i2').tobytes())
+        else:
+            voice.synthesize_wav(text, w)
     # tira o silêncio só do começo e do fim (não pode cortar nas pausas do meio: com stop_periods o áudio era cortado na primeira vírgula),
     # normaliza o volume e comprime (mono, 22 kHz, 40 kbps)
     subprocess.run([

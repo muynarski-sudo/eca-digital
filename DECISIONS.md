@@ -202,3 +202,10 @@ Revisão feita olhando as telas reais em 390 px (iPhone) e 1280 px, no app Next 
 - **Rótulos:** o chip "Nível 1 · Iniciante" e o assunto sumiram do exercício (confundiam com "Nível 1: Saudações"); ficou só a dificuldade (●○○ fácil, médio, difícil).
 - **Corrigido:** o aviso de instalação do app cobria as abas; agora fica acima delas. Trilhas de progresso invisíveis sobre fundo azul claro.
 - **Não mexido (próximos passos possíveis):** tema escuro no app Next (a demo já tem), animação de celebração ao concluir um nível, e revisão de contraste com leitor de tela feita por uma pessoa.
+
+### D22. Áudio do alfabeto gerado do IPA
+
+- Problema: o nome de uma letra, passado como texto comum à voz (Piper), era lido como palavra do francês e saía errado: "eu" virava [y] (o som do U), "emme" virava nasal, "iks" perdia o S, "esse" e "effe" saíam com o E fechado. Era o que soava aportuguesado e errado para quem ouvia.
+- Solução: cada letra guarda o IPA do seu nome (`Letter.ipa`) e o áudio é gerado direto dos fonemas (`phonemes_to_ids` do Piper), sem passar pela leitura de texto. `Letter.spoken` é o texto de reserva para a voz do aparelho (reescrito para ser lido certo) e dá nome ao arquivo; `Letter.name` é o que aparece na tela (hache, ix, e). Os 26 áudios foram regenerados.
+- O mesmo defeito do silêncio cortado (D19) não afeta as letras: são clipes curtos.
+- **Limite honesto:** verifiquei o IPA e os fonemas que a voz recebe, mas não ouvi os arquivos nem usei reconhecimento de voz. Uma pessoa nativa precisa ouvir as 26 letras (`content/REVIEW.md`, seções 5 e 8).

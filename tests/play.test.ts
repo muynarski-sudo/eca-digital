@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { ALPHABET, exampleWords, headLetter, letterByChar } from '@/lib/play/alphabet';
 import {
@@ -27,6 +28,33 @@ describe('alfabeto', () => {
     }
     expect(new Set(ALPHABET.map((l) => l.name)).size).toBe(26);
     expect(letterByChar('w')?.name).toBe('double vé');
+  });
+  it('o som de cada letra vem do IPA, não da leitura do texto (a voz lê "eu" como U, "emme" como nasal, "iks" sem S)', () => {
+    const ipa = Object.fromEntries(ALPHABET.map((l) => [l.letter, l.ipa]));
+    expect(ipa).toMatchObject({
+      A: 'ˈa',
+      B: 'bˈe',
+      C: 'sˈe',
+      E: 'ˈø', // não [y]
+      F: 'ˈɛf',
+      G: 'ʒˈe',
+      H: 'ˈaʃ',
+      J: 'ʒˈi',
+      M: 'ˈɛm', // não nasal
+      Q: 'kˈy',
+      R: 'ˈɛʁ',
+      S: 'ˈɛs',
+      U: 'ˈy',
+      X: 'ˈiks', // com o S final
+      Z: 'zˈɛd',
+    });
+    expect(ipa['E']).not.toBe(ipa['U']);
+    expect(new Set(Object.values(ipa)).size).toBe(26);
+    expect(new Set(ALPHABET.map((l) => l.spoken)).size).toBe(26);
+  });
+  it('cada letra tem o arquivo de áudio (gerado do IPA)', () => {
+    for (const l of ALPHABET)
+      expect(existsSync(`public/audio/play/${clipKey(l.spoken)}.mp3`), l.letter).toBe(true);
   });
   it('as pronúncias que o e-book traz foram mantidas', () => {
     const ebook = Object.fromEntries(

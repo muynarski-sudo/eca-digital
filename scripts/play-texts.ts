@@ -2,6 +2,7 @@
    Depois rode scripts/play_audio.py para gerar os .mp3 (veja o README). */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { loadContent, isUsable } from '../src/lib/content/load';
+import { ALPHABET } from '../src/lib/play/alphabet';
 import { clipKey, normalizeSpoken } from '../src/lib/play/clipkey';
 import { spokenTexts } from '../src/lib/play/texts';
 
@@ -17,6 +18,11 @@ const texts = [
   ]),
 ];
 mkdirSync('.audio-cache', { recursive: true });
+// nomes das letras: o áudio sai direto do IPA (ver src/lib/play/alphabet.ts), não da leitura do texto
+writeFileSync(
+  '.audio-cache/play-ipa.json',
+  JSON.stringify(Object.fromEntries(ALPHABET.map((l) => [clipKey(l.spoken), l.ipa])), null, 1),
+);
 writeFileSync(
   '.audio-cache/play-texts.json',
   JSON.stringify(Object.fromEntries(texts.map((t) => [clipKey(t), t])), null, 1),
