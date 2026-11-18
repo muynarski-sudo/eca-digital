@@ -1,14 +1,11 @@
 import { redirect } from 'next/navigation';
 import { ExerciseRunner } from '@/components/practice/ExerciseRunner';
-import { PageHeader } from '@/components/ui/PageHeader';
 import { getQuestionMeta, getQuestions } from '@/lib/data/content';
 import { loadProgress } from '@/lib/data/progress';
 import { loadStageData } from '@/lib/data/stages';
 import { nextBatch, retryBatch, stageList } from '@/lib/domain/stages';
 import { loadSeen } from '@/lib/data/seen';
-import { levelFor, type Level } from '@/lib/domain/level';
 import { planDaily, planUnit } from '@/lib/domain/plan';
-import { LEVEL_LABELS } from '@/lib/content/labels';
 import { toPublic } from '@/lib/practice/public';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
@@ -47,7 +44,6 @@ export default async function Praticar({
   let ids: string[] = [];
   let backLabel = 'Voltar';
   let moreLabel = 'Mais 10 exercícios novos';
-  let level: Level | null = null;
 
   if (sp.tarefa) {
     const { data: a } = await db
@@ -93,10 +89,6 @@ export default async function Praticar({
     backHref = `/unidade/${view.unit.id}`;
     moreHref = `/praticar?unidade=${view.unit.id}`;
     ids = planUnit({ pool: meta, ...seen, unit: view.unit.id, rng, size: SIZE });
-    level = levelFor(
-      meta.filter((q) => q.unit === view.unit.id),
-      seen.seen,
-    );
   } else {
     const open = progress.units.filter((u) => u.state !== 'locked');
     const daily = planDaily({
@@ -108,7 +100,6 @@ export default async function Praticar({
       unitMastery: Object.fromEntries(progress.units.map((u) => [u.unit.id, u.mastery])),
     });
     ids = daily.ids;
-    level = daily.level;
   }
 
   const full = ids.length ? await getQuestions(db, { ids }) : [];
@@ -117,14 +108,6 @@ export default async function Praticar({
 
   return (
     <>
-      <PageHeader
-        title={title}
-        subtitle={
-          level
-            ? `Nível ${level}, ${LEVEL_LABELS[level]}. Perguntas novas a cada vez, das mais fáceis às mais difíceis.`
-            : 'Perguntas novas a cada vez. O erro faz parte.'
-        }
-      />
       <ExerciseRunner
         key={`${sp.n ?? '0'}-${ids.join(',')}`}
         questions={list.map(toPublic)}

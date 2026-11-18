@@ -6,9 +6,9 @@ import type { AnswerResult, PublicQuestion } from '@/lib/practice/types';
 import { AudioButton } from '@/components/ui/AudioButton';
 import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { LEVEL_LABELS, topicLabel } from '@/lib/content/labels';
 import { ClipButton } from '@/components/library/ClipButton';
 import { ExerciseShell } from './ExerciseShell';
+import { PairsBoard } from './PairsBoard';
 import { Feedback } from './Feedback';
 import { SpeakRecorder } from './SpeakRecorder';
 
@@ -23,6 +23,7 @@ interface Props {
   moreLabel?: string;
 }
 
+const DIFFICULTY: Record<number, string> = { 1: 'fácil', 2: 'médio', 3: 'difícil' };
 const TEXT_TYPES = ['fill_blank', 'translate_pt_fr', 'write_out', 'conjugate', 'dictation'];
 
 export function ExerciseRunner({
@@ -45,6 +46,10 @@ export function ExerciseRunner({
   const [choice, setChoice] = useState('');
   const [picked, setPicked] = useState<string[]>([]);
   const [pairs, setPairs] = useState<Record<string, string>>({});
+  const feedbackRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (result) feedbackRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [result]);
   const [revealed, setRevealed] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [tally, setTally] = useState({ correct: 0, almost: 0, wrong: 0 });
@@ -170,19 +175,16 @@ export function ExerciseRunner({
   const answered = result !== null || speech !== null;
 
   return (
-    <ExerciseShell index={i} total={questions.length} title={title}>
-      {(q.level || q.topic) && (
-        <p className="flex flex-wrap gap-2 text-sm text-ink-soft" aria-label="Nível e assunto">
-          {q.level ? (
-            <span className="rounded-full bg-brand-tint px-3 py-1 font-bold">
-              Nível {q.level} · {LEVEL_LABELS[q.level]}
-            </span>
-          ) : null}
-          {q.topic ? (
-            <span className="rounded-full bg-brand-tint px-3 py-1">{topicLabel(q.topic)}</span>
-          ) : null}
+    <ExerciseShell index={i} total={questions.length} title={title} exitHref={backHref}>
+      {q.track === 'trilha' && q.level ? (
+        <p className="text-sm font-bold text-ink-soft" aria-label="Dificuldade">
+          <span aria-hidden="true" className="tracking-widest text-brand-blue">
+            {'●'.repeat(q.level)}
+            <span className="text-line">{'●'.repeat(3 - q.level)}</span>
+          </span>{' '}
+          {DIFFICULTY[q.level]}
         </p>
-      )}
+      ) : null}
       <p className="text-lg font-bold text-brand-blue-dark">{q.prompt}</p>
       {q.clip && <ClipButton src={q.clip.src} text={q.clip.text} label="Ouvir a palavra" />}
       {q.hint && !answered && <p className="text-ink-muted">Dica: {q.hint}</p>}
@@ -317,33 +319,14 @@ export function ExerciseRunner({
       )}
 
       {q.type === 'match_pairs' && q.pairs && (
-        <div className="space-y-3">
-          {q.pairs.lefts.map((l, idx) => (
-            <div key={l} className="flex flex-wrap items-center gap-3">
-              <label
-                htmlFor={`pair-${idx}`}
-                lang="fr"
-                className="min-w-40 font-bold text-brand-blue-dark"
-              >
-                {l}
-              </label>
-              <select
-                id={`pair-${idx}`}
-                className="field max-w-xs"
-                disabled={answered}
-                value={pairs[l] ?? ''}
-                onChange={(e) => setPairs((p) => ({ ...p, [l]: e.target.value }))}
-              >
-                <option value="">Escolha…</option>
-                {q.pairs?.rights.map((r) => (
-                  <option key={r} value={r}>
-                    {r}
-                  </option>
-                ))}
-              </select>
-            </div>
-          ))}
-        </div>
+        <PairsBoard
+          key={q.id}
+          lefts={q.pairs.lefts}
+          rights={q.pairs.rights}
+          value={pairs}
+          disabled={answered}
+          onChange={setPairs}
+        />
       )}
 
       {speech && (
@@ -376,7 +359,11 @@ export function ExerciseRunner({
         </div>
       )}
 
-      {result && <Feedback result={result} />}
+      {result && (
+        <div ref={feedbackRef}>
+          <Feedback result={result} />
+        </div>
+      )}
       {error && (
         <p role="alert" className="font-bold text-brand-red-text">
           <span aria-hidden="true">✗ </span>
@@ -384,17 +371,19 @@ export function ExerciseRunner({
         </p>
       )}
 
-      <div className="flex flex-wrap gap-3">
+      <div className="sticky bottom-0 z-10 -mx-5 -mb-5 flex flex-wrap items-center gap-3 rounded-b-card border-t border-line bg-white/95 px-5 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur">
         {!answered && q.type !== 'speak' && !revealed && (
-          <Button onClick={submit} disabled={!canSubmit || pending}>
+          <Button onClick={submit} disabled={!canSubmit || pending} className="min-w-36">
             {pending ? 'Corrigindo…' : 'Conferir'}
           </Button>
         )}
         {answered && (
-          <Button onClick={next}>{i + 1 < questions.length ? 'Continuar' : 'Ver resumo'}</Button>
+          <Button onClick={next} className="min-w-36" autoFocus>
+            {i + 1 < questions.length ? 'Continuar' : 'Ver resumo'}
+          </Button>
         )}
-        <Link href={backHref} className="inline-flex min-h-12 items-center px-2">
-          Sair
+        <Link href={backHref} className="inline-flex min-h-12 items-center px-2 text-sm">
+          Parar por aqui
         </Link>
       </div>
     </ExerciseShell>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { BottomNav } from '@/components/BottomNav';
 import { Logo } from '@/components/Logo';
 import { TricolorBar } from '@/components/ui/TricolorBar';
 import { logout } from '@/lib/actions/auth';
@@ -52,7 +53,7 @@ export function Shell({
         </div>
         <nav
           aria-label="Principal"
-          className="mx-auto flex max-w-5xl gap-1 overflow-x-auto px-3 pb-2"
+          className="mx-auto hidden max-w-5xl flex-wrap gap-1 px-3 pb-2 md:flex"
         >
           {nav.map((n) => (
             <Link
@@ -65,9 +66,13 @@ export function Shell({
           ))}
         </nav>
       </header>
-      <main id="conteudo" className="mx-auto w-full max-w-5xl flex-1 space-y-6 px-4 py-6">
+      <main
+        id="conteudo"
+        className="mx-auto w-full max-w-5xl flex-1 space-y-5 px-4 py-5 pb-28 md:space-y-6 md:py-6 md:pb-6"
+      >
         {children}
       </main>
+      <BottomNav nav={nav} />
       <footer className="bg-brand-blue-dark px-4 py-6 text-sm text-white">
         <div className="mx-auto flex max-w-5xl flex-wrap justify-between gap-3">
           <span>Bonne chance dans votre voyage linguistique!</span>

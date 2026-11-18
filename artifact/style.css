@@ -636,3 +636,340 @@ th.muted {
 .nolink:hover .card {
   border-color: var(--blue);
 }
+
+/* ---- navegação no celular: abas embaixo, modo foco nos exercícios ---- */
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0;
+}
+.tabbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.tabbar a,
+.tabbar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 62px;
+  padding: 4px 2px;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.tabbar span:first-child {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.tabbar [aria-current='page'] {
+  color: var(--blue-dark);
+}
+.tabbar [aria-current='page'] span:last-child {
+  border-bottom: 2px solid var(--red);
+}
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 41;
+  background: rgb(0 0 0 / 0.3);
+}
+.moresheet {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+  z-index: 42;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+}
+.moresheet a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--blue-dark);
+}
+.moresheet a[aria-current='page'] {
+  background: var(--tint);
+}
+main.padbar {
+  padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+}
+@media (max-width: 719px) {
+  .nav.desk {
+    display: none;
+  }
+}
+@media (min-width: 720px) {
+  .tabbar,
+  .scrim,
+  .moresheet {
+    display: none;
+  }
+  main.padbar {
+    padding-bottom: 40px;
+  }
+  .nav {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---- início, trilha e nível ---- */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  min-height: 108px;
+  padding: 10px 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--blue-dark);
+}
+.tile .ti {
+  font-size: 1.9rem;
+  line-height: 1.1;
+}
+.tile .small {
+  color: var(--muted);
+}
+.ringbox {
+  flex: 0 0 auto;
+}
+.goto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+.tlist {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.tlist > li {
+  border-bottom: 1px solid var(--line);
+}
+.tlist > li:last-child {
+  border-bottom: 0;
+}
+.trow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: inherit;
+}
+a.trow:hover {
+  background: var(--tint);
+}
+.mk {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--surface);
+  color: var(--muted);
+}
+.mk.open {
+  background: var(--blue);
+  color: var(--on-blue);
+}
+.mk.done {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+.chev {
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+.slist > li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.slist > li:last-child {
+  border-bottom: 0;
+}
+.slist p {
+  margin: 0;
+}
+.btn.round {
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+}
+
+/* ---- exercício ---- */
+.runtop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.runtop .x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: -10px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--muted);
+}
+.runtop .grow {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dots {
+  color: var(--blue);
+  letter-spacing: 2px;
+}
+.dots i {
+  font-style: normal;
+  color: var(--line);
+}
+.stickybar {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 8px -18px -18px;
+  padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 16px 16px;
+}
+.pairs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pairs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 12px;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  color: var(--fg);
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+.pc.on {
+  border-color: var(--blue);
+  background: var(--tint);
+}
+.pc.ok {
+  border-color: var(--ok);
+  background: var(--ok-bg);
+}
+.pc:disabled {
+  opacity: 0.7;
+}
+.pn {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  background: var(--blue);
+  color: var(--on-blue);
+}
+
+/* cabeçalho enxuto no celular: marca e seletor de papel na mesma linha */
+@media (max-width: 719px) {
+  .top .inner:first-child {
+    flex-wrap: nowrap;
+    padding-block: 8px;
+  }
+  .brand span {
+    display: none;
+  }
+  .who {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .seg button {
+    padding: 6px 10px;
+    min-height: 40px;
+    font-size: 0.85rem;
+  }
+}
+.card.tint .meter {
+  background: var(--card);
+}

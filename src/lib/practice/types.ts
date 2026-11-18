@@ -10,6 +10,7 @@ export interface PublicQuestion {
   /** 1 iniciante, 2 intermediário, 3 avançado. */
   level?: number;
   topic?: string;
+  track?: string;
   /** Palavra solta (vocabulário): arquivo de áudio e texto para a voz do aparelho. */
   clip?: { src: string; text: string };
   hint?: string;

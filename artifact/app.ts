@@ -372,21 +372,27 @@ const unitPlan = (st, unit) =>
 // ---------- telas do aluno ----------
 function vInicio() {
   const st = student(),
-    p = progress(st),
-    plan = dailyPlanQuestions(st);
+    p = progress(st);
   const mine = S.assignments.filter((a) => a.sid === st.id);
   const todo = mine.filter((a) => a.status === 'assigned' || a.status === 'in_progress');
   const rev = mine.filter((a) => a.status === 'reviewed' && a.feedback).slice(-1)[0];
-  const weakest = p.units.find((u) => u.unit.id === plan.weakest);
-  return `<section class="hero"><h1>Bienvenu(e), ${esc(st.name.split(' ')[0])}!</h1><p>Um pouquinho por dia leva longe.</p></section>
-  <div class="grid3"><div class="card center">${ring(p.level)}<p class="strong">Seu progresso no A1</p>${streakChip(p.streak)}</div>
-  <div class="span2 stack">${(() => {
-    const vs = stageData(st).views,
-      cur = vs.find((v) => v.state === 'open');
-    return `<div class="card tint"><h2>${cur ? `Nível ${cur.number}: ${esc(cur.stage.title)}` : 'Trilha concluída!'}</h2><p>${cur ? `${cur.stat.answered} de ${cur.stat.total} questões. Um assunto de cada vez, em ordem.` : 'Você concluiu todos os níveis do A1.'}</p><button class="btn" data-a="treino">${cur && cur.stat.answered ? 'Continuar' : 'On y va!'}</button><p class="small">${vs.filter((v) => v.state === 'done').length} de ${vs.length} níveis concluídos.</p></div>`;
-  })()}
-  <div class="card"><h2>Tarefa da professora</h2>${todo.length ? todo.map((a) => `<div class="row"><div><p class="strong">${esc(a.title)}</p><p class="small">Prazo: ${fmt(a.due)}${a.due < Date.now() ? ' <span class="badge b-warn">! Atrasada</span>' : ''}</p></div><button class="btn sec" data-a="tarefa" data-id="${a.id}">Fazer tarefa</button></div>`).join('') : '<p>Nada pendente por aqui. Que tal um treino?</p>'}
-  ${rev ? `<div class="note"><b>Recado da professora${rev.grade != null ? ' · nota ' + rev.grade : ''}</b><p>${esc(rev.feedback)}</p></div>` : ''}</div></div></div>`;
+  const vs = stageData(st).views,
+    cur = vs.find((v) => v.state === 'open'),
+    ndone = vs.filter((v) => v.state === 'done').length;
+  const pct = cur && cur.stat.total ? cur.stat.answered / cur.stat.total : 0;
+  const tiles = [
+    ['leitura', '📖', 'Leitura', 'Textos e áudio'],
+    ['gramatica', '✏️', 'Gramática', 'Verbos em frases'],
+    ['vocabulario', '🔤', 'Vocabulário', 'Ouça e traduza'],
+    ['flashcards', '🃏', 'Flashcards', 'Revise palavras'],
+    ['conjugacao', '🔁', 'Conjugação', 'Tabelas e treino'],
+    ['brincar', '🎈', 'Brincar', 'Alfabeto e jogos'],
+  ];
+  return `<div class="row"><div><h1>Bienvenu(e), ${esc(st.name.split(' ')[0])}!</h1><p class="muted">Um pouquinho por dia leva longe.</p></div>${streakChip(p.streak)}</div>
+  <section class="card tint stack" aria-labelledby="treino"><p class="eyebrow">${cur && cur.stat.answered ? 'Continue de onde parou' : 'Seu próximo passo'}</p><h2 id="treino">${cur ? `Nível ${cur.number}: ${esc(cur.stage.title)}` : 'Trilha concluída!'}</h2>${cur ? bar(pct, 'Progresso do nível atual') : ''}<p>${cur ? `${cur.stat.answered} de ${cur.stat.total} questões. Um assunto de cada vez, em ordem.` : 'Você concluiu todos os níveis do A1.'}</p><div class="actions"><button class="btn" data-a="treino">${cur && cur.stat.answered ? 'Continuar' : cur ? 'On y va!' : 'Ver a trilha'}</button><a href="#trilha" class="small strong">${ndone} de ${vs.length} níveis concluídos · ver trilha</a></div></section>
+  ${todo.length || rev ? `<section class="card stack"><h2>Tarefa da professora</h2>${todo.map((a) => `<div class="row"><div><p class="strong">${esc(a.title)}</p><p class="small">Prazo: ${fmt(a.due)}${a.due < Date.now() ? ' <span class="badge b-warn">! Atrasada</span>' : ''}</p></div><button class="btn sec" data-a="tarefa" data-id="${a.id}">Fazer tarefa</button></div>`).join('')}${rev ? `<div class="note"><b>Recado da professora${rev.grade != null ? ' · nota ' + rev.grade : ''}</b><p>${esc(rev.feedback)}</p></div>` : ''}</section>` : ''}
+  <nav aria-label="Áreas de estudo" class="stack"><h2>Estude do seu jeito</h2><ul class="tiles plain">${tiles.map(([h, i, t, d]) => `<li><a class="tile" href="#${h}"><span class="ti" aria-hidden="true">${i}</span><span class="strong">${t}</span><span class="small">${d}</span></a></li>`).join('')}</ul></nav>
+  <section class="card row"><div class="ringbox">${ring(p.level)}</div><div class="grow"><p class="strong">Seu progresso no A1</p><p class="small">Domínio médio das unidades do e-book. Veja os detalhes em Evolução.</p><a class="small strong" href="#evolucao">Ver evolução →</a></div></section>`;
 }
 // ---------- leitura, gramática e vocabulário por nível ----------
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -497,13 +503,36 @@ function libPlan(st, area, lv) {
 
 function vTrilha() {
   const { views } = stageData(student());
-  return `<section class="hero"><h1>Trilha A1</h1><p>Cada nível trata de um assunto só. Termine todas as questões, veja a sua pontuação e o próximo nível abre. ${views.filter((v) => v.state === 'done').length} de ${views.length} níveis concluídos.</p></section><ol class="grid2">${views
-    .map(
-      (v) =>
-        `<li><div class="card ${v.state === 'locked' ? 'locked' : ''} stack"><div class="row"><p class="small strong">Nível ${v.number}</p>${v.state === 'locked' ? '<span class="badge b-low">🔒 Bloqueado</span>' : v.state === 'done' ? `<span class="badge b-ok">✓ Concluído · ${v.stat.score}%</span>` : `<span class="badge b-mid">${v.stat.answered ? 'Em andamento' : 'Novo'}</span>`}</div><h2>${esc(v.stage.title)}</h2><p>${esc(v.stage.hint)}</p>${v.state === 'locked' ? '<p class="small">Abre quando você concluir o nível anterior.</p>' : `<p class="small">${v.stat.answered} de ${v.stat.total} questões</p><p><a href="#nivel-${v.stage.id}" class="strong">${v.state === 'done' ? 'Ver pontuação →' : v.stat.answered ? 'Continuar →' : 'Começar →'}</a></p>`}</div></li>`,
-    )
-    .join('')}</ol>`;
+  const ndone = views.filter((v) => v.state === 'done').length;
+  const cur = views.find((v) => v.state === 'open');
+  const chapters = unitsJson
+    .map((u) => ({ u, items: views.filter((v) => v.stage.unit === u.id) }))
+    .filter((c) => c.items.length);
+  const row = (v) => {
+    const mark = v.state === 'done' ? '✓' : v.state === 'locked' ? '🔒' : v.number;
+    const sub =
+      v.state === 'locked'
+        ? 'Conclua o nível anterior para abrir'
+        : v.state === 'done'
+          ? `Concluído · pontuação ${v.stat.score}%`
+          : v.stat.answered
+            ? `${v.stat.answered} de ${v.stat.total} questões`
+            : esc(v.stage.hint);
+    const inner = `<span class="mk ${v.state}" aria-hidden="true">${mark}</span><span class="grow"><span class="strong ${v.state === 'locked' ? 'muted' : ''}" style="display:block">${esc(v.stage.title)}</span><span class="small" style="display:block">${sub}</span></span>${v.state === 'locked' ? '' : '<span class="chev" aria-hidden="true">›</span>'}`;
+    return v.state === 'locked'
+      ? `<li class="trow locked" aria-label="Nível ${v.number}, ${esc(v.stage.title)}, bloqueado">${inner}</li>`
+      : `<li><a class="trow" href="#nivel-${v.stage.id}">${inner}</a></li>`;
+  };
+  return `<section class="hero"><h1>Trilha A1</h1><p>Um assunto por nível. Termine todas as questões, veja a pontuação e o próximo nível abre.</p></section>
+  <section class="card tint stack" aria-label="Seu progresso na trilha"><div class="row"><p class="strong">${ndone} de ${views.length} níveis concluídos</p><span class="small">${Math.round((ndone / views.length) * 100)}%</span></div>${bar(ndone / views.length, 'Níveis concluídos')}${cur ? `<a class="goto" href="#nivel-${cur.stage.id}"><span><span class="eyebrow" style="color:#fff;opacity:.85">${cur.stat.answered ? 'Continue de onde parou' : 'Próximo nível'}</span><span class="strong big" style="display:block;color:#fff">Nível ${cur.number}: ${esc(cur.stage.title)}</span></span><span aria-hidden="true">→</span></a>` : ''}</section>
+  ${chapters.map((c) => `<section class="stack" aria-labelledby="cap-${c.u.id}"><div class="row"><h2 id="cap-${c.u.id}">Capítulo ${c.u.order}: ${esc(c.u.title)}</h2><span class="small">${c.items.filter((v) => v.state === 'done').length} de ${c.items.length}</span></div><ol class="tlist plain">${c.items.map(row).join('')}</ol></section>`).join('')}`;
 }
+const NUM_RANGE = {
+  'numeros-1': [0, 19],
+  'numeros-2': [20, 49],
+  'numeros-3': [50, 69],
+  'numeros-4': [70, 99],
+};
 function vNivel(id) {
   const { sn, views } = stageData(student());
   const v = views.find((x) => x.stage.id === id);
@@ -511,7 +540,22 @@ function vNivel(id) {
     return `<div class="card">Nível bloqueado. <a href="#trilha">Voltar à trilha</a></div>`;
   const next = views[v.number];
   const wrong = retryBatch(stageList(META, id), sn, 1000).length;
-  return `<section class="hero"><h1>Nível ${v.number}: ${esc(v.stage.title)}</h1><p>${esc(v.stage.hint)}</p></section><p><a href="#trilha">← Todos os níveis</a></p><div class="card tint stack" aria-label="Pontuação do nível"><p class="big">${v.stat.answered} de ${v.stat.total} questões respondidas</p>${v.state === 'done' ? `<p class="big strong" role="status">Pontuação: ${v.stat.score}%</p><p>${Math.round(v.stat.points * 10) / 10} de ${v.stat.total} pontos. Nível concluído!</p><div class="actions">${next && next.state !== 'locked' ? `<a class="btn" href="#nivel-${next.stage.id}">Próximo nível: ${esc(next.stage.title)}</a>` : ''}${wrong > 0 ? `<button class="btn sec" data-a="praticar-nivel" data-id="${id}" data-retry="1">Refazer as ${wrong} que errei</button>` : ''}</div>` : `<button class="btn" data-a="praticar-nivel" data-id="${id}">${v.stat.answered ? 'Continuar' : 'Começar'}</button>`}</div>`;
+  const rg = NUM_RANGE[id];
+  const words = VOCAB.filter((w) => {
+    if (w.stage !== id) return false;
+    if (!rg) return true;
+    const n = Number(String(w.pt).replace(/\s/g, ''));
+    return Number.isFinite(n) && n >= rg[0] && n <= rg[1];
+  });
+  const ex = phrasesJson
+    .filter((p) => p.stage === id && !p.needs_review && p.fr.split(' ').length <= 10)
+    .slice(0, 5);
+  const study =
+    words.length || ex.length
+      ? `<section class="card stack" aria-labelledby="estudo"><div><h2 id="estudo">Antes de praticar: estude e ouça</h2><p class="small">É o que vai aparecer nas questões deste nível. Toque em ▶ para ouvir.</p></div>${words.length ? `<ul class="plain slist">${words.map((w) => `<li class="row"><div><p lang="fr" class="strong">${esc(w.fr)}</p><p>${esc(w.pt)}</p>${w.pron ? `<p class="small">(${esc(w.pron)})</p>` : ''}</div><button class="btn ghost round" data-a="say" data-t="${esc(w.fr)}" aria-label="Ouvir ${esc(w.fr)}">▶</button></li>`).join('')}</ul>` : ''}${ex.length ? `<h3>Frases</h3><ul class="plain slist">${ex.map((p) => `<li class="row"><div><p lang="fr" class="strong">${esc(p.fr)}</p><p>${esc(p.pt)}</p></div><button class="btn ghost round" data-a="say" data-t="${esc(p.fr)}" aria-label="Ouvir a frase">▶</button></li>`).join('')}</ul>` : ''}</section>`
+      : '';
+  const pct = v.stat.total ? v.stat.answered / v.stat.total : 0;
+  return `<section class="hero"><h1>Nível ${v.number}: ${esc(v.stage.title)}</h1><p>${esc(v.stage.hint)}</p></section><p><a href="#trilha">← Todos os níveis</a></p><div class="card tint stack" aria-label="Pontuação do nível">${bar(pct, 'Progresso do nível')}<p class="big">${v.stat.answered} de ${v.stat.total} questões respondidas</p>${v.state === 'done' ? `<p class="big strong" role="status">Pontuação: ${v.stat.score}%</p><p>${Math.round(v.stat.points * 10) / 10} de ${v.stat.total} pontos. Nível concluído!</p><div class="actions">${next && next.state !== 'locked' ? `<a class="btn" href="#nivel-${next.stage.id}">Próximo nível: ${esc(next.stage.title)}</a>` : ''}${wrong > 0 ? `<button class="btn sec" data-a="praticar-nivel" data-id="${id}" data-retry="1">Refazer as ${wrong} que errei</button>` : ''}</div>` : `<button class="btn" data-a="praticar-nivel" data-id="${id}">${v.stat.answered ? 'Continuar' : 'Começar'}</button>`}</div>${study}`;
 }
 function vUnidade(id) {
   const st = student(),
@@ -560,12 +604,11 @@ function vPraticar() {
     const rights = [...q.pairs.map((p) => p.right)].sort(
       (a, b) => ((a.length * 7 + a.charCodeAt(0)) % 11) - ((b.length * 7 + b.charCodeAt(0)) % 11),
     );
-    body = q.pairs
-      .map(
-        (p, i) =>
-          `<div class="row left"><label for="pr${i}" lang="fr" class="strong minw">${esc(p.left)}</label><select id="pr${i}" class="field" data-left="${esc(p.left)}" ${done ? 'disabled' : ''}><option value="">Escolha…</option>${rights.map((x) => `<option ${r.pairs[p.left] === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></div>`,
-      )
-      .join('');
+    const lefts = q.pairs.map((p) => p.left);
+    const n = Object.keys(r.pairs).length;
+    const owner = (x) => lefts.find((l) => r.pairs[l] === x);
+    const badge = (k) => `<span class="pn" aria-hidden="true">${k}</span>`;
+    body = `<p class="small" role="status">${r.active ? 'Agora toque na tradução certa.' : n === lefts.length ? 'Todos ligados. Toque num par para desfazer.' : 'Toque numa palavra e depois na tradução.'}</p><div class="pairs"><div role="group" aria-label="Palavras em francês">${lefts.map((l, i) => `<button class="pc ${r.active === l ? 'on' : ''} ${r.pairs[l] ? 'ok' : ''}" lang="fr" data-a="pair-left" data-l="${esc(l)}" aria-pressed="${r.active === l || !!r.pairs[l]}" ${done ? 'disabled' : ''}>${r.pairs[l] ? badge(i + 1) : ''}${esc(l)}</button>`).join('')}</div><div role="group" aria-label="Traduções">${rights.map((x) => `<button class="pc ${owner(x) ? 'ok' : ''}" data-a="pair-right" data-r="${esc(x)}" aria-pressed="${!!owner(x)}" ${done ? 'disabled' : ''}>${owner(x) ? badge(lefts.indexOf(owner(x)) + 1) : ''}${esc(x)}</button>`).join('')}</div></div>`;
   }
   const audio = q.type === 'dictation' ? `<p>${speak(q.audio_text)}</p>` : '';
   const fb = r.res
@@ -579,7 +622,10 @@ function vPraticar() {
         return `<div role="status" aria-live="polite" class="fb ${m[2]}"><p class="strong big"><span aria-hidden="true">${m[0]}</span> ${m[1]}</p>${v === 'correct' && r.res.note ? `<p lang="fr">${esc(r.res.note)}</p>` : ''}${v !== 'correct' ? `<p>Forma correta: <strong lang="fr">${esc(r.res.expected)}</strong></p>` : ''}<p>${esc(q.explanation)}</p></div>`;
       })()
     : '';
-  return `<section class="narrow"><div class="row small strong"><span>${esc(r.title)}</span><span>${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack">${q.track && q.track !== 'trilha' ? `<p class="small chips-info"><span class="badge b-mid">${q.cefr} · ${CEFR_INFO[q.cefr].name}</span></p>` : q.difficulty ? `<p class="small chips-info"><span class="badge b-mid">Nível ${q.difficulty} · ${LEVEL_LABELS[q.difficulty]}</span> ${q.topic ? `<span class="badge">${esc(topicLabel(q.topic))}</span>` : ''}</p>` : ''}<p class="strong q">${esc(q.prompt)}</p>${q.track === 'vocabulario' && q.audio_text ? `<p>${speak(q.audio_text)}</p>` : ''}${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="actions">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}">Sair</a></div></div></section>`;
+  const dots = q.difficulty
+    ? `<p class="small strong" aria-label="Dificuldade"><span class="dots" aria-hidden="true">${'●'.repeat(q.difficulty)}<i>${'●'.repeat(3 - q.difficulty)}</i></span> ${['', 'fácil', 'médio', 'difícil'][q.difficulty]}</p>`
+    : '';
+  return `<section class="narrow"><div class="runtop"><a class="x" href="${r.back}" aria-label="Sair do exercício"><span aria-hidden="true">✕</span></a><span class="grow strong small">${esc(r.title)}</span><span class="strong small">${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack">${q.track && q.track !== 'trilha' ? `<p class="small chips-info"><span class="badge b-mid">${q.cefr} · ${CEFR_INFO[q.cefr].name}</span></p>` : dots}<p class="strong q">${esc(q.prompt)}</p>${q.track === 'vocabulario' && q.audio_text ? `<p>${speak(q.audio_text)}</p>` : ''}${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="stickybar">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}" class="small">Parar por aqui</a></div></div></section>`;
 }
 let fc = null; // flashcards
 function vFlash() {
@@ -767,6 +813,7 @@ function vBrincar() {
   return `<section class="hero"><h1>Brincar com a Iasmyn</h1><p>Alfabeto, jogos e frases para treinar o ouvido e a pronúncia, sem pressa.</p></section><div id="play-root"></div>`;
 }
 let keepScroll = false;
+let moreOpen = false;
 function render() {
   if (unmountPlay) {
     unmountPlay();
@@ -787,8 +834,26 @@ function render() {
     S.role === 'aluno' && S.students.length > 1
       ? `<label class="small">Aluno <select id="who" class="field mini">${S.students.map((s) => `<option value="${s.id}" ${s.id === S.cur ? 'selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`
       : '';
+  const focus = S.role === 'aluno' && r === 'praticar';
+  const TABS = [
+    ['inicio', '🏠', 'Início'],
+    ['trilha', '🗺️', 'Trilha'],
+    ['leitura', '📖', 'Leitura'],
+    ['gramatica', '✏️', 'Gramática'],
+    ['vocabulario', '🔤', 'Palavras'],
+  ];
+  const MORE = [
+    ['flashcards', 'Flashcards'],
+    ['conjugacao', 'Conjugação'],
+    ['brincar', 'Brincar'],
+    ['evolucao', 'Evolução'],
+  ];
+  const tabbar =
+    S.role === 'aluno' && !focus
+      ? `${moreOpen ? `<div class="scrim" data-a="mais-menu" aria-hidden="true"></div><div class="moresheet" role="dialog" aria-label="Mais opções">${MORE.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</div>` : ''}<nav class="tabbar" aria-label="Principal">${TABS.map(([h, i, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}><span aria-hidden="true">${i}</span><span>${l}</span></a>`).join('')}<button data-a="mais-menu" aria-expanded="${moreOpen}"><span aria-hidden="true">⋯</span><span>Mais</span></button></nav>`
+      : '';
   $('#app').innerHTML =
-    `<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="inner"><a class="brand" href="#${S.role === 'aluno' ? 'inicio' : 'alunos'}" aria-label="Falando Francês Prática, início"><img src="${logoUrl}" alt="Falando Francês" height="40" width="125"><span>Prática</span></a><div class="who"><div class="seg" role="group" aria-label="Quem está usando"><button data-a="role" data-r="aluno" aria-pressed="${S.role === 'aluno'}">Aluno</button><button data-a="role" data-r="professora" aria-pressed="${S.role === 'professora'}">Professora</button></div>${studs}</div></div><nav aria-label="Principal" class="inner nav">${nav.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></header><main class="inner" id="conteudo">${view(r)}</main><footer><div class="inner row"><span>Demonstração: os dados ficam só neste aparelho.</span><button class="link" data-a="reset">Recomeçar demo</button></div></footer>`;
+    `<div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><header class="top"><div class="inner"><a class="brand" href="#${S.role === 'aluno' ? 'inicio' : 'alunos'}" aria-label="Falando Francês Prática, início"><img src="${logoUrl}" alt="Falando Francês" height="40" width="125"><span>Prática</span></a><div class="who"><div class="seg" role="group" aria-label="Quem está usando"><button data-a="role" data-r="aluno" aria-pressed="${S.role === 'aluno'}">Aluno</button><button data-a="role" data-r="professora" aria-pressed="${S.role === 'professora'}">Professora</button></div>${studs}</div></div><nav aria-label="Principal" class="inner nav ${S.role === 'aluno' ? 'desk' : ''}">${nav.map(([h, l]) => `<a href="#${h}" ${active === h ? 'aria-current="page"' : ''}>${l}</a>`).join('')}</nav></header><main class="inner ${S.role === 'aluno' && !focus ? 'padbar' : ''}" id="conteudo">${view(r)}</main><footer><div class="inner row"><span>Demonstração: os dados ficam só neste aparelho.</span><button class="link" data-a="reset">Recomeçar demo</button></div></footer>${tabbar}`;
   const playRoot = $('#play-root');
   if (playRoot)
     unmountPlay = mountPlay(playRoot, {
@@ -1006,6 +1071,30 @@ document.addEventListener('click', (e) => {
     run.picked = run.picked.filter((x) => x !== +d.i);
     return render();
   }
+  if (a === 'mais-menu') {
+    moreOpen = !moreOpen;
+    keepScroll = true;
+    return render();
+  }
+  if (a === 'pair-left') {
+    const l = d.l;
+    if (run.pairs[l]) {
+      delete run.pairs[l];
+      run.active = null;
+    } else run.active = run.active === l ? null : l;
+    keepScroll = true;
+    return render();
+  }
+  if (a === 'pair-right') {
+    const owner = Object.keys(run.pairs).find((k) => run.pairs[k] === d.r);
+    if (owner) delete run.pairs[owner];
+    else if (run.active) {
+      run.pairs[run.active] = d.r;
+      run.active = null;
+    }
+    keepScroll = true;
+    return render();
+  }
   if (a === 'conferir') {
     const q = run.qs[run.i];
     let resp;
@@ -1044,6 +1133,7 @@ document.addEventListener('click', (e) => {
     run.res = null;
     run.picked = [];
     run.pairs = {};
+    run.active = null;
     run.text = '';
     run.choice = '';
     run.t0 = Date.now();
@@ -1168,5 +1258,8 @@ document.addEventListener('submit', (e) => {
     return render();
   }
 });
-window.addEventListener('hashchange', render);
+window.addEventListener('hashchange', () => {
+  moreOpen = false;
+  render();
+});
 render();

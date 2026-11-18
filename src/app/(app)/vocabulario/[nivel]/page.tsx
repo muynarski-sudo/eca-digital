@@ -1,8 +1,6 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExerciseRunner } from '@/components/practice/ExerciseRunner';
 import { Card } from '@/components/ui/Card';
-import { PageHeader } from '@/components/ui/PageHeader';
 import { CEFR_INFO } from '@/lib/content/labels';
 import { parseLevel } from '@/lib/content/levels';
 import { getLibraryMeta, getQuestions } from '@/lib/data/content';
@@ -50,10 +48,6 @@ export default async function Nivel({
   const title = `Vocabulário ${level}, ${CEFR_INFO[level]!.name}`;
   return (
     <>
-      <PageHeader title={title} subtitle="Perguntas novas a cada vez, sem repetir." />
-      <p>
-        <Link href="/vocabulario">← Todos os níveis</Link>
-      </p>
       {level !== 'A1' && (
         <Card tone="tint" className="text-sm">
           Conteúdo extra, além do e-book. Foi escrito para esta plataforma e aguarda revisão de uma

@@ -22,14 +22,15 @@ clips_script += ('window.__READING_AUDIO__=' + json.dumps({'base': 'audio/readin
 js = open('artifact/dist/app.js', encoding='utf8').read().replace('</script', '<\\/script')
 css = open('artifact/style.css', encoding='utf8').read() + open('src/lib/play/play.css', encoding='utf8').read()
 install = open('artifact/pwa-install.js', encoding='utf8').read()
-version = hashlib.sha1((js + css + install + clips_script + ''.join(clip_files) + ''.join(read_files)).encode('utf8')).hexdigest()[:10]
 
 extra_css = '''
 html{-webkit-text-size-adjust:100%}
 body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-#pwa-bar{position:fixed;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:50;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--card);color:var(--fg);border:2px solid var(--blue);border-radius:14px;padding:12px 14px;box-shadow:0 6px 24px rgb(0 0 0/.25)}
+#pwa-bar{position:fixed;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;gap:10px;align-items:center;justify-content:space-between;background:var(--card);color:var(--fg);border:2px solid var(--blue);border-radius:14px;padding:12px 14px;box-shadow:0 6px 24px rgb(0 0 0/.25)}
+@media(min-width:720px){#pwa-bar{bottom:max(12px,env(safe-area-inset-bottom,0px))}}
 #pwa-bar p{margin:0;font-size:.95rem}#pwa-bar .row2{display:flex;gap:8px;flex-shrink:0}
 '''
+version = hashlib.sha1((js + css + install + extra_css + clips_script + ''.join(clip_files) + ''.join(read_files)).encode('utf8')).hexdigest()[:10]
 html = f'''<!doctype html>
 <html lang="pt-BR">
 <head>

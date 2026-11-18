@@ -3,6 +3,8 @@ import phrasesJson from '../../../content/data/phrases.json';
 import dialoguesJson from '../../../content/data/dialogues.json';
 import cultureJson from '../../../content/data/culture.json';
 import readingsJson from '../../../content/data/readings.json';
+import vocabJson from '../../../content/data/vocab.json';
+import unitsJson from '../../../content/data/units.json';
 import {
   contentSchemas,
   PERSONS,
@@ -22,6 +24,11 @@ export const phrases = contentSchemas['phrases.json']
 export const dialogues = contentSchemas['dialogues.json']
   .parse(dialoguesJson)
   .filter((d) => !d.needs_review);
+/** Vocabulário do e-book (para a página de estudo de cada nível). */
+export const vocabAll = contentSchemas['vocab.json']
+  .parse(vocabJson)
+  .filter((v) => !v.needs_review);
+export const unitsAll = contentSchemas['units.json'].parse(unitsJson);
 export const readings = contentSchemas['readings.json']
   .parse(readingsJson)
   .filter((r) => !r.needs_review);

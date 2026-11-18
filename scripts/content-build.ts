@@ -13,7 +13,7 @@ import { units } from './content/units';
 import { vocab } from './content/vocab';
 import { ebookQuestions } from './content/questions-ebook';
 import { assignTopics } from './content/topics';
-import { assignStages } from './content/stages';
+import { assignStages, phraseStage, vocabStage } from './content/stages';
 import {
   grammarLevelExercises,
   lexiconFromSource,
@@ -125,11 +125,11 @@ function main() {
   }
   const data = {
     'units.json': units,
-    'vocab.json': vocab,
+    'vocab.json': vocab.map((v) => ({ ...v, stage: vocabStage(v) ?? undefined })),
     'questions.json': questions,
     'conjugations.json': conjs,
     'dialogues.json': dialogues,
-    'phrases.json': phrases,
+    'phrases.json': phrases.map((p) => ({ ...p, stage: phraseStage(p) ?? undefined })),
     'culture.json': culture,
     'readings.json': readingsFromSource(),
     'lexicon.json': lexicon,

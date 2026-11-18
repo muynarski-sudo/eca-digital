@@ -24,6 +24,7 @@ export function toPublic(q: Question): PublicQuestion {
     prompt: q.prompt,
     level: q.difficulty,
     topic: q.topic,
+    track: q.track,
     clip:
       q.track === 'vocabulario' && q.audio_text
         ? { src: `/audio/play/${clipKey(q.audio_text)}.mp3`, text: q.audio_text }

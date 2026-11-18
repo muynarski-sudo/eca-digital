@@ -15,6 +15,15 @@ async function login(page: Page, email: string, senha: string, esperaEntrar = tr
   await page.getByRole('button', { name: 'On y va!' }).click();
   if (esperaEntrar) await expect(page).not.toHaveURL(/\/login/);
 }
+async function ligarPares(page: Page) {
+  const lefts = page.getByRole('group', { name: 'Palavras em francês' }).getByRole('button');
+  const rights = page.getByRole('group', { name: 'Traduções' }).getByRole('button');
+  const n = await lefts.count();
+  for (let k = 0; k < n; k++) {
+    await lefts.nth(k).click();
+    await rights.nth(k).click();
+  }
+}
 const alerta = (page: Page, texto: string) => page.getByRole('alert').filter({ hasText: texto });
 async function logout(page: Page) {
   await page.getByRole('button', { name: 'Sair', exact: true }).first().click();
@@ -46,13 +55,11 @@ test('aluno: início, nível atual, flashcards e evolução', async ({ page }) =
   for (let i = 0; i < 4; i++) {
     const text = page.getByLabel('Sua resposta');
     const radio = page.getByRole('radio').first();
-    const selects = page.locator('select');
     const palavras = page.getByLabel('Palavras disponíveis').getByRole('button');
     if (await text.count()) await text.fill('resposta qualquer');
     else if (await radio.count()) await radio.check();
-    else if (await selects.count())
-      for (let k = 0; k < (await selects.count()); k++)
-        await selects.nth(k).selectOption({ index: 1 });
+    else if (await page.getByRole('group', { name: 'Palavras em francês' }).count())
+      await ligarPares(page);
     else if (await palavras.count()) await palavras.first().click();
     else break;
     await page.getByRole('button', { name: 'Conferir' }).click();
@@ -85,7 +92,7 @@ test('trilha em níveis: um assunto por vez, em ordem, e o próximo só abre dep
   await expect(cards.nth(0)).toContainText('Saudações');
   await expect(cards.nth(1)).toContainText('Despedidas');
   await expect(cards.nth(2)).toContainText('Apresentação');
-  await expect(cards.nth(1)).toContainText('Bloqueado');
+  await expect(cards.nth(1)).toContainText('Conclua o nível anterior');
   await page.goto('/nivel/despedidas');
   await expect(page).toHaveURL(/\/trilha/); // bloqueado: volta para a trilha
   await page.goto('/praticar?nivel=despedidas');
@@ -112,17 +119,15 @@ test('trilha em níveis: um assunto por vez, em ordem, e o próximo só abre dep
       );
       if (!visivel) break;
       prompts.push((await prompt.innerText()).trim());
-      const chip = await page.getByLabel('Nível e assunto').innerText();
-      niveis.push(Number(/Nível (\d)/.exec(chip)![1]));
+      const dif = await page.getByLabel('Dificuldade').innerText();
+      niveis.push(/fácil/.test(dif) ? 1 : /médio/.test(dif) ? 2 : 3);
       const text = page.getByLabel('Sua resposta');
       const radio = page.getByRole('radio').first();
-      const selects = page.locator('main select');
       const palavras = page.getByLabel('Palavras disponíveis').getByRole('button');
       if (await text.count()) await text.fill('resposta qualquer');
       else if (await radio.count()) await radio.check();
-      else if (await selects.count())
-        for (let k = 0; k < (await selects.count()); k++)
-          await selects.nth(k).selectOption({ index: 1 });
+      else if (await page.getByRole('group', { name: 'Palavras em francês' }).count())
+        await ligarPares(page);
       else if (await palavras.count()) await palavras.first().click();
       await page.getByRole('button', { name: 'Conferir' }).click();
       await expect(
@@ -148,8 +153,8 @@ test('trilha em níveis: um assunto por vez, em ordem, e o próximo só abre dep
   await expect(page.getByRole('link', { name: /Próximo nível: Despedidas/ })).toBeVisible();
   await page.goto('/trilha');
   await expect(page.locator('ol > li').nth(0)).toContainText('Concluído');
-  await expect(page.locator('ol > li').nth(1)).not.toContainText('Bloqueado');
-  await expect(page.locator('ol > li').nth(2)).toContainText('Bloqueado');
+  await expect(page.locator('ol > li').nth(1)).not.toContainText('Conclua o nível anterior');
+  await expect(page.locator('ol > li').nth(2)).toContainText('Conclua o nível anterior');
 });
 
 test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', async ({ page }) => {

@@ -10,6 +10,7 @@
    "fr": "Bonjour, je m'appelle André.",
    "pt": "Bom dia, meu nome é André."
   },
+  "stage": "saudacoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -20,6 +21,7 @@
   "fr": "Salut",
   "pt": "Olá (informal)",
   "pron": "Sa-lhú",
+  "stage": "saudacoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -30,6 +32,7 @@
   "fr": "Coucou",
   "pt": "Oi (forma carinhosa e informal)",
   "pron": "cucúu",
+  "stage": "saudacoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -40,6 +43,7 @@
   "fr": "Bonsoir",
   "pt": "Boa noite (ao chegar)",
   "pron": "Bonsuar",
+  "stage": "saudacoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -50,6 +54,7 @@
   "fr": "Ça va ?",
   "pt": "Tudo bom?",
   "pron": "Çá vá?",
+  "stage": "saudacoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -60,6 +65,7 @@
   "fr": "Au revoir",
   "pt": "Tchau",
   "pron": "ôrevoá",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -70,6 +76,7 @@
   "fr": "Bonne nuit",
   "pt": "Boa noite (para dormir)",
   "pron": "bonuí",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -80,6 +87,7 @@
   "fr": "À plus tard",
   "pt": "Até mais tarde",
   "pron": "a plú tar",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -90,6 +98,7 @@
   "fr": "Bonne journée",
   "pt": "Tenha um bom dia",
   "pron": "Bone jurnê",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -100,6 +109,7 @@
   "fr": "Bonne soirée",
   "pt": "Tenha uma boa noite",
   "pron": "bonne soarê",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -110,6 +120,7 @@
   "fr": "À demain",
   "pt": "Até amanhã",
   "pron": "A dômam",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -120,6 +131,7 @@
   "fr": "À bientôt",
   "pt": "Até logo",
   "pron": "A biantô",
+  "stage": "despedidas",
   "source": "ebook",
   "needs_review": false
  },
@@ -130,6 +142,7 @@
   "fr": "Enchanté(e)",
   "pt": "Prazer",
   "pron": "anchantê",
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -140,6 +153,7 @@
   "fr": "Je m'appelle",
   "pt": "Eu me chamo",
   "pron": "Jô má-péle",
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -150,6 +164,7 @@
   "fr": "Comment vous appelez-vous ?",
   "pt": "Como você se chama? (formal)",
   "pron": "comõ vuzapêlê vu",
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -160,6 +175,7 @@
   "fr": "Comment tu t'appelles ?",
   "pt": "Como tu te chamas? (informal)",
   "pron": "comon tu tapéle",
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -170,6 +186,7 @@
   "fr": "je",
   "pt": "eu",
   "pron": "jô",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -180,6 +197,7 @@
   "fr": "tu",
   "pt": "tu (informal)",
   "pron": "txú",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -190,6 +208,7 @@
   "fr": "il",
   "pt": "ele",
   "pron": "íle",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -200,6 +219,7 @@
   "fr": "elle",
   "pt": "ela",
   "pron": "éle",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -210,6 +230,7 @@
   "fr": "on",
   "pt": "a gente",
   "pron": "on",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -220,6 +241,7 @@
   "fr": "nous",
   "pt": "nós",
   "pron": "nu",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -230,6 +252,7 @@
   "fr": "vous",
   "pt": "vocês, ou você (formal)",
   "pron": "vu",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -240,6 +263,7 @@
   "fr": "ils",
   "pt": "eles",
   "pron": "íle",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -250,6 +274,7 @@
   "fr": "elles",
   "pt": "elas",
   "pron": "éle",
+  "stage": "pronomes",
   "source": "ebook",
   "needs_review": false
  },
@@ -264,6 +289,7 @@
    "fr": "Je suis brésilien(ne).",
    "pt": "Eu sou brasileiro(a)."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -277,6 +303,7 @@
    "fr": "Je suis professeur.",
    "pt": "Eu sou professor(a)."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -291,6 +318,7 @@
    "fr": "Je suis célibataire.",
    "pt": "Eu sou solteiro(a)."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -305,6 +333,7 @@
    "fr": "Je suis blond(e).",
    "pt": "Eu sou loiro(a)."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -318,6 +347,7 @@
    "fr": "Je suis amusant(e).",
    "pt": "Eu sou divertido(a)."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -331,6 +361,7 @@
    "fr": "Je suis étudiant.",
    "pt": "Eu sou estudante."
   },
+  "stage": "apresentacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -340,6 +371,7 @@
   "category": "pronuncia_r",
   "fr": "trois",
   "pt": "três",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -349,6 +381,7 @@
   "category": "pronuncia_r",
   "fr": "roi",
   "pt": "rei",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -358,6 +391,7 @@
   "category": "pronuncia_r",
   "fr": "merci",
   "pt": "obrigado(a)",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -368,6 +402,7 @@
   "fr": "infirmière",
   "pt": "enfermeira",
   "pron": "ãfirmiérre",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -378,6 +413,7 @@
   "fr": "simple",
   "pt": "simples",
   "pron": "sãple",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -388,6 +424,7 @@
   "fr": "sympathique",
   "pt": "simpático",
   "pron": "sãpatique",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -398,6 +435,7 @@
   "fr": "martien",
   "pt": "marciano",
   "pron": "martiã",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -408,6 +446,7 @@
   "fr": "ressembler",
   "pt": "parecer",
   "pron": "ressãbler",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -418,6 +457,7 @@
   "fr": "un",
   "pt": "um",
   "pron": "an",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -428,6 +468,7 @@
   "fr": "quelqu'un",
   "pt": "alguém",
   "pron": "quelcã",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -438,6 +479,7 @@
   "fr": "enfant",
   "pt": "criança",
   "pron": "ãnfã",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -448,6 +490,7 @@
   "fr": "maison",
   "pt": "casa",
   "pron": "mezon",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -458,6 +501,7 @@
   "fr": "japonais",
   "pt": "japonês",
   "pron": "japone",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -468,6 +512,7 @@
   "fr": "aimer",
   "pt": "amar",
   "pron": "emer",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -478,6 +523,7 @@
   "fr": "moi",
   "pt": "eu (tônico)",
   "pron": "moa",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -488,6 +534,7 @@
   "fr": "noir",
   "pt": "preto",
   "pron": "noar",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -498,6 +545,7 @@
   "fr": "chinois",
   "pt": "chinês",
   "pron": "chinoa",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -508,6 +556,7 @@
   "fr": "danseur",
   "pt": "dançarino",
   "pron": "Dançôr",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -518,6 +567,7 @@
   "fr": "acteur",
   "pt": "ator",
   "pron": "Actôr",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -528,6 +578,7 @@
   "fr": "lieu",
   "pt": "lugar",
   "pron": "liô",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -538,6 +589,7 @@
   "fr": "aussi",
   "pt": "também",
   "pron": "ôssi",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -548,6 +600,7 @@
   "fr": "gâteau",
   "pt": "bolo",
   "pron": "gatô",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -558,6 +611,7 @@
   "fr": "restaurant",
   "pt": "restaurante",
   "pron": "restôron",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -568,6 +622,7 @@
   "fr": "gentille",
   "pt": "gentil (fem.)",
   "pron": "gentéiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -578,6 +633,7 @@
   "fr": "famille",
   "pt": "família",
   "pron": "famíiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -588,6 +644,7 @@
   "fr": "fille",
   "pt": "filha, menina",
   "pron": "fíiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -598,6 +655,7 @@
   "fr": "bouteille",
   "pt": "garrafa",
   "pron": "butéiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -608,6 +666,7 @@
   "fr": "billet",
   "pt": "bilhete",
   "pron": "bíiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -618,6 +677,7 @@
   "fr": "cédille",
   "pt": "cedilha",
   "pron": "cêdíiê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -628,6 +688,7 @@
   "fr": "présentation",
   "pt": "apresentação",
   "pron": "prêsentacion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -638,6 +699,7 @@
   "fr": "négation",
   "pt": "negação",
   "pron": "negacion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -648,6 +710,7 @@
   "fr": "imitation",
   "pt": "imitação",
   "pron": "imitacion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -658,6 +721,7 @@
   "fr": "situation",
   "pt": "situação",
   "pron": "situacion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -668,6 +732,7 @@
   "fr": "solution",
   "pt": "solução",
   "pron": "solucion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -678,6 +743,7 @@
   "fr": "éducation",
   "pt": "educação",
   "pron": "êducacion",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": false
  },
@@ -688,6 +754,7 @@
   "fr": "A",
   "pt": "letra A",
   "pron": "a",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -698,6 +765,7 @@
   "fr": "B",
   "pt": "letra B",
   "pron": "b",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -708,6 +776,7 @@
   "fr": "C",
   "pt": "letra C",
   "pron": "c",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -718,6 +787,7 @@
   "fr": "D",
   "pt": "letra D",
   "pron": "d",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -728,6 +798,7 @@
   "fr": "E",
   "pt": "letra E",
   "pron": "õ",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -738,6 +809,7 @@
   "fr": "F",
   "pt": "letra F",
   "pron": "f",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -748,6 +820,7 @@
   "fr": "G",
   "pt": "letra G",
   "pron": "g",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -758,6 +831,7 @@
   "fr": "H",
   "pt": "letra H",
   "pron": "áche",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -768,6 +842,7 @@
   "fr": "I",
   "pt": "letra I",
   "pron": "i",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -778,6 +853,7 @@
   "fr": "J",
   "pt": "letra J",
   "pron": "jí",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -788,6 +864,7 @@
   "fr": "K",
   "pt": "letra K",
   "pron": "k",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -798,6 +875,7 @@
   "fr": "L",
   "pt": "letra L",
   "pron": "éle",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -808,6 +886,7 @@
   "fr": "M",
   "pt": "letra M",
   "pron": "éme",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -818,6 +897,7 @@
   "fr": "N",
   "pt": "letra N",
   "pron": "éne",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -828,6 +908,7 @@
   "fr": "O",
   "pt": "letra O",
   "pron": "ô",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -838,6 +919,7 @@
   "fr": "P",
   "pt": "letra P",
   "pron": "pê",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -848,6 +930,7 @@
   "fr": "Q",
   "pt": "letra Q",
   "pron": "quiu (c/bico)",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -858,6 +941,7 @@
   "fr": "R",
   "pt": "letra R",
   "pron": "érrr",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -868,6 +952,7 @@
   "fr": "S",
   "pt": "letra S",
   "pron": "s",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -878,6 +963,7 @@
   "fr": "T",
   "pt": "letra T",
   "pron": "t",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -888,6 +974,7 @@
   "fr": "U",
   "pt": "letra U",
   "pron": "ú (c/bico)",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -898,6 +985,7 @@
   "fr": "V",
   "pt": "letra V",
   "pron": "v",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -908,6 +996,7 @@
   "fr": "W",
   "pt": "letra W",
   "pron": "duble v",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -918,6 +1007,7 @@
   "fr": "X",
   "pt": "letra X",
   "pron": "íquis",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -928,6 +1018,7 @@
   "fr": "Y",
   "pt": "letra Y",
   "pron": "igréque",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -938,6 +1029,7 @@
   "fr": "Z",
   "pt": "letra Z",
   "pron": "zéde",
+  "stage": "pronuncia",
   "source": "ebook",
   "needs_review": true
  },
@@ -948,6 +1040,7 @@
   "fr": "Merci",
   "pt": "Obrigado(a)",
   "pron": "mer-cí",
+  "stage": "cortesia",
   "source": "ebook",
   "needs_review": false
  },
@@ -958,6 +1051,7 @@
   "fr": "De rien",
   "pt": "De nada",
   "pron": "dô rriã",
+  "stage": "cortesia",
   "source": "ebook",
   "needs_review": false
  },
@@ -972,6 +1066,7 @@
    "fr": "L'addition, s'il vous plaît.",
    "pt": "A conta, por favor."
   },
+  "stage": "cortesia",
   "source": "ebook",
   "needs_review": false
  },
@@ -986,6 +1081,7 @@
    "fr": "Excusez-moi, où sont les toilettes, s'il vous plaît ?",
    "pt": "Com licença, onde fica o banheiro, por favor?"
   },
+  "stage": "cortesia",
   "source": "ebook",
   "needs_review": false
  },
@@ -996,6 +1092,7 @@
   "fr": "un",
   "pt": "1",
   "pron": "an",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1006,6 +1103,7 @@
   "fr": "deux",
   "pt": "2",
   "pron": "dû",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1016,6 +1114,7 @@
   "fr": "trois",
   "pt": "3",
   "pron": "trruá",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1026,6 +1125,7 @@
   "fr": "quatre",
   "pt": "4",
   "pron": "kátrê",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1036,6 +1136,7 @@
   "fr": "cinq",
   "pt": "5",
   "pron": "sanque",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1046,6 +1147,7 @@
   "fr": "six",
   "pt": "6",
   "pron": "sis",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1056,6 +1158,7 @@
   "fr": "sept",
   "pt": "7",
   "pron": "set",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1066,6 +1169,7 @@
   "fr": "huit",
   "pt": "8",
   "pron": "uít",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1076,6 +1180,7 @@
   "fr": "neuf",
   "pt": "9",
   "pron": "nóf",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1086,6 +1191,7 @@
   "fr": "dix",
   "pt": "10",
   "pron": "diz",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1096,6 +1202,7 @@
   "fr": "onze",
   "pt": "11",
   "pron": "Onze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1106,6 +1213,7 @@
   "fr": "douze",
   "pt": "12",
   "pron": "duze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1116,6 +1224,7 @@
   "fr": "treize",
   "pt": "13",
   "pron": "treze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1126,6 +1235,7 @@
   "fr": "quatorze",
   "pt": "14",
   "pron": "Catórze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1136,6 +1246,7 @@
   "fr": "quinze",
   "pt": "15",
   "pron": "canze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1146,6 +1257,7 @@
   "fr": "seize",
   "pt": "16",
   "pron": "céze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1156,6 +1268,7 @@
   "fr": "dix-sept",
   "pt": "17",
   "pron": "díz sét",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1165,6 +1278,7 @@
   "category": "numeros",
   "fr": "dix-huit",
   "pt": "18",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1175,6 +1289,7 @@
   "fr": "dix-neuf",
   "pt": "19",
   "pron": "díz nóf",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1185,6 +1300,7 @@
   "fr": "vingt",
   "pt": "20",
   "pron": "vante",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1195,6 +1311,7 @@
   "fr": "vingt et un",
   "pt": "21",
   "pron": "vante ê an",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1205,6 +1322,7 @@
   "fr": "vingt-deux",
   "pt": "22",
   "pron": "vante dû",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1215,6 +1333,7 @@
   "fr": "vingt-trois",
   "pt": "23",
   "pron": "vante truá",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1225,6 +1344,7 @@
   "fr": "trente",
   "pt": "30",
   "pron": "trante",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1235,6 +1355,7 @@
   "fr": "quarante",
   "pt": "40",
   "pron": "karronte",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1245,6 +1366,7 @@
   "fr": "cinquante",
   "pt": "50",
   "pron": "sanconte",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1255,6 +1377,7 @@
   "fr": "soixante",
   "pt": "60",
   "pron": "suassonte",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1265,6 +1388,7 @@
   "fr": "soixante-dix",
   "pt": "70",
   "pron": "suassonte díz",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1275,6 +1399,7 @@
   "fr": "soixante et onze",
   "pt": "71",
   "pron": "suassonte onze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1285,6 +1410,7 @@
   "fr": "soixante-douze",
   "pt": "72",
   "pron": "suassonte dúze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1295,6 +1421,7 @@
   "fr": "soixante-treize",
   "pt": "73",
   "pron": "suassonte treze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1305,6 +1432,7 @@
   "fr": "quatre-vingt",
   "pt": "80",
   "pron": "catrô van",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1315,6 +1443,7 @@
   "fr": "quatre-vingt-un",
   "pt": "81",
   "pron": "catrô vantan",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1325,6 +1454,7 @@
   "fr": "quatre-vingt-deux",
   "pt": "82",
   "pron": "catrô van dû",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1335,6 +1465,7 @@
   "fr": "quatre-vingt-dix",
   "pt": "90",
   "pron": "catrô van díz",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1345,6 +1476,7 @@
   "fr": "quatre-vingt-onze",
   "pt": "91",
   "pron": "catrô van onze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1355,6 +1487,7 @@
   "fr": "quatre-vingt-douze",
   "pt": "92",
   "pron": "catrô van dúze",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1365,6 +1498,7 @@
   "fr": "cent",
   "pt": "100",
   "pron": "san",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1375,6 +1509,7 @@
   "fr": "mille",
   "pt": "1000",
   "pron": "míle",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1385,6 +1520,7 @@
   "fr": "un million",
   "pt": "1 000 000",
   "pron": "an milion",
+  "stage": "numeros-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -1395,6 +1531,7 @@
   "fr": "l'hôtel",
   "pt": "o hotel",
   "pron": "lo-téllll",
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1409,6 +1546,7 @@
    "fr": "J'ai une réservation.",
    "pt": "Eu tenho uma reserva."
   },
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1419,6 +1557,7 @@
   "fr": "le taxi",
   "pt": "o táxi",
   "pron": "lo táxí",
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1433,6 +1572,7 @@
    "fr": "Pouvez-vous m'emmener à l'aéroport ?",
    "pt": "Você pode me levar ao aeroporto?"
   },
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1447,6 +1587,7 @@
    "fr": "Combien coûte un billet ?",
    "pt": "Quanto custa um bilhete?"
   },
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1461,6 +1602,7 @@
    "fr": "Où est la gare, s'il vous plaît ?",
    "pt": "Onde fica a estação de trem, por favor?"
   },
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1471,6 +1613,7 @@
   "fr": "le bus",
   "pt": "o ônibus",
   "pron": "lo bus",
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1481,6 +1624,7 @@
   "fr": "le métro",
   "pt": "o metrô",
   "pron": "Lo mêtrô",
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1495,6 +1639,7 @@
    "fr": "Je voudrais aller à l'aéroport.",
    "pt": "Eu queria ir ao aeroporto."
   },
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1505,6 +1650,7 @@
   "fr": "le bateau",
   "pt": "o barco",
   "pron": "Lô batô",
+  "stage": "viagem",
   "source": "ebook",
   "needs_review": false
  },
@@ -1518,6 +1664,7 @@
    "fr": "Où est le restaurant ?",
    "pt": "Onde é o restaurante?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1531,6 +1678,7 @@
    "fr": "Quand est la réunion ?",
    "pt": "Quando é a reunião?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1544,6 +1692,7 @@
    "fr": "Comment allez-vous ?",
    "pt": "Como você está?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1557,6 +1706,7 @@
    "fr": "Combien ça coûte ?",
    "pt": "Quanto custa?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1570,6 +1720,7 @@
    "fr": "Qui va aujourd'hui ?",
    "pt": "Quem vai hoje?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1583,6 +1734,7 @@
    "fr": "Pourquoi tu pleures ?",
    "pt": "Por que você está chorando?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1596,6 +1748,7 @@
    "fr": "Je mange parce que j'ai faim.",
    "pt": "Eu como porque estou com fome."
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1609,6 +1762,7 @@
    "fr": "Est-ce que tu parles français ?",
    "pt": "Você fala francês?"
   },
+  "stage": "interrogativas",
   "source": "ebook",
   "needs_review": false
  },
@@ -1622,6 +1776,7 @@
    "fr": "Je parle français et anglais.",
    "pt": "Eu falo francês e inglês."
   },
+  "stage": "negativa",
   "source": "ebook",
   "needs_review": false
  },
@@ -1635,6 +1790,7 @@
    "fr": "Il est tard, donc je dois partir.",
    "pt": "Está tarde, então eu preciso ir."
   },
+  "stage": "negativa",
   "source": "ebook",
   "needs_review": false
  },
@@ -1648,6 +1804,7 @@
    "fr": "Je voudrais venir, mais je suis occupé.",
    "pt": "Eu gostaria de vir, mas estou ocupado."
   },
+  "stage": "negativa",
   "source": "ebook",
   "needs_review": false
  },
@@ -1661,6 +1818,7 @@
    "fr": "Il est plus haut que Pierre.",
    "pt": "Ele é mais alto que Pierre."
   },
+  "stage": "negativa",
   "source": "ebook",
   "needs_review": false
  },
@@ -1674,6 +1832,7 @@
    "fr": "Je ne parle pas français.",
    "pt": "Eu não falo francês."
   },
+  "stage": "negativa",
   "source": "ebook",
   "needs_review": false
  },
@@ -1683,6 +1842,7 @@
   "category": "verbos",
   "fr": "être",
   "pt": "ser, estar",
+  "stage": "verbos-frases",
   "source": "ebook",
   "needs_review": false
  },
@@ -1692,6 +1852,7 @@
   "category": "verbos",
   "fr": "avoir",
   "pt": "ter",
+  "stage": "verbos-frases",
   "source": "ebook",
   "needs_review": false
  },
@@ -1701,6 +1862,7 @@
   "category": "verbos",
   "fr": "faire",
   "pt": "fazer",
+  "stage": "verbos-frases",
   "source": "ebook",
   "needs_review": false
  },
@@ -1710,6 +1872,7 @@
   "category": "verbos",
   "fr": "aller",
   "pt": "ir",
+  "stage": "verbos-frases",
   "source": "ebook",
   "needs_review": false
  },
@@ -1723,6 +1886,7 @@
    "fr": "J'ai faim.",
    "pt": "Eu tenho fome."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1736,6 +1900,7 @@
    "fr": "Elle a soif après la course.",
    "pt": "Ela tem sede depois do treino."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1749,6 +1914,7 @@
    "fr": "Elle a froid.",
    "pt": "Ela tem frio."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1762,6 +1928,7 @@
    "fr": "Nous avons chaud.",
    "pt": "Nós temos calor."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1775,6 +1942,7 @@
    "fr": "Tu as peur.",
    "pt": "Você tem medo."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1784,6 +1952,7 @@
   "category": "expressoes_avoir",
   "fr": "avoir raison",
   "pt": "ter razão",
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1797,6 +1966,7 @@
    "fr": "Il est en retard pour le travail.",
    "pt": "Ele está atrasado para o trabalho."
   },
+  "stage": "expressoes-avoir",
   "source": "ebook",
   "needs_review": false
  },
@@ -1806,6 +1976,7 @@
   "category": "feminino",
   "fr": "grand / grande",
   "pt": "grande",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1815,6 +1986,7 @@
   "category": "feminino",
   "fr": "blond / blonde",
   "pt": "loiro / loira",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1824,6 +1996,7 @@
   "category": "feminino",
   "fr": "étudiant / étudiante",
   "pt": "estudante",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1837,6 +2010,7 @@
    "fr": "Il est marié. Elle est mariée.",
    "pt": "Ele é casado. Ela é casada."
   },
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1846,6 +2020,7 @@
   "category": "feminino",
   "fr": "jeune",
   "pt": "jovem (não muda)",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1855,6 +2030,7 @@
   "category": "feminino",
   "fr": "professeur",
   "pt": "professor(a) (não muda)",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1864,6 +2040,7 @@
   "category": "feminino",
   "fr": "italien / italienne",
   "pt": "italiano / italiana",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1873,6 +2050,7 @@
   "category": "feminino",
   "fr": "bon / bonne",
   "pt": "bom / boa",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1882,6 +2060,7 @@
   "category": "feminino",
   "fr": "mignon / mignonne",
   "pt": "fofo / fofa",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1891,6 +2070,7 @@
   "category": "feminino",
   "fr": "infirmier / infirmière",
   "pt": "enfermeiro / enfermeira",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1900,6 +2080,7 @@
   "category": "feminino",
   "fr": "étranger / étrangère",
   "pt": "estrangeiro / estrangeira",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1909,6 +2090,7 @@
   "category": "feminino",
   "fr": "serveur / serveuse",
   "pt": "garçom / garçonete",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1918,6 +2100,7 @@
   "category": "feminino",
   "fr": "heureux / heureuse",
   "pt": "feliz",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1927,6 +2110,7 @@
   "category": "feminino",
   "fr": "acteur / actrice",
   "pt": "ator / atriz",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1936,6 +2120,7 @@
   "category": "feminino",
   "fr": "éditeur / éditrice",
   "pt": "editor / editora",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1945,6 +2130,7 @@
   "category": "feminino",
   "fr": "chanteur / chanteuse",
   "pt": "cantor / cantora",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1954,6 +2140,7 @@
   "category": "feminino",
   "fr": "beau / belle",
   "pt": "belo / bela",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1963,6 +2150,7 @@
   "category": "feminino",
   "fr": "vieux / vieille",
   "pt": "velho / velha",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1972,6 +2160,7 @@
   "category": "feminino",
   "fr": "blanc / blanche",
   "pt": "branco / branca",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1981,6 +2170,7 @@
   "category": "feminino",
   "fr": "boulanger / boulangère",
   "pt": "padeiro / padeira",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1990,6 +2180,7 @@
   "category": "feminino",
   "fr": "musicien / musicienne",
   "pt": "músico / música",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -1999,6 +2190,7 @@
   "category": "feminino",
   "fr": "danseur / danseuse",
   "pt": "dançarino / dançarina",
+  "stage": "feminino-plural",
   "source": "ebook",
   "needs_review": false
  },
@@ -2008,6 +2200,7 @@
   "category": "artigos",
   "fr": "le",
   "pt": "o (artigo definido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2017,6 +2210,7 @@
   "category": "artigos",
   "fr": "la",
   "pt": "a (artigo definido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2026,6 +2220,7 @@
   "category": "artigos",
   "fr": "les",
   "pt": "os, as (artigo definido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2035,6 +2230,7 @@
   "category": "artigos",
   "fr": "un",
   "pt": "um (artigo indefinido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2044,6 +2240,7 @@
   "category": "artigos",
   "fr": "une",
   "pt": "uma (artigo indefinido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2053,6 +2250,7 @@
   "category": "artigos",
   "fr": "des",
   "pt": "uns, umas (artigo indefinido)",
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2066,6 +2264,7 @@
    "fr": "Je vais au Louvre.",
    "pt": "Eu vou ao Louvre."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2079,6 +2278,7 @@
    "fr": "Je suis aux Invalides.",
    "pt": "Eu estou nos Invalides."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2092,6 +2292,7 @@
    "fr": "Je suis à la piscine.",
    "pt": "Eu estou na piscina."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2105,6 +2306,7 @@
    "fr": "Le micro du chanteur.",
    "pt": "O microfone do cantor."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2118,6 +2320,7 @@
    "fr": "Le portable de la mère.",
    "pt": "O celular da mãe."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2131,6 +2334,7 @@
    "fr": "Les amis des amis.",
    "pt": "Os amigos dos amigos."
   },
+  "stage": "artigos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2140,6 +2344,7 @@
   "category": "possessivos",
   "fr": "mon / ma / mes",
   "pt": "meu / minha / meus",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2149,6 +2354,7 @@
   "category": "possessivos",
   "fr": "ton / ta / tes",
   "pt": "teu / tua / teus",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2158,6 +2364,7 @@
   "category": "possessivos",
   "fr": "son / sa / ses",
   "pt": "dele, dela / seus",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2167,6 +2374,7 @@
   "category": "possessivos",
   "fr": "notre / nos",
   "pt": "nosso / nossa / nossos",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2176,6 +2384,7 @@
   "category": "possessivos",
   "fr": "votre / vos",
   "pt": "seu, de vocês / seus",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2185,6 +2394,7 @@
   "category": "possessivos",
   "fr": "leur / leurs",
   "pt": "deles, delas",
+  "stage": "possessivos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2198,6 +2408,7 @@
    "fr": "Regarde ce chat.",
    "pt": "Olhe esse gato."
   },
+  "stage": "demonstrativos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2211,6 +2422,7 @@
    "fr": "Cette fourmi m'a piqué.",
    "pt": "Essa formiga me picou."
   },
+  "stage": "demonstrativos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2220,6 +2432,7 @@
   "category": "demonstrativos",
   "fr": "cet",
   "pt": "este, esse (masculino antes de vogal ou h)",
+  "stage": "demonstrativos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2233,6 +2446,7 @@
    "fr": "Ces arbres sont énormes.",
    "pt": "Essas árvores são enormes."
   },
+  "stage": "demonstrativos",
   "source": "ebook",
   "needs_review": false
  },
@@ -2243,6 +2457,7 @@
   "fr": "lundi",
   "pt": "segunda-feira",
   "pron": "landí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2253,6 +2468,7 @@
   "fr": "mardi",
   "pt": "terça-feira",
   "pron": "mardí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2263,6 +2479,7 @@
   "fr": "mercredi",
   "pt": "quarta-feira",
   "pron": "merrrcrêdí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2273,6 +2490,7 @@
   "fr": "jeudi",
   "pt": "quinta-feira",
   "pron": "Judí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2283,6 +2501,7 @@
   "fr": "vendredi",
   "pt": "sexta-feira",
   "pron": "vandrêdí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2293,6 +2512,7 @@
   "fr": "samedi",
   "pt": "sábado",
   "pron": "samidí",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2303,6 +2523,7 @@
   "fr": "dimanche",
   "pt": "domingo",
   "pron": "dimonxe",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2313,6 +2534,7 @@
   "fr": "janvier",
   "pt": "janeiro",
   "pron": "janviê",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2323,6 +2545,7 @@
   "fr": "février",
   "pt": "fevereiro",
   "pron": "fêvriê",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2333,6 +2556,7 @@
   "fr": "mars",
   "pt": "março",
   "pron": "maarrs",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2343,6 +2567,7 @@
   "fr": "avril",
   "pt": "abril",
   "pron": "avrile",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2353,6 +2578,7 @@
   "fr": "mai",
   "pt": "maio",
   "pron": "mé",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2363,6 +2589,7 @@
   "fr": "juin",
   "pt": "junho",
   "pron": "Juan",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2373,6 +2600,7 @@
   "fr": "juillet",
   "pt": "julho",
   "pron": "juiê",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2383,6 +2611,7 @@
   "fr": "août",
   "pt": "agosto",
   "pron": "ôut",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2393,6 +2622,7 @@
   "fr": "septembre",
   "pt": "setembro",
   "pron": "septombre",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2403,6 +2633,7 @@
   "fr": "octobre",
   "pt": "outubro",
   "pron": "octóbre",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2413,6 +2644,7 @@
   "fr": "novembre",
   "pt": "novembro",
   "pron": "novambre",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2423,6 +2655,7 @@
   "fr": "décembre",
   "pt": "dezembro",
   "pron": "dêsambre",
+  "stage": "dias-meses",
   "source": "ebook",
   "needs_review": false
  },
@@ -2433,6 +2666,7 @@
   "fr": "Quelle heure est-il ?",
   "pt": "Que horas são?",
   "pron": "quéle hórr é til",
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2446,6 +2680,7 @@
    "fr": "Il est midi.",
    "pt": "É meio-dia."
   },
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2459,6 +2694,7 @@
    "fr": "Il est minuit.",
    "pt": "É meia-noite."
   },
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2472,6 +2708,7 @@
    "fr": "Il est une heure et quart.",
    "pt": "É uma e quinze."
   },
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2485,6 +2722,7 @@
    "fr": "Il est quatre heures et demie.",
    "pt": "São quatro e meia."
   },
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2498,6 +2736,7 @@
    "fr": "Il est huit heures moins le quart.",
    "pt": "São quinze para as oito."
   },
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2507,6 +2746,7 @@
   "category": "horas",
   "fr": "du matin",
   "pt": "da manhã",
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2516,6 +2756,7 @@
   "category": "horas",
   "fr": "de l'après-midi",
   "pt": "da tarde",
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2525,6 +2766,7 @@
   "category": "horas",
   "fr": "du soir",
   "pt": "da noite",
+  "stage": "horas-1",
   "source": "ebook",
   "needs_review": false
  },
@@ -2535,6 +2777,7 @@
   "fr": "le printemps",
   "pt": "primavera",
   "pron": "prantom",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2545,6 +2788,7 @@
   "fr": "l'été",
   "pt": "verão",
   "pron": "êtê",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2555,6 +2799,7 @@
   "fr": "l'automne",
   "pt": "outono",
   "pron": "ôtone",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2565,6 +2810,7 @@
   "fr": "l'hiver",
   "pt": "inverno",
   "pron": "íver",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2574,6 +2820,7 @@
   "category": "clima",
   "fr": "Il fait chaud",
   "pt": "Está quente",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2583,6 +2830,7 @@
   "category": "clima",
   "fr": "Il fait froid",
   "pt": "Está frio",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2592,6 +2840,7 @@
   "category": "clima",
   "fr": "Il fait beau",
   "pt": "Está um dia bonito",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2601,6 +2850,7 @@
   "category": "clima",
   "fr": "Il fait dix degrés",
   "pt": "Está fazendo 10 graus",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2610,6 +2860,7 @@
   "category": "clima",
   "fr": "Il neige",
   "pt": "Está nevando",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2619,6 +2870,7 @@
   "category": "clima",
   "fr": "Il pleut",
   "pt": "Está chovendo",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2628,6 +2880,7 @@
   "category": "clima",
   "fr": "Quel temps fait-il ?",
   "pt": "Que tempo está fazendo?",
+  "stage": "estacoes-clima",
   "source": "ebook",
   "needs_review": false
  },
@@ -2641,6 +2894,7 @@
    "fr": "Le livre est dans le sac.",
    "pt": "O livro está dentro da mochila."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2654,6 +2908,7 @@
    "fr": "Le chat est sous la table.",
    "pt": "O gato está debaixo da mesa."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2667,6 +2922,7 @@
    "fr": "Le téléphone est sur la chaise.",
    "pt": "O telefone está em cima da cadeira."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2680,6 +2936,7 @@
    "fr": "Il y a une voiture devant la maison.",
    "pt": "Tem um carro na frente da casa."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2693,6 +2950,7 @@
    "fr": "Le jardin est derrière la maison.",
    "pt": "O jardim fica atrás da casa."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2706,6 +2964,7 @@
    "fr": "L'école est près de la banque.",
    "pt": "A escola é perto do banco."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2719,6 +2978,7 @@
    "fr": "Mon appartement est loin d'ici.",
    "pt": "Meu apartamento é longe daqui."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2732,6 +2992,7 @@
    "fr": "Il y a un café à côté de l'hôtel.",
    "pt": "Tem um café ao lado do hotel."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2745,6 +3006,7 @@
    "fr": "Le parc est entre deux rues.",
    "pt": "O parque fica entre duas ruas."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2758,6 +3020,7 @@
    "fr": "Je vais chez Paul.",
    "pt": "Eu vou à casa do Paul."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2771,6 +3034,7 @@
    "fr": "Il y a un livre sur la table.",
    "pt": "Tem um livro em cima da mesa."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2784,6 +3048,7 @@
    "fr": "C'est la maison de Marie.",
    "pt": "É a casa da Marie."
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2797,6 +3062,7 @@
    "fr": "Où est le livre ?",
    "pt": "Onde está o livro?"
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2810,6 +3076,7 @@
    "fr": "Où sont les enfants ?",
    "pt": "Onde estão as crianças?"
   },
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2820,6 +3087,7 @@
   "fr": "où",
   "pt": "onde",
   "pron": "u",
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2830,6 +3098,7 @@
   "fr": "ou",
   "pt": "ou (opção)",
   "pron": "ô",
+  "stage": "localizacao",
   "source": "ebook",
   "needs_review": false
  },
@@ -2840,6 +3109,7 @@
   "fr": "un billet d'avion",
   "pt": "um bilhete de avião",
   "pron": "an biê daviõ",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2850,6 +3120,7 @@
   "fr": "la porte d'embarquement",
   "pt": "o portão de embarque",
   "pron": "la port dã-bar-camã",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2860,6 +3131,7 @@
   "fr": "le vol",
   "pt": "o voo",
   "pron": "le vôl",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2870,6 +3142,7 @@
   "fr": "la gare",
   "pt": "a estação de trem",
   "pron": "la garr",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2879,6 +3152,7 @@
   "category": "aeroporto",
   "fr": "aller simple",
   "pt": "só ida",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2888,6 +3162,7 @@
   "category": "aeroporto",
   "fr": "aller-retour",
   "pt": "ida e volta",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -2898,6 +3173,7 @@
   "fr": "un menu",
   "pt": "um cardápio",
   "pron": "ã menúu",
+  "stage": "restaurante",
   "source": "ebook",
   "needs_review": false
  },
@@ -2908,6 +3184,7 @@
   "fr": "une entrée",
   "pt": "uma entrada",
   "pron": "úne antrê",
+  "stage": "restaurante",
   "source": "ebook",
   "needs_review": false
  },
@@ -2918,6 +3195,7 @@
   "fr": "un plat principal",
   "pt": "um prato principal",
   "pron": "ã plá prãncipal",
+  "stage": "restaurante",
   "source": "ebook",
   "needs_review": false
  },
@@ -2928,6 +3206,7 @@
   "fr": "une boisson",
   "pt": "uma bebida",
   "pron": "úne bôasson",
+  "stage": "restaurante",
   "source": "ebook",
   "needs_review": false
  },
@@ -2938,6 +3217,7 @@
   "fr": "l'addition",
   "pt": "a conta",
   "pron": "ladission",
+  "stage": "restaurante",
   "source": "ebook",
   "needs_review": false
  },
@@ -2948,6 +3228,7 @@
   "fr": "J'ai besoin d'aide",
   "pt": "Preciso de ajuda",
   "pron": "Jô bêsoan déd",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -2958,6 +3239,7 @@
   "fr": "Appelez la police",
   "pt": "Chame a polícia",
   "pron": "Apelê la police",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -2968,6 +3250,7 @@
   "fr": "un médecin",
   "pt": "um médico",
   "pron": "An mêdissan",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -2978,6 +3261,7 @@
   "fr": "une ambulance",
   "pt": "uma ambulância",
   "pron": "Úne ambulance",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -2988,6 +3272,7 @@
   "fr": "C'est une urgence",
   "pt": "É uma emergência",
   "pron": "Cetxúne urjance",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -2997,6 +3282,7 @@
   "category": "emergencias",
   "fr": "l'hôpital",
   "pt": "o hospital",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -3006,6 +3292,7 @@
   "category": "emergencias",
   "fr": "la pharmacie",
   "pt": "a farmácia",
+  "stage": "emergencias",
   "source": "ebook",
   "needs_review": false
  },
@@ -3016,6 +3303,7 @@
   "fr": "tout droit",
   "pt": "em frente",
   "pron": "tu drôa",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -3026,6 +3314,7 @@
   "fr": "à gauche",
   "pt": "à esquerda",
   "pron": "a gôsh",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -3036,6 +3325,7 @@
   "fr": "à droite",
   "pt": "à direita",
   "pron": "a druate",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -3046,6 +3336,7 @@
   "fr": "près d'ici",
   "pt": "perto daqui",
   "pron": "Pré dici",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -3056,6 +3347,7 @@
   "fr": "loin",
   "pt": "longe",
   "pron": "luã",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  },
@@ -3066,6 +3358,7 @@
   "fr": "à côté",
   "pt": "ao lado",
   "pron": "a côtê",
+  "stage": "aeroporto-direcoes",
   "source": "ebook",
   "needs_review": false
  }

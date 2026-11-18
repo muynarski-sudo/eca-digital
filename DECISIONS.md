@@ -188,3 +188,17 @@ Pedido do responsável: criar muito mais exercícios a partir do e-book, em orde
 - **Professora:** liberar um capítulo (unidade) do aluno abre todos os níveis dele. Professora e administradora veem tudo aberto.
 - **Saíram** do aluno: o "Treino de hoje" misturado (agora o início mostra o nível atual), a prática misturada por unidade e a tela Assuntos. Leitura, Gramática e Vocabulário por nível (A1 a C2) continuam como áreas separadas, cada uma com seu assunto.
 - Migration 11 acrescenta `questions.stage`.
+
+### D21. Revisão de design e experiência (celular primeiro)
+
+Revisão feita olhando as telas reais em 390 px (iPhone) e 1280 px, no app Next e no app instalado (PWA).
+
+- **Navegação:** no celular, barra de abas fixa embaixo (Início, Trilha, Leitura, Gramática, Palavras e "Mais" com Flashcards, Conjugação, Brincar, Evolução e demais). Antes eram 9 a 11 links numa faixa com rolagem horizontal que escondia opções. No computador, o menu do topo quebra linha em vez de cortar. Cabeçalho do celular ficou mais baixo.
+- **Modo foco nos exercícios:** sem abas nem faixa grande de título; só o ✕ de sair, o nome do nível e "3 de 10". Botão "Conferir/Continuar" fixo no rodapé (alcance do polegar), "Parar por aqui" no lugar de um segundo "Sair" que se confundia com o "Sair" da conta, e rolagem automática até o feedback.
+- **Início:** o primeiro cartão é o próximo passo (nível atual com barra de progresso e botão), a tarefa da professora só aparece se houver, as áreas viram seis atalhos compactos e o anel de progresso foi para o fim. Antes, três cartões grandes empurravam o nível atual para baixo da dobra.
+- **Trilha:** capítulos com lista compacta (✓ concluído com pontuação, número do nível aberto, 🔒 bloqueado em linha cinza) e um botão "Continue de onde parou" no topo. Antes eram 35 cartões iguais, com 7 mil pixels de rolagem.
+- **Nível:** barra de progresso e uma seção "Antes de praticar: estude e ouça" com as palavras e frases do nível, com áudio. O aluno era testado em palavras que talvez nunca tivesse visto.
+- **Ligar pares:** de listas suspensas (ruins no celular) para toque: toca na palavra e depois na tradução, o par ganha o mesmo número, toque de novo desfaz.
+- **Rótulos:** o chip "Nível 1 · Iniciante" e o assunto sumiram do exercício (confundiam com "Nível 1: Saudações"); ficou só a dificuldade (●○○ fácil, médio, difícil).
+- **Corrigido:** o aviso de instalação do app cobria as abas; agora fica acima delas. Trilhas de progresso invisíveis sobre fundo azul claro.
+- **Não mexido (próximos passos possíveis):** tema escuro no app Next (a demo já tem), animação de celebração ao concluir um nível, e revisão de contraste com leitor de tela feita por uma pessoa.

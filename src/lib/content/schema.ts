@@ -76,6 +76,8 @@ export const vocabSchema = z.object({
   pt: z.string().min(1),
   pron: z.string().optional(),
   example: z.object({ fr: z.string(), pt: z.string() }).optional(),
+  /** Nível da trilha em que a palavra é estudada (src/lib/content/stages.ts). */
+  stage: z.string().optional(),
   ...meta,
 });
 
@@ -171,6 +173,7 @@ export const phraseSchema = z.object({
   fr: z.string().min(1),
   pt: z.string().min(1),
   pron: z.string().optional(),
+  stage: z.string().optional(),
   ...meta,
 });
 
