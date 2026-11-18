@@ -1,5 +1,6 @@
 /* Classificação por assunto. Só usa a estrutura do e-book (capítulo, categoria do vocabulário e situação das frases),
    sem inventar conteúdo. Revise os assuntos em content/REVIEW.md se mudar o critério. */
+import { vocabStage } from './stages';
 import type { Phrase, Question, Topic, VocabItem } from '../../src/lib/content/schema';
 
 /** Profissões que o e-book ensina (capítulos 1 e 6). */
@@ -152,7 +153,7 @@ export function assignTopics(
     if (!topic) {
       const ph = /ph-u\d\d-\d{3}/.exec(key)?.[0];
       const vo = /v-u\d\d-\d{3}/.exec(key)?.[0];
-      const mp = /^mp:(u\d\d):([a-z_]+):/.exec(q.concept ?? '');
+      const mp = /^mp:([a-z0-9-]+):/.exec(q.concept ?? '');
       if (q.id.startsWith('q-numw') || q.id.startsWith('q-numd')) topic = 'numeros';
       else if (q.id.startsWith('q-hr-')) topic = 'horario';
       else if (q.id.startsWith('q-conj-')) topic = 'gramatica';
@@ -161,7 +162,7 @@ export function assignTopics(
       else if (ph && pById.has(ph)) topic = phraseTopic(pById.get(ph)!);
       else if (vo && vById.has(vo)) topic = vocabTopic(vById.get(vo)!);
       else if (mp) {
-        const sample = vocab.find((v) => v.unit === mp[1] && v.category === mp[2]);
+        const sample = vocab.find((v) => vocabStage(v) === mp[1]);
         topic = sample ? vocabTopic(sample) : null;
       }
     }

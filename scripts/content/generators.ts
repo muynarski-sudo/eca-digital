@@ -10,7 +10,8 @@ import {
 } from '../../src/lib/content/schema';
 import { splitSubject } from '../../src/lib/content/conjugation';
 import { numberToFrench, timeToFrench } from '../../src/lib/content/french';
-import { categoryLabel } from '../../src/lib/content/labels';
+import { stageById } from '../../src/lib/content/stages';
+import { vocabStage } from './stages';
 
 export const ascii = (s: string) =>
   s
@@ -249,36 +250,39 @@ export function femininePairs(vocab: VocabItem[]): Question[] {
 /** Ligar pares: blocos de 4 de cada categoria, em ordem estável. */
 export function matchSets(vocab: VocabItem[]): Question[] {
   const out: Question[] = [];
-  const cats = [...new Set(vocab.filter(usableVocab).map((v) => `${v.unit}|${v.category}`))];
-  for (const key of cats) {
-    const [unit, cat] = key.split('|') as [string, string];
+  // um conjunto nunca mistura níveis da trilha (saudações com despedidas, por exemplo): agrupa pelo nível de cada palavra
+  const stages = [
+    ...new Set(
+      vocab
+        .filter(usableVocab)
+        .map((v) => vocabStage(v))
+        .filter((x): x is string => !!x),
+    ),
+  ];
+  for (const stage of stages) {
     const items = vocab.filter(
-      (v) =>
-        usableVocab(v) &&
-        v.unit === unit &&
-        v.category === cat &&
-        !/[…?]/.test(v.fr) &&
-        v.pt.length < 40,
+      (v) => usableVocab(v) && vocabStage(v) === stage && !/[…?]/.test(v.fr) && v.pt.length < 40,
     );
     // evita pares com a mesma tradução, que tornariam a questão ambígua
     const uniq = items.filter(
       (v, i) => items.findIndex((o) => basePt(o.pt) === basePt(v.pt)) === i,
     );
     const total = Math.floor(uniq.length / 4);
+    const title = stageById(stage)?.title ?? stage;
     for (let k = 0; k + 4 <= uniq.length; k += 4) {
       const set = uniq.slice(k, k + 4);
       out.push(
         mk({
-          id: `q-mpr-${unit}-${ascii(cat)}-${k / 4 + 1}`,
-          unit,
+          id: `q-mpr-${stage}-${k / 4 + 1}`,
+          unit: set[0]!.unit,
           type: 'match_pairs',
           skill: 'vocabulario',
-          concept: `mp:${unit}:${cat}:${k / 4}`,
-          prompt: `Ligue cada palavra à tradução (${categoryLabel(cat)}${total > 1 ? `, parte ${k / 4 + 1}` : ''}).`,
+          concept: `mp:${stage}:${k / 4}`,
+          prompt: `Ligue cada palavra à tradução (${title.toLowerCase()}${total > 1 ? `, parte ${k / 4 + 1}` : ''}).`,
           answers: [],
           pairs: set.map((v) => ({ left: v.fr, right: v.pt })),
           explanation: set.map((v) => `${v.fr} = ${v.pt}`).join('; ') + '.',
-          error_tags: [`vocabulario_${cat}`],
+          error_tags: [`vocabulario_${set[0]!.category}`],
           difficulty: 1,
         }),
       );

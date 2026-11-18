@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Badge, MasteryBadge } from '@/components/ui/MasteryBadge';
+import { Badge } from '@/components/ui/MasteryBadge';
 import { Card } from '@/components/ui/Card';
 import { PageHeader } from '@/components/ui/PageHeader';
-import { loadProgress } from '@/lib/data/progress';
+import { loadStageData } from '@/lib/data/stages';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
 
@@ -11,36 +11,46 @@ export const dynamic = 'force-dynamic';
 
 export default async function Trilha() {
   const me = await requireStudent();
-  const progress = await loadProgress(await serverClient(), me.id, me.level);
+  const { views } = await loadStageData(await serverClient(), me.id, me.role);
+  const done = views.filter((v) => v.state === 'done').length;
   return (
     <>
       <PageHeader
         title={`Trilha ${me.level}`}
-        subtitle="Dominando 70% de uma unidade, a próxima se abre. A professora também pode liberar."
+        subtitle={`Cada nível trata de um assunto só. Termine todas as questões, veja a sua pontuação e o próximo nível abre. ${done} de ${views.length} níveis concluídos.`}
       />
       <ol className="grid gap-4 md:grid-cols-2">
-        {progress.units.map((u) => (
-          <li key={u.unit.id}>
-            <Card className={`h-full space-y-2 ${u.state === 'locked' ? 'bg-surface' : ''}`}>
+        {views.map((v) => (
+          <li key={v.stage.id}>
+            <Card className={`h-full space-y-2 ${v.state === 'locked' ? 'bg-surface' : ''}`}>
               <div className="flex items-start justify-between gap-2">
-                <p className="text-sm font-bold text-ink-muted">Unidade {u.unit.order}</p>
-                {u.state === 'locked' && <Badge kind="neutral">🔒 Bloqueada</Badge>}
-                {u.state === 'in_progress' && <Badge kind="info">Em andamento</Badge>}
-                {u.state === 'mastered' && <Badge kind="success">Dominada</Badge>}
+                <p className="text-sm font-bold text-ink-muted">Nível {v.number}</p>
+                {v.state === 'locked' && <Badge kind="neutral">🔒 Bloqueado</Badge>}
+                {v.state === 'open' && v.stat.answered === 0 && <Badge kind="info">Novo</Badge>}
+                {v.state === 'open' && v.stat.answered > 0 && (
+                  <Badge kind="info">Em andamento</Badge>
+                )}
+                {v.state === 'done' && <Badge kind="success">✓ Concluído · {v.stat.score}%</Badge>}
               </div>
-              <h2 className="text-lg">{u.unit.title}</h2>
-              <p className="text-ink-soft">{u.unit.objective}</p>
-              {u.state !== 'locked' ? (
+              <h2 className="text-lg">{v.stage.title}</h2>
+              <p className="text-ink-soft">{v.stage.hint}</p>
+              {v.state === 'locked' ? (
+                <p className="text-sm text-ink-muted">
+                  Abre quando você concluir o nível anterior.
+                </p>
+              ) : (
                 <>
-                  <MasteryBadge value={u.mastery} />
-                  <Link href={`/unidade/${u.unit.id}`} className="inline-block font-bold">
-                    Abrir unidade →
+                  <p className="text-sm text-ink-soft">
+                    {v.stat.answered} de {v.stat.total} questões
+                  </p>
+                  <Link href={`/nivel/${v.stage.id}`} className="inline-block font-bold">
+                    {v.state === 'done'
+                      ? 'Ver pontuação →'
+                      : v.stat.answered
+                        ? 'Continuar →'
+                        : 'Começar →'}
                   </Link>
                 </>
-              ) : (
-                <p className="text-sm text-ink-muted">
-                  Abre quando você dominar 70% da unidade anterior.
-                </p>
               )}
             </Card>
           </li>

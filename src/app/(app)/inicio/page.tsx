@@ -5,9 +5,8 @@ import { LinkButton } from '@/components/ui/Button';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { ProgressRing } from '@/components/ui/ProgressRing';
 import { StreakChip } from '@/components/ui/StreakChip';
-import { getQuestionMeta } from '@/lib/data/content';
+import { loadStageData } from '@/lib/data/stages';
 import { loadProgress } from '@/lib/data/progress';
-import { loadSeen } from '@/lib/data/seen';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
 
@@ -18,10 +17,9 @@ export default async function Inicio() {
   const me = await requireStudent();
   const db = await serverClient();
   const now = new Date();
-  const [progress, meta, seen, assignments] = await Promise.all([
+  const [progress, stages, assignments] = await Promise.all([
     loadProgress(db, me.id, me.level, now),
-    getQuestionMeta(db),
-    loadSeen(db, me.id),
+    loadStageData(db, me.id, me.role),
     db
       .from('assignments')
       .select('id,title,due_at,status,teacher_feedback,teacher_grade')
@@ -29,8 +27,9 @@ export default async function Inicio() {
       .order('due_at')
       .limit(10),
   ]);
-  const open = progress.units.filter((u) => u.state !== 'locked');
-  const weakest = [...open].sort((a, b) => a.mastery - b.mastery)[0];
+  const stageViews = stages.views;
+  const current = stageViews.find((v) => v.state === 'open');
+  const stageDone = stageViews.filter((v) => v.state === 'done').length;
   const todo = (assignments.data ?? []).filter(
     (a) => a.status === 'assigned' || a.status === 'in_progress',
   );
@@ -38,8 +37,6 @@ export default async function Inicio() {
     .filter((a) => a.status === 'reviewed' && a.teacher_feedback)
     .slice(-1)[0];
   const first = (me.fullName ?? '').split(' ')[0];
-  const done = seen.seen.size;
-  const total = meta.length;
 
   return (
     <>
@@ -73,18 +70,18 @@ export default async function Inicio() {
         <div className="space-y-4 md:col-span-2">
           <Card tone="tint" aria-labelledby="treino" as="section" className="space-y-3">
             <h2 id="treino" className="text-xl">
-              Treino de hoje · 10 minutos
+              {current ? `Nível ${current.number}: ${current.stage.title}` : 'Trilha concluída!'}
             </h2>
             <p className="text-ink-soft">
-              Perguntas novas a cada vez, sem repetir.
-              {progress.weakConcepts > 0
-                ? ` ${progress.weakConcepts} ponto${progress.weakConcepts > 1 ? 's' : ''} para reforçar com perguntas diferentes.`
-                : ''}
-              {weakest ? ` Unidade com mais chance: ${weakest.unit.title}.` : ''}
+              {current
+                ? `${current.stat.answered} de ${current.stat.total} questões. Um assunto de cada vez, em ordem.`
+                : 'Você concluiu todos os níveis do A1. Veja a pontuação de cada um na trilha.'}
             </p>
-            <LinkButton href="/praticar?modo=treino">On y va!</LinkButton>
+            <LinkButton href={current ? `/nivel/${current.stage.id}` : '/trilha'}>
+              {current?.stat.answered ? 'Continuar' : current ? 'On y va!' : 'Ver a trilha'}
+            </LinkButton>
             <p className="text-sm text-ink-muted">
-              Você já fez {done} de {total} exercícios do banco.
+              {stageDone} de {stageViews.length} níveis concluídos.
             </p>
           </Card>
           <Card as="section" aria-labelledby="tarefa" className="space-y-3">

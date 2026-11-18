@@ -37,7 +37,7 @@ export default async function Unidade({ params }: { params: Promise<{ id: string
       >
         <div className="flex flex-wrap items-center gap-3">
           <MasteryBadge value={view.mastery} />
-          <LinkButton href={`/praticar?unidade=${id}`}>Praticar esta unidade</LinkButton>
+          <LinkButton href="/trilha">Praticar nos níveis da trilha</LinkButton>
           <LinkButton href={`/flashcards?unidade=${id}`} variant="secondary">
             Flashcards
           </LinkButton>

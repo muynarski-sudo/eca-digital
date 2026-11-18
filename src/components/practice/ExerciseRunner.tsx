@@ -20,6 +20,7 @@ interface Props {
   backLabel?: string;
   /** Endereço para sortear mais perguntas novas ao terminar. */
   moreHref?: string | null;
+  moreLabel?: string;
 }
 
 const TEXT_TYPES = ['fill_blank', 'translate_pt_fr', 'write_out', 'conjugate', 'dictation'];
@@ -31,6 +32,7 @@ export function ExerciseRunner({
   backHref,
   backLabel = 'Voltar',
   moreHref = null,
+  moreLabel = 'Mais 10 exercícios novos',
 }: Props) {
   const [i, setI] = useState(0);
   const [result, setResult] = useState<AnswerResult | null>(null);
@@ -101,7 +103,7 @@ export function ExerciseRunner({
             )}
             {moreHref && (
               <LinkButton href={`${moreHref}${moreHref.includes('?') ? '&' : '?'}n=${Date.now()}`}>
-                Mais 10 exercícios novos
+                {moreLabel}
               </LinkButton>
             )}
             <LinkButton href={backHref} variant="secondary">

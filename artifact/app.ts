@@ -24,13 +24,15 @@ import {
   unitStates,
   updateMastery,
 } from '../src/lib/domain/mastery';
-import { planDaily, planTopic, planUnit } from '../src/lib/domain/plan';
+import { planDaily, planUnit } from '../src/lib/domain/plan';
+import { STAGES } from '../src/lib/content/stages';
+import { nextBatch, retryBatch, stageList, stageViews } from '../src/lib/domain/stages';
 import { levelFor } from '../src/lib/domain/level';
-import { CEFR_INFO, LEVEL_LABELS, TOPIC_INFO, topicLabel } from '../src/lib/content/labels';
+import { CEFR_INFO, LEVEL_LABELS, topicLabel } from '../src/lib/content/labels';
 import { coverageFor } from '../src/lib/domain/mastery';
 import { weeklySummary } from '../src/lib/domain/metrics';
 import { TAG_LABELS } from '../src/lib/data/weak';
-import { PERSONS, PRACTICE_TENSES, TENSES, TOPICS } from '../src/lib/content/schema';
+import { PERSONS, PRACTICE_TENSES, TENSES } from '../src/lib/content/schema';
 import { PERSON_LABELS, TENSE_LABELS, splitSubject } from '../src/lib/content/conjugation';
 
 const UNITS = unitsJson;
@@ -331,6 +333,7 @@ const META = Q.map((q) => ({
   concept: q.concept,
   difficulty: q.difficulty,
   topic: q.topic,
+  stage: q.stage,
 }));
 /** O que o aluno já respondeu: por questão (para não repetir) e por conceito (para reforçar o que errou). */
 function seenOf(st) {
@@ -358,40 +361,11 @@ function dailyPlanQuestions(st) {
   });
   return { list: pick(plan.ids), weakest: plan.weakestUnit };
 }
-const AUDIO_TYPES = new Set(['dictation', 'speak']);
-function topicPlan(st, topic, level) {
-  const p = progress(st);
-  const open = p.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id);
-  return pick(
-    planTopic({
-      pool: META,
-      ...seenOf(st),
-      topic,
-      openUnits: open,
-      rng: Math.random,
-      size: 10,
-      level,
-    }).ids,
-  );
-}
-function vAssuntos() {
-  const st = student(),
-    p = progress(st),
-    sn = seenOf(st);
-  const open = new Set(p.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id));
-  const cards = TOPICS.map((t) => {
-    const all = META.filter((q) => q.topic === t && !AUDIO_TYPES.has(q.type));
-    if (!all.length) return '';
-    const avail = all.filter((q) => q.unit === null || open.has(q.unit));
-    const unseen = avail.filter((q) => !sn.seen.has(q.id)).length;
-    const info = TOPIC_INFO[t];
-    if (!avail.length)
-      return `<li><div class="card locked"><h2><span aria-hidden="true">${info.icon}</span> ${esc(info.label)}</h2><p>${esc(info.hint)}</p><p class="strong">🔒 Libera quando você avançar na trilha.</p></div></li>`;
-    const lv = levelFor(avail, sn.seen);
-    return `<li><div class="card stack"><h2><span aria-hidden="true">${info.icon}</span> ${esc(info.label)}</h2><p>${esc(info.hint)}</p><p class="small">${unseen} perguntas novas · você está no nível <strong>${lv} (${LEVEL_LABELS[lv]})</strong>${avail.length < all.length ? ` · mais ${all.length - avail.length} liberam na trilha` : ''}</p><div class="actions"><button class="btn" data-a="praticar-assunto" data-id="${t}">Praticar no meu nível</button>${[1, 2, 3].map((n) => `<button class="btn sec" data-a="praticar-assunto" data-id="${t}" data-n="${n}">${LEVEL_LABELS[n]}</button>`).join('')}</div></div></li>`;
-  }).join('');
-  return `<section class="hero"><h1>Assuntos</h1><p>Escolha o que você quer praticar. As perguntas começam fáceis e vão ficando mais difíceis.</p></section><ul class="grid2">${cards}</ul>`;
-}
+/** Níveis da trilha: um assunto por vez, em ordem. O próximo abre quando todas as questões do anterior foram respondidas. */
+const stageData = (st) => {
+  const sn = seenOf(st).seen;
+  return { sn, views: stageViews(STAGES, META, sn, { unlockedUnits: new Set(st.unlocks) }) };
+};
 const unitPlan = (st, unit) =>
   pick(planUnit({ pool: META, ...seenOf(st), unit, rng: Math.random, size: 10 }));
 
@@ -406,7 +380,11 @@ function vInicio() {
   const weakest = p.units.find((u) => u.unit.id === plan.weakest);
   return `<section class="hero"><h1>Bienvenu(e), ${esc(st.name.split(' ')[0])}!</h1><p>Um pouquinho por dia leva longe.</p></section>
   <div class="grid3"><div class="card center">${ring(p.level)}<p class="strong">Seu progresso no A1</p>${streakChip(p.streak)}</div>
-  <div class="span2 stack"><div class="card tint"><h2>Treino de hoje · 10 minutos</h2><p>Perguntas novas a cada vez, sem repetir.${p.weakConcepts ? ' ' + p.weakConcepts + ' ponto' + (p.weakConcepts > 1 ? 's' : '') + ' para reforçar com perguntas diferentes.' : ''}${weakest ? ' Unidade com mais chance: ' + esc(weakest.unit.title) + '.' : ''}</p><button class="btn" data-a="treino">On y va!</button><p class="small">Você já fez ${seenOf(st).seen.size} de ${Q.length} exercícios do banco.</p></div>
+  <div class="span2 stack">${(() => {
+    const vs = stageData(st).views,
+      cur = vs.find((v) => v.state === 'open');
+    return `<div class="card tint"><h2>${cur ? `Nível ${cur.number}: ${esc(cur.stage.title)}` : 'Trilha concluída!'}</h2><p>${cur ? `${cur.stat.answered} de ${cur.stat.total} questões. Um assunto de cada vez, em ordem.` : 'Você concluiu todos os níveis do A1.'}</p><button class="btn" data-a="treino">${cur && cur.stat.answered ? 'Continuar' : 'On y va!'}</button><p class="small">${vs.filter((v) => v.state === 'done').length} de ${vs.length} níveis concluídos.</p></div>`;
+  })()}
   <div class="card"><h2>Tarefa da professora</h2>${todo.length ? todo.map((a) => `<div class="row"><div><p class="strong">${esc(a.title)}</p><p class="small">Prazo: ${fmt(a.due)}${a.due < Date.now() ? ' <span class="badge b-warn">! Atrasada</span>' : ''}</p></div><button class="btn sec" data-a="tarefa" data-id="${a.id}">Fazer tarefa</button></div>`).join('') : '<p>Nada pendente por aqui. Que tal um treino?</p>'}
   ${rev ? `<div class="note"><b>Recado da professora${rev.grade != null ? ' · nota ' + rev.grade : ''}</b><p>${esc(rev.feedback)}</p></div>` : ''}</div></div></div>`;
 }
@@ -518,8 +496,22 @@ function libPlan(st, area, lv) {
 }
 
 function vTrilha() {
-  const p = progress(student());
-  return `<section class="hero"><h1>Trilha A1</h1><p>Dominando 70% de uma unidade, a próxima se abre. A professora também pode liberar.</p></section><ol class="grid2">${p.units.map((u) => `<li><div class="card ${u.state === 'locked' ? 'locked' : ''}"><div class="row"><p class="small strong">Unidade ${u.unit.order}</p>${u.state === 'locked' ? '<span class="badge b-low">🔒 Bloqueada</span>' : u.state === 'mastered' ? '<span class="badge b-ok">✓ Dominada</span>' : '<span class="badge b-mid">Em andamento</span>'}</div><h2>${esc(u.unit.title)}</h2><p>${esc(u.unit.objective)}</p>${u.state !== 'locked' ? `${badge(u.mastery)}<p><a href="#unidade-${u.unit.id}" class="strong">Abrir unidade →</a></p>` : '<p class="small">Abre quando você dominar 70% da unidade anterior.</p>'}</div></li>`).join('')}</ol>`;
+  const { views } = stageData(student());
+  return `<section class="hero"><h1>Trilha A1</h1><p>Cada nível trata de um assunto só. Termine todas as questões, veja a sua pontuação e o próximo nível abre. ${views.filter((v) => v.state === 'done').length} de ${views.length} níveis concluídos.</p></section><ol class="grid2">${views
+    .map(
+      (v) =>
+        `<li><div class="card ${v.state === 'locked' ? 'locked' : ''} stack"><div class="row"><p class="small strong">Nível ${v.number}</p>${v.state === 'locked' ? '<span class="badge b-low">🔒 Bloqueado</span>' : v.state === 'done' ? `<span class="badge b-ok">✓ Concluído · ${v.stat.score}%</span>` : `<span class="badge b-mid">${v.stat.answered ? 'Em andamento' : 'Novo'}</span>`}</div><h2>${esc(v.stage.title)}</h2><p>${esc(v.stage.hint)}</p>${v.state === 'locked' ? '<p class="small">Abre quando você concluir o nível anterior.</p>' : `<p class="small">${v.stat.answered} de ${v.stat.total} questões</p><p><a href="#nivel-${v.stage.id}" class="strong">${v.state === 'done' ? 'Ver pontuação →' : v.stat.answered ? 'Continuar →' : 'Começar →'}</a></p>`}</div></li>`,
+    )
+    .join('')}</ol>`;
+}
+function vNivel(id) {
+  const { sn, views } = stageData(student());
+  const v = views.find((x) => x.stage.id === id);
+  if (!v || v.state === 'locked')
+    return `<div class="card">Nível bloqueado. <a href="#trilha">Voltar à trilha</a></div>`;
+  const next = views[v.number];
+  const wrong = retryBatch(stageList(META, id), sn, 1000).length;
+  return `<section class="hero"><h1>Nível ${v.number}: ${esc(v.stage.title)}</h1><p>${esc(v.stage.hint)}</p></section><p><a href="#trilha">← Todos os níveis</a></p><div class="card tint stack" aria-label="Pontuação do nível"><p class="big">${v.stat.answered} de ${v.stat.total} questões respondidas</p>${v.state === 'done' ? `<p class="big strong" role="status">Pontuação: ${v.stat.score}%</p><p>${Math.round(v.stat.points * 10) / 10} de ${v.stat.total} pontos. Nível concluído!</p><div class="actions">${next && next.state !== 'locked' ? `<a class="btn" href="#nivel-${next.stage.id}">Próximo nível: ${esc(next.stage.title)}</a>` : ''}${wrong > 0 ? `<button class="btn sec" data-a="praticar-nivel" data-id="${id}" data-retry="1">Refazer as ${wrong} que errei</button>` : ''}</div>` : `<button class="btn" data-a="praticar-nivel" data-id="${id}">${v.stat.answered ? 'Continuar' : 'Começar'}</button>`}</div>`;
 }
 function vUnidade(id) {
   const st = student(),
@@ -530,7 +522,7 @@ function vUnidade(id) {
   const vs = VOCAB.filter((v) => v.unit === id),
     cats = [...new Set(vs.map((v) => v.category))];
   const tips = cultureJson.filter((t) => t.unit === id);
-  return `<section class="hero"><h1>Unidade ${u.unit.order}: ${esc(u.unit.title)}</h1><p>${esc(u.unit.objective)}</p><div class="actions">${badge(u.mastery)}<button class="btn" data-a="praticar-unidade" data-id="${id}">Praticar esta unidade</button><button class="btn sec" data-a="flash" data-id="${id}">Flashcards</button></div></section>
+  return `<section class="hero"><h1>Unidade ${u.unit.order}: ${esc(u.unit.title)}</h1><p>${esc(u.unit.objective)}</p><div class="actions">${badge(u.mastery)}<a class="btn" href="#trilha">Praticar nos níveis da trilha</a><button class="btn sec" data-a="flash" data-id="${id}">Flashcards</button></div></section>
   ${tips.map((t) => `<aside class="card tint"><p class="strong">Dica cultural: ${esc(t.title)}</p><p>${esc(t.text)}</p></aside>`).join('')}
   <h2 class="sec-h">Vocabulário</h2>${cats
     .map(
@@ -550,7 +542,7 @@ function vPraticar() {
   if (r.i >= total) {
     const t = r.tally;
     const a = r.assignmentId ? S.assignments.find((x) => x.id === r.assignmentId) : null;
-    return `<section class="card tint center narrow"><h1>On y va, c'est fini!</h1><p class="big">✓ ${t.correct} certas · ≈ ${t.almost} quase · ✗ ${t.wrong} para rever, de ${total}.</p><p>O que você errou volta nas suas revisões, no momento certo.</p><div class="actions c">${a && a.status !== 'submitted' && a.status !== 'reviewed' ? `<button class="btn" data-a="entregar" data-id="${a.id}">Entregar tarefa à professora</button>` : ''}${a && a.status === 'submitted' ? '<p class="ok">✓ Tarefa entregue. Merci!</p>' : ''}${r.again ? '<button class="btn" data-a="mais">Mais 10 exercícios novos</button>' : ''}<a class="btn sec" href="${r.back}">Voltar</a></div></section>`;
+    return `<section class="card tint center narrow"><h1>On y va, c'est fini!</h1><p class="big">✓ ${t.correct} certas · ≈ ${t.almost} quase · ✗ ${t.wrong} para rever, de ${total}.</p><p>O que você errou volta nas suas revisões, no momento certo.</p><div class="actions c">${a && a.status !== 'submitted' && a.status !== 'reviewed' ? `<button class="btn" data-a="entregar" data-id="${a.id}">Entregar tarefa à professora</button>` : ''}${a && a.status === 'submitted' ? '<p class="ok">✓ Tarefa entregue. Merci!</p>' : ''}${r.again && r.again.kind === 'nivel' ? (r.again.left > 0 ? `<button class="btn" data-a="mais">Continuar (faltam ${r.again.left})</button>` : '') : r.again ? '<button class="btn" data-a="mais">Mais 10 exercícios novos</button>' : ''}<a class="btn sec" href="${r.back}">${r.again && r.again.kind === 'nivel' ? 'Ver minha pontuação' : 'Voltar'}</a></div></section>`;
   }
   const q = r.qs[r.i],
     pct = Math.round((r.i / total) * 100),
@@ -723,7 +715,6 @@ const NAV_A = [
   ['gramatica', 'Gramática'],
   ['vocabulario', 'Vocabulário'],
   ['trilha', 'Trilha'],
-  ['assuntos', 'Assuntos'],
   ['flashcards', 'Flashcards'],
   ['conjugacao', 'Conjugação'],
   ['brincar', 'Brincar'],
@@ -746,6 +737,7 @@ function view(r) {
     if (!st.consented)
       return `<div class="card narrow stack"><h1>Antes de começar</h1><p>Sua professora criou o seu acesso. Falta só confirmar três coisas.</p><fieldset class="stack tint pad"><legend class="sr">Aceites</legend><label class="chk"><input type="checkbox" class="acc"> Li e aceito a Política de Privacidade.</label><label class="chk"><input type="checkbox" class="acc"> Li e aceito o Termo de Uso.</label><label class="chk"><input type="checkbox" class="acc"> Tenho 18 anos ou mais, ou tenho autorização do meu responsável.</label></fieldset><button class="btn" data-a="aceitar">Aceitar e continuar</button><p id="acc-msg" role="alert"></p></div>`;
     if (r.startsWith('unidade-')) return vUnidade(r.slice(8));
+    if (r.startsWith('nivel-')) return vNivel(r.slice(6));
     if (r.startsWith('leitura-')) return vLeituraNivel(r.slice(8));
     if (r.startsWith('niveis-')) {
       const [, area, lv] = r.split('-');
@@ -759,7 +751,6 @@ function view(r) {
         leitura: vLeitura,
         gramatica: () => vNiveis('gramatica'),
         vocabulario: () => vNiveis('vocabulario'),
-        assuntos: vAssuntos,
         praticar: vPraticar,
         flashcards: vFlash,
         conjugacao: vConj,
@@ -787,9 +778,11 @@ function render() {
     ? 'alunos'
     : r.startsWith('unidade-')
       ? 'trilha'
-      : r.startsWith('leitura-') || r.startsWith('texto-')
-        ? 'leitura'
-        : r;
+      : r.startsWith('nivel-')
+        ? 'trilha'
+        : r.startsWith('leitura-') || r.startsWith('texto-')
+          ? 'leitura'
+          : r;
   const studs =
     S.role === 'aluno' && S.students.length > 1
       ? `<label class="small">Aluno <select id="who" class="field mini">${S.students.map((s) => `<option value="${s.id}" ${s.id === S.cur ? 'selected' : ''}>${esc(s.name)}</option>`).join('')}</select></label>`
@@ -862,8 +855,9 @@ document.addEventListener('click', (e) => {
     return render();
   }
   if (a === 'treino') {
-    const { list } = dailyPlanQuestions(st);
-    return startRun(list, 'Treino de hoje', '#inicio', null, { kind: 'treino' });
+    const cur = stageData(st).views.find((v) => v.state === 'open');
+    location.hash = cur ? 'nivel-' + cur.stage.id : 'trilha';
+    return;
   }
   if (a === 'rd-rate') {
     const au = document.querySelector('audio');
@@ -888,12 +882,18 @@ document.addEventListener('click', (e) => {
     keepScroll = true;
     return render();
   }
-  if (a === 'praticar-assunto') {
-    const lv = d.n ? +d.n : undefined;
-    return startRun(topicPlan(st, d.id, lv), topicLabel(d.id), '#assuntos', null, {
-      kind: 'assunto',
-      topic: d.id,
-      level: lv,
+  if (a === 'praticar-nivel') {
+    const { sn, views } = stageData(st);
+    const v = views.find((x) => x.stage.id === d.id);
+    if (!v || v.state === 'locked') return;
+    const retry = d.retry === '1';
+    const all = (retry ? retryBatch : nextBatch)(stageList(META, d.id), sn, 1000);
+    const ids = all.slice(0, 10);
+    return startRun(pick(ids), `Nível ${v.number}: ${v.stage.title}`, '#nivel-' + d.id, null, {
+      kind: 'nivel',
+      id: d.id,
+      retry,
+      left: all.length - ids.length,
     });
   }
   if (a === 'praticar-unidade') {
@@ -907,12 +907,19 @@ document.addEventListener('click', (e) => {
   }
   if (a === 'mais') {
     const g = run.again;
+    if (g.kind === 'nivel') {
+      const { sn } = stageData(st);
+      const all = (g.retry ? retryBatch : nextBatch)(stageList(META, g.id), sn, 1000);
+      const ids = all.slice(0, 10);
+      return startRun(pick(ids), run.title, run.back, null, {
+        ...g,
+        left: all.length - ids.length,
+      });
+    }
     if (g.kind === 'treino')
       return startRun(dailyPlanQuestions(st).list, run.title, run.back, null, g);
     if (g.kind === 'nivel')
       return startRun(libPlan(st, g.area, g.lv), run.title, run.back, null, g);
-    if (g.kind === 'assunto')
-      return startRun(topicPlan(st, g.topic, g.level), run.title, run.back, null, g);
     return startRun(unitPlan(st, g.unit), run.title, run.back, null, g);
   }
   if (a === 'tarefa') {

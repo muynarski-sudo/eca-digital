@@ -10,7 +10,6 @@ const NAV = [
   { href: '/gramatica', label: 'Gramática' },
   { href: '/vocabulario', label: 'Vocabulário' },
   { href: '/trilha', label: 'Trilha' },
-  { href: '/assuntos', label: 'Assuntos' },
   { href: '/flashcards', label: 'Flashcards' },
   { href: '/conjugacao', label: 'Conjugação' },
   { href: '/brincar', label: 'Brincar' },

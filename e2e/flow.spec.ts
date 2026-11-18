@@ -27,17 +27,20 @@ test('login com senha errada mostra erro gentil', async ({ page }) => {
   await expect(page).toHaveURL(/\/login/);
 });
 
-test('aluno: início, treino de hoje, flashcards e evolução', async ({ page }) => {
+test('aluno: início, nível atual, flashcards e evolução', async ({ page }) => {
   await login(page, ALUNO.email, ALUNO.senha);
   await expect(page).toHaveURL(/\/inicio/);
   await expect(page.getByRole('heading', { name: /Bienvenu\(e\), Aluno/ })).toBeVisible();
   await expect(page.getByRole('img', { name: /Progresso do nível A1/ })).toBeVisible();
   await expect(page.getByText('Tarefa da professora')).toBeVisible();
 
+  await expect(page.getByRole('heading', { name: /Nível 1: Saudações/ })).toBeVisible();
   await page
-    .getByRole('link', { name: /On y va!|Começar pela unidade 1/ })
+    .getByRole('link', { name: /On y va!|Continuar/ })
     .first()
     .click();
+  await expect(page).toHaveURL(/\/nivel\/saudacoes/);
+  await page.getByRole('link', { name: /Começar|Continuar/ }).click();
   await expect(page).toHaveURL(/\/praticar/);
   let answered = 0;
   for (let i = 0; i < 4; i++) {
@@ -71,18 +74,46 @@ test('aluno: início, treino de hoje, flashcards e evolução', async ({ page })
   await expect(page.getByRole('heading', { name: 'Por habilidade' })).toBeVisible();
 });
 
-test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes', async ({
+test('trilha em níveis: um assunto por vez, em ordem, e o próximo só abre depois de concluir', async ({
   page,
 }) => {
   test.setTimeout(240_000);
   await login(page, ALUNO.email, ALUNO.senha);
-  await page.goto('/praticar?modo=treino');
-  const vistos: string[] = [];
-  for (let sessao = 0; sessao < 4; sessao++) {
+  await page.goto('/trilha');
+  await expect(page.getByRole('heading', { name: /Trilha A1/ })).toBeVisible();
+  const cards = page.locator('ol > li');
+  await expect(cards.nth(0)).toContainText('Saudações');
+  await expect(cards.nth(1)).toContainText('Despedidas');
+  await expect(cards.nth(2)).toContainText('Apresentação');
+  await expect(cards.nth(1)).toContainText('Bloqueado');
+  await page.goto('/nivel/despedidas');
+  await expect(page).toHaveURL(/\/trilha/); // bloqueado: volta para a trilha
+  await page.goto('/praticar?nivel=despedidas');
+  await expect(page).toHaveURL(/\/trilha/);
+
+  await page.goto('/nivel/saudacoes');
+  const quadro = await page.getByLabel('Pontuação do nível').innerText();
+  const [, ja, total] = /(\d+) de (\d+) questões/.exec(quadro)!.map(Number) as [
+    number,
+    number,
+    number,
+  ];
+  expect(total).toBeGreaterThan(10);
+  await page.getByRole('link', { name: /Começar|Continuar/ }).click();
+
+  const prompts: string[] = [];
+  const niveis: number[] = [];
+  for (;;) {
     for (let i = 0; i < 10; i++) {
       const prompt = page.locator('section[aria-label="Exercício"] .text-lg.font-bold').first();
-      await expect(prompt).toBeVisible();
-      vistos.push((await prompt.innerText()).trim());
+      const visivel = await prompt.waitFor({ state: 'visible', timeout: 8000 }).then(
+        () => true,
+        () => false,
+      );
+      if (!visivel) break;
+      prompts.push((await prompt.innerText()).trim());
+      const chip = await page.getByLabel('Nível e assunto').innerText();
+      niveis.push(Number(/Nível (\d)/.exec(chip)![1]));
       const text = page.getByLabel('Sua resposta');
       const radio = page.getByRole('radio').first();
       const selects = page.locator('main select');
@@ -99,13 +130,26 @@ test('o aluno faz várias sessões seguidas sem ver a mesma pergunta duas vezes'
       ).toBeVisible();
       await page.getByRole('button', { name: /Continuar|Ver resumo/ }).click();
     }
-    await page.getByRole('link', { name: 'Mais 10 exercícios novos' }).click();
-    await expect(page).toHaveURL(/\/praticar/);
+    const mais = page.getByRole('link', { name: /^Continuar \(faltam/ });
+    if (await mais.count()) await mais.click();
+    else break;
   }
-  expect(vistos).toHaveLength(40);
-  const dup = vistos.filter((v, i) => vistos.indexOf(v) !== i);
-  expect(dup).toEqual([]);
-  expect(new Set(vistos).size).toBe(40);
+  expect(prompts).toHaveLength(total - ja); // só o que faltava
+  expect(new Set(prompts).size).toBe(prompts.length); // nada repetido
+  expect(niveis).toEqual([...niveis].sort()); // do mais fácil ao mais difícil
+  for (const p of prompts)
+    expect(p, p).not.toMatch(
+      /Au revoir|À demain|À bientôt|Bonne nuit|Je m'appelle|Conjugue|Comment tu/,
+    );
+
+  await page.getByRole('link', { name: 'Ver minha pontuação' }).click();
+  await expect(page).toHaveURL(/\/nivel\/saudacoes/);
+  await expect(page.getByText(/Pontuação: \d+%/)).toBeVisible();
+  await expect(page.getByRole('link', { name: /Próximo nível: Despedidas/ })).toBeVisible();
+  await page.goto('/trilha');
+  await expect(page.locator('ol > li').nth(0)).toContainText('Concluído');
+  await expect(page.locator('ol > li').nth(1)).not.toContainText('Bloqueado');
+  await expect(page.locator('ol > li').nth(2)).toContainText('Bloqueado');
 });
 
 test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', async ({ page }) => {

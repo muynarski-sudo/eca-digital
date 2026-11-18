@@ -13,6 +13,7 @@ import { units } from './content/units';
 import { vocab } from './content/vocab';
 import { ebookQuestions } from './content/questions-ebook';
 import { assignTopics } from './content/topics';
+import { assignStages } from './content/stages';
 import {
   grammarLevelExercises,
   lexiconFromSource,
@@ -112,8 +113,8 @@ function main() {
     ...lexiconQuestions(lexicon, vocab),
   ]);
   // perguntas de leitura podem repetir o enunciado de um texto para outro ("Qual é a conclusão do autor?"), então não passam pelo filtro de repetidas
-  const questions = assignTopics(
-    [...fromEbook, ...generated, ...readingQuestions()],
+  const questions = assignStages(
+    assignTopics([...fromEbook, ...generated, ...readingQuestions()], vocab, phrases),
     vocab,
     phrases,
   );

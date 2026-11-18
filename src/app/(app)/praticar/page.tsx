@@ -3,11 +3,12 @@ import { ExerciseRunner } from '@/components/practice/ExerciseRunner';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { getQuestionMeta, getQuestions } from '@/lib/data/content';
 import { loadProgress } from '@/lib/data/progress';
+import { loadStageData } from '@/lib/data/stages';
+import { nextBatch, retryBatch, stageList } from '@/lib/domain/stages';
 import { loadSeen } from '@/lib/data/seen';
 import { levelFor, type Level } from '@/lib/domain/level';
-import { planDaily, planTopic, planUnit } from '@/lib/domain/plan';
-import { LEVEL_LABELS, topicLabel } from '@/lib/content/labels';
-import { TOPICS } from '@/lib/content/schema';
+import { planDaily, planUnit } from '@/lib/domain/plan';
+import { LEVEL_LABELS } from '@/lib/content/labels';
 import { toPublic } from '@/lib/practice/public';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
@@ -25,8 +26,8 @@ export default async function Praticar({
     unidade?: string;
     tarefa?: string;
     n?: string;
-    assunto?: string;
     nivel?: string;
+    refazer?: string;
   }>;
 }) {
   const sp = await searchParams;
@@ -44,6 +45,8 @@ export default async function Praticar({
   let moreHref: string | null = '/praticar?modo=treino';
   let assignmentId: string | null = null;
   let ids: string[] = [];
+  let backLabel = 'Voltar';
+  let moreLabel = 'Mais 10 exercícios novos';
   let level: Level | null = null;
 
   if (sp.tarefa) {
@@ -60,23 +63,29 @@ export default async function Praticar({
     ids = (a.question_ids as string[] | null)?.length
       ? (a.question_ids as string[])
       : planUnit({ pool: meta, ...seen, unit: a.unit_id as string, rng, size: SIZE });
-  } else if (sp.assunto && (TOPICS as readonly string[]).includes(sp.assunto)) {
-    const open = progress.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id);
-    const forced = [1, 2, 3].includes(Number(sp.nivel)) ? (Number(sp.nivel) as Level) : undefined;
-    title = topicLabel(sp.assunto);
-    backHref = '/assuntos';
-    moreHref = `/praticar?assunto=${sp.assunto}${forced ? `&nivel=${forced}` : ''}`;
-    const r = planTopic({
-      pool: meta,
-      ...seen,
-      topic: sp.assunto,
-      openUnits: open,
-      rng,
-      size: SIZE,
-      level: forced,
-    });
-    ids = r.ids;
-    level = r.level;
+  } else if (sp.modo === 'treino') {
+    // não há mais treino misturado: continua no nível atual da trilha
+    const sd = await loadStageData(db, me.id, me.role);
+    const cur =
+      sd.views.find((v) => v.state === 'open') ?? sd.views.find((v) => v.state === 'done');
+    redirect(cur ? `/nivel/${cur.stage.id}` : '/trilha');
+  } else if (sp.nivel) {
+    const sd = await loadStageData(db, me.id, me.role);
+    const v = sd.views.find((x) => x.stage.id === sp.nivel);
+    if (!v || v.state === 'locked') redirect('/trilha');
+    const list = stageList(sd.meta, v.stage.id);
+    const retry = sp.refazer === '1';
+    const all = retry ? retryBatch(list, sd.seen, 1000) : nextBatch(list, sd.seen, 1000);
+    ids = all.slice(0, SIZE);
+    title = `Nível ${v.number}: ${v.stage.title}`;
+    backHref = `/nivel/${v.stage.id}`;
+    backLabel = 'Ver minha pontuação';
+    // só oferece "mais" se sobrar questão deste nível depois deste lote
+    if (all.length > ids.length) {
+      moreHref = `/praticar?nivel=${v.stage.id}${retry ? '&refazer=1' : ''}`;
+      moreLabel = `Continuar (faltam ${all.length - ids.length})`;
+    } else moreHref = null;
+    if (ids.length === 0) redirect(`/nivel/${v.stage.id}`);
   } else if (sp.unidade) {
     const view = progress.units.find((u) => u.unit.id === sp.unidade);
     if (!view || (view.state === 'locked' && me.role === 'student')) redirect('/trilha');
@@ -122,7 +131,9 @@ export default async function Praticar({
         title={title}
         assignmentId={assignmentId}
         backHref={backHref}
+        backLabel={backLabel}
         moreHref={moreHref}
+        moreLabel={moreLabel}
       />
     </>
   );

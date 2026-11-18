@@ -101,6 +101,8 @@ export const questionSchema = z
     difficulty: z.number().int().min(1).max(3),
     topic: z.enum(TOPICS).default('dia_a_dia'),
     track: z.enum(TRACKS).default('trilha'),
+    /** Nível da trilha (um assunto só): ver src/lib/content/stages.ts. */
+    stage: z.string().optional(),
     /** Nível CEFR das áreas de leitura, gramática e vocabulário. */
     cefr: z.enum(CEFR).optional(),
     /** Leitura: id do texto a que a pergunta pertence. */

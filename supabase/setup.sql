@@ -605,3 +605,8 @@ alter table public.questions add column if not exists track text not null defaul
 alter table public.questions add column if not exists cefr text;
 alter table public.questions add column if not exists reading_id text;
 create index if not exists questions_track_idx on public.questions (track, cefr) where active;
+
+-- ===== 20260101000011_stages.sql =====
+-- Nível da trilha (um assunto só por nível, ver src/lib/content/stages.ts). A ordem e o desbloqueio ficam no app.
+alter table public.questions add column if not exists stage text;
+create index if not exists questions_stage_idx on public.questions (stage) where active;

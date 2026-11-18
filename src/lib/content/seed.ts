@@ -65,6 +65,7 @@ export async function seedContent(
       difficulty: q.difficulty,
       topic: q.topic,
       track: q.track,
+      stage: q.stage ?? null,
       cefr: q.cefr ?? null,
       reading_id: q.reading ?? null,
       source: q.source,

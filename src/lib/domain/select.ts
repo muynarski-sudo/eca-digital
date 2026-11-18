@@ -9,6 +9,8 @@ export interface QuestionMeta {
   difficulty: number;
   /** Assunto (viagem, restaurante...). Opcional para não quebrar chamadas antigas. */
   topic?: string;
+  /** Nível da trilha a que a questão pertence. */
+  stage?: string;
 }
 
 export interface SeenInfo {
