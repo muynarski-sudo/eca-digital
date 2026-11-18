@@ -3,6 +3,7 @@ import { mkdtempSync, writeFileSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { loadContent } from '@/lib/content/load';
+import { TOPICS } from '@/lib/content/schema';
 import { gradeQuestion } from '@/lib/domain/grade';
 import { validate } from '../scripts/content-validate';
 
@@ -34,6 +35,44 @@ describe('conteúdo do e-book', () => {
     for (const q of c.questions.filter((q) => !q.needs_review && q.type === 'multiple_choice')) {
       expect(letters.has(/"(.+)"/.exec(q.prompt)?.[1] ?? '')).toBe(false);
     }
+  });
+  it('respostas certas escritas de outro jeito também valem (sem acento, frase inteira, com pronome)', () => {
+    const noAccent = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    for (const q of c.questions) {
+      if (q.type === 'match_pairs' || q.type === 'multiple_choice' || q.type === 'order_words')
+        continue;
+      if (q.type === 'speak' || q.type === 'dictation') continue;
+      const a = q.answers[0]!;
+      expect(gradeQuestion(q, noAccent(a)).verdict, `${q.id} sem acento`).toBe('correct');
+      expect(gradeQuestion(q, a.toUpperCase()).verdict, `${q.id} maiúsculas`).toBe('correct');
+      if (q.type === 'conjugate') {
+        const subj = /:\s([^:]*?)_____$/.exec(q.prompt)?.[1] ?? '';
+        expect(gradeQuestion(q, `${subj}${a}`).verdict, `${q.id} com pronome`).toBe('correct');
+      }
+    }
+  });
+  it('nenhum exercício usa tempo verbal que o e-book ainda não ensina nos capítulos', () => {
+    const outros = c.questions.filter((q) =>
+      /^q-conj-.*-(futur-proche|passe-compose|imparfait|futur-simple)-/.test(q.id),
+    );
+    expect(outros).toEqual([]);
+    expect(
+      c.questions.filter((q) => /passé composé|imparfait|futur simple/i.test(q.prompt)),
+    ).toEqual([]);
+  });
+  it('toda questão tem assunto e nível, e cada nível tem questões', () => {
+    const topics = new Set(c.questions.map((q) => q.topic));
+    for (const t of topics) expect(TOPICS as readonly string[]).toContain(t);
+    for (const t of ['apresentacao', 'viagem', 'restaurante', 'compras', 'trabalho', 'horario'])
+      expect(topics.has(t as never), t).toBe(true);
+    expect(new Set(c.questions.map((q) => q.difficulty))).toEqual(new Set([1, 2, 3]));
+  });
+  it('a recordação ao escrever em francês é mais difícil que reconhecer o significado', () => {
+    const d = (prefix: string) =>
+      c.questions.filter((q) => q.id.startsWith(prefix)).map((q) => q.difficulty);
+    expect(Math.max(...d('q-vfp-'))).toBe(1);
+    expect(Math.min(...d('q-vty-'))).toBeGreaterThanOrEqual(2);
+    expect(Math.min(...d('q-trp-'))).toBeGreaterThanOrEqual(2);
   });
   it('a resposta oficial de cada questão corrige como certa', () => {
     for (const q of c.questions) {

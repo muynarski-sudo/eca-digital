@@ -37,4 +37,5 @@ Falando Francês Prática: área de membros para alunos de aulas particulares de
 - `artifact`: demo de página única (esbuild) com a lógica de `src/lib/domain` rodando no navegador; `./artifact/build.sh` gera `artifact/dist/*.html`.
 - `docs`: app instalável (PWA offline) gerado por `./artifact/build-pwa.sh`; servido pelo GitHub Pages (pasta /docs). Não edite à mão.
 - `DEPLOY.md` e `render.yaml`: publicação online. `supabase/setup.sql` é gerado (`scripts/build-setup-sql.sh`); mudou migration? Regenere. `/setup` cria a primeira administradora (`SETUP_TOKEN`); `/api/staff/export` gera o CSV de atividades.
+- Níveis e assuntos: `difficulty` 1 a 3 e `topic` em cada questão. `src/lib/domain/level.ts` monta a sessão por nível; `scripts/content/topics.ts` classifica por assunto. Só vira exercício o que o e-book ensina nos capítulos (`PRACTICE_TENSES`).
 - `deploy`: Caddyfile, backup e jobs. `Dockerfile` e `docker-compose.yml` na raiz.

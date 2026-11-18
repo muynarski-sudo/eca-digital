@@ -63,6 +63,7 @@ export async function seedContent(
       explanation: q.explanation,
       error_tags: q.error_tags,
       difficulty: q.difficulty,
+      topic: q.topic,
       source: q.source,
       needs_review: q.needs_review,
       active: true,

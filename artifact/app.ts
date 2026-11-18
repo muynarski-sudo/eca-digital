@@ -21,11 +21,13 @@ import {
   unitStates,
   updateMastery,
 } from '../src/lib/domain/mastery';
-import { planDaily, planUnit } from '../src/lib/domain/plan';
+import { planDaily, planTopic, planUnit } from '../src/lib/domain/plan';
+import { levelFor } from '../src/lib/domain/level';
+import { LEVEL_LABELS, TOPIC_INFO, topicLabel } from '../src/lib/content/labels';
 import { coverageFor } from '../src/lib/domain/mastery';
 import { weeklySummary } from '../src/lib/domain/metrics';
 import { TAG_LABELS } from '../src/lib/data/weak';
-import { PERSONS, TENSES } from '../src/lib/content/schema';
+import { PERSONS, PRACTICE_TENSES, TENSES, TOPICS } from '../src/lib/content/schema';
 import { PERSON_LABELS, TENSE_LABELS, splitSubject } from '../src/lib/content/conjugation';
 
 const UNITS = unitsJson;
@@ -310,6 +312,7 @@ const META = Q.map((q) => ({
   type: q.type,
   concept: q.concept,
   difficulty: q.difficulty,
+  topic: q.topic,
 }));
 /** O que o aluno já respondeu: por questão (para não repetir) e por conceito (para reforçar o que errou). */
 function seenOf(st) {
@@ -336,6 +339,40 @@ function dailyPlanQuestions(st) {
     unitMastery: Object.fromEntries(p.units.map((u) => [u.unit.id, u.mastery])),
   });
   return { list: pick(plan.ids), weakest: plan.weakestUnit };
+}
+const AUDIO_TYPES = new Set(['dictation', 'speak']);
+function topicPlan(st, topic, level) {
+  const p = progress(st);
+  const open = p.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id);
+  return pick(
+    planTopic({
+      pool: META,
+      ...seenOf(st),
+      topic,
+      openUnits: open,
+      rng: Math.random,
+      size: 10,
+      level,
+    }).ids,
+  );
+}
+function vAssuntos() {
+  const st = student(),
+    p = progress(st),
+    sn = seenOf(st);
+  const open = new Set(p.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id));
+  const cards = TOPICS.map((t) => {
+    const all = META.filter((q) => q.topic === t && !AUDIO_TYPES.has(q.type));
+    if (!all.length) return '';
+    const avail = all.filter((q) => q.unit === null || open.has(q.unit));
+    const unseen = avail.filter((q) => !sn.seen.has(q.id)).length;
+    const info = TOPIC_INFO[t];
+    if (!avail.length)
+      return `<li><div class="card locked"><h2><span aria-hidden="true">${info.icon}</span> ${esc(info.label)}</h2><p>${esc(info.hint)}</p><p class="strong">🔒 Libera quando você avançar na trilha.</p></div></li>`;
+    const lv = levelFor(avail, sn.seen);
+    return `<li><div class="card stack"><h2><span aria-hidden="true">${info.icon}</span> ${esc(info.label)}</h2><p>${esc(info.hint)}</p><p class="small">${unseen} perguntas novas · você está no nível <strong>${lv} (${LEVEL_LABELS[lv]})</strong>${avail.length < all.length ? ` · mais ${all.length - avail.length} liberam na trilha` : ''}</p><div class="actions"><button class="btn" data-a="praticar-assunto" data-id="${t}">Praticar no meu nível</button>${[1, 2, 3].map((n) => `<button class="btn sec" data-a="praticar-assunto" data-id="${t}" data-n="${n}">${LEVEL_LABELS[n]}</button>`).join('')}</div></div></li>`;
+  }).join('');
+  return `<section class="hero"><h1>Assuntos</h1><p>Escolha o que você quer praticar. As perguntas começam fáceis e vão ficando mais difíceis.</p></section><ul class="grid2">${cards}</ul>`;
 }
 const unitPlan = (st, unit) =>
   pick(planUnit({ pool: META, ...seenOf(st), unit, rng: Math.random, size: 10 }));
@@ -422,10 +459,10 @@ function vPraticar() {
           almost: ['≈', 'Quase! Falta um detalhe, como um acento.', 'fb-mid'],
           wrong: ['✗', 'Ainda não, mas você chega lá.', 'fb-bad'],
         }[v];
-        return `<div role="status" aria-live="polite" class="fb ${m[2]}"><p class="strong big"><span aria-hidden="true">${m[0]}</span> ${m[1]}</p>${v !== 'correct' ? `<p>Forma correta: <strong lang="fr">${esc(r.res.expected)}</strong></p>` : ''}<p>${esc(q.explanation)}</p></div>`;
+        return `<div role="status" aria-live="polite" class="fb ${m[2]}"><p class="strong big"><span aria-hidden="true">${m[0]}</span> ${m[1]}</p>${v === 'correct' && r.res.note ? `<p lang="fr">${esc(r.res.note)}</p>` : ''}${v !== 'correct' ? `<p>Forma correta: <strong lang="fr">${esc(r.res.expected)}</strong></p>` : ''}<p>${esc(q.explanation)}</p></div>`;
       })()
     : '';
-  return `<section class="narrow"><div class="row small strong"><span>${esc(r.title)}</span><span>${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack"><p class="strong q">${esc(q.prompt)}</p>${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="actions">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}">Sair</a></div></div></section>`;
+  return `<section class="narrow"><div class="row small strong"><span>${esc(r.title)}</span><span>${r.i + 1} de ${total}</span></div>${bar(r.i / total, 'Progresso da sessão')}<div class="card stack">${q.difficulty ? `<p class="small chips-info"><span class="badge b-mid">Nível ${q.difficulty} · ${LEVEL_LABELS[q.difficulty]}</span> ${q.topic ? `<span class="badge">${esc(topicLabel(q.topic))}</span>` : ''}</p>` : ''}<p class="strong q">${esc(q.prompt)}</p>${q.hint && !done ? `<p class="small">Dica: ${esc(q.hint)}</p>` : ''}${audio}${body}${fb}<div class="actions">${!done ? '<button class="btn" data-a="conferir">Conferir</button>' : `<button class="btn" data-a="proxima">${r.i + 1 < total ? 'Continuar' : 'Ver resumo'}</button>`}<a href="${r.back}">Sair</a></div></div></section>`;
 }
 let fc = null; // flashcards
 function vFlash() {
@@ -462,7 +499,7 @@ let fcUnit = null;
 let cj = { verb: 'conj-avoir', tense: 'present', mode: 'tabela' };
 function vConj() {
   const v = conjugationsJson.find((c) => c.id === cj.verb) ?? conjugationsJson[0];
-  const head = `<section class="hero"><h1>Laboratório de conjugação</h1><p>17 verbos em 5 tempos, direto das tabelas do e-book.</p></section><div class="card"><div class="actions"><div><label for="cv" class="strong">Verbo</label><select id="cv" class="field">${conjugationsJson.map((c) => `<option value="${c.id}" ${c.id === v.id ? 'selected' : ''}>${esc(c.verb)} (${esc(c.pt)})</option>`).join('')}</select></div><div><label for="ct" class="strong">Tempo</label><select id="ct" class="field">${TENSES.map((t) => `<option value="${t}" ${t === cj.tense ? 'selected' : ''}>${TENSE_LABELS[t]}</option>`).join('')}</select></div><button class="btn sec" data-a="conj-tabela">Ver tabela</button><button class="btn" data-a="conj-praticar">Praticar</button></div></div>`;
+  const head = `<section class="hero"><h1>Laboratório de conjugação</h1><p>17 verbos, direto das tabelas do e-book. Você pratica o présent; os outros tempos são só para consultar.</p></section><div class="card"><div class="actions"><div><label for="cv" class="strong">Verbo</label><select id="cv" class="field">${conjugationsJson.map((c) => `<option value="${c.id}" ${c.id === v.id ? 'selected' : ''}>${esc(c.verb)} (${esc(c.pt)})</option>`).join('')}</select></div><div><label for="ct" class="strong">Tempo</label><select id="ct" class="field">${TENSES.map((t) => `<option value="${t}" ${t === cj.tense ? 'selected' : ''}>${TENSE_LABELS[t]}${PRACTICE_TENSES.includes(t) ? '' : ' (só consulta)'}</option>`).join('')}</select></div><button class="btn sec" data-a="conj-tabela">Ver tabela</button><button class="btn" data-a="conj-praticar">Praticar</button></div></div>`;
   return (
     head +
     `<div class="card"><h2><span lang="fr">${esc(v.verb)}</span> · ${esc(v.pt)} · ${TENSE_LABELS[cj.tense]}</h2><table><caption class="sr">Conjugação</caption><thead><tr><th scope="col">Pessoa</th><th scope="col">Forma</th></tr></thead><tbody>${PERSONS.map((p) => `<tr><th scope="row" class="muted">${PERSON_LABELS[p]}</th><td lang="fr" class="frt">${esc(v.tenses[cj.tense][p])}</td></tr>`).join('')}</tbody></table></div>`
@@ -558,6 +595,7 @@ function vResumo() {
 const NAV_A = [
   ['inicio', 'Início'],
   ['trilha', 'Trilha'],
+  ['assuntos', 'Assuntos'],
   ['flashcards', 'Flashcards'],
   ['conjugacao', 'Conjugação'],
   ['brincar', 'Brincar'],
@@ -584,6 +622,7 @@ function view(r) {
       {
         inicio: vInicio,
         trilha: vTrilha,
+        assuntos: vAssuntos,
         praticar: vPraticar,
         flashcards: vFlash,
         conjugacao: vConj,
@@ -681,6 +720,14 @@ document.addEventListener('click', (e) => {
     const { list } = dailyPlanQuestions(st);
     return startRun(list, 'Treino de hoje', '#inicio', null, { kind: 'treino' });
   }
+  if (a === 'praticar-assunto') {
+    const lv = d.n ? +d.n : undefined;
+    return startRun(topicPlan(st, d.id, lv), topicLabel(d.id), '#assuntos', null, {
+      kind: 'assunto',
+      topic: d.id,
+      level: lv,
+    });
+  }
   if (a === 'praticar-unidade') {
     return startRun(
       unitPlan(st, d.id),
@@ -694,6 +741,8 @@ document.addEventListener('click', (e) => {
     const g = run.again;
     if (g.kind === 'treino')
       return startRun(dailyPlanQuestions(st).list, run.title, run.back, null, g);
+    if (g.kind === 'assunto')
+      return startRun(topicPlan(st, g.topic, g.level), run.title, run.back, null, g);
     return startRun(unitPlan(st, g.unit), run.title, run.back, null, g);
   }
   if (a === 'tarefa') {
@@ -749,6 +798,12 @@ document.addEventListener('click', (e) => {
   if (a === 'conj-praticar') {
     cj.verb = $('#cv').value;
     cj.tense = $('#ct').value;
+    if (!PRACTICE_TENSES.includes(cj.tense)) {
+      cj.tense = 'present';
+      alert(
+        'Esse tempo ainda não é ensinado nos capítulos do e-book, então não tem exercício. Vamos praticar o présent.',
+      );
+    }
     const v = conjugationsJson.find((c) => c.id === cj.verb);
     const qs = PERSONS.map((p) => {
       const { subject, form } = splitSubject(v.tenses[cj.tense][p]);

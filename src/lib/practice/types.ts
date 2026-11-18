@@ -7,6 +7,9 @@ export interface PublicQuestion {
   type: Question['type'];
   skill: Question['skill'];
   prompt: string;
+  /** 1 iniciante, 2 intermediário, 3 avançado. */
+  level?: number;
+  topic?: string;
   hint?: string;
   choices?: string[];
   words?: string[];
@@ -22,6 +25,8 @@ export interface AnswerResult {
   verdict: 'correct' | 'almost' | 'wrong';
   score: number;
   expected: string;
+  /** Aviso em resposta certa (por exemplo, o acento que faltou). */
+  note?: string;
   explanation: string;
   unitMastery?: number;
 }

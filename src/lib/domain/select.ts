@@ -7,6 +7,8 @@ export interface QuestionMeta {
   type: string;
   concept: string;
   difficulty: number;
+  /** Assunto (viagem, restaurante...). Opcional para não quebrar chamadas antigas. */
+  topic?: string;
 }
 
 export interface SeenInfo {

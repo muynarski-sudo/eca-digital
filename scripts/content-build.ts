@@ -12,6 +12,7 @@ import {
 import { units } from './content/units';
 import { vocab } from './content/vocab';
 import { ebookQuestions } from './content/questions-ebook';
+import { assignTopics } from './content/topics';
 import { dialogues, phrases, culture } from './content/texts';
 import {
   Dedup,
@@ -100,7 +101,7 @@ function main() {
     ...timeExercises(),
     ...conjugationExercises(conjs),
   ]);
-  const questions = [...fromEbook, ...generated];
+  const questions = assignTopics([...fromEbook, ...generated], vocab, phrases);
   const ids = new Set<string>();
   for (const q of questions) {
     if (ids.has(q.id)) throw new Error(`id repetido na geração: ${q.id}`);

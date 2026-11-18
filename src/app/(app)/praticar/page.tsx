@@ -4,7 +4,10 @@ import { PageHeader } from '@/components/ui/PageHeader';
 import { getQuestionMeta, getQuestions } from '@/lib/data/content';
 import { loadProgress } from '@/lib/data/progress';
 import { loadSeen } from '@/lib/data/seen';
-import { planDaily, planUnit } from '@/lib/domain/plan';
+import { levelFor, type Level } from '@/lib/domain/level';
+import { planDaily, planTopic, planUnit } from '@/lib/domain/plan';
+import { LEVEL_LABELS, topicLabel } from '@/lib/content/labels';
+import { TOPICS } from '@/lib/content/schema';
 import { toPublic } from '@/lib/practice/public';
 import { requireStudent } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
@@ -17,7 +20,14 @@ const SIZE = 10;
 export default async function Praticar({
   searchParams,
 }: {
-  searchParams: Promise<{ modo?: string; unidade?: string; tarefa?: string; n?: string }>;
+  searchParams: Promise<{
+    modo?: string;
+    unidade?: string;
+    tarefa?: string;
+    n?: string;
+    assunto?: string;
+    nivel?: string;
+  }>;
 }) {
   const sp = await searchParams;
   const me = await requireStudent();
@@ -34,6 +44,7 @@ export default async function Praticar({
   let moreHref: string | null = '/praticar?modo=treino';
   let assignmentId: string | null = null;
   let ids: string[] = [];
+  let level: Level | null = null;
 
   if (sp.tarefa) {
     const { data: a } = await db
@@ -49,6 +60,23 @@ export default async function Praticar({
     ids = (a.question_ids as string[] | null)?.length
       ? (a.question_ids as string[])
       : planUnit({ pool: meta, ...seen, unit: a.unit_id as string, rng, size: SIZE });
+  } else if (sp.assunto && (TOPICS as readonly string[]).includes(sp.assunto)) {
+    const open = progress.units.filter((u) => u.state !== 'locked').map((u) => u.unit.id);
+    const forced = [1, 2, 3].includes(Number(sp.nivel)) ? (Number(sp.nivel) as Level) : undefined;
+    title = topicLabel(sp.assunto);
+    backHref = '/assuntos';
+    moreHref = `/praticar?assunto=${sp.assunto}${forced ? `&nivel=${forced}` : ''}`;
+    const r = planTopic({
+      pool: meta,
+      ...seen,
+      topic: sp.assunto,
+      openUnits: open,
+      rng,
+      size: SIZE,
+      level: forced,
+    });
+    ids = r.ids;
+    level = r.level;
   } else if (sp.unidade) {
     const view = progress.units.find((u) => u.unit.id === sp.unidade);
     if (!view || (view.state === 'locked' && me.role === 'student')) redirect('/trilha');
@@ -56,16 +84,22 @@ export default async function Praticar({
     backHref = `/unidade/${view.unit.id}`;
     moreHref = `/praticar?unidade=${view.unit.id}`;
     ids = planUnit({ pool: meta, ...seen, unit: view.unit.id, rng, size: SIZE });
+    level = levelFor(
+      meta.filter((q) => q.unit === view.unit.id),
+      seen.seen,
+    );
   } else {
     const open = progress.units.filter((u) => u.state !== 'locked');
-    ids = planDaily({
+    const daily = planDaily({
       pool: meta,
       ...seen,
       rng,
       size: SIZE,
       openUnits: open.map((u) => u.unit.id),
       unitMastery: Object.fromEntries(progress.units.map((u) => [u.unit.id, u.mastery])),
-    }).ids;
+    });
+    ids = daily.ids;
+    level = daily.level;
   }
 
   const full = ids.length ? await getQuestions(db, { ids }) : [];
@@ -74,7 +108,14 @@ export default async function Praticar({
 
   return (
     <>
-      <PageHeader title={title} subtitle="Perguntas novas a cada vez. O erro faz parte." />
+      <PageHeader
+        title={title}
+        subtitle={
+          level
+            ? `Nível ${level}, ${LEVEL_LABELS[level]}. Perguntas novas a cada vez, das mais fáceis às mais difíceis.`
+            : 'Perguntas novas a cada vez. O erro faz parte.'
+        }
+      />
       <ExerciseRunner
         key={`${sp.n ?? '0'}-${ids.join(',')}`}
         questions={list.map(toPublic)}

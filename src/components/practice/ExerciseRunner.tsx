@@ -6,6 +6,7 @@ import type { AnswerResult, PublicQuestion } from '@/lib/practice/types';
 import { AudioButton } from '@/components/ui/AudioButton';
 import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { LEVEL_LABELS, topicLabel } from '@/lib/content/labels';
 import { ExerciseShell } from './ExerciseShell';
 import { Feedback } from './Feedback';
 import { SpeakRecorder } from './SpeakRecorder';
@@ -167,6 +168,18 @@ export function ExerciseRunner({
 
   return (
     <ExerciseShell index={i} total={questions.length} title={title}>
+      {(q.level || q.topic) && (
+        <p className="flex flex-wrap gap-2 text-sm text-ink-soft" aria-label="Nível e assunto">
+          {q.level ? (
+            <span className="rounded-full bg-brand-tint px-3 py-1 font-bold">
+              Nível {q.level} · {LEVEL_LABELS[q.level]}
+            </span>
+          ) : null}
+          {q.topic ? (
+            <span className="rounded-full bg-brand-tint px-3 py-1">{topicLabel(q.topic)}</span>
+          ) : null}
+        </p>
+      )}
       <p className="text-lg font-bold text-brand-blue-dark">{q.prompt}</p>
       {q.hint && !answered && <p className="text-ink-muted">Dica: {q.hint}</p>}
 

@@ -2,7 +2,7 @@
    Tudo determinístico: rodar de novo gera os mesmos ids e textos. Nada de francês inventado: só reorganiza o que o e-book traz. */
 import {
   PERSONS,
-  TENSES,
+  PRACTICE_TENSES,
   type Conjugation,
   type Phrase,
   type Question,
@@ -144,6 +144,12 @@ export function vocabChoice(vocab: VocabItem[]): Question[] {
   return out;
 }
 
+/** Resposta oficial e a versão sem artigo/pronome inicial ("o hotel": l'hôtel ou hôtel). */
+function typeinAnswers(fr: string): string[] {
+  const m = /^(?:(?:le|la|les|un|une|des)\s+|l')(.+)$/i.exec(fr);
+  return m && m[1] && !/\s/.test(m[1]) ? [fr, m[1]] : [fr];
+}
+
 export function vocabTypein(vocab: VocabItem[]): Question[] {
   return vocab
     .filter((v) => usableVocab(v) && cleanTypein(v))
@@ -155,11 +161,12 @@ export function vocabTypein(vocab: VocabItem[]): Question[] {
         skill: 'vocabulario',
         concept: `v:${v.id}`,
         prompt: `Escreva em francês: ${v.pt}`,
-        answers: [v.fr],
+        answers: typeinAnswers(v.fr),
         hint: v.pron ? `Pronúncia: (${v.pron})` : undefined,
         explanation: `${v.pt} em francês é "${v.fr}".${v.example ? ` Exemplo: ${v.example.fr} (${v.example.pt})` : ''}`,
         error_tags: [`vocabulario_${v.category}`],
-        difficulty: 2,
+        // uma palavra só = nível 2; expressão com várias palavras = nível 3
+        difficulty: v.fr.trim().split(/\s+/).length > 1 ? 3 : 2,
       }),
     );
 }
@@ -435,6 +442,23 @@ export function numberExercises(): Question[] {
   return out;
 }
 
+/**
+ * Respostas aceitas para uma hora: a forma do relógio de 12 horas (a do e-book, com e sem "Il est") e, para os horários oficiais,
+ * a leitura de 24 horas (hora + minutos, como "dix-huit heures quinze"). Pula 0h, 1h e 21h, em que a concordância (une, vingt et une) não está no e-book.
+ */
+function hourAnswers(h: number, m: number, w: string): string[] {
+  const out = [w, `Il est ${w}`];
+  if (h !== 0 && h !== 1 && h !== 21) {
+    const hw = numberToFrench(h);
+    const mw = m === 0 ? '' : numberToFrench(m);
+    if (hw && mw !== null) {
+      const official = `${hw} heures${mw ? ` ${mw}` : ''}`;
+      if (!out.includes(official)) out.push(official, `Il est ${official}`);
+    }
+  }
+  return out;
+}
+
 export function timeExercises(): Question[] {
   const out: Question[] = [];
   for (let h = 0; h < 24; h++) {
@@ -452,7 +476,7 @@ export function timeExercises(): Question[] {
           skill: 'vocabulario',
           concept: `hr:${h}:${m}`,
           prompt: `Escreva a hora por extenso: ${hh}`,
-          answers: [w, `Il est ${w}`],
+          answers: hourAnswers(h, m, w),
           explanation: `${hh} = ${w}. Até 30 minutos some os minutos; depois de 30, diminua da próxima hora (moins). No dia a dia fala-se no relógio de 12 horas.`,
           error_tags: ['horas'],
           difficulty: m === 0 ? 1 : m % 15 === 0 ? 2 : 3,
@@ -486,7 +510,7 @@ export function conjugationExercises(conjs: Conjugation[]): Question[] {
       'vouloir',
       'mettre',
     ].includes(base);
-    for (const tense of TENSES) {
+    for (const tense of PRACTICE_TENSES) {
       const row = PERSONS.map((p) => c.tenses[tense][p]).join(', ');
       for (const p of PERSONS) {
         const { subject, form } = splitSubject(c.tenses[tense][p]);
@@ -516,7 +540,12 @@ export function conjugationExercises(conjs: Conjugation[]): Question[] {
                   ? 'conjugacao_irregular'
                   : 'conjugacao_regular',
             ],
-            difficulty: tense === 'present' ? (irregular ? 2 : 1) : irregular ? 3 : 2,
+            // être e avoir abrem o e-book (nível 1); faire e aller vêm depois (2); os demais verbos só aparecem na tabela do fim (3)
+            difficulty: ['etre', 'avoir'].includes(base)
+              ? 1
+              : ['faire', 'aller'].includes(base)
+                ? 2
+                : 3,
           }),
         );
       }

@@ -20,6 +20,29 @@ export const TENSES = [
   'imparfait',
   'futur_simple',
 ] as const;
+/**
+ * Tempos que o e-book ensina nos capítulos (présent). Os demais aparecem só na tabela de conjugações do fim do e-book
+ * (referência) e não viram exercício até o e-book ensiná-los.
+ */
+export const PRACTICE_TENSES = ['present'] as const;
+
+/** Assuntos para filtrar a prática. */
+export const TOPICS = [
+  'apresentacao',
+  'dia_a_dia',
+  'viagem',
+  'restaurante',
+  'compras',
+  'trabalho',
+  'horario',
+  'calendario',
+  'numeros',
+  'localizacao',
+  'pronuncia',
+  'gramatica',
+] as const;
+export type Topic = (typeof TOPICS)[number];
+
 export const PERSONS = ['je', 'tu', 'il', 'nous', 'vous', 'ils'] as const;
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9_.-]*$/i);
@@ -67,7 +90,9 @@ export const questionSchema = z
     hint: z.string().optional(),
     explanation: z.string().min(1),
     error_tags: z.array(z.string()).default([]),
+    /** 1 = iniciante (reconhecer), 2 = intermediário (lembrar e escrever), 3 = avançado (frases e formas menos comuns). */
     difficulty: z.number().int().min(1).max(3),
+    topic: z.enum(TOPICS).default('dia_a_dia'),
     ...meta,
   })
   .superRefine((q, ctx) => {

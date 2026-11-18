@@ -33,7 +33,9 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
 
   const conj = parseConjugationId(questionId);
   if (conj) {
-    const grade = gradeText(typeof response === 'string' ? response : '', [conj.answer]);
+    const grade = gradeText(typeof response === 'string' ? response : '', [conj.answer], {
+      subject: true,
+    });
     await persistResult(db, {
       studentId: uid,
       itemId: conj.id,
@@ -50,6 +52,7 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
       verdict: grade.verdict,
       score: grade.score,
       expected: `${conj.subject}${grade.expected}`,
+      note: grade.note,
       explanation: `${conj.verb} (${conj.pt}): ${conj.full}`,
     };
   }
@@ -82,6 +85,7 @@ export async function answerQuestion(input: z.infer<typeof answerSchema>): Promi
     verdict: grade.verdict,
     score: grade.score,
     expected: grade.expected,
+    note: grade.note,
     explanation: q.explanation,
     unitMastery,
   };

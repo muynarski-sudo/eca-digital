@@ -10,7 +10,7 @@ export function Feedback({ result }: { result: AnswerResult }) {
     },
     almost: {
       icon: '≈',
-      title: 'Quase! Falta um detalhe, como um acento.',
+      title: 'Quase! Confira a escrita.',
       cls: 'border-brand-blue bg-brand-tint text-brand-blue-dark',
     },
     wrong: {
@@ -28,6 +28,11 @@ export function Feedback({ result }: { result: AnswerResult }) {
         </span>
         {m.title}
       </p>
+      {result.verdict === 'correct' && result.note && (
+        <p className="mt-2 text-ink" lang="fr">
+          {result.note}
+        </p>
+      )}
       {result.verdict !== 'correct' && (
         <p className="mt-2 text-ink">
           Forma correta:{' '}

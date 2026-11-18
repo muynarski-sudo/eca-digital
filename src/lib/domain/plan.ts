@@ -1,4 +1,5 @@
-import { selectQuestions, type QuestionMeta, type SeenInfo } from './select';
+import { selectLeveled, type Level } from './level';
+import type { QuestionMeta, SeenInfo } from './select';
 import type { Verdict } from './grade';
 
 export interface PlanInput {
@@ -20,7 +21,11 @@ const OUT_OF_DAILY = new Set(['dictation', 'speak']);
  * e para os conceitos em que o aluno errou por último (com uma pergunta diferente). Nunca repete pergunta já respondida
  * enquanto houver pergunta nova.
  */
-export function planDaily(input: PlanInput): { ids: string[]; weakestUnit: string | null } {
+export function planDaily(input: PlanInput): {
+  ids: string[];
+  weakestUnit: string | null;
+  level: Level;
+} {
   const open = new Set(input.openUnits);
   const weakestUnit = input.openUnits.length
     ? ([...input.openUnits].sort(
@@ -31,7 +36,7 @@ export function planDaily(input: PlanInput): { ids: string[]; weakestUnit: strin
   const pool = input.pool.filter(
     (q) => !OUT_OF_DAILY.has(q.type) && (q.unit === null || open.has(q.unit)),
   );
-  const ids = selectQuestions({
+  const { ids, level } = selectLeveled({
     pool,
     seen: input.seen,
     concepts: input.concepts,
@@ -39,10 +44,10 @@ export function planDaily(input: PlanInput): { ids: string[]; weakestUnit: strin
     rng: input.rng,
     weight: (q) => (q.unit === null ? 0.15 : q.unit === weakestUnit ? 3 : 1),
   });
-  return { ids, weakestUnit };
+  return { ids, weakestUnit, level };
 }
 
-/** Prática de uma unidade: perguntas novas da unidade, todos os tipos. */
+/** Prática de uma unidade: perguntas novas da unidade, do nível do aluno, todos os tipos. */
 export function planUnit(input: {
   pool: QuestionMeta[];
   seen: PlanInput['seen'];
@@ -51,11 +56,42 @@ export function planUnit(input: {
   rng: () => number;
   size?: number;
 }): string[] {
-  return selectQuestions({
+  return selectLeveled({
     pool: input.pool.filter((q) => q.unit === input.unit),
     seen: input.seen,
     concepts: input.concepts,
     size: input.size ?? 10,
     rng: input.rng,
+  }).ids;
+}
+
+/**
+ * Prática por assunto (viagem, restaurante...): só perguntas das unidades abertas, no nível do aluno naquele assunto.
+ * Áudio e microfone ficam de fora, como no treino de hoje.
+ */
+export function planTopic(input: {
+  pool: QuestionMeta[];
+  seen: PlanInput['seen'];
+  concepts: PlanInput['concepts'];
+  topic: string;
+  openUnits: string[];
+  rng: () => number;
+  size?: number;
+  /** Força um nível (iniciante, intermediário ou avançado). */
+  level?: Level;
+}): { ids: string[]; level: Level } {
+  const open = new Set(input.openUnits);
+  return selectLeveled({
+    pool: input.pool.filter(
+      (q) =>
+        q.topic === input.topic &&
+        !OUT_OF_DAILY.has(q.type) &&
+        (q.unit === null || open.has(q.unit)),
+    ),
+    seen: input.seen,
+    concepts: input.concepts,
+    size: input.size ?? 10,
+    rng: input.rng,
+    level: input.level,
   });
 }

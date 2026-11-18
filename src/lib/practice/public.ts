@@ -21,6 +21,8 @@ export function toPublic(q: Question): PublicQuestion {
     type: q.type,
     skill: q.skill,
     prompt: q.prompt,
+    level: q.difficulty,
+    topic: q.topic,
     hint: q.hint,
     choices: q.choices,
     words: q.words,

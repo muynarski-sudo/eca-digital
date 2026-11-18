@@ -31,6 +31,7 @@ export const mapQuestion = (r: Row): Question => ({
   explanation: r.explanation as string,
   error_tags: (r.error_tags as string[]) ?? [],
   difficulty: r.difficulty as number,
+  topic: ((r.topic as string | null) ?? 'dia_a_dia') as Question['topic'],
   source: r.source as Question['source'],
   needs_review: r.needs_review as boolean,
 });
@@ -91,7 +92,7 @@ export async function getQuestionMeta(
   for (let from = 0; ; from += PAGE) {
     let q = db
       .from('questions')
-      .select('id,unit_id,type,concept,difficulty')
+      .select('id,unit_id,type,concept,difficulty,topic')
       .eq('active', true)
       .eq('needs_review', false)
       .order('id')
@@ -105,6 +106,7 @@ export async function getQuestionMeta(
       type: string;
       concept: string | null;
       difficulty: number;
+      topic: string | null;
     }>;
     for (const r of rows)
       out.push({
@@ -113,6 +115,7 @@ export async function getQuestionMeta(
         type: r.type,
         concept: r.concept ?? r.id,
         difficulty: r.difficulty,
+        topic: r.topic ?? 'dia_a_dia',
       });
     if (rows.length < PAGE) break;
   }

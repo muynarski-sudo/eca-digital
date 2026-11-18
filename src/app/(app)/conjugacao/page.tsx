@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { PERSON_LABELS, TENSE_LABELS } from '@/lib/content/conjugation';
 import { conjugationId, conjugations, parseConjugationId } from '@/lib/content/static';
-import { PERSONS, TENSES, type Tense } from '@/lib/content/schema';
+import { PERSONS, PRACTICE_TENSES, TENSES, type Tense } from '@/lib/content/schema';
 import type { PublicQuestion } from '@/lib/practice/types';
 import { requireStudent } from '@/lib/session';
 
@@ -21,7 +21,9 @@ export default async function Conjugacao({
   const tense = (TENSES as readonly string[]).includes(sp.tempo ?? '')
     ? (sp.tempo as Tense)
     : 'present';
-  const practicing = sp.modo === 'praticar';
+  const canPractice = (PRACTICE_TENSES as readonly string[]).includes(tense);
+  const practicing = sp.modo === 'praticar' && canPractice;
+  const blocked = sp.modo === 'praticar' && !canPractice;
 
   const questions: PublicQuestion[] = PERSONS.map((p) => {
     const item = parseConjugationId(conjugationId(verb.id, tense, p))!;
@@ -38,7 +40,7 @@ export default async function Conjugacao({
     <>
       <PageHeader
         title="Laboratório de conjugação"
-        subtitle="17 verbos em 5 tempos, direto das tabelas do e-book."
+        subtitle="17 verbos, direto das tabelas do e-book. Você pratica o présent; os outros tempos são para consultar."
       />
       <Card as="section" aria-label="Escolha o verbo e o tempo">
         <form className="flex flex-wrap items-end gap-3" method="get">
@@ -62,6 +64,7 @@ export default async function Conjugacao({
               {TENSES.map((t) => (
                 <option key={t} value={t}>
                   {TENSE_LABELS[t]}
+                  {(PRACTICE_TENSES as readonly string[]).includes(t) ? '' : ' (só consulta)'}
                 </option>
               ))}
             </select>
@@ -74,6 +77,16 @@ export default async function Conjugacao({
           </Button>
         </form>
       </Card>
+      {blocked && (
+        <p
+          role="status"
+          className="rounded-xl border-2 border-brand-blue bg-brand-tint p-3 font-bold text-brand-blue-dark"
+        >
+          <span aria-hidden="true">ℹ </span>
+          Esse tempo ainda não é ensinado nos capítulos do e-book, então não tem exercício. Pratique
+          o Présent.
+        </p>
+      )}
       {practicing ? (
         <ExerciseRunner
           questions={questions}

@@ -26,14 +26,17 @@ describe('gradeText', () => {
       expected: 'Tu as un chat ?',
     });
   });
-  it('só acentos divergindo é "quase certo" com crédito parcial e mostra a forma correta', () => {
+  it('sem acento (ou com acento trocado) vale certo, com aviso do acento', () => {
     const r = gradeText('etes', ['êtes']);
-    expect(r).toEqual({ verdict: 'almost', score: 0.5, expected: 'êtes' });
-    expect(gradeText('ca va', ['Ça va'])).toMatchObject({ verdict: 'almost' });
-    expect(gradeText('ou', ['Où'])).toMatchObject({ verdict: 'almost' });
+    expect(r).toMatchObject({ verdict: 'correct', score: 1, expected: 'êtes' });
+    expect(r.note).toContain('êtes');
+    expect(gradeText('ca va', ['Ça va'])).toMatchObject({ verdict: 'correct', score: 1 });
+    expect(gradeText('ou', ['Où'])).toMatchObject({ verdict: 'correct', score: 1 });
+    expect(gradeText('étes', ['êtes']).verdict).toBe('correct');
   });
-  it('acento errado no lugar de outro também é quase certo', () => {
-    expect(gradeText('étes', ['êtes']).verdict).toBe('almost');
+  it('œ pode ser digitado como oe', () => {
+    expect(gradeText('soeur', ['sœur']).verdict).toBe('correct');
+    expect(gradeText('coeur', ['cœur']).verdict).toBe('correct');
   });
   it('errado e vazio valem zero e devolvem a forma oficial', () => {
     expect(gradeText('suis', ['êtes'])).toEqual({ verdict: 'wrong', score: 0, expected: 'êtes' });
@@ -87,5 +90,70 @@ describe('gradeQuestion', () => {
       pairs: undefined,
     };
     expect(gradeQuestion(q, 'où est la gare').verdict).toBe('correct');
+  });
+});
+
+describe('tolerância da correção', () => {
+  it('conjugação aceita o verbo sozinho ou com o pronome', () => {
+    const q = { type: 'conjugate' as const, answers: ['suis'], pairs: undefined };
+    for (const r of ['suis', 'je suis', 'Je suis', 'je suis.'])
+      expect(gradeQuestion(q, r).verdict, r).toBe('correct');
+    const a = { type: 'conjugate' as const, answers: ['ai'], pairs: undefined };
+    for (const r of ['ai', "j'ai", 'J’ai', 'j ai'])
+      expect(gradeQuestion(a, r).verdict, r).toBe('correct');
+    const il = { type: 'conjugate' as const, answers: ['mange'], pairs: undefined };
+    for (const r of ['il mange', 'elle mange', 'on mange', 'il/elle/on mange'])
+      expect(gradeQuestion(il, r).verdict, r).toBe('correct');
+    expect(gradeQuestion(q, 'tu es').verdict).toBe('wrong');
+  });
+  it('lacuna aceita a frase inteira', () => {
+    const q = {
+      type: 'fill_blank' as const,
+      prompt: 'Bonjour, je _______ Claire. (Bom dia, eu sou Claire.)',
+      answers: ['suis'],
+      pairs: undefined,
+    };
+    for (const r of ['suis', 'Bonjour, je suis Claire.', 'bonjour je suis claire'])
+      expect(gradeQuestion(q, r).verdict, r).toBe('correct');
+    const c = {
+      type: 'fill_blank' as const,
+      prompt: 'Complete a frase: _______, comment ça va ? (Bom dia, como você está?)',
+      answers: ['Bonjour'],
+      pairs: undefined,
+    };
+    expect(gradeQuestion(c, 'Bonjour, comment ça va ?').verdict).toBe('correct');
+    expect(gradeQuestion(c, 'Salut, comment ça va ?').verdict).toBe('wrong');
+  });
+  it('hora aceita "du matin", "de l’après-midi" e "du soir"', () => {
+    const q = {
+      type: 'write_out' as const,
+      answers: ['huit heures', 'Il est huit heures'],
+      pairs: undefined,
+    };
+    for (const r of [
+      'huit heures',
+      'Il est huit heures',
+      'huit heures du matin',
+      'Il est huit heures du soir',
+    ])
+      expect(gradeQuestion(q, r).verdict, r).toBe('correct');
+    const t = { type: 'write_out' as const, answers: ['six heures'], pairs: undefined };
+    expect(gradeQuestion(t, "six heures de l'après-midi").verdict).toBe('correct');
+    expect(gradeQuestion(t, "six heures de l'apres-midi").verdict).toBe('correct');
+  });
+  it('uma letra errada em frase longa é quase certo; em palavra curta continua errado', () => {
+    const q = {
+      type: 'translate_pt_fr' as const,
+      answers: ['Je voudrais un billet pour Paris.'],
+      pairs: undefined,
+    };
+    expect(gradeQuestion(q, 'Je voudrais un bilet pour Paris').verdict).toBe('almost');
+    expect(gradeQuestion(q, 'Je voudrais un taxi pour Paris').verdict).toBe('wrong');
+    const w = { type: 'translate_pt_fr' as const, answers: ['Bonjour'], pairs: undefined };
+    expect(gradeQuestion(w, 'Bonjor').verdict).toBe('wrong');
+  });
+  it('reticências, barra e ligadura não derrubam o acerto', () => {
+    expect(gradeText('ou est', ['Où est… ?']).verdict).toBe('correct');
+    expect(gradeText('mon', ['mon / ma / mes'], {}).verdict).toBe('wrong');
   });
 });

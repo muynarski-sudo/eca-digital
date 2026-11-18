@@ -592,3 +592,8 @@ alter table public.questions add column if not exists concept text;
 alter table public.attempts add column if not exists concept text;
 create index if not exists questions_concept_idx on public.questions (concept);
 create index if not exists attempts_student_concept_idx on public.attempts (student_id, concept);
+
+-- ===== 20260101000009_topics.sql =====
+-- Assunto de cada questão (viagem, restaurante, compras, trabalho, horário do dia...), para o aluno filtrar a prática.
+alter table public.questions add column if not exists topic text not null default 'dia_a_dia';
+create index if not exists questions_topic_idx on public.questions (topic) where active;

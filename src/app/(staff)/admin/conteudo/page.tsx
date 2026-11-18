@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/Card';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Badge } from '@/components/ui/MasteryBadge';
 import { reloadContent } from '@/lib/actions/staff';
+import { topicLabel } from '@/lib/content/labels';
 import { Button } from '@/components/ui/Button';
 import { requireStaff } from '@/lib/session';
 import { serverClient } from '@/lib/supabase/server';
@@ -24,7 +25,7 @@ export default async function Conteudo({
   const kind = sp.tipo === 'vocab' ? 'vocab' : 'questoes';
   let q = db
     .from('questions')
-    .select('id,type,prompt,answers,explanation,hint,needs_review,source')
+    .select('id,type,prompt,answers,explanation,hint,needs_review,source,topic,difficulty')
     .eq('unit_id', unit)
     .order('id')
     .limit(80);
@@ -88,6 +89,8 @@ export default async function Conteudo({
             <Card as="details">
               <summary className="cursor-pointer font-bold">
                 {x.id as string} · {x.type as string} · {(x.prompt as string).slice(0, 80)}{' '}
+                <Badge kind="info">nível {x.difficulty as number}</Badge>{' '}
+                <Badge kind="info">{topicLabel(x.topic as string)}</Badge>{' '}
                 {x.needs_review ? <Badge kind="warn">pendente</Badge> : null}{' '}
                 {x.source === 'generated' ? <Badge kind="info">generated</Badge> : null}
               </summary>
