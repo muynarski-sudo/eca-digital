@@ -1,4 +1,4 @@
-import { ALPHABET, exampleWords } from './alphabet';
+import { ALPHABET } from './alphabet';
 import { spellable } from './games';
 import { normalizeSpoken } from './clipkey';
 
@@ -15,7 +15,6 @@ export function spokenTexts(
 ): string[] {
   const out = new Set<string>();
   for (const l of ALPHABET) out.add(l.spoken);
-  for (const e of Object.values(exampleWords(vocab))) out.add(e.fr);
   for (const w of spellable(vocab)) out.add(w.fr);
   for (const v of vocab) out.add(v.fr); // cartas do jogo da memória
   for (const p of phrases) if (p.fr.split(' ').length <= 10) out.add(p.fr);

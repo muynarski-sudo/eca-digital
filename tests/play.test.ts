@@ -1,6 +1,6 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { ALPHABET, exampleWords, headLetter, LETTER_NOTE, letterByChar } from '@/lib/play/alphabet';
+import { ALPHABET, ipaShow, LETTER_NOTE, letterByChar } from '@/lib/play/alphabet';
 import {
   listenRound,
   memoryDeck,
@@ -64,36 +64,13 @@ describe('alfabeto', () => {
     expect(ebook['J']).toBe('jí');
     expect(ebook['L']).toBe('éle');
   });
-  it('letra inicial ignora artigo, acento e apóstrofo', () => {
-    expect(headLetter("l'hôtel")).toBe('H');
-    expect(headLetter('le taxi')).toBe('T');
-    expect(headLetter('Écouter')).toBe('E');
-    expect(headLetter('à gauche')).toBe('A');
-    expect(headLetter('…')).toBeNull();
-  });
-  it('o exemplo de cada letra se ouve no começo da palavra: nada de H mudo, S final ("les") ou A que soa "ô" ("au")', () => {
-    const ex = exampleWords(vocab);
-    expect(ex['H']).toBeUndefined(); // o H é mudo: tem aviso, não exemplo
+  it('a tela de cada letra mostra só o nome, o som em IPA e a pronúncia: sem palavra de exemplo', () => {
+    expect(ipaShow(letterByChar('d')!)).toBe('[de]');
+    expect(ipaShow(letterByChar('e')!)).toBe('[ø]');
+    expect(ipaShow(letterByChar('h')!)).toBe('[aʃ]');
+    expect(ipaShow(letterByChar('w')!)).toBe('[dublə vˈe]'.replace('ˈ', ''));
     expect(LETTER_NOTE['H']).toContain('mudo');
-    expect(headLetter('les')).toBe('L');
-    expect(headLetter('une')).toBe('U');
-    const silentOrChanged = ['les', 'au', 'on', "l'hôtel", 'et', 'il y a'];
-    for (const w of Object.values(ex)) expect(silentOrChanged).not.toContain(w.fr);
-    expect(ex['S']?.fr).toBe('samedi');
-    expect(ex['A']?.fr).toBe('avoir');
-    expect(ex['U']?.fr).toBe('une');
-  });
-  it('só dá exemplo de palavra que está no e-book e deixa sem exemplo as letras sem palavra', () => {
-    const ex = exampleWords(vocab);
-    for (const [letter, w] of Object.entries(ex)) {
-      expect(
-        vocab.some((v) => v.fr === w.fr),
-        letter,
-      ).toBe(true);
-      expect(headLetter(w.fr)).toBe(letter);
-    }
-    for (const l of ['K', 'W', 'X', 'Y', 'Z']) expect(ex[l]).toBeUndefined();
-    expect(Object.keys(ex).length).toBeGreaterThan(15);
+    expect(LETTER_NOTE['H']).not.toMatch(/hôtel|hiver|hôpital/);
   });
 });
 

@@ -171,11 +171,12 @@ test('brincar: alfabeto completo, avatar, jogos de letra, soletrar e memória', 
   await expect(page.locator('.pl-letter')).toHaveCount(26);
   await page.getByRole('button', { name: 'Letra W, double vé' }).click();
   await expect(page.locator('.pl-balloon')).toContainText('W: double vé');
-  await expect(page.locator('.pl-detail')).toContainText(
-    'Ainda não há palavra do e-book com essa letra',
-  );
+  await expect(page.locator('.pl-detail')).toContainText('[dublə ve]');
   await page.getByRole('button', { name: 'Letra B, bé' }).click();
-  await expect(page.locator('.pl-detail')).toContainText('Palavra do e-book:');
+  await expect(page.locator('.pl-detail')).toContainText('[be]');
+  await expect(page.locator('.pl-detail')).not.toContainText('Palavra do e-book');
+  await page.getByRole('button', { name: 'Letra H, hache' }).click();
+  await expect(page.locator('.pl-detail')).toContainText('mudo');
   await page.getByRole('button', { name: '▶ Ouvir o alfabeto todo' }).click();
   await expect(page.getByRole('button', { name: '■ Parar' })).toBeVisible();
   await page.getByRole('button', { name: '■ Parar' }).click();

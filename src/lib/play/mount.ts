@@ -1,4 +1,4 @@
-import { ALPHABET, exampleWords, letterByChar, LETTER_NOTE } from './alphabet';
+import { ALPHABET, ipaShow, letterByChar, LETTER_NOTE } from './alphabet';
 import { avatarSvg, createSpeaker } from './avatar';
 import { clipKey } from './clipkey';
 import {
@@ -39,7 +39,6 @@ const reduced = () =>
 /** Monta a área lúdica dentro de `root`. Devolve a função que desmonta (para a voz e os temporizadores). */
 export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
   const rng = opts.rng ?? Math.random;
-  const examples = exampleWords(opts.vocab);
   const words = spellable(opts.vocab);
   let saved: Saved = { stars: 0, seenSpell: [], seenMemory: [], seenPhrase: [] };
   try {
@@ -157,7 +156,6 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
   let singing = false;
   const alfabetoHtml = () => {
     const l = letterSel ? letterByChar(letterSel) : null;
-    const ex = l ? examples[l.letter] : undefined;
     return `<div class="pl-row">${back}<button class="pl-btn" data-act="cantar">${singing ? '■ Parar' : '▶ Ouvir o alfabeto todo'}</button></div>
     <h2 class="pl-h">Alfabeto francês</h2>
     <ul class="pl-letters" aria-label="Letras do alfabeto">
@@ -165,13 +163,9 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
     </ul>
     ${
       l
-        ? `<div class="pl-detail"><p class="pl-dbig" aria-hidden="true">${l.letter}${l.letter.toLowerCase()}</p><div><p class="pl-dname">${esc(l.name)}</p><p class="pl-dpron">(${esc(l.pron)})</p>${
-            ex
-              ? `<p class="pl-dex">Palavra do e-book: <strong lang="fr">${esc(ex.fr)}</strong> · ${esc(ex.pt)}</p>`
-              : LETTER_NOTE[l.letter]
-                ? `<p class="pl-dex">${esc(LETTER_NOTE[l.letter]!)}</p>`
-                : `<p class="pl-dex">Ainda não há palavra do e-book com essa letra.</p>`
-          }<div class="pl-row"><button class="pl-btn" data-act="letter" data-l="${l.letter}">▶ Ouvir de novo</button>${ex ? `<button class="pl-btn sec" data-act="sayword" data-t="${esc(ex.fr)}">▶ Ouvir a palavra</button>` : ''}</div></div></div>`
+        ? `<div class="pl-detail"><p class="pl-dbig" aria-hidden="true">${l.letter}${l.letter.toLowerCase()}</p><div><p class="pl-dname">${esc(l.name)}</p><p class="pl-dpron" lang="fr">${esc(ipaShow(l))}</p><p class="pl-dpron">Em português: (${esc(l.pron)})</p>${
+            LETTER_NOTE[l.letter] ? `<p class="pl-dex">${esc(LETTER_NOTE[l.letter]!)}</p>` : ''
+          }<div class="pl-row"><button class="pl-btn" data-act="letter" data-l="${l.letter}">▶ Ouvir de novo</button></div></div></div>`
         : `<p class="pl-tip">Toque em uma letra para ouvir.</p>`
     }`;
   };
@@ -383,14 +377,9 @@ export function mountPlay(root: HTMLElement, opts: PlayOptions): () => void {
         const l = letterByChar(d.l!)!;
         letterSel = l.letter;
         singing = false;
-        const ex = examples[l.letter];
         render();
-        caption(`${l.letter}: ${l.name}`, `(${l.pron})${ex ? ` · ${ex.fr}` : ''}`);
-        void speaker
-          .say(l.spoken, { rate: 0.8 })
-          .then(() =>
-            ex && letterSel === l.letter ? speaker.say(ex.fr, { rate: 0.8 }) : undefined,
-          );
+        caption(`${l.letter}: ${l.name}`, `${ipaShow(l)} · (${l.pron})`);
+        void speaker.say(l.spoken, { rate: 0.8 });
       }
       if (act === 'cantar') {
         if (singing) {
